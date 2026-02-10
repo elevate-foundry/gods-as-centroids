@@ -1,0 +1,217 @@
+{
+  "theology": {
+    "domain": "Theology",
+    "dimensions": 12,
+    "total_bits": 72,
+    "classification_accuracy": 0.8406,
+    "mean_cosine_similarity": 0.9954,
+    "spearman_rho": 0.9713,
+    "mean_braille_cosine": 0.9858
+  },
+  "political": {
+    "domain": "Political Ideology",
+    "dimensions": 10,
+    "total_bits": 60,
+    "classification_accuracy": 0.8816666603088379,
+    "centroid_preservation": {
+      "Social Democrat": {
+        "cosine_sim": "0.9972577",
+        "l2_displacement": 0.07468052708246414
+      },
+      "Libertarian": {
+        "cosine_sim": "0.9989305",
+        "l2_displacement": 0.056950699996757274
+      },
+      "Conservative": {
+        "cosine_sim": "0.9978403",
+        "l2_displacement": 0.07114196935440356
+      },
+      "Progressive": {
+        "cosine_sim": "0.99775743",
+        "l2_displacement": 0.06744266680992887
+      },
+      "Nationalist": {
+        "cosine_sim": "0.99942875",
+        "l2_displacement": 0.042645953786889325
+      },
+      "Centrist": {
+        "cosine_sim": "0.9976101",
+        "l2_displacement": 0.07541865520609321
+      },
+      "Authoritarian Left": {
+        "cosine_sim": "0.99896854",
+        "l2_displacement": 0.049190590256893166
+      },
+      "Green": {
+        "cosine_sim": "0.99616164",
+        "l2_displacement": 0.08799198959651476
+      },
+      "Populist Right": {
+        "cosine_sim": "0.9991386",
+        "l2_displacement": 0.049683988679569385
+      },
+      "Classical Liberal": {
+        "cosine_sim": "0.9980342",
+        "l2_displacement": 0.06717791514859354
+      },
+      "Theocratic": {
+        "cosine_sim": "0.9974495",
+        "l2_displacement": 0.07632320950094047
+      },
+      "Anarchist": {
+        "cosine_sim": "0.99870586",
+        "l2_displacement": 0.051658744826443385
+      }
+    },
+    "mean_cosine_similarity": 0.9981069564819336,
+    "mean_l2_displacement": 0.06419224252045759,
+    "spearman_rho": 0.9914831437219499,
+    "spearman_p": 2.204679134865985e-58,
+    "braille_lattice": {
+      "Social Democrat": {
+        "braille_signature": "\u2839\u2839\u2813\u2812\u2802\u2809\u2802\u2839\u283d\u280f",
+        "braille_cosine_sim": 0.9854305179010648
+      },
+      "Libertarian": {
+        "braille_signature": "\u2811\u2809\u2812\u2802\u2802\u2839\u2839\u280b\u2809\u2802",
+        "braille_cosine_sim": 0.9737102719142107
+      },
+      "Conservative": {
+        "braille_signature": "\u2813\u2813\u2839\u2839\u2839\u280b\u2839\u2802\u2812\u2809",
+        "braille_cosine_sim": 0.9889364095504424
+      },
+      "Progressive": {
+        "braille_signature": "\u2839\u2839\u2812\u2802\u2802\u2839\u2802\u2839\u2839\u280b",
+        "braille_cosine_sim": 0.9884909686282598
+      },
+      "Nationalist": {
+        "braille_signature": "\u2812\u2812\u2839\u2839\u2839\u2813\u2809\u2802\u2802\u2811",
+        "braille_cosine_sim": 0.9775297403492619
+      },
+      "Centrist": {
+        "braille_signature": "\u280d\u280d\u280d\u280d\u280d\u280d\u280d\u280d\u280d\u280d",
+        "braille_cosine_sim": 0.9962828440259092
+      },
+      "Authoritarian Left": {
+        "braille_signature": "\u280d\u283d\u280f\u280d\u2810\u2800\u2802\u2809\u2813\u2839",
+        "braille_cosine_sim": 0.9862187186089206
+      },
+      "Green": {
+        "braille_signature": "\u2839\u2839\u2813\u2802\u280b\u2809\u2812\u2839\u2839\u2813",
+        "braille_cosine_sim": 0.9882832394822627
+      },
+      "Populist Right": {
+        "braille_signature": "\u2812\u2812\u2839\u2809\u2839\u280b\u2809\u2802\u2800\u2800",
+        "braille_cosine_sim": 0.984451174180568
+      },
+      "Classical Liberal": {
+        "braille_signature": "\u280d\u2809\u2812\u2815\u2812\u2839\u283d\u280f\u2809\u280b",
+        "braille_cosine_sim": 0.9836793495495706
+      },
+      "Theocratic": {
+        "braille_signature": "\u2813\u2812\u2839\u2839\u2839\u2802\u2811\u2802\u2812\u2809",
+        "braille_cosine_sim": 0.9840841643284106
+      },
+      "Anarchist": {
+        "braille_signature": "\u2809\u2809\u280b\u2802\u2802\u2839\u2802\u2839\u2809\u2802",
+        "braille_cosine_sim": 0.9895670967833382
+      }
+    },
+    "mean_braille_cosine": 0.9855553746085183
+  },
+  "personality": {
+    "domain": "Personality Types (Big Five)",
+    "dimensions": 5,
+    "total_bits": 30,
+    "classification_accuracy": 0.902999997138977,
+    "centroid_preservation": {
+      "The Explorer": {
+        "cosine_sim": "0.99887645",
+        "l2_displacement": 0.05065921827033887
+      },
+      "The Organizer": {
+        "cosine_sim": "0.99968606",
+        "l2_displacement": 0.027472506963704686
+      },
+      "The Leader": {
+        "cosine_sim": "0.9993624",
+        "l2_displacement": 0.04037465027352243
+      },
+      "The Caregiver": {
+        "cosine_sim": "0.9993124",
+        "l2_displacement": 0.039130941008343904
+      },
+      "The Worrier": {
+        "cosine_sim": "0.99928063",
+        "l2_displacement": 0.03852734288807075
+      },
+      "The Maverick": {
+        "cosine_sim": "0.99966913",
+        "l2_displacement": 0.03139257944288947
+      },
+      "The Diplomat": {
+        "cosine_sim": "0.99881375",
+        "l2_displacement": 0.050667185551738984
+      },
+      "The Analyst": {
+        "cosine_sim": "0.9995482",
+        "l2_displacement": 0.03436999012255429
+      },
+      "The Free Spirit": {
+        "cosine_sim": "0.99794835",
+        "l2_displacement": 0.06493872472130503
+      },
+      "The Stoic": {
+        "cosine_sim": "0.9986447",
+        "l2_displacement": 0.0523370281971241
+      }
+    },
+    "mean_cosine_similarity": 0.9991142153739929,
+    "mean_l2_displacement": 0.04298701674395926,
+    "spearman_rho": 0.9806324110671936,
+    "spearman_p": 4.4075641810354856e-32,
+    "braille_lattice": {
+      "The Explorer": {
+        "braille_signature": "\u2839\u2813\u2809\u280d\u2812",
+        "braille_cosine_sim": 0.9920992146116592
+      },
+      "The Organizer": {
+        "braille_signature": "\u2812\u2839\u2809\u280d\u2812",
+        "braille_cosine_sim": 0.9720482959341776
+      },
+      "The Leader": {
+        "braille_signature": "\u280d\u280d\u2839\u2815\u2802",
+        "braille_cosine_sim": 0.9905082715454395
+      },
+      "The Caregiver": {
+        "braille_signature": "\u280d\u280d\u2809\u283d\u2813",
+        "braille_cosine_sim": 0.9923946964949717
+      },
+      "The Worrier": {
+        "braille_signature": "\u2815\u280d\u2812\u280d\u2839",
+        "braille_cosine_sim": 0.9862996428687328
+      },
+      "The Maverick": {
+        "braille_signature": "\u2839\u2802\u2839\u2810\u2813",
+        "braille_cosine_sim": 0.9892664734357486
+      },
+      "The Diplomat": {
+        "braille_signature": "\u280d\u280d\u2809\u283d\u2812",
+        "braille_cosine_sim": 0.9921483567379707
+      },
+      "The Analyst": {
+        "braille_signature": "\u283d\u283d\u2812\u2815\u2809",
+        "braille_cosine_sim": 0.9826580105720633
+      },
+      "The Free Spirit": {
+        "braille_signature": "\u2839\u2802\u280d\u280d\u280d",
+        "braille_cosine_sim": 0.9887136933142967
+      },
+      "The Stoic": {
+        "braille_signature": "\u2813\u2839\u2810\u280d\u2802",
+        "braille_cosine_sim": 0.995884577757698
+      }
+    },
+    "mean_braille_cosine": 0.9882021233272757
+  }
+}

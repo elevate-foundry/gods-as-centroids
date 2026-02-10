@@ -144,6 +144,14 @@ class Config:
     social_p: float = 0.1                  # small-world graph param
     cluster_update_freq: int = 100         # steps between clustering updates
     cluster_threshold: float = 0.4         # distance to form new cluster
+    # Prophet events (Definition 11, §3.3)
+    prophet_rate: float = 0.0                  # probability of prophet event per step
+    prophet_pull_fraction: float = 0.15        # fraction of most-similar agents pulled
+    prophet_pull_strength: float = 0.4         # λ: blend strength toward prophet belief
+    prophet_prestige: float = 8.0              # w_p: prestige assigned to prophet
+    # Fission (Definition 10, §3.2)
+    fission_variance_threshold: float = 0.15   # σ²_max base threshold for schism
+    fission_min_cluster_size: int = 6          # minimum cluster size to consider fission
     # Accessibility Corollary parameters
     enable_sensory_restrictions: bool = False  # enable channel-restricted agents
     sensory_restriction_ratio: float = 0.2     # fraction of agents with restrictions
@@ -509,7 +517,8 @@ class SwarmKernel:
 
     # ---------- clustering ---------- #
     def _update_clusters(self):
-        # online clustering: assign agents to nearest centroid or create new one
+        # Coercion widens the absorption radius (§4.1: basin widening)
+        effective_threshold = self.cfg.cluster_threshold + 0.3 * self.cfg.coercion
         self.centroids = []
         self.clusters = []
 
@@ -523,22 +532,57 @@ class SwarmKernel:
             min_dist = min(distances)
             best_idx = distances.index(min_dist)
 
-            if min_dist < self.cfg.cluster_threshold:
+            if min_dist < effective_threshold:
                 self.clusters[best_idx].append(agent.id)
             else:
                 self.centroids.append(agent.belief.copy())
                 self.clusters.append([agent.id])
 
-        # recalculate centroids
+        # recalculate centroids (prestige-weighted per Definition 5)
         new_centroids = []
+        new_clusters = []
         for i, cluster in enumerate(self.clusters):
             if not cluster:
                 continue
             centroid = {k: 0.0 for k in AXES}
+            total_w = 0.0
             for agent_id in cluster:
-                add_scaled(centroid, self.agents[agent_id].belief, 1.0)
-            new_centroids.append(scale(centroid, 1.0 / len(cluster)))
+                w = self.agents[agent_id].w
+                add_scaled(centroid, self.agents[agent_id].belief, w)
+                total_w += w
+            if total_w > 0:
+                new_centroids.append(scale(centroid, 1.0 / total_w))
+            else:
+                new_centroids.append(scale(centroid, 1.0 / len(cluster)))
+            new_clusters.append(cluster)
+
+        # Fusion (§3.1): merge nearby centroids under coercion
+        merge_dist = 0.15 + 0.35 * self.cfg.coercion
+        merged = True
+        while merged:
+            merged = False
+            for i in range(len(new_centroids)):
+                for j in range(i + 1, len(new_centroids)):
+                    if 1 - cosine(new_centroids[i], new_centroids[j]) < merge_dist:
+                        combined = new_clusters[i] + new_clusters[j]
+                        centroid = {k: 0.0 for k in AXES}
+                        total_w = 0.0
+                        for agent_id in combined:
+                            w = self.agents[agent_id].w
+                            add_scaled(centroid, self.agents[agent_id].belief, w)
+                            total_w += w
+                        if total_w > 0:
+                            new_centroids[i] = scale(centroid, 1.0 / total_w)
+                        new_clusters[i] = combined
+                        del new_centroids[j]
+                        del new_clusters[j]
+                        merged = True
+                        break
+                if merged:
+                    break
+
         self.centroids = new_centroids
+        self.clusters = new_clusters
 
     # ---------- mutation & drift ---------- #
     def mutate_agent(self, agent: Agent):
@@ -551,6 +595,146 @@ class SwarmKernel:
         for nf in new_forms:
             if nf not in agent.assoc:
                 agent.assoc[nf] = rnd_unit_vec(self.rng)
+
+    # ---------- prophet events (Definition 11, §3.3) ---------- #
+    def maybe_prophet_event(self):
+        """Stochastic prophet event: a directed, high-magnitude perturbation."""
+        if self.cfg.prophet_rate <= 0 or self.rng.random() >= self.cfg.prophet_rate:
+            return None
+
+        # Select a random agent to become the prophet
+        prophet = self.rng.choice(self.agents)
+
+        # Generate a coherent new belief (uniform on the sphere, not Gaussian noise)
+        prophet.belief = rnd_unit_vec(self.rng)
+        prophet.w = self.cfg.prophet_prestige  # w_p = w_max
+
+        # Pull the most-similar agents toward the prophet's belief
+        phi = self.cfg.prophet_pull_fraction
+        lam = self.cfg.prophet_pull_strength
+        n_pull = max(1, int(phi * len(self.agents)))
+
+        # Rank agents by similarity to prophet (excluding prophet)
+        others = [a for a in self.agents if a.id != prophet.id]
+        others.sort(key=lambda a: cosine(a.belief, prophet.belief), reverse=True)
+        pulled = others[:n_pull]
+
+        for a in pulled:
+            # b_i ← normalize((1 - λ) * b_i + λ * b_p)
+            new_belief = {}
+            for k in AXES:
+                new_belief[k] = (1 - lam) * a.belief[k] + lam * prophet.belief[k]
+            n = norm(new_belief) or 1.0
+            a.belief = {k: new_belief[k] / n for k in AXES}
+
+        return {"prophet_id": prophet.id, "n_pulled": len(pulled), "t": self.t}
+
+    # ---------- fission / schism (Definition 10, §3.2) ---------- #
+    def maybe_fission(self):
+        """Check each cluster for fission conditions and split if met."""
+        if not self.clusters or not self.centroids:
+            return []
+
+        fission_events = []
+        new_centroids = list(self.centroids)
+        new_clusters = list(self.clusters)
+
+        i = 0
+        while i < len(new_clusters):
+            cluster = new_clusters[i]
+            if len(cluster) < self.cfg.fission_min_cluster_size:
+                i += 1
+                continue
+
+            centroid = new_centroids[i]
+
+            # Compute weighted intra-cluster variance σ²_j
+            total_w = 0.0
+            weighted_var = 0.0
+            max_w = 0.0
+            sum_w = 0.0
+            for aid in cluster:
+                a = self.agents[aid]
+                w = a.w
+                dist_sq = sum((a.belief[k] - centroid[k]) ** 2 for k in AXES)
+                weighted_var += w * dist_sq
+                total_w += w
+                max_w = max(max_w, w)
+                sum_w += w
+
+            if total_w == 0:
+                i += 1
+                continue
+
+            sigma_sq = weighted_var / total_w
+            mean_w = sum_w / len(cluster)
+            kappa = max_w / mean_w if mean_w > 0 else 1.0  # authority concentration
+
+            # Fission threshold: σ²_max * (1 + κ⁻¹)
+            # High κ (concentrated authority) → higher threshold → harder to split
+            threshold = self.cfg.fission_variance_threshold * (1 + 1.0 / max(kappa, 0.01))
+
+            if sigma_sq > threshold:
+                # Find the two most distant agents in the cluster
+                max_dist = -1
+                a1_id, a2_id = cluster[0], cluster[-1]
+                for ci in range(len(cluster)):
+                    for cj in range(ci + 1, len(cluster)):
+                        d = 1 - cosine(self.agents[cluster[ci]].belief,
+                                       self.agents[cluster[cj]].belief)
+                        if d > max_dist:
+                            max_dist = d
+                            a1_id, a2_id = cluster[ci], cluster[cj]
+
+                # Split: assign each agent to the nearer seed
+                seed1 = dict(self.agents[a1_id].belief)
+                seed2 = dict(self.agents[a2_id].belief)
+                group1, group2 = [], []
+                for aid in cluster:
+                    d1 = 1 - cosine(self.agents[aid].belief, seed1)
+                    d2 = 1 - cosine(self.agents[aid].belief, seed2)
+                    if d1 <= d2:
+                        group1.append(aid)
+                    else:
+                        group2.append(aid)
+
+                if group1 and group2:
+                    # Replace cluster i with group1, append group2
+                    c1 = {k: 0.0 for k in AXES}
+                    w1 = 0.0
+                    for aid in group1:
+                        add_scaled(c1, self.agents[aid].belief, self.agents[aid].w)
+                        w1 += self.agents[aid].w
+                    if w1 > 0:
+                        c1 = scale(c1, 1.0 / w1)
+
+                    c2 = {k: 0.0 for k in AXES}
+                    w2 = 0.0
+                    for aid in group2:
+                        add_scaled(c2, self.agents[aid].belief, self.agents[aid].w)
+                        w2 += self.agents[aid].w
+                    if w2 > 0:
+                        c2 = scale(c2, 1.0 / w2)
+
+                    new_clusters[i] = group1
+                    new_centroids[i] = c1
+                    new_clusters.append(group2)
+                    new_centroids.append(c2)
+
+                    fission_events.append({
+                        "t": self.t,
+                        "parent_size": len(cluster),
+                        "child_sizes": (len(group1), len(group2)),
+                        "sigma_sq": sigma_sq,
+                        "kappa": kappa,
+                        "threshold": threshold,
+                    })
+
+            i += 1
+
+        self.clusters = new_clusters
+        self.centroids = new_centroids
+        return fission_events
 
     # ---------- generation / transmission ---------- #
     def generation_boundary(self) -> bool:
@@ -713,9 +897,37 @@ class SwarmKernel:
         if self.t % 25 == 0:
             self._update_metrics()
         
-        # clustering
+        # prophet events (Definition 11, §3.3)
+        prophet_event = self.maybe_prophet_event()
+        if prophet_event:
+            self.log.setdefault("prophets", []).append(prophet_event)
+
+        # clustering + attractor deepening (Definition 4a, §4.1)
         if self.t % self.cfg.cluster_update_freq == 0:
             self._update_clusters()
+            # Attractor deepening: agents drift toward their cluster centroid
+            # Pull strength is proportional to coercion γ (§4.1)
+            if self.cfg.coercion > 0 and self.centroids:
+                eta_base = 0.05 * self.cfg.coercion  # susceptibility scales with γ
+                for ci, cluster in enumerate(self.clusters):
+                    if ci >= len(self.centroids):
+                        break
+                    centroid = self.centroids[ci]
+                    for agent_id in cluster:
+                        a = self.agents[agent_id]
+                        # Susceptibility: lower-prestige agents are pulled more
+                        eta = eta_base * (1.0 / (a.w + 0.1))
+                        eta = min(eta, 0.3)  # cap to prevent instability
+                        for k in AXES:
+                            a.belief[k] += eta * (centroid[k] - a.belief[k])
+                        # Renormalize
+                        n = norm(a.belief) or 1.0
+                        a.belief = {k: a.belief[k] / n for k in AXES}
+
+            # fission / schism (Definition 10, §3.2)
+            fission_events = self.maybe_fission()
+            if fission_events:
+                self.log.setdefault("fissions", []).extend(fission_events)
 
         # generation
         if self.generation_boundary():

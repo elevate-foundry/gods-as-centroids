@@ -169,7 +169,25 @@ def convert(md_text: str) -> str:
             html_parts.append('</div>')
             continue
 
-        # Simulation result blocks
+        # Image blocks
+        img_match = re.match(r'^!\[(.*)\]\((.+?)\)$', stripped)
+        if img_match:
+            alt = img_match.group(1)
+            src = img_match.group(2)
+            html_parts.append(f'<figure class="hero-figure"><img src="{src}" alt="{alt}" style="max-width:100%;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.15);"><figcaption style="font-size:0.85em;color:#666;margin-top:0.5em;text-align:center;">{process_inline(alt)}</figcaption></figure>')
+            i += 1
+            continue
+
+        # Simulation result blocks (with optional parenthetical like "Figure 1")
+        sim_match = re.match(r'^\*\*Simulation result(?:\s*\(([^)]+)\))?\.?:\*\*\s*(.*)', stripped)
+        if sim_match:
+            label = sim_match.group(1)
+            content = sim_match.group(2).strip()
+            label_text = f'Simulation Result ({label})' if label else 'Simulation Result'
+            html_parts.append(f'<div class="sim-result"><strong>{label_text}</strong><br>{process_inline(content)}</div>')
+            i += 1
+            continue
+
         if stripped.startswith('**Simulation result:**'):
             content = stripped.replace('**Simulation result:**', '').strip()
             html_parts.append(f'<div class="sim-result"><strong>Simulation Result</strong><br>{process_inline(content)}</div>')
@@ -274,7 +292,8 @@ def convert(md_text: str) -> str:
                     and not lines[i].strip().startswith('* ') \
                     and not re.match(r'^\d+\.\s', lines[i].strip()) \
                     and not re.match(r'^---+$', lines[i].strip()) \
-                    and not (lines[i].strip().startswith('|') and '|' in lines[i]):
+                    and not (lines[i].strip().startswith('|') and '|' in lines[i]) \
+                    and not re.match(r'^!\[', lines[i].strip()):
                 para_lines.append(lines[i].strip())
                 i += 1
             html_parts.append(f'<p>{process_inline(" ".join(para_lines))}</p>')
@@ -293,7 +312,13 @@ def process_inline(text: str) -> str:
         math_spans.append(m.group(0))
         return f'MATH_PLACEHOLDER_{len(math_spans) - 1}'
 
-    text = re.sub(r'\$[^$]+\$', save_math, text)
+    text = re.sub(r'\$([^$\n]+?)\$', save_math, text)
+
+    # Handle inline images
+    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<img src="\2" alt="\1" style="max-width:100%;">', text)
+
+    # Handle links
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
 
     # Bold + italic
     text = re.sub(r'\*\*\*(.+?)\*\*\*', r'<strong><em>\1</em></strong>', text)
@@ -367,9 +392,14 @@ def map_anchor(text: str, default: str) -> str:
         '5.4 The Discrete Semantic Substrate': 'braille',
         '6. Historical Backtesting': 'backtesting',
         '7. Discussion': 'discussion',
-        '8. Related Work': 'related',
-        '9. Limitations': 'limitations',
-        '10. Conclusion': 'conclusion',
+        '8. Corpus': 'corpus-calibration',
+        '8.1 Empirical': 'empirical-priors',
+        '8.2 Derived': 'derived-params',
+        '9. Related Work': 'related',
+        '10. Limitations': 'limitations',
+        '11. Conclusion': 'conclusion',
+        'Extension': 'extension',
+        'Cross-Domain': 'cross-domain',
     }
     for key, val in mappings.items():
         if text.startswith(key) or key in text:

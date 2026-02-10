@@ -1,0 +1,347 @@
+{
+  "source": "corpus_calibration.py \u2014 derived from LLM-scored religious text embeddings",
+  "n_passages": 24,
+  "n_traditions": 11,
+  "parameters": {
+    "cluster_threshold": 0.1216,
+    "mutation_rate": 0.25,
+    "fission_variance_threshold": 0.136503,
+    "belief_influence": 0.0665
+  },
+  "deity_priors": {
+    "Judaism": {
+      "authority": 0.4968,
+      "transcendence": 0.3409,
+      "care": 0.3604,
+      "justice": 0.3215,
+      "wisdom": 0.2046,
+      "power": 0.3117,
+      "fertility": 0.0877,
+      "war": 0.0779,
+      "death": 0.1169,
+      "creation": 0.0584,
+      "nature": 0.224,
+      "order": 0.4286
+    },
+    "Christianity": {
+      "authority": 0.3101,
+      "transcendence": 0.4743,
+      "care": 0.4469,
+      "justice": 0.1824,
+      "wisdom": 0.2736,
+      "power": 0.3283,
+      "fertility": 0.1277,
+      "war": 0.073,
+      "death": 0.1459,
+      "creation": 0.3283,
+      "nature": 0.1277,
+      "order": 0.3101
+    },
+    "Islam": {
+      "authority": 0.4603,
+      "transcendence": 0.4603,
+      "care": 0.2393,
+      "justice": 0.2025,
+      "wisdom": 0.2946,
+      "power": 0.4051,
+      "fertility": 0.0368,
+      "war": 0.0368,
+      "death": 0.0921,
+      "creation": 0.1105,
+      "nature": 0.0921,
+      "order": 0.4419
+    },
+    "Hinduism": {
+      "authority": 0.3382,
+      "transcendence": 0.5173,
+      "care": 0.1393,
+      "justice": 0.199,
+      "wisdom": 0.378,
+      "power": 0.3183,
+      "fertility": 0.0995,
+      "war": 0.1592,
+      "death": 0.3183,
+      "creation": 0.0995,
+      "nature": 0.0995,
+      "order": 0.3979
+    },
+    "Buddhism": {
+      "authority": 0.0504,
+      "transcendence": 0.3781,
+      "care": 0.3529,
+      "justice": 0.2521,
+      "wisdom": 0.5293,
+      "power": 0.0756,
+      "fertility": 0.1512,
+      "war": 0.0,
+      "death": 0.1008,
+      "creation": 0.126,
+      "nature": 0.2269,
+      "order": 0.5293
+    },
+    "Norse": {
+      "authority": 0.1015,
+      "transcendence": 0.4061,
+      "care": 0.0762,
+      "justice": 0.1269,
+      "wisdom": 0.4061,
+      "power": 0.3808,
+      "fertility": 0.1777,
+      "war": 0.2031,
+      "death": 0.3808,
+      "creation": 0.2285,
+      "nature": 0.3808,
+      "order": 0.2792
+    },
+    "Greek": {
+      "authority": 0.3373,
+      "transcendence": 0.3092,
+      "care": 0.281,
+      "justice": 0.1967,
+      "wisdom": 0.281,
+      "power": 0.4497,
+      "fertility": 0.3092,
+      "war": 0.0,
+      "death": 0.0562,
+      "creation": 0.2529,
+      "nature": 0.3092,
+      "order": 0.3654
+    },
+    "Daoism": {
+      "authority": 0.057,
+      "transcendence": 0.342,
+      "care": 0.171,
+      "justice": 0.0855,
+      "wisdom": 0.456,
+      "power": 0.1425,
+      "fertility": 0.342,
+      "war": 0.114,
+      "death": 0.228,
+      "creation": 0.2565,
+      "nature": 0.456,
+      "order": 0.399
+    },
+    "Lakota": {
+      "authority": 0.0614,
+      "transcendence": 0.43,
+      "care": 0.1843,
+      "justice": 0.0614,
+      "wisdom": 0.4914,
+      "power": 0.2457,
+      "fertility": 0.1229,
+      "war": 0.0,
+      "death": 0.0,
+      "creation": 0.1229,
+      "nature": 0.3686,
+      "order": 0.5529
+    },
+    "Aboriginal Australian": {
+      "authority": 0.1138,
+      "transcendence": 0.2276,
+      "care": 0.0569,
+      "justice": 0.0,
+      "wisdom": 0.1138,
+      "power": 0.3982,
+      "fertility": 0.3413,
+      "war": 0.0,
+      "death": 0.0569,
+      "creation": 0.512,
+      "nature": 0.512,
+      "order": 0.3413
+    },
+    "Zoroastrianism": {
+      "authority": 0.0988,
+      "transcendence": 0.3951,
+      "care": 0.0494,
+      "justice": 0.4445,
+      "wisdom": 0.3457,
+      "power": 0.2963,
+      "fertility": 0.1482,
+      "war": 0.1975,
+      "death": 0.2963,
+      "creation": 0.3951,
+      "nature": 0.0494,
+      "order": 0.3457
+    }
+  },
+  "coercion_schedule": [
+    {
+      "year": -3000,
+      "gamma": 0.05,
+      "label": "Pre-state polytheism"
+    },
+    {
+      "year": -2000,
+      "gamma": 0.1,
+      "label": "Early Bronze Age states"
+    },
+    {
+      "year": -1000,
+      "gamma": 0.15,
+      "label": "Late Bronze Age empires"
+    },
+    {
+      "year": -600,
+      "gamma": 0.1,
+      "label": "Axial Age (diversification)"
+    },
+    {
+      "year": -300,
+      "gamma": 0.25,
+      "label": "Hellenistic empires"
+    },
+    {
+      "year": 0,
+      "gamma": 0.35,
+      "label": "Roman Republic \u2192 Empire"
+    },
+    {
+      "year": 200,
+      "gamma": 0.5,
+      "label": "Imperial cult enforcement"
+    },
+    {
+      "year": 380,
+      "gamma": 0.9,
+      "label": "Theodosius edict (Christianity mandatory)"
+    },
+    {
+      "year": 632,
+      "gamma": 0.7,
+      "label": "Islamic expansion (prophet event + coercion)"
+    },
+    {
+      "year": 800,
+      "gamma": 0.8,
+      "label": "Carolingian / Abbasid peak"
+    },
+    {
+      "year": 1000,
+      "gamma": 0.75,
+      "label": "Medieval Christendom / Islamic Golden Age"
+    },
+    {
+      "year": 1200,
+      "gamma": 0.8,
+      "label": "Crusades / Inquisition"
+    },
+    {
+      "year": 1517,
+      "gamma": 0.5,
+      "label": "Reformation (fission event)"
+    },
+    {
+      "year": 1648,
+      "gamma": 0.4,
+      "label": "Peace of Westphalia"
+    },
+    {
+      "year": 1789,
+      "gamma": 0.3,
+      "label": "French Revolution / Enlightenment"
+    },
+    {
+      "year": 1900,
+      "gamma": 0.2,
+      "label": "Secularization begins"
+    },
+    {
+      "year": 1960,
+      "gamma": 0.12,
+      "label": "Vatican II / decolonization"
+    },
+    {
+      "year": 2000,
+      "gamma": 0.08,
+      "label": "Modern secular democracies"
+    },
+    {
+      "year": 2025,
+      "gamma": 0.06,
+      "label": "Current (rising 'nones')"
+    }
+  ],
+  "prophet_events": [
+    {
+      "year": -1300,
+      "label": "Moses / Akhenaten",
+      "magnitude": "high"
+    },
+    {
+      "year": -600,
+      "label": "Zoroaster / Buddha / Confucius (Axial Age)",
+      "magnitude": "high"
+    },
+    {
+      "year": 30,
+      "label": "Jesus of Nazareth",
+      "magnitude": "high"
+    },
+    {
+      "year": 622,
+      "label": "Muhammad",
+      "magnitude": "high"
+    },
+    {
+      "year": 1517,
+      "label": "Martin Luther (fission, not new attractor)",
+      "magnitude": "medium"
+    },
+    {
+      "year": 1830,
+      "label": "Joseph Smith (Mormonism)",
+      "magnitude": "low"
+    }
+  ],
+  "estimation_details": {
+    "cluster_threshold": {
+      "theta": 0.12159252493413705,
+      "mean_intra_distance": 0.0601526268345783,
+      "max_intra_distance": 0.2012991373252272,
+      "mean_inter_distance": 0.1830324230336958,
+      "min_inter_distance": 0.04319438893737437,
+      "separation_gap": 0.12287979619911749
+    },
+    "mutation_rate": {
+      "mu_estimated": 0.25,
+      "mean_intra_variance": 0.099275,
+      "mean_intra_std": 0.315079,
+      "per_tradition": {
+        "Judaism": 0.108043,
+        "Christianity": 0.129378,
+        "Islam": 0.066316,
+        "Hinduism": 0.142338,
+        "Buddhism": 0.2572,
+        "Norse": 0.040443,
+        "Greek": 0.238944,
+        "Daoism": 0.109365,
+        "Lakota": 0.0,
+        "Aboriginal Australian": 0.0,
+        "Zoroastrianism": 0.0
+      }
+    },
+    "fission_threshold": {
+      "sigma_sq_max": 0.136503,
+      "schism_traditions": {
+        "Christianity": 0.129378,
+        "Islam": 0.066316,
+        "Hinduism": 0.142338,
+        "Buddhism": 0.2572
+      },
+      "non_schism_traditions": {
+        "Judaism": 0.108043,
+        "Norse": 0.040443,
+        "Greek": 0.238944,
+        "Daoism": 0.109365
+      },
+      "mean_schism_variance": 0.148808,
+      "mean_non_schism_variance": 0.124199
+    },
+    "belief_influence": {
+      "beta_estimated": 0.0665,
+      "mean_intra_similarity": 0.792,
+      "mean_inter_similarity": 0.7394,
+      "confirmation_bias_ratio": 0.0665
+    }
+  }
+}
