@@ -686,6 +686,251 @@ def run_bottleneck_experiment():
         print(f"    Braid improvement: {braid_results['summary']['mean_braid_improvement']:+.4f}")
         print(f"    Braid correct rate: {braid_results['summary']['braid_correct_rate']:.4f}")
 
+    # ─── Experiment F: Regime B — Co-Trained Braiding ────────────
+    # Key fix: SHARED decoder/classifier + lower α + α warmup
+
+    print("\n" + "=" * 60)
+    print("REGIME B: CO-TRAINED SEMANTIC BRAIDING")
+    print("Shared decoder + alignment loss with warmup")
+    print("=" * 60)
+
+    K_B = 5
+    total_bits_b = 12 * 6
+
+    # Separate encoders, SHARED decoder and classifier
+    co_encoders = []
+    for k in range(K_B):
+        enc = nn.Sequential(
+            nn.Linear(12, 128), nn.ReLU(), nn.BatchNorm1d(128),
+            nn.Linear(128, 64), nn.ReLU(),
+            nn.Linear(64, total_bits_b),
+        ).to(device)
+        co_encoders.append(enc)
+
+    shared_decoder = nn.Sequential(
+        nn.Linear(total_bits_b, 64), nn.ReLU(),
+        nn.Linear(64, 128), nn.ReLU(),
+        nn.Linear(128, 12),
+    ).to(device)
+
+    shared_classifier = nn.Sequential(
+        nn.Linear(total_bits_b, 64), nn.ReLU(),
+        nn.Dropout(0.2),
+        nn.Linear(64, num_deities),
+    ).to(device)
+
+    # All parameters in one optimizer
+    all_params = list(shared_decoder.parameters()) + list(shared_classifier.parameters())
+    for enc in co_encoders:
+        all_params.extend(enc.parameters())
+    co_optimizer = optim.Adam(all_params, lr=1e-3)
+    recon_criterion = nn.MSELoss()
+    class_criterion = nn.CrossEntropyLoss()
+
+    # Generate per-model training data
+    co_train_data = []
+    for k in range(K_B):
+        torch.manual_seed(42 + k * 1000)
+        np.random.seed(42 + k * 1000)
+        noise_std_k = 0.05 + k * 0.02
+        vecs_k, labs_k = [], []
+        for label_idx, (name, prior) in enumerate(DEITY_PRIORS.items()):
+            prior_norm = normalize(prior)
+            for _ in range(NUM_SAMPLES_PER_DEITY):
+                noisy = [p + np.random.normal(0, noise_std_k) for p in prior_norm]
+                noisy = [max(0, min(1, x)) for x in noisy]
+                noisy = normalize(noisy)
+                vecs_k.append(noisy)
+                labs_k.append(label_idx)
+        vecs_k = np.array(vecs_k, dtype=np.float32)
+        labs_k = np.array(labs_k, dtype=np.int64)
+        idx_k = np.random.permutation(len(vecs_k))
+        split_k = int(0.8 * len(idx_k))
+        co_train_data.append({
+            "X_train": torch.tensor(vecs_k[idx_k[:split_k]]).to(device),
+            "y_train": torch.tensor(labs_k[idx_k[:split_k]]).to(device),
+        })
+
+    def quantize_ste(logits, temperature):
+        soft = torch.sigmoid(logits * temperature)
+        hard = (soft > 0.5).float()
+        return hard - soft.detach() + soft, soft
+
+    EPOCHS_B = 250
+    best_braid_acc_b = 0
+    print(f"\n  Co-training {K_B} encoders + shared decoder for {EPOCHS_B} epochs...")
+
+    for epoch in range(EPOCHS_B):
+        for enc in co_encoders:
+            enc.train()
+        shared_decoder.train()
+        shared_classifier.train()
+
+        temperature = 1.0 + 9.0 * (epoch / max(EPOCHS_B - 1, 1))
+
+        # α warmup: no alignment for first 50 epochs, then ramp to 0.01
+        if epoch < 50:
+            alpha_align = 0.0
+        else:
+            alpha_align = 0.01 * min(1.0, (epoch - 50) / 50.0)
+
+        batch_size = 256
+        n_samples = min(len(d["X_train"]) for d in co_train_data)
+        perm = torch.randperm(n_samples)
+        epoch_loss = 0
+        n_batches = 0
+
+        for i in range(0, n_samples, batch_size):
+            idx = perm[i:i+batch_size]
+
+            all_soft = []
+            total_loss = torch.tensor(0.0, device=device)
+
+            for k in range(K_B):
+                xb = co_train_data[k]["X_train"][idx]
+                yb = co_train_data[k]["y_train"][idx]
+
+                logits = co_encoders[k](xb)
+                bits, soft = quantize_ste(logits, temperature)
+                recon = shared_decoder(bits)
+                cls_logits = shared_classifier(bits)
+
+                loss_recon = recon_criterion(recon, xb)
+                loss_class = class_criterion(cls_logits, yb)
+                loss_binary = -torch.mean(soft * torch.log(soft + 1e-8) +
+                                          (1 - soft) * torch.log(1 - soft + 1e-8))
+                total_loss = total_loss + loss_recon + 0.5 * loss_class + 0.1 * loss_binary
+                all_soft.append(soft)
+
+            # Alignment loss (only after warmup)
+            if alpha_align > 0:
+                for ki in range(K_B):
+                    for kj in range(ki + 1, K_B):
+                        align_loss = torch.mean(torch.abs(all_soft[ki] - all_soft[kj]))
+                        total_loss = total_loss + alpha_align * align_loss
+
+            co_optimizer.zero_grad()
+            total_loss.backward()
+            co_optimizer.step()
+
+            epoch_loss += total_loss.item()
+            n_batches += 1
+
+        if (epoch + 1) % 50 == 0 or epoch == 0:
+            for enc in co_encoders:
+                enc.eval()
+            shared_decoder.eval()
+            shared_classifier.eval()
+            with torch.no_grad():
+                correct = 0
+                total_count = 0
+                for deity_name, prior in DEITY_PRIORS.items():
+                    prior_norm = normalize(prior)
+                    x = torch.tensor([prior_norm], dtype=torch.float32).to(device)
+                    all_bits_b = []
+                    for enc in co_encoders:
+                        logits = enc(x)
+                        bits, _ = quantize_ste(logits, 10.0)
+                        all_bits_b.append(bits[0].cpu().numpy())
+                    all_bits_b = np.array(all_bits_b)
+                    majority = (all_bits_b.mean(axis=0) > 0.5).astype(np.float32)
+                    maj_tensor = torch.tensor(majority).unsqueeze(0).to(device)
+                    pred = shared_classifier(maj_tensor).argmax(dim=1).item()
+                    if deity_names[pred] == deity_name:
+                        correct += 1
+                    total_count += 1
+                braid_acc = correct / total_count
+                if braid_acc > best_braid_acc_b:
+                    best_braid_acc_b = braid_acc
+
+            print(f"  Epoch {epoch+1:3d}: loss={epoch_loss/n_batches:.4f}, "
+                  f"braid_acc={braid_acc:.4f}, α={alpha_align:.4f}, τ={temperature:.1f}")
+
+    # Final Regime B evaluation
+    print("\n  Regime B final evaluation...")
+    braid_b_results = {"per_deity": {}, "summary": {}}
+    for enc in co_encoders:
+        enc.eval()
+    shared_decoder.eval()
+    shared_classifier.eval()
+
+    with torch.no_grad():
+        all_braid_cos_b = []
+        for deity_name, prior in DEITY_PRIORS.items():
+            prior_norm = normalize(prior)
+            x = torch.tensor([prior_norm], dtype=torch.float32).to(device)
+            original = np.array(prior_norm)
+
+            all_bits_b = []
+            individual_preds_b = []
+            individual_recons_b = []
+            for enc in co_encoders:
+                logits = enc(x)
+                bits, _ = quantize_ste(logits, 10.0)
+                recon = shared_decoder(bits)
+                cls_logits = shared_classifier(bits)
+                all_bits_b.append(bits[0].cpu().numpy())
+                individual_preds_b.append(cls_logits.argmax(dim=1).item())
+                individual_recons_b.append(recon[0].cpu().numpy())
+
+            all_bits_b = np.array(all_bits_b)
+            majority_b = (all_bits_b.mean(axis=0) > 0.5).astype(np.float32)
+            maj_tensor_b = torch.tensor(majority_b).unsqueeze(0).to(device)
+
+            braided_recon_b = shared_decoder(maj_tensor_b)[0].cpu().numpy()
+            braided_pred_b = shared_classifier(maj_tensor_b).argmax(dim=1).item()
+
+            bit_agreement_b = np.mean([
+                np.mean(all_bits_b[i] == all_bits_b[j])
+                for i in range(K_B) for j in range(i+1, K_B)
+            ])
+
+            braid_cos_b = float(np.dot(original, braided_recon_b) / (
+                np.linalg.norm(original) * np.linalg.norm(braided_recon_b) + 1e-8))
+
+            individual_cos_b = [
+                float(np.dot(original, r) / (np.linalg.norm(original) * np.linalg.norm(r) + 1e-8))
+                for r in individual_recons_b
+            ]
+
+            braid_b_results["per_deity"][deity_name] = {
+                "bit_agreement_rate": float(bit_agreement_b),
+                "braided_cosine_sim": braid_cos_b,
+                "mean_individual_cosine": float(np.mean(individual_cos_b)),
+                "braid_improvement": braid_cos_b - float(np.mean(individual_cos_b)),
+                "braided_pred": deity_names[braided_pred_b],
+                "braid_correct": deity_names[braided_pred_b] == deity_name,
+                "pred_agreement": len(set(individual_preds_b)) == 1,
+            }
+            all_braid_cos_b.append(braid_cos_b)
+
+        per_deity_b = braid_b_results["per_deity"]
+        braid_b_results["summary"] = {
+            "regime": "B (shared decoder + alignment warmup)",
+            "num_models": K_B,
+            "alignment_weight": 0.01,
+            "mean_bit_agreement": float(np.mean([v["bit_agreement_rate"] for v in per_deity_b.values()])),
+            "mean_braided_cosine_sim": float(np.mean(all_braid_cos_b)),
+            "mean_individual_cosine_sim": float(np.mean([v["mean_individual_cosine"] for v in per_deity_b.values()])),
+            "mean_braid_improvement": float(np.mean([v["braid_improvement"] for v in per_deity_b.values()])),
+            "braid_correct_rate": float(np.mean([v["braid_correct"] for v in per_deity_b.values()])),
+            "individual_agreement_rate": float(np.mean([v["pred_agreement"] for v in per_deity_b.values()])),
+        }
+
+        print(f"\n  Regime B summary ({K_B} co-trained models, shared decoder):")
+        print(f"    Mean bit agreement: {braid_b_results['summary']['mean_bit_agreement']:.4f}")
+        print(f"    Mean braided cosine sim: {braid_b_results['summary']['mean_braided_cosine_sim']:.4f}")
+        print(f"    Mean individual cosine sim: {braid_b_results['summary']['mean_individual_cosine_sim']:.4f}")
+        print(f"    Braid improvement: {braid_b_results['summary']['mean_braid_improvement']:+.4f}")
+        print(f"    Braid correct rate: {braid_b_results['summary']['braid_correct_rate']:.4f}")
+
+        # Compare Regime A vs B
+        print(f"\n  Regime A vs B comparison:")
+        print(f"    Bit agreement:  A={braid_results['summary']['mean_bit_agreement']:.4f}  B={braid_b_results['summary']['mean_bit_agreement']:.4f}")
+        print(f"    Braided cos:    A={braid_results['summary']['mean_braided_cosine_sim']:.4f}  B={braid_b_results['summary']['mean_braided_cosine_sim']:.4f}")
+        print(f"    Braid correct:  A={braid_results['summary']['braid_correct_rate']:.4f}  B={braid_b_results['summary']['braid_correct_rate']:.4f}")
+        print(f"    Improvement:    A={braid_results['summary']['mean_braid_improvement']:+.4f}  B={braid_b_results['summary']['mean_braid_improvement']:+.4f}")
+
     # ─── Compile Final Results ────────────────────────────────────
 
     final_results = {
@@ -696,6 +941,7 @@ def run_bottleneck_experiment():
         "task_invariance_72bit": task_72,
         "channel_invariance": channel_results,
         "semantic_braiding": braid_results,
+        "semantic_braiding_regime_b": braid_b_results,
         "summary": {
             "claim": (
                 "Emergent theological structures—defined as population-level centroid "
@@ -886,6 +1132,52 @@ def generate_markdown_report(results, output_path):
                 f"{'✓' if v['pred_agreement'] else '✗'} |"
             )
         lines.append("")
+
+    # Regime B braiding
+    if "semantic_braiding_regime_b" in results:
+        braid_b = results["semantic_braiding_regime_b"]
+        lines.extend([
+            "---",
+            "",
+            "## Experiment F: Regime B — Co-Trained Semantic Braiding",
+            "",
+            "K encoders trained **jointly** with alignment loss "
+            "$\\mathcal{L}_{\\text{align}} = \\sum_{i<j} |z^{(i)} - z^{(j)}|_1$.",
+            "",
+            f"**Regime:** {braid_b['summary'].get('regime', 'B')}",
+            f"**Models co-trained:** {braid_b['summary']['num_models']}",
+            f"**Alignment weight (α):** {braid_b['summary'].get('alignment_weight', 'N/A')}",
+            f"**Mean bit agreement between models:** {braid_b['summary']['mean_bit_agreement']:.4f}",
+            f"**Mean braided cosine similarity:** {braid_b['summary']['mean_braided_cosine_sim']:.4f}",
+            f"**Mean individual cosine similarity:** {braid_b['summary']['mean_individual_cosine_sim']:.4f}",
+            f"**Braid improvement over individual:** {braid_b['summary']['mean_braid_improvement']:+.4f}",
+            f"**Braid correct classification rate:** {braid_b['summary']['braid_correct_rate']:.4f}",
+            "",
+            "| Deity | Braided Cos | Mean Indiv Cos | Improvement | Braid Correct | Models Agree |",
+            "|-------|-----------|---------------|------------|--------------|-------------|",
+        ])
+        for name, v in braid_b["per_deity"].items():
+            lines.append(
+                f"| {name} | {v['braided_cosine_sim']:.4f} | {v['mean_individual_cosine']:.4f} | "
+                f"{v['braid_improvement']:+.4f} | {'✓' if v['braid_correct'] else '✗'} | "
+                f"{'✓' if v['pred_agreement'] else '✗'} |"
+            )
+        lines.append("")
+
+        # Regime A vs B comparison
+        if "semantic_braiding" in results:
+            braid_a = results["semantic_braiding"]
+            lines.extend([
+                "### Regime A vs B Comparison",
+                "",
+                "| Metric | Regime A (post-hoc) | Regime B (co-trained) |",
+                "|--------|--------------------|-----------------------|",
+                f"| Bit agreement | {braid_a['summary']['mean_bit_agreement']:.4f} | {braid_b['summary']['mean_bit_agreement']:.4f} |",
+                f"| Braided cosine sim | {braid_a['summary']['mean_braided_cosine_sim']:.4f} | {braid_b['summary']['mean_braided_cosine_sim']:.4f} |",
+                f"| Braid correct rate | {braid_a['summary']['braid_correct_rate']:.4f} | {braid_b['summary']['braid_correct_rate']:.4f} |",
+                f"| Braid improvement | {braid_a['summary']['mean_braid_improvement']:+.4f} | {braid_b['summary']['mean_braid_improvement']:+.4f} |",
+                "",
+            ])
 
     lines.extend([
         "---",
