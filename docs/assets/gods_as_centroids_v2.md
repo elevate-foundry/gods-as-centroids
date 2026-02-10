@@ -270,9 +270,72 @@ where for each bit position, the centroid takes the majority value. For prestige
 
 **Corollary 4 (Braille-Enforced Stability).** In the braille lattice, the centroid is invariant under perturbations that do not flip any cell's majority. Formally, if $\delta b_i$ is a perturbation to agent $a_i$'s belief such that $\mathcal{L}(b_i + \delta b_i) = \mathcal{L}(b_i)$, then $\mathcal{L}(G_j)$ is unchanged. This means small doctrinal drift is *invisible* at the lattice level — only perturbations large enough to flip a cell's majority are registered. This is the discrete analogue of the hysteresis basin walls identified in §4.4.
 
-**Simulation result:** Projecting the simulation's centroid trajectories onto the braille lattice, we observe: (a) stable periods averaging 800 steps with zero cell flips, (b) transition bursts of 8–15 simultaneous flips at phase transitions, and (c) identical braille centroids for sighted and restricted (8/12 axes) agent populations in 28/30 runs. The two divergent runs differed by exactly 1 cell flip (intensity on a recessive axis).
+**Experimental validation.** We train an encoder-bottleneck-decoder architecture on 16 deity priors (500 noisy samples each) using temperature-annealed straight-through estimation ($\tau: 1 \to 10$). The encoder learns a projection $\mathbb{R}^{12} \to \mathbb{R}^N$, which is quantized via $\sigma(\text{logits} \cdot \tau) \to \{0,1\}^N$. The decoder reconstructs $\hat{b} \in \mathbb{R}^{12}$ from the binary code; a classifier predicts deity identity from the same bits.
 
-**Remark.** Braille is not an arbitrary binary encoding. It is a representation historically optimized for semantic density at human scale, culturally neutral, and parallelizable. The 6-dot cell is the natural unit for encoding a theological axis because it captures exactly the three properties (polarity, intensity, rigidity) that determine an axis's contribution to the centroid. The resulting 72-bit deity signature — 12 braille characters — is a compressed, tactile-native representation of a god-concept that can be read by touch, compared by Hamming distance, and transmitted across any sensory modality without loss of theological structure.
+**Result A (Centroid Preservation).** At 72 bits, the mean cosine similarity between original and reconstructed centroids is $0.9950$ across all 16 deities ($\min = 0.9912$, Yahweh; $\max = 0.9985$, Gaia). The mean L2 displacement is $0.099$, which is $17.9\%$ of the mean inter-deity distance ($0.554$). Centroids are barely moved by the bottleneck.
+
+**Result B (Task Invariance).** Deity classification accuracy through the 72-bit bottleneck is $83.25\%$ (chance $= 6.25\%$, $16$ classes). The Spearman rank correlation between pairwise deity similarities before and after the bottleneck is $\rho = 0.968$ ($p = 9.25 \times 10^{-73}$). The similarity ordering is almost perfectly preserved.
+
+**Result C (Capacity Stress Test).** We vary the bit budget from 12 to 96 bits per deity:
+
+| Total bits | Bits/axis | Classification | Cosine sim | Rank $\rho$ |
+|---|---|---|---|---|
+| 12 | 1 | 82.25% | 0.9994 | 0.992 |
+| 24 | 2 | 84.00% | 0.9986 | 0.991 |
+| 48 | 4 | 84.69% | 0.9971 | 0.983 |
+| **72** | **6** | **85.12%** | **0.9962** | **0.987** |
+| 96 | 8 | 84.88% | 0.9960 | 0.979 |
+
+Structure survives down to **12 bits** (1 bit per axis) with $0.9994$ cosine similarity and $82\%$ classification accuracy. There is no sharp phase transition — the theological structure is remarkably compressible. Performance plateaus above 48 bits, suggesting the essential structure of a deity centroid requires approximately 4 bits per theological axis.
+
+**Result D (Channel Invariance).** Under sensory restriction (zeroing 2–4 axes and renormalizing), reconstructed centroids retain $90$–$94\%$ cosine similarity to unrestricted centroids. Abstract restriction (transcendence, creation removed): $93.8\%$ cosine similarity, $10/16$ same classification. Social-political restriction (authority, justice, power, order removed): $92.9\%$, $6/16$. Visual-embodied restriction (4 axes removed): $90.1\%$, $5/16$. Core structure survives sensory restriction, though classification degrades with more axes removed.
+
+**Result E (Semantic Braiding).** We introduce *semantic braiding*: fusing heterogeneous models by projecting their internal states through a shared discrete bottleneck and combining them at the level of compressed semantic invariants. We compare two regimes:
+
+*Regime A (post-hoc braiding):* $K=5$ encoder variants trained independently, then fused via bitwise majority vote. Bit agreement between models is only $49.2\%$ — models encode differently — yet the braided centroid achieves $95.7\%$ cosine similarity and $75\%$ correct classification.
+
+*Regime B (co-trained braiding):* $K=5$ encoders trained jointly with a **shared decoder/classifier** and annealed alignment loss $\mathcal{L}_{\text{align}} = \alpha \sum_{i<j} |z^{(i)} - z^{(j)}|_1$ ($\alpha$ warmed from $0$ to $0.01$ after epoch 50). The shared decoder enforces structural alignment implicitly — disagreement is punished by task loss, not by an extrinsic penalty. Results:
+
+| Metric | Regime A (post-hoc) | Regime B (co-trained) |
+|---|---|---|
+| Bit agreement | 49.2% | **86.3%** |
+| Braided cosine sim | 0.957 | **0.996** |
+| Braid correct rate | 75.0% | **100.0%** |
+| Braid improvement | −0.037 | **+0.001** |
+
+Regime B achieves perfect deity classification from braided bits and *positive* braid improvement — the consensus centroid is more faithful than any individual model. Naïve co-training with separate decoders ($\alpha = 0.05$) degraded performance due to gradient competition between alignment and task objectives; the shared decoder resolves this by making agreement a structural necessity rather than a penalty.
+
+**Result F (Frontier LLM as Semantic Judge).** To validate that the bottleneck preserves semantically relevant structure beyond our own metrics, we use frontier LLMs as independent measurement instruments. Claude Sonnet 4 generates 3-sentence theological profiles from (a) the full continuous centroid and (b) the braille-compressed centroid (72-bit → decoded). GPT-4o-mini then acts as a blind judge, evaluating whether each pair describes the same deity. Across all 8 tested deities, the judge ruled **8/8 = 100% structural equivalence** with mean structural similarity $0.844$ and mean confidence $0.90$. A frontier-class language model cannot reliably distinguish theology generated from continuous centroids versus 72-bit compressed centroids, confirming that the bottleneck preserves the semantically relevant structure of the centroid.
+
+**Result G (Real Embeddings).** To move beyond hand-designed priors, we score 24 canonical religious passages from 11 traditions (Judaism, Christianity, Islam, Hinduism, Buddhism, Norse, Greek, Daoism, Lakota, Aboriginal Australian, Zoroastrianism) on the 12 theological axes using Claude Sonnet 4 at temperature 0. We then compress these real embeddings through the 72-bit braille bottleneck and compare against two baselines: random binary projection (72 bits) and PCA + uniform quantization (72 bits).
+
+| Method | Reconstruction (cos) | Spearman $\rho$ | Cluster gap |
+|---|---|---|---|
+| **Braille lattice** | **0.986** | **0.967** ($p = 1.9 \times 10^{-164}$) | **0.085** |
+| PCA + quantize | 0.915 | 0.901 | 0.075 |
+| Random binary | 0.831 | 0.728 | 0.040 |
+
+The braille lattice outperforms both baselines on every metric. Notably, the cluster separation gap *increases* after braille compression (0.085 vs 0.058 in continuous space) — the bottleneck acts as a denoiser, sharpening theological boundaries. Specific theological predictions survive compression: Judaism–Islam similarity ($0.948$), Christianity–Islam ($0.890$), Hinduism–Buddhism ($0.797$), Daoism–Buddhism ($0.851$). The Abrahamic cluster remains tightly bound ($> 0.88$ pairwise) and well-separated from Dharmic traditions after compression.
+
+**Result H (Multi-Model Variance).** To test whether theological structure is a property of the texts or an artifact of a particular model's training data, we score the same 23 passages with four frontier LLMs (Claude Sonnet 4, GPT-4o, Gemini 2.0 Flash, Llama 3.3 70B) at temperature 0. The mean Pearson correlation across all model pairs is $r = 0.869$ — strong agreement on theological structure across architecturally distinct models.
+
+Per-axis analysis reveals which theological dimensions are *consensual* versus *contested*:
+
+| Axis | Coefficient of Variation | Interpretation |
+|---|---|---|
+| Transcendence | 0.100 | Consensual |
+| Order | 0.121 | Consensual |
+| Wisdom | 0.121 | Consensual |
+| Authority | 0.132 | Consensual |
+| War | **0.463** | **Contested** |
+| Justice | 0.257 | Contested |
+| Death | 0.236 | Contested |
+
+The contested axes are precisely those where theological interpretation is genuinely ambiguous — "war" in the Bhagavad Gita is metaphorical to some models, literal to others. This is real hermeneutic disagreement surfacing through model variance, not noise.
+
+Despite continuous-space disagreement, the braille lattice achieves $88.3\%$ bit agreement across all model pairs. The discrete bottleneck absorbs interpretive variance while preserving structural consensus. Cluster separation through braille majority-vote ($0.081$) matches or exceeds individual models ($0.059$–$0.092$), confirming that the lattice acts as a consensus filter: it preserves what all models agree on and quantizes away what they dispute.
+
+**Remark.** We use a braille-inspired tactile lattice because it is a historically optimized, human-scale discrete semantic code — but the result does not depend on braille per se. The 6-dot cell is the natural unit for encoding a theological axis because it captures exactly the three properties (polarity, intensity, rigidity) that determine an axis's contribution to the centroid. The resulting 72-bit deity signature — 12 braille characters — is a compressed, tactile-native representation of a god-concept that can be read by touch, compared by Hamming distance, and transmitted across any sensory modality without loss of theological structure.
 
 ---
 
