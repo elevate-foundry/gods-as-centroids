@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gods as Centroids — Paper &amp; Assets</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError: false
+    });"></script>
+  <style>
+    :root {
+      --bg: #0f0f14;
+      --surface: #16161e;
+      --border: #2a2a3a;
+      --text: #e0e0e8;
+      --text-muted: #8888a0;
+      --accent: #6366f1;
+      --accent-dim: #4f46e5;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --cyan: #06b6d4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 17px;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100vh;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 24px 16px;
+      z-index: 100;
+    }
+
+    nav h2 {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    nav a {
+      display: block;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 13px;
+      padding: 6px 8px;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    nav a.section {
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 12px;
+    }
+
+    nav a.subsection {
+      padding-left: 20px;
+      font-size: 12px;
+    }
+
+    nav .downloads {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    nav .downloads h3 {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    nav .dl-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      text-decoration: none;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px;
+      transition: all 0.15s;
+    }
+
+    nav .dl-btn:hover {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: var(--accent);
+    }
+
+    nav .dl-btn .icon {
+      font-size: 16px;
+    }
+
+    /* Main content */
+    main {
+      margin-left: 260px;
+      max-width: 780px;
+      padding: 60px 48px 120px;
+    }
+
+    /* Title block */
+    .title-block {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .title-block h1 {
+      font-size: 32px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .title-block .author {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .title-block .date {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Abstract */
+    .abstract {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+
+    .abstract h2 {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .abstract p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* Keywords */
+    .keywords {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .keywords span {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin: 2px 4px 2px 0;
+      font-size: 11px;
+    }
+
+    /* Headings */
+    h2 {
+      font-size: 24px;
+      margin-top: 56px;
+      margin-bottom: 20px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: #fff;
+    }
+
+    h3 {
+      font-size: 19px;
+      margin-top: 36px;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+
+    /* Paragraphs */
+    p {
+      margin-bottom: 16px;
+    }
+
+    /* Definition / Theorem / Corollary / Hypothesis blocks */
+    .env-block {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 18px 22px;
+      margin: 20px 0;
+    }
+
+    .env-block.definition { border-left-color: var(--accent); }
+    .env-block.hypothesis { border-left-color: var(--amber); }
+    .env-block.corollary { border-left-color: var(--green); }
+
+    .env-block .env-label {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .env-block.definition .env-label { color: var(--accent); }
+    .env-block.hypothesis .env-label { color: var(--amber); }
+    .env-block.corollary .env-label { color: var(--green); }
+
+    /* Simulation result callouts */
+    .sim-result {
+      background: rgba(6, 182, 212, 0.06);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 15px;
+    }
+
+    .sim-result strong {
+      color: var(--cyan);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Historical prediction callouts */
+    .hist-pred {
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 15px;
+    }
+
+    .hist-pred strong {
+      color: var(--amber);
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: 12px 0 16px 24px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    thead th {
+      background: var(--surface);
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--border);
+    }
+
+    tbody td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody tr:hover {
+      background: rgba(99, 102, 241, 0.04);
+    }
+
+    /* Math */
+    .katex-display {
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+
+    /* Code */
+    code {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 14px;
+      background: var(--surface);
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    /* Strong / em */
+    strong { color: #fff; }
+    em { color: var(--text); font-style: italic; }
+
+    /* References */
+    .references {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .references p {
+      padding-left: 24px;
+      text-indent: -24px;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+    }
+
+    /* Horizontal rule */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      nav { display: none; }
+      main { margin-left: 0; padding: 32px 20px 80px; }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <h2>Gods as Centroids</h2>
+  <a href="#abstract" class="section">Abstract</a>
+  <a href="#introduction" class="section">1. Introduction</a>
+  <a href="#model" class="section">2. The Model</a>
+  <a href="#belief-space" class="subsection">2.1 Belief Space</a>
+  <a href="#deity-priors" class="subsection">2.2 Deity Priors</a>
+  <a href="#dynamics" class="subsection">2.3 Interaction Dynamics</a>
+  <a href="#clustering" class="subsection">2.4 Clustering</a>
+  <a href="#calculus" class="section">3. Calculus of Change</a>
+  <a href="#fusion" class="subsection">3.1 Fusion</a>
+  <a href="#fission" class="subsection">3.2 Fission</a>
+  <a href="#perturbation" class="subsection">3.3 Perturbation</a>
+  <a href="#phase" class="section">4. Phase Transitions</a>
+  <a href="#coercion" class="subsection">4.1 Coercion</a>
+  <a href="#polytheism" class="subsection">4.2 Polytheism</a>
+  <a href="#monotheism" class="subsection">4.3 Monotheism</a>
+  <a href="#hysteresis" class="subsection">4.4 Hysteresis</a>
+  <a href="#corollaries" class="section">5. Corollaries</a>
+  <a href="#accessibility" class="subsection">5.1 Accessibility</a>
+  <a href="#ritual" class="subsection">5.2 Ritual</a>
+  <a href="#prestige" class="subsection">5.3 Prestige</a>
+  <a href="#braille" class="subsection">5.4 Braille Lattice</a>
+  <a href="#backtesting" class="section">6. Backtesting</a>
+  <a href="#discussion" class="section">7. Discussion</a>
+  <a href="#related" class="section">8. Related Work</a>
+  <a href="#limitations" class="section">9. Limitations</a>
+  <a href="#conclusion" class="section">10. Conclusion</a>
+  <a href="#references" class="section">References</a>
+  <a href="https://godscentro-ludpuglh.manus.space/" class="section" target="_blank">AGI Blueprint</a>
+
+  <div class="downloads">
+    <h3>Downloads</h3>
+    <a class="dl-btn" href="assets/gods_as_centroids_v2.tex" download>
+      <span class="icon">📄</span> LaTeX Source (.tex)
+    </a>
+    <a class="dl-btn" href="assets/gods_as_centroids_v2.md" download>
+      <span class="icon">📝</span> Markdown Source (.md)
+    </a>
+    <a class="dl-btn" href="assets/md2latex.py" download>
+      <span class="icon">🔧</span> MD→LaTeX Converter
+    </a>
+    <a class="dl-btn" href="assets/braille-lattice.ts" download>
+      <span class="icon">⠿</span> Braille Lattice Module
+    </a>
+    <a class="dl-btn" href="assets/theology-engine.ts" download>
+      <span class="icon">⚙️</span> Theology Engine
+    </a>
+  </div>
+</nav>
+
+<main id="paper-content">
+  <div class="title-block">
+    <h1>Gods as Centroids: A Generative Vector-Space Model of Religious Evolution</h1>
+    <div class="author">Ryan Barrett</div>
+    <div class="date">2026</div>
+    <div class="title-image">
+      <img src="agi-blueprint-connection.png" alt="AGI Blueprint Connection: Braille Lattice as Discrete Semantic Substrate" style="max-width: 100%; height: auto; margin-top: 20px; border-radius: 8px;">
+    </div>
+  </div>
+
+  <!-- Content will be injected by the build script -->
+</main>
+
+</body>
+</html>

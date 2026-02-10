@@ -379,7 +379,7 @@ def map_anchor(text: str, default: str) -> str:
 
 def main():
     md_path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).parent / 'gods_as_centroids_v2.md'
-    template_path = Path(__file__).parent.parent / 'docs' / 'index.html'
+    template_path = Path(__file__).parent.parent / 'docs' / 'template.html'
     output_path = Path(__file__).parent.parent / 'docs' / 'index.html'
 
     md_text = md_path.read_text()
@@ -387,10 +387,11 @@ def main():
 
     template = template_path.read_text()
 
-    # Replace the placeholder content in main
-    placeholder = '  <p style="color: var(--text-muted); font-style: italic;">Loading paper content...</p>'
-    if placeholder in template:
-        final = template.replace(placeholder, content_html)
+    # Always inject content into the clean template
+    # The template has <!-- Content will be injected by the build script --> before </main>
+    comment = '  <!-- Content will be injected by the build script -->'
+    if comment in template:
+        final = template.replace(comment, content_html)
     else:
         # Fallback: insert before </main>
         final = template.replace('</main>', content_html + '\n</main>')
