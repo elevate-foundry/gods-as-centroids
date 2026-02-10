@@ -186,6 +186,132 @@ class PerScorerDataset(Dataset):
         return scorer_vecs, label
 
 
+# ─── Phase 2: Multi-Modal Dataset ─────────────────────────────────────
+
+class MultiModalDataset(Dataset):
+    """
+    Multi-modal dataset for Phase 2 training.
+
+    Three modalities, all describing the same 126 passages:
+      1. Text embeddings (TF-IDF + PCA from passage text)
+      2. Scorer vectors (individual LLM theological scores — 4 "views")
+      3. Consensus target (4-model mean theological vector)
+
+    Each item returns:
+      text_embed: (text_dim,) text embedding
+      scorer_vec: (12,) one randomly-selected scorer's theological vector
+      consensus_vec: (12,) consensus theological vector (training target)
+      label: tradition index
+    """
+
+    def __init__(
+        self,
+        text_embed_path: str = "lattice_autoencoder/data/text_embeddings.json",
+        consensus_path: str = "mlx-pipeline/multi_scorer_consensus.json",
+        scorer_paths: dict = None,
+        noise_std: float = 0.02,
+        augment: bool = True,
+        samples_per_passage: int = 50,
+    ):
+        self.noise_std = noise_std
+        self.augment = augment
+        self.samples_per_passage = samples_per_passage
+
+        root = Path(__file__).parent.parent
+
+        # Load text embeddings
+        text_path = Path(text_embed_path)
+        if not text_path.exists():
+            text_path = root / text_embed_path
+        with open(text_path) as f:
+            text_data = json.load(f)
+        self.text_dim = text_data["embed_dim"]
+        self.text_embeds = torch.tensor(
+            [e["vector"] for e in text_data["embeddings"]], dtype=torch.float32
+        )
+
+        # Load consensus scores
+        cons_path = Path(consensus_path)
+        if not cons_path.exists():
+            cons_path = root / consensus_path
+        with open(cons_path) as f:
+            cons_data = json.load(f)
+
+        traditions = sorted(set(e["tradition"] for e in cons_data["embeddings"]))
+        self.tradition_to_idx = {t: i for i, t in enumerate(traditions)}
+        self.idx_to_tradition = {i: t for t, i in self.tradition_to_idx.items()}
+        self.n_classes = len(traditions)
+
+        self.consensus_vecs = []
+        self.labels = []
+        self.traditions_list = []
+        for e in cons_data["embeddings"]:
+            vec = [e["normalized"].get(a, 0.0) for a in AXES]
+            self.consensus_vecs.append(vec)
+            self.labels.append(self.tradition_to_idx[e["tradition"]])
+            self.traditions_list.append(e["tradition"])
+
+        self.consensus_vecs = torch.tensor(self.consensus_vecs, dtype=torch.float32)
+        self.labels_tensor = torch.tensor(self.labels, dtype=torch.long)
+
+        # Load per-scorer vectors
+        if scorer_paths is None:
+            scorer_paths = {
+                "claude": root / "mlx-pipeline" / "expanded_embeddings_results.json",
+                "gpt4o": root / "mlx-pipeline" / "scores_gpt4o.json",
+                "gemini": root / "mlx-pipeline" / "scores_gemini_flash.json",
+                "llama70b": root / "mlx-pipeline" / "scores_llama70b.json",
+            }
+
+        self.scorer_vecs = []  # list of (n_passages, 12) tensors
+        self.scorer_names = []
+        for name, path in scorer_paths.items():
+            path = Path(path)
+            if path.exists():
+                with open(path) as f:
+                    data = json.load(f)
+                vecs = []
+                for e in data["embeddings"]:
+                    scores = e.get("normalized", e.get("raw_scores", {}))
+                    vec = [scores.get(a, 0.0) for a in AXES]
+                    norm = math.sqrt(sum(v ** 2 for v in vec)) or 1.0
+                    vecs.append([v / norm for v in vec])
+                self.scorer_vecs.append(torch.tensor(vecs, dtype=torch.float32))
+                self.scorer_names.append(name)
+
+        self.n_scorers = len(self.scorer_vecs)
+        self.n_passages = len(self.consensus_vecs)
+
+    def __len__(self):
+        return self.n_passages * self.samples_per_passage
+
+    def __getitem__(self, idx):
+        base_idx = idx % self.n_passages
+
+        # Text embedding
+        text_embed = self.text_embeds[base_idx].clone()
+
+        # Randomly select one scorer's vector as the "second modality"
+        scorer_idx = random.randint(0, self.n_scorers - 1)
+        scorer_vec = self.scorer_vecs[scorer_idx][base_idx].clone()
+
+        # Consensus target
+        consensus_vec = self.consensus_vecs[base_idx].clone()
+
+        label = self.labels_tensor[base_idx]
+
+        if self.augment and idx >= self.n_passages:
+            # Add noise to text embedding
+            text_embed = text_embed + torch.randn_like(text_embed) * self.noise_std
+            text_embed = text_embed / (text_embed.norm() + 1e-8)
+
+            # Add noise to scorer vector
+            scorer_vec = scorer_vec + torch.randn_like(scorer_vec) * self.noise_std
+            scorer_vec = scorer_vec / (scorer_vec.norm() + 1e-8)
+
+        return text_embed, scorer_vec, consensus_vec, label
+
+
 # ─── Data Loaders ─────────────────────────────────────────────────────
 
 def get_dataloader(

@@ -1,0 +1,29 @@
+{
+  "description": "Phase 2+3 parallel hyperparameter sweep on Modal (T4 GPUs)",
+  "configs_completed": 3,
+  "configs_failed": 1,
+  "failed_reason": "Config 2 OOM on T4 (80 samples_per_passage too large)",
+  "results": [
+    {
+      "config_idx": 0,
+      "config": {"hidden_dim": 256, "lr": 1e-3, "align_weight": 2.0, "tau_max": 10.0, "p2_epochs": 300, "p3_epochs": 200, "batch_size": 64, "samples_per_passage": 50},
+      "phase2": {"bit_agreement": 0.986, "cos_text": 0.9999, "cos_scorer": 0.9999, "acc_text": 1.0, "acc_scorer": 1.0},
+      "phase3": {"op_accuracy": 0.643}
+    },
+    {
+      "config_idx": 1,
+      "config": {"hidden_dim": 128, "lr": 1e-3, "align_weight": 3.0, "tau_max": 8.0, "p2_epochs": 300, "p3_epochs": 200, "batch_size": 32, "samples_per_passage": 50},
+      "phase2": {"bit_agreement": 0.981, "cos_text": 0.9998, "cos_scorer": 0.9997, "acc_text": 1.0, "acc_scorer": 1.0},
+      "phase3": {"op_accuracy": 0.571}
+    },
+    {
+      "config_idx": 3,
+      "config": {"hidden_dim": 192, "lr": 2e-3, "align_weight": 2.5, "tau_max": 10.0, "p2_epochs": 300, "p3_epochs": 200, "batch_size": 48, "samples_per_passage": 60},
+      "phase2": {"bit_agreement": 0.987, "cos_text": 1.0000, "cos_scorer": 0.9999, "acc_text": 1.0, "acc_scorer": 1.0},
+      "phase3": {"op_accuracy": 0.679}
+    }
+  ],
+  "best_config": 3,
+  "best_phase2_agreement": 0.987,
+  "best_phase3_accuracy": 0.679
+}
