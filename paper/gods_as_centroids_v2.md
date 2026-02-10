@@ -219,6 +219,23 @@ In the *reverse sweep* (decreasing coercion from 1 to 0), the system starts full
 
 Crucially, at $\gamma = 0$ the forward sweep yields $D = 0.65$ (polytheistic) while the reverse sweep yields $D = 0.14$ (fragmented post-monotheistic) — the system does **not** return to its original state. The monotheistic phase annihilates the polytheistic attractor landscape; removing coercion produces fragmentation, not restoration.
 
+### 4.5 Lattice Hysteresis: Snap Dynamics Amplify Phase Transitions
+
+The Braille Lattice Corollary (§5.4) introduces discrete Hamming-mean centroids as an alternative to arithmetic-mean centroids in continuous space. We test whether this discretization affects the phase transition by repeating the hysteresis sweep with **Hamming centroids on the 8-dot braille lattice** (96 bits per agent). We run 40 parallel sweeps on Modal (20 Hamming + 20 arithmetic, same parameters as §4.4).
+
+The result is dramatic:
+
+| Metric | Arithmetic (continuous) | Hamming (8-dot lattice) |
+|---|---|---|
+| Forward critical point $\gamma_c^+$ | $\approx 0.90$ | $\approx 0.10$ |
+| $D$ at $\gamma = 0.10$ | 0.609 | **1.000** |
+| $D$ at $\gamma = 0.50$ | 0.497 | **1.000** |
+| $D$ at $\gamma = 1.00$ | 0.791 | **1.000** |
+
+Hamming centroids collapse to full dominance ($D = 1.0$) at $\gamma \approx 0.10$ — a **9$\times$ lower coercion threshold** than arithmetic centroids. The discrete lattice eliminates continuous drift that delays the transition. In continuous space, small perturbations gradually shift the centroid; on the lattice, perturbations either flip a bit (discrete event) or are invisible (no effect). This produces a much steeper energy landscape: once a majority of agents' lattice projections agree on a bit, the centroid snaps and cannot be gradually eroded.
+
+This is a new prediction: **discrete semantic substrates amplify phase transitions.** If human belief dynamics operate on a discrete cognitive substrate (as suggested by categorical perception in psychology and the discreteness of linguistic categories), then the effective coercion threshold for monotheistic collapse may be far lower than continuous models predict — consistent with the historical observation that monotheism emerged rapidly once state coercion was applied (e.g., the Theodosian decrees of 380–392 CE produced near-complete Christianization within two generations).
+
 ![Figure 1: Hysteresis in the polytheism–monotheism transition. Left: Dominance D vs coercion γ showing the hysteresis loop. Center: Effective deity count N_eff. Right: Belief entropy H. Red (forward): γ increasing from 0 to 1. Blue (reverse): γ decreasing from 1 to 0. Shaded regions show ±1 standard deviation across 30 runs. The forward and reverse curves enclose a large hysteresis loop, confirming the asymmetric lock-in hypothesis.](assets/hero_plot.png)
 
 **Figure 1.** *Hysteresis in the polytheism–monotheism transition.* **Left:** Dominance $D$ vs coercion $\gamma$. The forward sweep (red, $\gamma \uparrow$) and reverse sweep (blue, $\gamma \downarrow$) follow different trajectories, enclosing a hysteresis loop with gap $\Delta\gamma \approx 0.55$. **Center:** Effective deity count $N_{\text{eff}}$ collapses from ~18 to ~1 under increasing coercion and does not recover. **Right:** Belief entropy $H$ shows the same irreversibility — diversity lost is not restored. Shaded regions: $\pm 1\sigma$ across 30 independent runs ($N = 80$ agents each).
@@ -346,6 +363,42 @@ The contested axes are precisely those where theological interpretation is genui
 Despite continuous-space disagreement, the braille lattice achieves $88.3\%$ bit agreement across all model pairs. The discrete bottleneck absorbs interpretive variance while preserving structural consensus. Cluster separation through braille majority-vote ($0.081$) matches or exceeds individual models ($0.059$–$0.092$), confirming that the lattice acts as a consensus filter: it preserves what all models agree on and quantizes away what they dispute.
 
 **Remark.** We use a braille-inspired tactile lattice because it is a historically optimized, human-scale discrete semantic code — but the result does not depend on braille per se. The 6-dot cell is the natural unit for encoding a theological axis because it captures exactly the three properties (polarity, intensity, rigidity) that determine an axis's contribution to the centroid. The resulting 72-bit deity signature — 12 braille characters — is a compressed, tactile-native representation of a god-concept that can be read by touch, compared by Hamming distance, and transmitted across any sensory modality without loss of theological structure.
+
+### 5.5 The 8-Dot Extension: Salience, Momentum, and Empirical Tradition Signatures
+
+We extend the 6-dot braille cell (72 bits) to the full **8-dot braille cell** (96 bits for 12 axes), adding two new semantic properties per axis:
+
+- **Dot 7 (Salience):** Whether this axis is contextually active — above the median value across all axes. This encodes which dimensions are *foregrounded* in a tradition's theology.
+- **Dot 8 (Momentum):** Whether this axis is currently changing — the temporal derivative exceeds a threshold. This encodes doctrinal dynamism.
+
+The 8-dot cell uses the full Unicode braille range (U+2800–U+28FF), giving 256 possible states per axis versus 64 for the 6-dot cell. The total representation is $12 \times 8 = 96$ bits per tradition.
+
+**Definition 15 (8-Dot Braille Lattice).** Let $\mathcal{L}_8: \mathcal{S} \to \{0,1\}^{96}$ be the extended projection:
+
+$$\mathcal{L}_8(b_i) = \bigoplus_{a \in \mathcal{A}} \text{cell}_a^{(8)}(b_i)$$
+
+where each $\text{cell}_a^{(8)}$ encodes five properties: polarity (dots 1–3), intensity (dots 4–5), rigidity (dot 6), salience (dot 7), and momentum (dot 8).
+
+**Empirical Tradition Signatures.** We project the 126 consensus-scored passages (§8) onto the 8-dot lattice and compute per-tradition Hamming-mean centroids. Each tradition receives a unique 96-bit braille signature — 12 Unicode characters that encode its complete theological profile:
+
+| Tradition | 8-Dot Braille | Top 3 Axes |
+|---|---|---|
+| Judaism | ⡑⠐⡑⠀⠐⠑⠂⠂⠂⠂⠀⡑ | authority, care, order |
+| Christianity | ⠂⡑⡁⠀⠐⠐⠀⠂⠀⠀⠂⠑ | transcendence, wisdom, power |
+| Islam | ⡑⡑⠁⠑⡐⡑⠂⠂⠂⠂⠂⡑ | authority, transcendence, wisdom |
+| Hinduism | ⡑⡁⠀⠀⡑⡑⠀⠂⠀⠂⠂⡐ | authority, wisdom, power |
+| Buddhism | ⠂⡁⡑⠀⡉⠀⠀⠂⠀⠂⠂⡑ | wisdom, care, order |
+| Jainism | ⠂⡐⡑⡑⡑⠀⠂⠂⠀⠂⠀⡑ | transcendence, care, justice |
+| Daoism | ⠀⡁⠀⠂⡑⠀⠀⠂⠀⠀⡑⡑ | wisdom, nature, order |
+| Confucianism | ⡐⠀⡀⡑⡁⠀⠂⠂⠂⠂⠀⡑ | authority, justice, order |
+| Lakota | ⠂⠒⡑⠀⡑⠀⠀⠂⠂⠂⡑⡑ | care, wisdom, nature |
+| Yoruba | ⠀⡑⠀⠂⡁⡐⠐⠂⠂⠂⠐⡑ | transcendence, power, order |
+| Secular Humanism | ⠂⠂⡉⡁⡁⠀⠂⠂⠀⠂⡀⡑ | care, order, justice |
+| Sufism | ⠂⡑⡑⠀⡑⠀⠀⠂⠀⠀⠒⡐ | transcendence, care, wisdom |
+
+These signatures are derived from the 4-LLM lattice consensus (§8.4) and are stable under individual model substitution. The 8-dot extension adds 2–5 bits of information per tradition compared to the 6-dot encoding, with the additional bits concentrated in the salience channel (dot 7), which captures which axes are foregrounded in each tradition's theology.
+
+**Round-trip reconstruction.** Decoding the 96-bit signatures back to continuous vectors yields mean cosine similarity of $0.932$ with the original consensus centroids across all 37 traditions. The lattice acts as a lossy compressor that preserves theological structure while quantizing away scorer noise.
 
 ---
 
@@ -494,6 +547,42 @@ We derive final simulation parameters from the **4-model consensus scores** (mea
 | Deity priors | 12 hand-crafted | 37 from corpus | **37 consensus** | Tradition centroid vectors |
 
 The consensus averaging tightens all parameters because scorer noise cancels: $\theta$ drops from 0.097 to 0.073 (now **5.5$\times$ tighter** than hand-tuned), and $\sigma^2_{\max}$ drops from 0.162 to 0.106. The fission threshold continues to correctly discriminate: Hinduism ($\sigma^2 = 0.135$) and Buddhism ($\sigma^2 = 0.130$) exceed the threshold, while Jainism ($\sigma^2 = 0.048$), Aboriginal Australian ($\sigma^2 = 0.037$), and Cao Dai ($\sigma^2 = 0.039$) fall well below it.
+
+### 8.4 4-LLM Lattice Consensus: Bit-Level Agreement
+
+The continuous consensus (§8.3) averages scores before projection. An alternative — and more principled — approach is to project each model's scores **independently** to the 8-dot braille lattice, then compute the Hamming mean across all 4 models at the bit level. This preserves each model's discrete judgment and lets majority vote resolve quantization boundary disagreements.
+
+**Pipeline.** For each of 126 passages: (1) each of 4 LLMs produces a continuous score vector; (2) each vector is projected independently to a 96-bit lattice point; (3) the per-passage lattice consensus is the Hamming mean (majority vote) across 4 lattice points; (4) per-tradition signatures are the Hamming mean across all passages in that tradition.
+
+**Per-passage agreement.** Across 126 passages, the 4 models agree unanimously on a mean of **82.2 out of 96 bits (85.6%)**. The minimum unanimous agreement is 68/96 (70.8%) and the maximum is 92/96 (95.8%).
+
+**Per-dot agreement hierarchy.** The 8 dot positions exhibit a clear agreement hierarchy that reflects the nature of the encoded semantic property:
+
+| Dot | Semantic Property | 4-Model Agreement |
+|---|---|---|
+| 8 | Momentum (temporal change) | 100.0% |
+| 6 | Rigidity (fluid vs dogmatic) | 99.7% |
+| 4 | Intensity (high bit) | 94.4% |
+| 3 | Tension (polarity conflict) | 86.8% |
+| 2 | Negative polarity | 79.4% |
+| 7 | Salience (contextually active) | 77.8% |
+| 1 | Positive polarity | 77.7% |
+| 5 | Intensity (low bit) | 69.4% |
+
+Models agree most on **structural features** (rigidity, coarse intensity) and least on **fine-grained distinctions** (low-bit intensity, polarity direction). This is consistent with the continuous-space finding that models agree on *whether* an axis is important but disagree on *exactly how much* — and the lattice makes this distinction precise: the high-intensity bit (dot 4, threshold at $v > 0.5$) is consensual (94.4%), while the low-intensity bit (dot 5, threshold at $v \bmod 0.25$) is contested (69.4%).
+
+**Per-model distance from consensus.** Each model's tradition-level centroids differ from the lattice consensus by:
+
+| Model | Mean distance | Exact matches | Max distance |
+|---|---|---|---|
+| GPT-4o | 3.8 bits | 3/37 | 11 bits |
+| Claude Sonnet 4 | 4.4 bits | 0/37 | 10 bits |
+| Llama 3.3 70B | 4.4 bits | 2/37 | 11 bits |
+| Gemini 2.0 Flash | 6.1 bits | 0/37 | 16 bits |
+
+No single model produces tradition signatures identical to the lattice consensus for all 37 traditions. The consensus is a genuinely emergent object — it represents the stable core of theological structure that all 4 architecturally distinct models agree on, with quantization boundary disagreements resolved by majority vote.
+
+**Lattice fission discriminator.** The fission discriminator (§3.2) transfers to the lattice. Traditions with historical schisms (Hinduism, Islam, Christianity, Buddhism) exhibit higher intra-tradition Hamming variance (mean $= 21.99$) than historically stable traditions (Jainism, Sikhism, Zoroastrianism, Cao Dai; mean $= 17.45$). The discrete lattice preserves the discriminative signal that identifies traditions prone to schism.
 
 ---
 
