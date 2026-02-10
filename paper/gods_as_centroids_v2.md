@@ -482,7 +482,7 @@ We position our model against five streams of prior work:
 
 3. **Cognitive landscape.** The belief space is currently isotropic. Implementing CSR-derived cognitive attractors (regions of lower "potential energy" corresponding to cognitively natural god-concepts) would add realism.
 
-4. **Scale.** The current implementation uses 80–200 agents. Scaling to thousands with GPU acceleration would enable more realistic population dynamics and sharper phase transitions.
+4. **Scale and percolation.** The current implementation uses 80 agents. Preliminary finite-size scaling experiments (N = 80, 200, 500) reveal that with the corpus-calibrated cluster threshold ($\theta = 0.12$), larger populations exhibit spontaneous ordering even at $\gamma = 0$ — a percolation effect where random belief vectors in 12D are close enough to cluster. This suggests that $\theta$ should scale with $N$ (analogous to the bounded-confidence threshold in Deffuant models), and that the relationship between population size and spontaneous religious consolidation is itself a rich area for future investigation.
 
 5. **Generative agents.** Replacing rule-based agents with LLM-powered generative agents (Park et al. 2023) would enable richer, more realistic belief dynamics — but at the cost of interpretability and reproducibility.
 
