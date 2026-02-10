@@ -1,0 +1,1505 @@
+{
+  "capacity_stress_test": {
+    "12": {
+      "bits_per_axis": 1,
+      "total_bits": 12,
+      "best_classification_accuracy": 0.8387500047683716,
+      "final_classification_accuracy": 0.8225,
+      "mean_cosine_similarity": 0.9994094360652274,
+      "mean_l2_displacement": 0.04531266592793838,
+      "displacement_ratio": 0.08180130307645841,
+      "similarity_rank_correlation": 0.9923536356691436,
+      "training_history": {
+        "final_loss": 0.13490244299173354,
+        "final_recon_error": 0.0049178763292729855
+      }
+    },
+    "24": {
+      "bits_per_axis": 2,
+      "total_bits": 24,
+      "best_classification_accuracy": 0.8543750047683716,
+      "final_classification_accuracy": 0.84,
+      "mean_cosine_similarity": 0.9985732392566915,
+      "mean_l2_displacement": 0.05798374170488165,
+      "displacement_ratio": 0.10467593401481218,
+      "similarity_rank_correlation": 0.9911868879783315,
+      "training_history": {
+        "final_loss": 0.10463464468717575,
+        "final_recon_error": 0.0045287394896149635
+      }
+    },
+    "36": {
+      "bits_per_axis": 3,
+      "total_bits": 36,
+      "best_classification_accuracy": 0.8618749976158142,
+      "final_classification_accuracy": 0.834375,
+      "mean_cosine_similarity": 0.9978956270175208,
+      "mean_l2_displacement": 0.06751446653092369,
+      "displacement_ratio": 0.12188140392190715,
+      "similarity_rank_correlation": 0.9817765122577954,
+      "training_history": {
+        "final_loss": 0.09578222036361694,
+        "final_recon_error": 0.004127301275730133
+      }
+    },
+    "48": {
+      "bits_per_axis": 4,
+      "total_bits": 48,
+      "best_classification_accuracy": 0.8662499785423279,
+      "final_classification_accuracy": 0.846875,
+      "mean_cosine_similarity": 0.9970957080065881,
+      "mean_l2_displacement": 0.07624470140429146,
+      "displacement_ratio": 0.13764177851431672,
+      "similarity_rank_correlation": 0.9824640600041669,
+      "training_history": {
+        "final_loss": 0.08412996962666512,
+        "final_recon_error": 0.0036658914759755135
+      }
+    },
+    "72": {
+      "bits_per_axis": 6,
+      "total_bits": 72,
+      "best_classification_accuracy": 0.8637499809265137,
+      "final_classification_accuracy": 0.85125,
+      "mean_cosine_similarity": 0.9961827860340298,
+      "mean_l2_displacement": 0.08939858296517851,
+      "displacement_ratio": 0.16138800112468246,
+      "similarity_rank_correlation": 0.9873463434960761,
+      "training_history": {
+        "final_loss": 0.08245254576206207,
+        "final_recon_error": 0.003367455443367362
+      }
+    },
+    "96": {
+      "bits_per_axis": 8,
+      "total_bits": 96,
+      "best_classification_accuracy": 0.8650000095367432,
+      "final_classification_accuracy": 0.84875,
+      "mean_cosine_similarity": 0.9960287403928728,
+      "mean_l2_displacement": 0.08736058625704352,
+      "displacement_ratio": 0.1577088800008868,
+      "similarity_rank_correlation": 0.9792555038544342,
+      "training_history": {
+        "final_loss": 0.07689462304115295,
+        "final_recon_error": 0.002925690496340394
+      }
+    }
+  },
+  "centroid_preservation_72bit": {
+    "Zeus": {
+      "cosine_similarity": 0.9933011488538623,
+      "l2_displacement": 0.11561641974783897,
+      "bits_active": 39,
+      "total_bits": 72
+    },
+    "Yahweh": {
+      "cosine_similarity": 0.9912371292627148,
+      "l2_displacement": 0.13252407631438617,
+      "bits_active": 45,
+      "total_bits": 72
+    },
+    "Vishnu": {
+      "cosine_similarity": 0.993942301796313,
+      "l2_displacement": 0.10990742490694715,
+      "bits_active": 45,
+      "total_bits": 72
+    },
+    "Odin": {
+      "cosine_similarity": 0.9959769250410639,
+      "l2_displacement": 0.09330298249328195,
+      "bits_active": 42,
+      "total_bits": 72
+    },
+    "Isis": {
+      "cosine_similarity": 0.996916322538851,
+      "l2_displacement": 0.07965771977065894,
+      "bits_active": 40,
+      "total_bits": 72
+    },
+    "Mars": {
+      "cosine_similarity": 0.9961801237808137,
+      "l2_displacement": 0.08882371096474673,
+      "bits_active": 40,
+      "total_bits": 72
+    },
+    "Ra": {
+      "cosine_similarity": 0.9927627831227929,
+      "l2_displacement": 0.12009312745993078,
+      "bits_active": 40,
+      "total_bits": 72
+    },
+    "Kali": {
+      "cosine_similarity": 0.9954923169604609,
+      "l2_displacement": 0.09640016285601606,
+      "bits_active": 44,
+      "total_bits": 72
+    },
+    "Thor": {
+      "cosine_similarity": 0.9977137333682795,
+      "l2_displacement": 0.06909585971840347,
+      "bits_active": 43,
+      "total_bits": 72
+    },
+    "Athena": {
+      "cosine_similarity": 0.9928815127953645,
+      "l2_displacement": 0.11919611679503288,
+      "bits_active": 40,
+      "total_bits": 72
+    },
+    "Gaia": {
+      "cosine_similarity": 0.9985140077953873,
+      "l2_displacement": 0.056788580786342656,
+      "bits_active": 39,
+      "total_bits": 72
+    },
+    "Anubis": {
+      "cosine_similarity": 0.9956071771636725,
+      "l2_displacement": 0.09797283579460347,
+      "bits_active": 41,
+      "total_bits": 72
+    },
+    "Apollo": {
+      "cosine_similarity": 0.9950173271051913,
+      "l2_displacement": 0.10018103030791196,
+      "bits_active": 44,
+      "total_bits": 72
+    },
+    "Shiva": {
+      "cosine_similarity": 0.9949221494445092,
+      "l2_displacement": 0.10362698233946335,
+      "bits_active": 38,
+      "total_bits": 72
+    },
+    "Freya": {
+      "cosine_similarity": 0.9942885462080234,
+      "l2_displacement": 0.10684275757323247,
+      "bits_active": 43,
+      "total_bits": 72
+    },
+    "Ares": {
+      "cosine_similarity": 0.9956989475300034,
+      "l2_displacement": 0.0947133469576442,
+      "bits_active": 40,
+      "total_bits": 72
+    },
+    "_summary": {
+      "mean_cosine_similarity": 0.9950282782979565,
+      "mean_l2_displacement": 0.09904644592415258,
+      "mean_inter_deity_distance": 0.5539357470330922,
+      "displacement_ratio": 0.17880493623069163
+    }
+  },
+  "task_invariance_72bit": {
+    "classification_accuracy": 0.8325,
+    "per_deity_accuracy": {
+      "Zeus": 0.819047619047619,
+      "Yahweh": 0.7395833333333334,
+      "Vishnu": 0.8494623655913979,
+      "Odin": 0.9423076923076923,
+      "Isis": 0.7289719626168224,
+      "Mars": 0.7156862745098039,
+      "Ra": 0.6237623762376238,
+      "Kali": 0.9072164948453608,
+      "Thor": 0.9821428571428571,
+      "Athena": 0.8842105263157894,
+      "Gaia": 0.9052631578947369,
+      "Anubis": 1.0,
+      "Apollo": 0.9101123595505618,
+      "Shiva": 0.8703703703703703,
+      "Freya": 0.7924528301886793,
+      "Ares": 0.6526315789473685
+    },
+    "similarity_rank_correlation": 0.9680811167442183,
+    "similarity_rank_p_value": 9.252843736336076e-73,
+    "n_test_samples": 1600
+  },
+  "channel_invariance": [
+    {
+      "deity": "Zeus",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 31,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9393518567085266,
+      "same_classification": false,
+      "pred_full": "Zeus",
+      "pred_restricted": "Apollo"
+    },
+    {
+      "deity": "Yahweh",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 12,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9438192844390869,
+      "same_classification": true,
+      "pred_full": "Yahweh",
+      "pred_restricted": "Yahweh"
+    },
+    {
+      "deity": "Vishnu",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 15,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9666643142700195,
+      "same_classification": true,
+      "pred_full": "Vishnu",
+      "pred_restricted": "Vishnu"
+    },
+    {
+      "deity": "Odin",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 36,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8579986691474915,
+      "same_classification": false,
+      "pred_full": "Odin",
+      "pred_restricted": "Anubis"
+    },
+    {
+      "deity": "Isis",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 16,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.922473669052124,
+      "same_classification": false,
+      "pred_full": "Isis",
+      "pred_restricted": "Vishnu"
+    },
+    {
+      "deity": "Mars",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 23,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8412513732910156,
+      "same_classification": false,
+      "pred_full": "Mars",
+      "pred_restricted": "Anubis"
+    },
+    {
+      "deity": "Ra",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 22,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9566003084182739,
+      "same_classification": false,
+      "pred_full": "Ra",
+      "pred_restricted": "Yahweh"
+    },
+    {
+      "deity": "Kali",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 20,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.939308762550354,
+      "same_classification": false,
+      "pred_full": "Kali",
+      "pred_restricted": "Anubis"
+    },
+    {
+      "deity": "Thor",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 32,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8347641825675964,
+      "same_classification": false,
+      "pred_full": "Thor",
+      "pred_restricted": "Anubis"
+    },
+    {
+      "deity": "Athena",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 32,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8341684341430664,
+      "same_classification": false,
+      "pred_full": "Athena",
+      "pred_restricted": "Anubis"
+    },
+    {
+      "deity": "Gaia",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 11,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.924948513507843,
+      "same_classification": true,
+      "pred_full": "Gaia",
+      "pred_restricted": "Gaia"
+    },
+    {
+      "deity": "Anubis",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 4,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9753888845443726,
+      "same_classification": true,
+      "pred_full": "Anubis",
+      "pred_restricted": "Anubis"
+    },
+    {
+      "deity": "Apollo",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 24,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8800415396690369,
+      "same_classification": true,
+      "pred_full": "Apollo",
+      "pred_restricted": "Apollo"
+    },
+    {
+      "deity": "Shiva",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 27,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.924984335899353,
+      "same_classification": false,
+      "pred_full": "Shiva",
+      "pred_restricted": "Anubis"
+    },
+    {
+      "deity": "Freya",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 23,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.848936915397644,
+      "same_classification": false,
+      "pred_full": "Freya",
+      "pred_restricted": "Vishnu"
+    },
+    {
+      "deity": "Ares",
+      "restriction": "visual_embodied",
+      "restricted_axes": [
+        "wisdom",
+        "power",
+        "fertility",
+        "war"
+      ],
+      "hamming_distance": 27,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8240966796875,
+      "same_classification": false,
+      "pred_full": "Ares",
+      "pred_restricted": "Anubis"
+    },
+    {
+      "deity": "Zeus",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 15,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9351697564125061,
+      "same_classification": true,
+      "pred_full": "Zeus",
+      "pred_restricted": "Zeus"
+    },
+    {
+      "deity": "Yahweh",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 33,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8841423392295837,
+      "same_classification": false,
+      "pred_full": "Yahweh",
+      "pred_restricted": "Mars"
+    },
+    {
+      "deity": "Vishnu",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 35,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8820071220397949,
+      "same_classification": false,
+      "pred_full": "Vishnu",
+      "pred_restricted": "Mars"
+    },
+    {
+      "deity": "Odin",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 10,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9479171633720398,
+      "same_classification": true,
+      "pred_full": "Odin",
+      "pred_restricted": "Odin"
+    },
+    {
+      "deity": "Isis",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 7,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9583793878555298,
+      "same_classification": false,
+      "pred_full": "Isis",
+      "pred_restricted": "Gaia"
+    },
+    {
+      "deity": "Mars",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 1,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9936072826385498,
+      "same_classification": true,
+      "pred_full": "Mars",
+      "pred_restricted": "Mars"
+    },
+    {
+      "deity": "Ra",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 37,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8421865701675415,
+      "same_classification": false,
+      "pred_full": "Ra",
+      "pred_restricted": "Thor"
+    },
+    {
+      "deity": "Kali",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 13,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9316335916519165,
+      "same_classification": true,
+      "pred_full": "Kali",
+      "pred_restricted": "Kali"
+    },
+    {
+      "deity": "Thor",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 1,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9971339106559753,
+      "same_classification": true,
+      "pred_full": "Thor",
+      "pred_restricted": "Thor"
+    },
+    {
+      "deity": "Athena",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 8,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9559274315834045,
+      "same_classification": true,
+      "pred_full": "Athena",
+      "pred_restricted": "Athena"
+    },
+    {
+      "deity": "Gaia",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 4,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9764710068702698,
+      "same_classification": true,
+      "pred_full": "Gaia",
+      "pred_restricted": "Gaia"
+    },
+    {
+      "deity": "Anubis",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 7,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9600222110748291,
+      "same_classification": true,
+      "pred_full": "Anubis",
+      "pred_restricted": "Anubis"
+    },
+    {
+      "deity": "Apollo",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 22,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9098706245422363,
+      "same_classification": false,
+      "pred_full": "Apollo",
+      "pred_restricted": "Athena"
+    },
+    {
+      "deity": "Shiva",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 30,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.864136278629303,
+      "same_classification": false,
+      "pred_full": "Shiva",
+      "pred_restricted": "Mars"
+    },
+    {
+      "deity": "Freya",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 4,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9778580665588379,
+      "same_classification": true,
+      "pred_full": "Freya",
+      "pred_restricted": "Freya"
+    },
+    {
+      "deity": "Ares",
+      "restriction": "abstract_conceptual",
+      "restricted_axes": [
+        "transcendence",
+        "creation"
+      ],
+      "hamming_distance": 1,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9931431412696838,
+      "same_classification": true,
+      "pred_full": "Ares",
+      "pred_restricted": "Ares"
+    },
+    {
+      "deity": "Zeus",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 30,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8337025046348572,
+      "same_classification": false,
+      "pred_full": "Zeus",
+      "pred_restricted": "Freya"
+    },
+    {
+      "deity": "Yahweh",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 27,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9128770232200623,
+      "same_classification": false,
+      "pred_full": "Yahweh",
+      "pred_restricted": "Vishnu"
+    },
+    {
+      "deity": "Vishnu",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 18,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9221057891845703,
+      "same_classification": false,
+      "pred_full": "Vishnu",
+      "pred_restricted": "Isis"
+    },
+    {
+      "deity": "Odin",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 5,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9642956852912903,
+      "same_classification": true,
+      "pred_full": "Odin",
+      "pred_restricted": "Odin"
+    },
+    {
+      "deity": "Isis",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 10,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.950346052646637,
+      "same_classification": false,
+      "pred_full": "Isis",
+      "pred_restricted": "Gaia"
+    },
+    {
+      "deity": "Mars",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 10,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9456606507301331,
+      "same_classification": true,
+      "pred_full": "Mars",
+      "pred_restricted": "Mars"
+    },
+    {
+      "deity": "Ra",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 30,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8522154688835144,
+      "same_classification": false,
+      "pred_full": "Ra",
+      "pred_restricted": "Freya"
+    },
+    {
+      "deity": "Kali",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 20,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9374457597732544,
+      "same_classification": false,
+      "pred_full": "Kali",
+      "pred_restricted": "Odin"
+    },
+    {
+      "deity": "Thor",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 11,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.949937641620636,
+      "same_classification": true,
+      "pred_full": "Thor",
+      "pred_restricted": "Thor"
+    },
+    {
+      "deity": "Athena",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 25,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.8664994239807129,
+      "same_classification": false,
+      "pred_full": "Athena",
+      "pred_restricted": "Odin"
+    },
+    {
+      "deity": "Gaia",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 0,
+      "total_bits": 72,
+      "braille_identical": true,
+      "reconstructed_cosine_sim": 1.0,
+      "same_classification": true,
+      "pred_full": "Gaia",
+      "pred_restricted": "Gaia"
+    },
+    {
+      "deity": "Anubis",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 24,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.918942928314209,
+      "same_classification": false,
+      "pred_full": "Anubis",
+      "pred_restricted": "Kali"
+    },
+    {
+      "deity": "Apollo",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 17,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9435112476348877,
+      "same_classification": true,
+      "pred_full": "Apollo",
+      "pred_restricted": "Apollo"
+    },
+    {
+      "deity": "Shiva",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 18,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.939551591873169,
+      "same_classification": false,
+      "pred_full": "Shiva",
+      "pred_restricted": "Odin"
+    },
+    {
+      "deity": "Freya",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 9,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9586710929870605,
+      "same_classification": true,
+      "pred_full": "Freya",
+      "pred_restricted": "Freya"
+    },
+    {
+      "deity": "Ares",
+      "restriction": "social_political",
+      "restricted_axes": [
+        "authority",
+        "justice",
+        "power",
+        "order"
+      ],
+      "hamming_distance": 7,
+      "total_bits": 72,
+      "braille_identical": false,
+      "reconstructed_cosine_sim": 0.9664961695671082,
+      "same_classification": false,
+      "pred_full": "Ares",
+      "pred_restricted": "Mars"
+    }
+  ],
+  "semantic_braiding": {
+    "per_deity": {
+      "Zeus": {
+        "bit_agreement_rate": 0.5055555555555555,
+        "braided_cosine_sim": 0.9542339477618162,
+        "individual_cosine_sims": [
+          0.9980217304674657,
+          0.9980556108788499,
+          0.9945694708634015,
+          0.9924300167271696,
+          0.9906899993380138
+        ],
+        "mean_individual_cosine": 0.9947533656549801,
+        "braid_improvement": -0.04051941789316382,
+        "braided_pred": "Zeus",
+        "individual_preds": [
+          "Zeus",
+          "Zeus",
+          "Zeus",
+          "Zeus",
+          "Zeus"
+        ],
+        "pred_agreement": true,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          24,
+          24,
+          26,
+          17,
+          21
+        ]
+      },
+      "Yahweh": {
+        "bit_agreement_rate": 0.4833333333333334,
+        "braided_cosine_sim": 0.966270239213885,
+        "individual_cosine_sims": [
+          0.9995790991944786,
+          0.9966460248740832,
+          0.9955810254477454,
+          0.9925259023460925,
+          0.9909332501375498
+        ],
+        "mean_individual_cosine": 0.99505306039999,
+        "braid_improvement": -0.02878282118610498,
+        "braided_pred": "Yahweh",
+        "individual_preds": [
+          "Yahweh",
+          "Yahweh",
+          "Yahweh",
+          "Yahweh",
+          "Yahweh"
+        ],
+        "pred_agreement": true,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          25,
+          27,
+          23,
+          14,
+          28
+        ]
+      },
+      "Vishnu": {
+        "bit_agreement_rate": 0.47777777777777775,
+        "braided_cosine_sim": 0.9827246972875759,
+        "individual_cosine_sims": [
+          0.9993889686691938,
+          0.9945625909165433,
+          0.9941588557184234,
+          0.9900312847760049,
+          0.9850651380815346
+        ],
+        "mean_individual_cosine": 0.9926413676323399,
+        "braid_improvement": -0.009916670344763956,
+        "braided_pred": "Isis",
+        "individual_preds": [
+          "Vishnu",
+          "Vishnu",
+          "Vishnu",
+          "Vishnu",
+          "Vishnu"
+        ],
+        "pred_agreement": true,
+        "braid_correct": false,
+        "individual_to_braid_hamming": [
+          22,
+          26,
+          24,
+          22,
+          24
+        ]
+      },
+      "Odin": {
+        "bit_agreement_rate": 0.49444444444444446,
+        "braided_cosine_sim": 0.9708126097194912,
+        "individual_cosine_sims": [
+          0.9989976297748245,
+          0.9985886429901278,
+          0.996719305581073,
+          0.9936417671353932,
+          0.9924279093226405
+        ],
+        "mean_individual_cosine": 0.9960750509608118,
+        "braid_improvement": -0.0252624412413206,
+        "braided_pred": "Odin",
+        "individual_preds": [
+          "Odin",
+          "Odin",
+          "Odin",
+          "Odin",
+          "Odin"
+        ],
+        "pred_agreement": true,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          18,
+          24,
+          24,
+          19,
+          29
+        ]
+      },
+      "Isis": {
+        "bit_agreement_rate": 0.49444444444444446,
+        "braided_cosine_sim": 0.9620178509489173,
+        "individual_cosine_sims": [
+          0.9993569456205044,
+          0.9969953552312517,
+          0.9934187971454896,
+          0.989591962504989,
+          0.9741597744784823
+        ],
+        "mean_individual_cosine": 0.9907045669961434,
+        "braid_improvement": -0.028686716047226057,
+        "braided_pred": "Freya",
+        "individual_preds": [
+          "Isis",
+          "Isis",
+          "Isis",
+          "Isis",
+          "Isis"
+        ],
+        "pred_agreement": true,
+        "braid_correct": false,
+        "individual_to_braid_hamming": [
+          20,
+          22,
+          24,
+          30,
+          17
+        ]
+      },
+      "Mars": {
+        "bit_agreement_rate": 0.4666666666666667,
+        "braided_cosine_sim": 0.8995812363923992,
+        "individual_cosine_sims": [
+          0.9975794920749215,
+          0.9992337387151118,
+          0.9971912492739887,
+          0.9941715014278982,
+          0.9934499821976168
+        ],
+        "mean_individual_cosine": 0.9963251927379073,
+        "braid_improvement": -0.09674395634550814,
+        "braided_pred": "Mars",
+        "individual_preds": [
+          "Mars",
+          "Mars",
+          "Mars",
+          "Mars",
+          "Mars"
+        ],
+        "pred_agreement": true,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          23,
+          23,
+          26,
+          22,
+          27
+        ]
+      },
+      "Ra": {
+        "bit_agreement_rate": 0.4972222222222221,
+        "braided_cosine_sim": 0.9840028651693923,
+        "individual_cosine_sims": [
+          0.9992840358989793,
+          0.9953851783398524,
+          0.9939719307393593,
+          0.9942262325763445,
+          0.9873292538740562
+        ],
+        "mean_individual_cosine": 0.9940393262857181,
+        "braid_improvement": -0.010036461116325834,
+        "braided_pred": "Ra",
+        "individual_preds": [
+          "Ra",
+          "Ra",
+          "Ra",
+          "Ra",
+          "Ra"
+        ],
+        "pred_agreement": true,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          19,
+          23,
+          25,
+          22,
+          26
+        ]
+      },
+      "Kali": {
+        "bit_agreement_rate": 0.5222222222222221,
+        "braided_cosine_sim": 0.9518045721004168,
+        "individual_cosine_sims": [
+          0.9992141126193443,
+          0.9975890872665233,
+          0.9950532599014733,
+          0.9900934471727535,
+          0.9803576919247053
+        ],
+        "mean_individual_cosine": 0.99246151977696,
+        "braid_improvement": -0.040656947676543154,
+        "braided_pred": "Kali",
+        "individual_preds": [
+          "Kali",
+          "Kali",
+          "Kali",
+          "Kali",
+          "Kali"
+        ],
+        "pred_agreement": true,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          20,
+          21,
+          23,
+          18,
+          26
+        ]
+      },
+      "Thor": {
+        "bit_agreement_rate": 0.5055555555555554,
+        "braided_cosine_sim": 0.9391147446934944,
+        "individual_cosine_sims": [
+          0.9996447612003019,
+          0.9959493394604862,
+          0.995132115685464,
+          0.9961069769897163,
+          0.9848273513055245
+        ],
+        "mean_individual_cosine": 0.9943321089282987,
+        "braid_improvement": -0.05521736423480428,
+        "braided_pred": "Thor",
+        "individual_preds": [
+          "Thor",
+          "Thor",
+          "Thor",
+          "Thor",
+          "Thor"
+        ],
+        "pred_agreement": true,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          20,
+          19,
+          26,
+          23,
+          22
+        ]
+      },
+      "Athena": {
+        "bit_agreement_rate": 0.475,
+        "braided_cosine_sim": 0.9736986333704822,
+        "individual_cosine_sims": [
+          0.9995784399673745,
+          0.9962842257439379,
+          0.9973922032289126,
+          0.9936762139364473,
+          0.9919963272742993
+        ],
+        "mean_individual_cosine": 0.9957854820301943,
+        "braid_improvement": -0.02208684865971211,
+        "braided_pred": "Athena",
+        "individual_preds": [
+          "Athena",
+          "Athena",
+          "Athena",
+          "Athena",
+          "Athena"
+        ],
+        "pred_agreement": true,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          22,
+          27,
+          22,
+          23,
+          26
+        ]
+      },
+      "Gaia": {
+        "bit_agreement_rate": 0.46944444444444444,
+        "braided_cosine_sim": 0.9603273026677467,
+        "individual_cosine_sims": [
+          0.9997493691402904,
+          0.9980619111268644,
+          0.9980887441692667,
+          0.9960570186249977,
+          0.994202501023551
+        ],
+        "mean_individual_cosine": 0.9972319088169941,
+        "braid_improvement": -0.0369046061492474,
+        "braided_pred": "Gaia",
+        "individual_preds": [
+          "Gaia",
+          "Gaia",
+          "Gaia",
+          "Gaia",
+          "Gaia"
+        ],
+        "pred_agreement": true,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          18,
+          24,
+          24,
+          28,
+          26
+        ]
+      },
+      "Anubis": {
+        "bit_agreement_rate": 0.5305555555555556,
+        "braided_cosine_sim": 0.9477291519102333,
+        "individual_cosine_sims": [
+          0.9989070930991205,
+          0.9985551214507534,
+          0.9972119764299013,
+          0.995263696280726,
+          0.9863699304987242
+        ],
+        "mean_individual_cosine": 0.9952615635518451,
+        "braid_improvement": -0.047532411641611816,
+        "braided_pred": "Kali",
+        "individual_preds": [
+          "Anubis",
+          "Anubis",
+          "Anubis",
+          "Anubis",
+          "Anubis"
+        ],
+        "pred_agreement": true,
+        "braid_correct": false,
+        "individual_to_braid_hamming": [
+          25,
+          22,
+          19,
+          17,
+          21
+        ]
+      },
+      "Apollo": {
+        "bit_agreement_rate": 0.4916666666666667,
+        "braided_cosine_sim": 0.9747720955663992,
+        "individual_cosine_sims": [
+          0.9987026246378614,
+          0.9970551377956587,
+          0.9970841086088696,
+          0.9926991116034939,
+          0.9935690912128828
+        ],
+        "mean_individual_cosine": 0.9958220147717534,
+        "braid_improvement": -0.02104991920535415,
+        "braided_pred": "Athena",
+        "individual_preds": [
+          "Apollo",
+          "Apollo",
+          "Apollo",
+          "Apollo",
+          "Apollo"
+        ],
+        "pred_agreement": true,
+        "braid_correct": false,
+        "individual_to_braid_hamming": [
+          24,
+          21,
+          23,
+          21,
+          28
+        ]
+      },
+      "Shiva": {
+        "bit_agreement_rate": 0.5138888888888888,
+        "braided_cosine_sim": 0.9874679083029081,
+        "individual_cosine_sims": [
+          0.9992481969542922,
+          0.9989114120265726,
+          0.9917333571898888,
+          0.9901976753670464,
+          0.9813977326105584
+        ],
+        "mean_individual_cosine": 0.9922976748296717,
+        "braid_improvement": -0.00482976652676359,
+        "braided_pred": "Shiva",
+        "individual_preds": [
+          "Shiva",
+          "Shiva",
+          "Shiva",
+          "Shiva",
+          "Shiva"
+        ],
+        "pred_agreement": true,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          18,
+          17,
+          23,
+          21,
+          28
+        ]
+      },
+      "Freya": {
+        "bit_agreement_rate": 0.47777777777777775,
+        "braided_cosine_sim": 0.9619703899025033,
+        "individual_cosine_sims": [
+          0.9992077054153647,
+          0.997258771542775,
+          0.9955077212531797,
+          0.9865422973025083,
+          0.9921776211405012
+        ],
+        "mean_individual_cosine": 0.9941388233308658,
+        "braid_improvement": -0.03216843342836251,
+        "braided_pred": "Freya",
+        "individual_preds": [
+          "Freya",
+          "Freya",
+          "Freya",
+          "Freya",
+          "Freya"
+        ],
+        "pred_agreement": true,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          18,
+          24,
+          24,
+          28,
+          22
+        ]
+      },
+      "Ares": {
+        "bit_agreement_rate": 0.4666666666666667,
+        "braided_cosine_sim": 0.9021967521057458,
+        "individual_cosine_sims": [
+          0.998287206759525,
+          0.9989308707016097,
+          0.9948302872670169,
+          0.9932239926759202,
+          0.9945603619056003
+        ],
+        "mean_individual_cosine": 0.9959665438619343,
+        "braid_improvement": -0.09376979175618849,
+        "braided_pred": "Ares",
+        "individual_preds": [
+          "Ares",
+          "Ares",
+          "Ares",
+          "Mars",
+          "Ares"
+        ],
+        "pred_agreement": false,
+        "braid_correct": true,
+        "individual_to_braid_hamming": [
+          23,
+          27,
+          27,
+          20,
+          25
+        ]
+      }
+    },
+    "summary": {
+      "num_models": 5,
+      "mean_bit_agreement": 0.49201388888888886,
+      "mean_braided_cosine_sim": 0.9574203123195879,
+      "mean_individual_cosine_sim": 0.9945555981604005,
+      "mean_braid_improvement": -0.037135285840812556,
+      "braid_correct_rate": 0.75,
+      "individual_agreement_rate": 0.9375
+    }
+  },
+  "summary": {
+    "claim": "Emergent theological structures\u2014defined as population-level centroid attractors in a designed belief space\u2014remain stable when forced through a fixed, 72-bit discrete bottleneck. This suggests that such structures are not artifacts of high-dimensional continuous embeddings, but persist under severe semantic compression.",
+    "braiding_claim": "We introduce semantic braiding: a method for fusing heterogeneous models by projecting their internal states through a shared discrete bottleneck and combining them at the level of compressed semantic invariants. Unlike logit- or token-level ensembles, braiding preserves only structure that survives severe information constraints.",
+    "architecture": "Encoder(\u211d\u00b9\u00b2) \u2192 BrailleQuantizer({0,1}\u2077\u00b2) \u2192 Decoder(\u211d\u00b9\u00b2)",
+    "bottleneck_type": "deterministic quantization with straight-through estimator",
+    "bits_per_axis": 6,
+    "total_bits": 72,
+    "encoding": "2 polarity + 2 intensity + 2 rigidity per axis",
+    "braiding": "majority lattice over K=5 encoder variants"
+  }
+}
