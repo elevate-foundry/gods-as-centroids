@@ -1,0 +1,199 @@
+{
+  "demonstrations": {
+    "universality": {
+      "corollary": "A_universality",
+      "prediction": "P(godforms) = 0 if \u03ba < \u03ba*, P(godforms) > 0 if \u03ba > \u03ba*",
+      "threshold_found": null,
+      "results": [
+        {
+          "coupling_proxy": 0.0,
+          "has_godforms": false,
+          "centroid_count": 0
+        },
+        {
+          "coupling_proxy": 0.1,
+          "has_godforms": false,
+          "centroid_count": 0
+        },
+        {
+          "coupling_proxy": 0.2,
+          "has_godforms": false,
+          "centroid_count": 0
+        },
+        {
+          "coupling_proxy": 0.3,
+          "has_godforms": false,
+          "centroid_count": 0
+        },
+        {
+          "coupling_proxy": 0.5,
+          "has_godforms": false,
+          "centroid_count": 0
+        },
+        {
+          "coupling_proxy": 0.8,
+          "has_godforms": false,
+          "centroid_count": 0
+        }
+      ],
+      "validated": false
+    },
+    "monotheism": {
+      "corollary": "B_monotheism_transition",
+      "prediction": "\u2202N_eff/\u2202c < 0 monotonically",
+      "correlation": 0,
+      "monotonic_decrease": false,
+      "results": [
+        {
+          "coercion": 0.0,
+          "n_effective": 0,
+          "dominance_ratio": 0.0
+        },
+        {
+          "coercion": 0.2,
+          "n_effective": 0,
+          "dominance_ratio": 0.0
+        },
+        {
+          "coercion": 0.4,
+          "n_effective": 0,
+          "dominance_ratio": 0.0
+        },
+        {
+          "coercion": 0.6,
+          "n_effective": 0,
+          "dominance_ratio": 0.0
+        },
+        {
+          "coercion": 0.8,
+          "n_effective": 0,
+          "dominance_ratio": 0.0
+        },
+        {
+          "coercion": 1.0,
+          "n_effective": 0,
+          "dominance_ratio": 0.0
+        }
+      ],
+      "validated": false
+    },
+    "ritual_stabilizer": {
+      "corollary": "D_ritual_stabilizer",
+      "prediction": "\u2202churn/\u2202\u03c1 < 0 (higher cost \u2192 lower churn)",
+      "correlation": 0,
+      "stabilizing_effect": false,
+      "results": [
+        {
+          "ritual_cost": 0.0,
+          "churn": 0.0,
+          "stability": 1.0,
+          "final_centroids": 0
+        },
+        {
+          "ritual_cost": 0.05,
+          "churn": 0.0,
+          "stability": 1.0,
+          "final_centroids": 0
+        },
+        {
+          "ritual_cost": 0.1,
+          "churn": 0.0,
+          "stability": 1.0,
+          "final_centroids": 0
+        },
+        {
+          "ritual_cost": 0.15,
+          "churn": 0.0,
+          "stability": 1.0,
+          "final_centroids": 0
+        },
+        {
+          "ritual_cost": 0.25,
+          "churn": 0.0,
+          "stability": 1.0,
+          "final_centroids": 0
+        },
+        {
+          "ritual_cost": 0.4,
+          "churn": 0.0,
+          "stability": 1.0,
+          "final_centroids": 0
+        }
+      ],
+      "validated": false
+    },
+    "prestige_amplifier": {
+      "corollary": "E_prestige_amplifier",
+      "prediction": "\u2202convergence_speed/\u2202\u03b1 > 0",
+      "correlation": 0,
+      "amplifying_effect": false,
+      "results": [
+        {
+          "prestige_alpha": 0.0,
+          "convergence_step": 1500,
+          "convergence_speed": 0.0006662225183211193,
+          "converged": false
+        },
+        {
+          "prestige_alpha": 0.1,
+          "convergence_step": 1500,
+          "convergence_speed": 0.0006662225183211193,
+          "converged": false
+        },
+        {
+          "prestige_alpha": 0.2,
+          "convergence_step": 1500,
+          "convergence_speed": 0.0006662225183211193,
+          "converged": false
+        },
+        {
+          "prestige_alpha": 0.4,
+          "convergence_step": 1500,
+          "convergence_speed": 0.0006662225183211193,
+          "converged": false
+        },
+        {
+          "prestige_alpha": 0.6,
+          "convergence_step": 1500,
+          "convergence_speed": 0.0006662225183211193,
+          "converged": false
+        },
+        {
+          "prestige_alpha": 0.8,
+          "convergence_step": 1500,
+          "convergence_speed": 0.0006662225183211193,
+          "converged": false
+        }
+      ],
+      "validated": false
+    },
+    "accessibility": {
+      "corollary": "I_accessibility_invariance",
+      "prediction": "Godform convergence invariant under sensory restrictions",
+      "count_difference": 0,
+      "similarity_difference": 0.0,
+      "invariant": true,
+      "results": [
+        {
+          "condition": "full_sensory",
+          "centroid_count": 0,
+          "avg_similarity": 0.0
+        },
+        {
+          "condition": "restricted_sensory",
+          "centroid_count": 0,
+          "avg_similarity": 0.0
+        }
+      ],
+      "validated": true
+    }
+  },
+  "summary": {
+    "total_corollaries": 5,
+    "validated_corollaries": 1,
+    "validation_rate": 0.2,
+    "framework_supported": false,
+    "decision": "NEEDS_REVISION"
+  },
+  "timestamp": 1755315132.3419409
+}

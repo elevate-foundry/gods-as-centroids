@@ -1,0 +1,271 @@
+﻿Gods as Centroids: A Swarm-Based Vector Model of Religious Evolution
+
+
+
+
+Introduction: A New Synthesis for the Computational Study of Religion
+
+
+The computational modeling of religion represents a burgeoning field, offering novel methods to test complex theories about the emergence, evolution, and dynamics of belief systems.1 This report outlines a new theoretical framework that synthesizes concepts from swarm intelligence, vector space models of meaning, and centroid-based clustering to simulate the evolution of religious structures. The central proposition of this "Gods as Centroids" model is that a deity or "Godform" can be mathematically conceptualized as the centroid of a cluster of belief vectors, each representing the doctrinal position of an individual or community. This approach provides a powerful, mechanistic framework for bridging the micro-level interactions of believers with the macro-level emergence of historical religious phenomena, from the formation of pantheons to the phase transition toward monotheism.
+The model is built upon several core components. First, it treats individuals or communities as simple, autonomous agents in a swarm, whose local interactions give rise to collective religious behavior.3 Second, it operationalizes belief systems geometrically, representing them as vectors in a high-dimensional space where proximity signifies ideological or doctrinal similarity.5 Third, deities ("Godforms") are not pre-defined entities but are emergent structures—specifically, the mathematical centroids that arise from the clustering of these belief vectors.7 Fourth, the evolution of the religious landscape is modeled through a calculus of dynamic operations on these clusters, including fusion (syncretism), fission (schism), and mutation (doctrinal drift).9 Finally, the model can simulate large-scale systemic shifts, portraying polytheism and monotheism as distinct phases of the system, governed by a global "coercion" parameter that alters the topology of the belief space.11
+This framework contributes a unique, generative approach to the computational science of religion. While it complements existing agent-based models (ABMs) that simulate religious behavior 2, its distinctive strength lies in providing a continuous, geometric representation of doctrine itself. This allows for a more fluid and dynamic simulation of how beliefs change, merge, and diverge over time. To ensure clarity, the following table maps the model's key computational terms to their socio-religious analogues.
+Table 1: Conceptual Mapping of the Model
+Computational Term
+	Socio-Religious Analogue
+	Agent
+	Individual Believer / Community
+	Swarm
+	Society / Population of Believers
+	Belief Vector
+	Individual's Belief System / Doctrine
+	Vector Space
+	The "Possibility Space" of all Beliefs
+	Euclidean/Cosine Distance
+	Ideological Affinity / Doctrinal Similarity
+	Cluster of Vectors
+	Religious Community / Tradition / Sect
+	Centroid
+	Godform / Archetypal Doctrine / Collective Conscience
+	Attractor Basin
+	Sphere of Influence / Religious Tradition
+	Assignment to Cluster
+	Conversion / Adherence to a Tradition
+	Centroid Update
+	Doctrinal Refinement / Creedal Formulation
+	Merge Operation
+	Syncretism / Religious Fusion
+	Split Operation
+	Schism / Sectarian Fission
+	Vector Perturbation
+	Mutation / Doctrinal Drift / Revelation
+	Coercion Parameter
+	Socio-Political Pressure / Doctrinal Exclusivity
+	Phase Transition
+	Shift in Religious Paradigm (e.g., Polytheism to Monotheism)
+	________________
+
+
+Section I: The Agent and the Swarm: A Foundation in Decentralized Belief
+
+
+
+
+1.1 The Believer as Agent
+
+
+The fundamental unit of the model is the agent, representing an individual believer or a small, ideologically coherent community such as a family or village.13 In line with the principles of agent-based modeling (ABM), these agents are autonomous entities programmed with a set of simple behavioral rules that govern their interactions based on local information.3 This bottom-up methodology is exceptionally well-suited for investigating emergent social phenomena, where complex macro-level patterns, such as the formation of religious traditions, arise from innumerable micro-level interactions between individuals.15 The primary characteristic of each agent is its "Belief Vector," a high-dimensional representation of its doctrinal stance, which will be explored in detail in the subsequent section.
+
+
+1.2 Principles of Swarm Intelligence in Religious Systems
+
+
+The model conceptualizes the entire population of believers as a "swarm," applying the core principles of swarm intelligence to the complex dynamics of religious systems. This perspective provides a powerful explanatory lens for understanding how religions grow, change, and persist.3
+* Decentralized Control: Religious ideas, practices, and movements often propagate and evolve without a central authority or master plan. Beliefs spread organically through local, peer-to-peer interactions, much like ants forming trails or birds flocking.3 This principle accounts for the often unpredictable and non-linear trajectory of religious change, where global order emerges without global control.
+* Self-Organization: Complex and highly structured systems, such as organized religions with established hierarchies and rituals, can emerge spontaneously from the simple, local rules followed by individual agents.4 In the model, agents seeking ideological affinity with their neighbors naturally form clusters of belief. This process of self-organization mirrors sociological theories, such as those of Émile Durkheim, who argued that collective rituals function to reinforce shared values and create social cohesion.19
+* Emergent Behavior: The macro-level phenomena that are the focus of this study—the formation of pantheons, the occurrence of schisms, and the historical rise of monotheism—are not explicitly programmed into the agents' rules. Instead, they are emergent properties that arise from the collective dynamics of the swarm.4 This capacity to generate complex outcomes from simple foundations is a hallmark of both ABM and swarm intelligence approaches in social simulation.20
+* Robustness and Adaptability: Swarm-based systems demonstrate remarkable resilience; the failure of individual agents does not typically cause the entire system to collapse.3 In a religious context, this translates to the persistence of a belief system even as some adherents lose their faith, are excommunicated, or perish. The system adapts by reorganizing around the remaining agents, ensuring the continuity of the tradition.
+The principles of swarm intelligence can be extended to include the concept of stigmergy, a form of indirect communication where agents interact by modifying their shared environment.4 In this model, the abstract belief space itself functions as the environment. When a group of agents congregates in a particular region of this space, their collective presence defines a point of high density, which in turn establishes a Godform-centroid. This centroid becomes a persistent, stable feature of the belief landscape—an "environmental trace" akin to a pheromone trail left by ants. Subsequent agents, including new converts or future generations, are then influenced not necessarily by direct interaction with every original believer, but by the gravitational "pull" of this established cultural artifact. The Godform-centroid thus acts as a powerful stigmergic signal, coordinating belief and facilitating cultural transmission without requiring direct communication among all members of the swarm. This provides a compelling mechanism for understanding the institutionalization and enduring influence of religious traditions.
+________________
+
+
+Section II: The Geometry of Faith: Representing Belief in Vector Space
+
+
+
+
+2.1 The High-Dimensional Belief Space
+
+
+To computationally model the dynamics of belief, this framework draws upon vector space models, which have been successfully used in computational linguistics and cultural analytics to represent complex meaning as geometric relationships.5 A belief system is represented as a multi-dimensional vector, where each dimension corresponds to a specific doctrinal, ethical, or ritualistic "feature".6 The value along each dimension quantifies the agent's position on that particular issue.
+For instance, the belief space could be constructed from dimensions such as:
+* Theology: The nature of the divine, ranging from an impersonal force to a personal creator god.
+* Eschatology: Beliefs about the afterlife, with values representing concepts like annihilation, reincarnation, or resurrection.
+* Ritual Practice: The degree of formality in worship, from spontaneous and charismatic to highly structured and liturgical.
+* Social Structure: The organization of the religious community, ranging from egalitarian to strictly hierarchical.
+An agent's unique theological and practical stance is captured by its vector's specific coordinates in this high-dimensional space. This method operationalizes the abstract concept of belief, making it a computationally tractable object that can be analyzed and simulated.23
+
+
+2.2 Measuring Affinity: Distance and Social Force
+
+
+The interactions between agents are fundamentally governed by their proximity within the belief space. The choice of metric to calculate this "ideological distance" is crucial. Euclidean distance, the straight-line distance between two vector points, offers an intuitive measure of the absolute difference between two belief systems.6 Alternatively,
+cosine similarity, which measures the angle between two vectors, is often preferred in high-dimensional spaces as it captures similarity in the profile or orientation of belief, irrespective of its overall "intensity" or magnitude.5
+This geometric relationship can be used to implement a social force law, where the attractive force between two agents is directly proportional to their similarity (e.g., the dot product of their vectors) and inversely proportional to the distance between them.23 This force dictates the probability and strength of an interaction, directly modeling the well-documented sociological principle of homophily—the tendency for individuals to associate with similar others.25
+
+
+2.3 Connection to Cognitive Science of Religion (CSR)
+
+
+The dimensions defining the belief space are not arbitrary; they can be grounded in the findings of the Cognitive Science of Religion (CSR), which identifies core cognitive systems that shape and constrain human religious thought.26 For example, a vector dimension related to the perceived agency and personality of a deity can be linked to the
+Hyperactive Agency Detection Device (HADD), a hypothesized cognitive module that predisposes humans to attribute events to intentional agents.26 Similarly, a dimension quantifying the "counterintuitiveness" of a doctrine can be informed by Pascal Boyer's theory of
+Minimally Counterintuitive (MCI) concepts. This theory posits that concepts violating one or two of our intuitive ontological expectations (e.g., a talking bush, a disembodied mind) are more memorable and transmissible than either fully intuitive or maximally counterintuitive concepts.27 Grounding the vector space in such cognitive foundations provides micro-level justification for why certain regions of the belief space might be more densely populated or "attractive" than others.
+This connection to CSR suggests that the belief space is not a uniform, isotropic void. Rather, it possesses a "cognitive topography" that is pre-structured by the evolved cognitive biases of the human mind. CSR research indicates that human minds are not blank slates but come equipped with predispositions, such as HADD and a preference for MCI concepts.26 These biases imply that certain types of beliefs—and thus certain vector configurations—are inherently more "natural" or "fit" for human minds to acquire, remember, and transmit. In the model, this can be represented as an underlying potential energy field where regions of the space corresponding to cognitively plausible beliefs have a lower potential energy, acting as shallow "cognitive attractors." The social swarm dynamics of clustering and centroid formation then unfold upon this pre-existing cognitive landscape, deepening these natural valleys rather than creating them from nothing on a perfectly flat plane. This fusion of social-level dynamics with individual-level cognitive constraints yields a more realistic and powerful explanatory model.
+________________
+
+
+Section III: The Emergence of Godforms: Deities as Cluster Centroids
+
+
+
+
+3.1 Clustering the Faithful: The K-Means Analogy
+
+
+The central mechanism for the emergence of Godforms in this model is derived from centroid-based clustering algorithms, particularly K-Means, which serves as both a powerful analogy and a direct implementation method.7 This algorithm partitions the swarm of belief vectors into a predefined number (
+k) of distinct clusters, each representing a religious tradition. The process is iterative and consists of two repeating steps until the system reaches a stable configuration 30:
+1. Assignment Step: Each agent (belief vector) is assigned to the cluster whose centroid is nearest, based on a chosen distance metric like Euclidean distance.30 This step models the process of religious affiliation, where an individual adheres to the tradition that most closely aligns with their personal convictions.
+2. Update Step: The position of each Godform-centroid is recalculated to be the arithmetic mean (the center of mass) of all the belief vectors currently assigned to its cluster.33 This step models the process of doctrinal refinement and creedal formulation, where the official theology of a religion evolves to reflect the collective, average belief of its adherents.
+
+
+3.2 The Godform as Centroid: A Computable Collective Conscience
+
+
+Within this framework, the centroid is not a supernatural entity but a mathematical abstraction. It is a single point in the belief space that represents the central tendency, or idealized doctrine, of a community of believers.33 This provides a formal, computable analogue for what sociologist Émile Durkheim termed the "collective conscience" or "collective representations"—the shared system of beliefs and morals that binds a society together and acts as a unifying force.19 As Durkheim suggested, the religious symbol (in this case, the Godform-centroid) becomes the "visible body" of the group's "collective and anonymous force".37
+
+
+3.3 The Attractor Landscape of Belief
+
+
+The clustering process can be powerfully re-conceptualized using the language of dynamical systems theory, which describes system behavior in terms of an "attractor landscape".38 In this view, each Godform-centroid functions as a "point attractor" within the belief space.38 The region of space containing all belief vectors that are closer to one centroid than to any other forms its "basin of attraction".41
+The dynamics of belief change can be visualized as individual agents "rolling downhill" on an energy landscape, eventually settling into the deepest part of the nearest valley, which corresponds to an attractor basin.43 The depth and steepness of a valley represent the stability and ideological coherence of a religious tradition; a deep valley signifies a powerful, well-defined belief system that is difficult for an adherent to leave.41 Crucially, this landscape is not static. The positions of the attractors (the centroids) are determined by the distribution of the agents, while the distribution of agents is simultaneously influenced by the positions of the attractors. This reciprocal feedback loop, where the system's structure (the landscape) and its components (the agents) co-evolve, is a classic demonstration of self-organization.38
+This model inherently captures the crucial sociological distinction between official doctrine ("dogma") and the actual beliefs and practices of adherents ("lived religion"). The Godform-centroid, being the precise mathematical mean of all vectors in its cluster, represents the idealized, official dogma—the formal creed or catechism.33 In contrast, the cluster itself is a diffuse cloud of individual belief vectors scattered around this central point.31 This reflects the reality that individual believers hold personal interpretations, private doubts, and varying levels of commitment that cause their beliefs to deviate from the official line. The objective of the K-Means algorithm is to minimize the "inertia" or "within-cluster sum of squares," which is the sum of the squared distances of each point from its centroid.8 This means the system naturally seeks a state where the official dogma (the centroid) is the best possible "average" representation of the lived religion of its followers (the vector cloud). Consequently, the model does not just simulate a single, monolithic belief; it simulates a distribution of beliefs and its dynamic relationship with an idealized central doctrine, allowing for the quantitative study of concepts like orthodoxy, heterodoxy, and the persistent tension between institutional and popular religion.
+________________
+
+
+Section IV: The Dynamics of Divinity: A Calculus of Religious Change
+
+
+The static representation of Godforms as centroids provides the foundation for a dynamic model of religious evolution. The model incorporates three primary operations—fusion, fission, and mutation—that simulate the key processes of historical religious change.
+
+
+4.1 Fusion (Syncretism): The Merging of Godforms
+
+
+Religious fusion is modeled as a centroid merge operation. This process occurs when two distinct belief clusters, representing different religious traditions, come into sustained contact through mechanisms like conquest, trade, or migration. Agents located at the boundaries of these clusters are subject to the attractive social forces of both groups, and may begin to adopt features from the other tradition. This cross-pollination causes the two clusters to overlap and their respective centroids to move closer together in the belief space. When this proximity crosses a critical threshold, the model can execute a "merge," where the two original centroids are eliminated and a new, single centroid is calculated from the union of their combined agent populations.
+This mechanism provides a direct simulation of religious syncretism, defined as the blending of two or more belief systems into a new, hybrid form.9 Historical examples abound, from the fusion of Indigenous and Catholic beliefs in colonial Latin America, which produced new figures like the Virgin of Guadalupe 46, to the Roman practice of identifying foreign gods with their own deities.45 The model can also be adapted to explore more subtle forms of interaction, such as "cultural additivity," where one belief system is layered upon another without a complete fusion of their core tenets.47
+
+
+4.2 Fission (Schism): The Birth of New Godforms
+
+
+Religious schism is modeled as a cluster split operation. This dynamic is triggered by rising internal dissent or significant doctrinal drift within a single religious community. As a faction of agents develops beliefs that diverge from the established norm, their belief vectors move collectively away from the main cluster's centroid. This increases the overall variance, or "inertia," of the cluster. The clustering algorithm, which seeks to minimize this intra-cluster distance, may eventually determine that the system's total inertia is lower if the single, high-variance cluster is split into two smaller, more coherent clusters.30 When this split occurs, a new centroid is initialized for the breakaway faction, creating a new, independent Godform with its own basin of attraction.
+This process provides a compelling simulation of religious schism, where a subset of a community breaks away from a parent religion over doctrinal or political disputes to form a new sect or denomination, such as the Protestant Reformation's split from the Catholic Church. The underlying mechanism is rooted in the same principles of social identity and segregation explored in other agent-based models of group formation.3
+
+
+4.3 Mutation (Doctrinal Drift and Revelation): The Movement of Godforms
+
+
+The position of a Godform-centroid is not fixed but evolves over time through two distinct modes of mutation, representing both gradual and punctuated change.
+* Gradual Drift (Cultural Evolution): Drawing inspiration from frameworks like Robert Axelrod's model of cultural dissemination, the model can incorporate slow, random perturbations or "mutations" in individual belief vectors.10 These small, cumulative changes—driven by imperfect cultural transmission, local innovations, and the probabilistic nature of social influence—cause the population of belief vectors to shift slightly over time. As a result, the cluster's centroid, being the mean of these vectors, will also drift gradually across the belief space. This mechanism captures the slow, organic evolution of doctrine that occurs over centuries.10
+* Punctuated Shifts (Revelation/Prophecy): The model can also simulate radical, rapid doctrinal shifts. This is achieved by introducing a "prophet" or "innovator" agent who espouses a powerful new "meme"—a novel and compelling belief vector located in a different region of the space.51 If this new belief is sufficiently attractive, it can exert a strong social force, rapidly pulling a significant number of nearby agents towards its position. This can cause a swift and dramatic shift in an existing centroid's location or, if the new belief is sufficiently distinct, can nucleate an entirely new cluster. This process models the profound impact of charismatic leaders and revelatory events on religious history, aligning with Max Weber's thesis that religion can act as a powerful force for revolutionary social change.52
+________________
+
+
+Section V: Systemic Phase Transitions: Modeling Monotheism and Polytheism
+
+
+
+
+5.1 The "Coercion" Parameter: A Control for the Belief Landscape
+
+
+To model the large-scale shift from polytheistic to monotheistic religious systems, the framework introduces a single global parameter termed "coercion." This parameter is an abstraction that represents the aggregate effect of various real-world forces that promote religious homogeneity, exclusivity, and centralization. These forces include:
+* Political Centralization: The rise of large-scale states and empires that adopt and enforce a single state religion to legitimize political authority and unify diverse subject populations.11
+* Doctrinal Exclusivity: The theological innovation of "exclusive truth claims," which posits a fundamental distinction between one "true" religion and all others, which are deemed false.55 This is a hallmark of Abrahamic monotheisms.
+* Economic Advantage: The "returns to scale" enjoyed by large, centralized monotheistic institutions, which can amass resources and build powerful organizations that outcompete and absorb smaller, local polytheistic cults.11
+* Social Pressure: The influence exerted by a dominant religious group on minorities, which, according to Social Impact Theory, increases with the strength, immediacy, and number of the majority's members, pressuring others to conform.57
+In the model's implementation, increasing the coercion parameter can be translated into a warping of the attractor landscape. For example, it could be modeled as a force that systematically increases the depth and steepness of the basin of attraction belonging to the largest or most powerful cluster, making it progressively more difficult for agents to occupy or remain in smaller, alternative basins.
+
+
+5.2 The Polytheistic Phase (Low Coercion)
+
+
+When the coercion parameter is set to a low value, the belief landscape is relatively flat and rugged. This allows for multiple, stable attractor basins of varying sizes and depths to coexist peacefully. No single Godform-centroid possesses a decisive advantage, and the system can settle into a dynamic equilibrium characterized by a plurality of distinct belief clusters. This state is analogous to a "disordered" or "paramagnetic" phase in statistical physics models, where individual elements (like magnetic spins or opinions) have diverse orientations and no single state dominates the system.58 This phase serves as a robust model for a polytheistic or pluralistic religious environment, which is defined by its theological flexibility, its capacity for syncretism, and its general tolerance for a multitude of coexisting deities and cults.55
+
+
+5.3 The Monotheistic Phase (High Coercion)
+
+
+As the coercion parameter is increased beyond a critical threshold, the system undergoes a dramatic and rapid phase transition.12 This is a non-linear shift in the system's global state, analogous to the freezing of water or the alignment of spins in a ferromagnet.58 The belief landscape warps significantly: the basin of attraction for the dominant cluster deepens and expands exponentially, effectively "swallowing" its smaller competitors. Rival centroids are either absorbed into the dominant one through forced syncretism, or their followers are converted, leading to the extinction of their traditions. The final, stable state is a system overwhelmingly dominated by a single, powerful attractor.
+This phase provides a compelling mechanistic model for the historical emergence of monotheism. It demonstrates how a combination of socio-political, economic, and doctrinal pressures can drive a diverse religious ecosystem toward a "winner-take-all" outcome.60 This aligns with sociological theories that link the rise of monotheism to the centralization of state power and the introduction of the "Mosaic distinction" between true and false religion, which fundamentally alters the logic of inter-religious interaction from one of translation to one of conflict.53
+A critical feature of this phase transition is its likely asymmetry, a property known in dynamical systems as hysteresis. The transition from a polytheistic (multi-attractor) state to a monotheistic (single-attractor) state is a destructive process that eliminates alternative belief structures. Once a single, deep attractor basin has formed, it creates a powerful lock-in effect. The steep walls of this basin make it extremely difficult for any sub-group of agents to drift far enough away to nucleate a new, stable centroid. Any minor doctrinal deviations are quickly "corrected" as agents are pulled back toward the powerful central dogma. Consequently, simply reducing the coercion parameter back to its original low level may be insufficient to break the monotheistic lock-in and allow a pluralistic landscape to re-emerge. A much larger systemic shock—such as a societal collapse that both removes the coercive pressure and introduces a high degree of random mutation—would be required. This provides a formal, systems-level explanation for the historical resilience and expansionist success of monotheistic traditions once they become established.
+________________
+
+
+Conclusion: Implications and Future Trajectories
+
+
+The "Gods as Centroids" model offers a unified and generative framework for exploring the complex dynamics of religious evolution. By translating abstract sociological and historical processes into computable, geometric operations, it provides mechanistic explanations for the emergence of deities, the co-evolution of doctrine and community, and the systemic phase transitions between polytheistic and monotheistic paradigms. It operationalizes the "complexity thesis" in the study of religion by demonstrating how a vast diversity of outcomes can emerge from the repeated interaction of agents following simple rules.61
+The model, in its current form, is a high-level abstraction and has several limitations that offer clear avenues for future refinement. A primary area for enhancement is moving beyond the treatment of beliefs as static vectors. Future work could incorporate more sophisticated frameworks like the Personal, Expressed, and Social Beliefs (PES) meta-model, which distinguishes between an individual's internal beliefs, their outwardly expressed beliefs, and their perceptions of others' beliefs. This would allow for the simulation of more complex psychological and social phenomena such as authenticity, conformity, and the misperception of social norms. Furthermore, while this report has focused on dynamics often associated with Western religious history, such as the shift from polytheism to monotheism, the model's scope should be expanded. Applying the framework to the evolution of pantheons in Hinduism or the syncretic integration of Buddhism in Southeast Asia would test its cross-cultural validity and broaden its explanatory power.62 Finally, the underlying social network, currently based on simple proximity, could be replaced with more realistic and complex topologies to better capture the pathways of social influence.64
+The most promising trajectory for this line of research lies in its integration with the rapidly advancing field of Generative Agent-Based Modeling (GABM).65 Future iterations could replace simple, rule-based agents with sophisticated agents powered by Large Language Models (LLMs).67 Each generative agent could be initialized with a rich cultural and theological profile, derived from historical texts, ethnographic data, or in-depth interview transcripts.69 In such a model, agent interactions would transcend simple vector mathematics, becoming simulated natural language dialogues where agents can reason, adapt, and exhibit human-like conversational behavior.66 The agent's "belief vector" would cease to be an explicit input and would instead become an emergent property of its internal state, continuously updated through conversation and experience. This would enable the simulation of far more realistic and subtle forms of human reasoning, persuasion, and decision-making. By coupling the geometric clarity of the centroid model with the behavioral richness of generative agents, this framework could evolve from a powerful theoretical analogy into a high-fidelity artificial society, providing an unprecedented laboratory for testing complex theories of religious and cultural change.66
+Finally, it is crucial to reiterate the model's philosophical scope. As a phenomenological tool, its purpose is to simulate the emergent social and cognitive dynamics of belief systems, not to make claims about metaphysical truth or the ontological status of divine entities. While any computational model of human behavior risks oversimplification, the "Gods as Centroids" framework is offered as a generative methodology for testing theories about the mechanisms of religious formation and change. It models emergent attractors in belief space, not ontic entities, thereby seeking to enhance the scientific study of religion without reducing the profound complexities of faith to mere computation.
+Works cited
+1. Simulating Religion (Chapter 14) - The Cambridge Companion to ..., accessed August 15, 2025, https://www.cambridge.org/core/books/cambridge-companion-to-religion-and-artificial-intelligence/simulating-religion/187F08476321B66514CEE9AECF1E207C
+2. Modeling Religion Project - Center for Mind and Culture, accessed August 15, 2025, https://mindandculture.org/projects/past-projects/modeling-religion-project/
+3. What are the key principles of swarm intelligence? - Milvus, accessed August 15, 2025, https://milvus.io/ai-quick-reference/what-are-the-key-principles-of-swarm-intelligence
+4. Definition and principles of swarm intelligence - Fiveable, accessed August 15, 2025, https://library.fiveable.me/swarm-intelligence-and-robotics/unit-1/definition-principles-swarm-intelligence/study-guide/QmkQBeEQnvs1olWD
+5. The Geometry of Culture: Analyzing Meaning through Word ... - arXiv, accessed August 15, 2025, https://arxiv.org/pdf/1803.09288
+6. Vector Politics, accessed August 15, 2025, https://techlib.com/science/vectorpolitics.htm
+7. Machine Learning Algorithms Explained: Clustering - StrataScratch, accessed August 15, 2025, https://www.stratascratch.com/blog/machine-learning-algorithms-explained-clustering/
+8. What is k-means clustering? | IBM, accessed August 15, 2025, https://www.ibm.com/think/topics/k-means-clustering
+9. Syncretism - Wikipedia, accessed August 15, 2025, https://en.wikipedia.org/wiki/Syncretism
+10. Axelrod's model of dissemination of culture - JASSS, accessed August 15, 2025, https://www.jasss.org/12/1/6/appendixB/Axelrod1997.html
+11. Monotheism (From a Sociopolitical and Economic Perspective), accessed August 15, 2025, https://docs.iza.org/dp3116.pdf
+12. Daniel Sinkovits Models of Social Phase Transitions, accessed August 15, 2025, https://guava.physics.ucsd.edu/~nigel/Courses/Web%20page%20563/Essays_2005/PDF/sinkovits.pdf
+13. Just arrived – “Simulating Religion” chapter in the Cambridge Companion to Religion and Artificial Intelligence - F. LeRon Shults, accessed August 15, 2025, https://leronshultsblog.com/2025/02/25/new-chapter-on-simulating-religion-in-the-cambridge-companion-to-religion-and-artificial-intelligence/
+14. How individual decisions shape religious groups over time | Modeling Religious Change, accessed August 15, 2025, https://medium.com/modeling-religious-change/modeling-religious-change-with-agent-based-models-b95f55a8c953
+15. Agent-Based Modeling in the Philosophy of Science, accessed August 15, 2025, https://plato.stanford.edu/entries/agent-modeling-philscience/
+16. Agent-Based Modeling: A Guide for Social Psychologists - ResearchGate, accessed August 15, 2025, https://www.researchgate.net/publication/311425820_Agent-Based_Modeling_A_Guide_for_Social_Psychologists
+17. The Ultimate Guide to Swarm Intelligence - Number Analytics, accessed August 15, 2025, https://www.numberanalytics.com/blog/ultimate-guide-swarm-intelligence
+18. library.fiveable.me, accessed August 15, 2025, https://library.fiveable.me/swarm-intelligence-and-robotics/unit-1/definition-principles-swarm-intelligence/study-guide/QmkQBeEQnvs1olWD#:~:text=It%20uses%20simple%20interactions%20among,%2C%20emergent%20behavior%2C%20and%20stigmergy.
+19. Evaluating Durkheim's Sociology of Religion: Criticisms and Impact ..., accessed August 15, 2025, https://sociology.institute/sociology-of-religion/durkheims-sociology-religion-criticisms-impact/
+20. Agent-based modeling of social conflict, civil violence and revolution: state-of-the-art-review and further prospects - CEUR-WS.org, accessed August 15, 2025, https://ceur-ws.org/Vol-1113/paper10.pdf
+21. Understanding fission-fusion dynamics in social animals through agent-based modelling | Request PDF - ResearchGate, accessed August 15, 2025, https://www.researchgate.net/publication/377403073_Understanding_fission-fusion_dynamics_in_social_animals_through_agent-based_modelling
+22. The Geometry of Culture: Analyzing Meaning through Word Embeddings - ResearchGate, accessed August 15, 2025, https://www.researchgate.net/publication/386660440_The_Geometry_of_Culture_Analyzing_Meaning_through_Word_Embeddings
+23. An agent based force vector model of social influence that predicts strong polarization in a connected world | PLOS One - Research journals, accessed August 15, 2025, https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0259625
+24. (PDF) A meta-model of belief dynamics with Personal, Expressed and Social beliefs, accessed August 15, 2025, https://www.researchgate.net/publication/389176445_A_meta-model_of_belief_dynamics_with_Personal_Expressed_and_Social_beliefs
+25. Cultural Dissemination: An Agent-Based Model with Social Influence - JASSS, accessed August 15, 2025, https://www.jasss.org/24/4/5.html
+26. Cognitive science of religion - Wikipedia, accessed August 15, 2025, https://en.wikipedia.org/wiki/Cognitive_science_of_religion
+27. Cognitive Science of Religion - Pure, accessed August 15, 2025, https://pure.au.dk/ws/files/99006484/chp_3A10.1007_2F978_3_642_27771_9_9261_4.pdf
+28. cognitive science and the study of religion - Tidsskrift.dk, accessed August 15, 2025, https://tidsskrift.dk/cb/article/download/16305/14128
+29. en.wikipedia.org, accessed August 15, 2025, https://en.wikipedia.org/wiki/Religion_Explained
+30. K-Means Clustering Algorithm - Analytics Vidhya, accessed August 15, 2025, https://www.analyticsvidhya.com/blog/2019/08/comprehensive-guide-k-means-clustering/
+31. Clustering With K-Means - Kaggle, accessed August 15, 2025, https://www.kaggle.com/code/ryanholbrook/clustering-with-k-means
+32. K means Clustering – Introduction - GeeksforGeeks, accessed August 15, 2025, https://www.geeksforgeeks.org/machine-learning/k-means-clustering-introduction/
+33. Centroid-Based Clustering in Machine Learning - Tutorialspoint, accessed August 15, 2025, https://www.tutorialspoint.com/machine_learning/machine_learning_centroid_based_clustering.htm
+34. K-means Cluster Analysis - UC Business Analytics R Programming Guide ·, accessed August 15, 2025, https://uc-r.github.io/kmeans_clustering
+35. Clustering algorithms | Machine Learning - Google for Developers, accessed August 15, 2025, https://developers.google.com/machine-learning/clustering/clustering-algorithms
+36. Emile Durkheim's Perspective on Religion - ReviseSociology, accessed August 15, 2025, https://revisesociology.com/2018/06/18/functionalist-perspective-religion-durkheim/
+37. Durkheim on Religion - Portland State University, accessed August 15, 2025, https://web.pdx.edu/~tothm/religion/Durkheim%20on%20Religion.doc
+38. Attractor States - ResearchGate, accessed August 15, 2025, https://www.researchgate.net/profile/Philip_Hiver/publication/269400183_Attractor_States/links/5489a1c70cf2d1800d7a9c51/Attractor-States.pdf
+39. Attractor landscapes: A unifying conceptual model for understanding behaviour change across scales of observation - PMC, accessed August 15, 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC10261543/
+40. Attractor Landscapes in Behavior Change Science - World without fossil ads, accessed August 15, 2025, https://www.worldwithoutfossilads.org/listing/attractor-landscapes-in-behavior-change-science/
+41. A Dynamical Systems Hypothesis of Schizophrenia | PLOS Computational Biology, accessed August 15, 2025, https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0030228
+42. Attractor-like Dynamics in Belief Updating in Schizophrenia | Journal of Neuroscience, accessed August 15, 2025, https://www.jneurosci.org/content/38/44/9471/tab-figures-data
+43. A Generative Model for Attractor Dynamics, accessed August 15, 2025, http://papers.neurips.cc/paper/1695-a-generative-model-for-attractor-dynamics.pdf
+44. (PDF) The problems of syncretism - ResearchGate, accessed August 15, 2025, https://www.researchgate.net/publication/326889761_The_problems_of_syncretism
+45. Religious syncretism - Wikipedia, accessed August 15, 2025, https://en.wikipedia.org/wiki/Religious_syncretism
+46. Cultural assimilation and syncretism | Colonial Latin America Class Notes - Fiveable, accessed August 15, 2025, https://library.fiveable.me/colonial-latin-america/unit-5/cultural-assimilation-syncretism/study-guide/Le2Bzx7pgBOV54MJ
+47. Creolization, Hybridity, Syncretism, Mixture - ResearchGate, accessed August 15, 2025, https://www.researchgate.net/publication/259748990_Creolization_Hybridity_Syncretism_Mixture
+48. An Agent-Based Model of Social Identity Dynamics - JASSS, accessed August 15, 2025, https://www.jasss.org/15/4/7.html
+49. NetLogo User Community Models:, accessed August 15, 2025, http://ccl.northwestern.edu/netlogo/models/community/Axelrod_Cultural_Dissemination
+50. Axelrod's culture dissemination model - Physics of Risk, accessed August 15, 2025, https://rf.mokslasplius.lt/axelrod-culture-dissemination-model/
+51. Memetics - Principia Cybernetica Web, accessed August 15, 2025, http://pespmc1.vub.ac.be/MEMES.html
+52. Weber and religion | sociologytwynham.com, accessed August 15, 2025, https://sociologytwynham.com/2018/05/02/weber-and-religion/
+53. Monotheism: An Introduction - Easy Sociology, accessed August 15, 2025, https://easysociology.com/sociology-of-religion/monotheism-an-introduction/
+54. Early Monotheism, accessed August 15, 2025, http://www.professorcampbell.org/lectures/monotheism.html
+55. (PDF) The Sociological Lens on Polytheism and Monotheism: War ..., accessed August 15, 2025, https://www.researchgate.net/publication/394393904_The_Sociological_Lens_on_Polytheism_and_Monotheism_War_Pluralism_and_the_Hellenic_Balance
+56. The Politics of Monotheism - Cambridge University Press, accessed August 15, 2025, https://www.cambridge.org/core/elements/politics-of-monotheism/19BB445DD0122BC5614FBA6DD40BC74C
+57. Social impact theory - Wikipedia, accessed August 15, 2025, https://en.wikipedia.org/wiki/Social_impact_theory
+58. Phase Transition in the Social Impact Model of Opinion Formation in Scale-Free Networks, accessed August 15, 2025, https://www.jasss.org/23/2/3.html
+59. Phase transitions in a two-parameter model of opinion dynamics with random kinetic exchanges | Phys. Rev. E - Physical Review Link Manager, accessed August 15, 2025, https://link.aps.org/doi/10.1103/PhysRevE.83.016108
+60. The transition from polytheism to monotheism in ancient Israel and Judah, accessed August 15, 2025, https://researchportal.murdoch.edu.au/esploro/outputs/conferencePaper/The-transition-from-polytheism-to-monotheism/991005544100307891
+61. Science, Religion, and Historical Complexity - Project MUSE, accessed August 15, 2025, https://muse.jhu.edu/article/422387
+62. Pantheon (religion) - Wikipedia, accessed August 15, 2025, https://en.wikipedia.org/wiki/Pantheon_(religion)
+63. (PDF) HARI-HARA: TRADITION OF SYNCRETISM IN SOUTH EAST ASIA SPECIAL REFERENCE TO BRAHMAPUTRA VALLEY - ResearchGate, accessed August 15, 2025, https://www.researchgate.net/publication/387121656_HARI-HARA_TRADITION_OF_SYNCRETISM_IN_SOUTH_EAST_ASIA_SPECIAL_REFERENCE_TO_BRAHMAPUTRA_VALLEY
+64. Forecasting Changes in Religiosity and Existential Security with an Agent-Based Model, accessed August 15, 2025, https://www.jasss.org/21/1/4.html
+65. Generative Agent-Based Modeling: Unveiling Social System Dynamics through Coupling Mechanistic Models with Generative Artificial Intelligence - arXiv, accessed August 15, 2025, https://arxiv.org/abs/2309.11456
+66. AgentSociety: Large-Scale Simulation of LLM-Driven Generative Agents Advances Understanding of Human Behaviors and Society - arXiv, accessed August 15, 2025, https://arxiv.org/html/2502.08691v1
+67. Psychologically-Valid Generative Agents: A Novel Approach to Agent-Based Modeling in Social Sciences - AAAI Publications, accessed August 15, 2025, https://ojs.aaai.org/index.php/AAAI-SS/article/download/27698/27471/31749
+68. Agent-Based Modelling Meets Generative AI in Social Network Simulations - ResearchGate, accessed August 15, 2025, https://www.researchgate.net/publication/388324770_Agent-Based_Modelling_Meets_Generative_AI_in_Social_Network_Simulations
+69. Simulating Human Behavior with AI Agents | Stanford HAI, accessed August 15, 2025, https://hai.stanford.edu/policy/simulating-human-behavior-with-ai-agents
