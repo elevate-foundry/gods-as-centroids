@@ -1,0 +1,123 @@
+[
+  {
+    "epoch": 1,
+    "tau": 1.04,
+    "lr": 0.001,
+    "train_loss": 1.0313,
+    "train_cos": 0.9629,
+    "train_acc": 0.2716,
+    "val_cos": 0.9722,
+    "val_acc": 0.4444,
+    "bit_util": 0.8958
+  },
+  {
+    "epoch": 20,
+    "tau": 1.9,
+    "lr": 0.000976,
+    "train_loss": 0.101,
+    "train_cos": 0.9847,
+    "train_acc": 0.9487,
+    "val_cos": 0.9954,
+    "val_acc": 1.0,
+    "bit_util": 1.0
+  },
+  {
+    "epoch": 40,
+    "tau": 2.8,
+    "lr": 0.000905,
+    "train_loss": 0.0615,
+    "train_cos": 0.9865,
+    "train_acc": 0.966,
+    "val_cos": 0.9961,
+    "val_acc": 1.0,
+    "bit_util": 1.0
+  },
+  {
+    "epoch": 60,
+    "tau": 3.7,
+    "lr": 0.000796,
+    "train_loss": 0.0378,
+    "train_cos": 0.9884,
+    "train_acc": 0.9725,
+    "val_cos": 0.9974,
+    "val_acc": 1.0,
+    "bit_util": 1.0
+  },
+  {
+    "epoch": 80,
+    "tau": 4.6,
+    "lr": 0.000658,
+    "train_loss": 0.0314,
+    "train_cos": 0.9898,
+    "train_acc": 0.9892,
+    "val_cos": 0.9982,
+    "val_acc": 1.0,
+    "bit_util": 1.0
+  },
+  {
+    "epoch": 100,
+    "tau": 5.5,
+    "lr": 0.000505,
+    "train_loss": 0.0263,
+    "train_cos": 0.9896,
+    "train_acc": 0.9856,
+    "val_cos": 0.9986,
+    "val_acc": 1.0,
+    "bit_util": 1.0
+  },
+  {
+    "epoch": 120,
+    "tau": 6.4,
+    "lr": 0.000352,
+    "train_loss": 0.0215,
+    "train_cos": 0.991,
+    "train_acc": 0.9938,
+    "val_cos": 0.999,
+    "val_acc": 1.0,
+    "bit_util": 1.0
+  },
+  {
+    "epoch": 140,
+    "tau": 7.3,
+    "lr": 0.000214,
+    "train_loss": 0.0158,
+    "train_cos": 0.9917,
+    "train_acc": 0.9957,
+    "val_cos": 0.9992,
+    "val_acc": 1.0,
+    "bit_util": 1.0
+  },
+  {
+    "epoch": 160,
+    "tau": 8.2,
+    "lr": 0.000105,
+    "train_loss": 0.0132,
+    "train_cos": 0.9923,
+    "train_acc": 0.997,
+    "val_cos": 0.9992,
+    "val_acc": 1.0,
+    "bit_util": 1.0
+  },
+  {
+    "epoch": 180,
+    "tau": 9.1,
+    "lr": 3.4e-05,
+    "train_loss": 0.0117,
+    "train_cos": 0.9925,
+    "train_acc": 0.9978,
+    "val_cos": 0.9995,
+    "val_acc": 1.0,
+    "bit_util": 1.0
+  },
+  {
+    "epoch": 200,
+    "tau": 10.0,
+    "lr": 1e-05,
+    "train_loss": 0.0123,
+    "train_cos": 0.9926,
+    "train_acc": 0.9983,
+    "val_cos": 0.9995,
+    "val_acc": 1.0,
+    "bit_util": 1.0
+  }
+]
