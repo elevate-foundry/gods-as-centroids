@@ -1,0 +1,795 @@
+{
+  "params": {
+    "n_agents": 80,
+    "gamma_steps": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      1.0
+    ],
+    "equilibration_steps": 2000,
+    "measurement_window": 500,
+    "n_runs": 20
+  },
+  "hamming_forward": {
+    "0.0": {
+      "gamma": 0.0,
+      "dominance_mean": 0.9011875,
+      "dominance_std": 0.16456055666292127,
+      "n_eff_mean": 1.3025,
+      "n_eff_std": 0.451452334722411,
+      "entropy_mean": 0.18001401620734128,
+      "entropy_std": 0.2790598287655739
+    },
+    "0.05": {
+      "gamma": 0.05,
+      "dominance_mean": 0.9469375,
+      "dominance_std": 0.11350898048751819,
+      "n_eff_mean": 1.2025,
+      "n_eff_std": 0.33930075154647094,
+      "entropy_mean": 0.105656408509571,
+      "entropy_std": 0.19837835185264743
+    },
+    "0.1": {
+      "gamma": 0.1,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.15": {
+      "gamma": 0.15,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.2": {
+      "gamma": 0.2,
+      "dominance_mean": 0.9999375,
+      "dominance_std": 0.00027950849718746777,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.00033598440181348917,
+      "entropy_std": 0.0015025679236691306
+    },
+    "0.25": {
+      "gamma": 0.25,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.3": {
+      "gamma": 0.3,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.35": {
+      "gamma": 0.35,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.4": {
+      "gamma": 0.4,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.45": {
+      "gamma": 0.45,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.5": {
+      "gamma": 0.5,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.55": {
+      "gamma": 0.55,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.6": {
+      "gamma": 0.6,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.65": {
+      "gamma": 0.65,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.7": {
+      "gamma": 0.7,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.75": {
+      "gamma": 0.75,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.8": {
+      "gamma": 0.8,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.85": {
+      "gamma": 0.85,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.9": {
+      "gamma": 0.9,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.95": {
+      "gamma": 0.95,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "1.0": {
+      "gamma": 1.0,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    }
+  },
+  "hamming_reverse": {
+    "0.0": {
+      "gamma": 0.0,
+      "dominance_mean": 0.9862500000000001,
+      "dominance_std": 0.030564185052030006,
+      "n_eff_mean": 1.1075,
+      "n_eff_std": 0.26718562441631627,
+      "entropy_mean": 0.036487510796908804,
+      "entropy_std": 0.08345724553599132
+    },
+    "0.05": {
+      "gamma": 0.05,
+      "dominance_mean": 0.997375,
+      "dominance_std": 0.009432063177771543,
+      "n_eff_mean": 1.01,
+      "n_eff_std": 0.034792618696922954,
+      "entropy_mean": 0.005738237559700938,
+      "entropy_std": 0.020280762940279095
+    },
+    "0.1": {
+      "gamma": 0.1,
+      "dominance_mean": 0.9991875,
+      "dominance_std": 0.003633610463437155,
+      "n_eff_mean": 1.0075,
+      "n_eff_std": 0.03354101966249683,
+      "entropy_mean": 0.0025712598277255684,
+      "entropy_std": 0.011499023525217538
+    },
+    "0.15": {
+      "gamma": 0.15,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.2": {
+      "gamma": 0.2,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.25": {
+      "gamma": 0.25,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.3": {
+      "gamma": 0.3,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.35": {
+      "gamma": 0.35,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.4": {
+      "gamma": 0.4,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.45": {
+      "gamma": 0.45,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.5": {
+      "gamma": 0.5,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.55": {
+      "gamma": 0.55,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.6": {
+      "gamma": 0.6,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.65": {
+      "gamma": 0.65,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.7": {
+      "gamma": 0.7,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.75": {
+      "gamma": 0.75,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.8": {
+      "gamma": 0.8,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.85": {
+      "gamma": 0.85,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.9": {
+      "gamma": 0.9,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "0.95": {
+      "gamma": 0.95,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    },
+    "1.0": {
+      "gamma": 1.0,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    }
+  },
+  "arithmetic_forward": {
+    "0.0": {
+      "gamma": 0.0,
+      "dominance_mean": 0.65840625,
+      "dominance_std": 0.1546530862835898,
+      "n_eff_mean": 4.3925,
+      "n_eff_std": 1.1690386288696681,
+      "entropy_mean": 0.9934870681982703,
+      "entropy_std": 0.33448334891700726
+    },
+    "0.05": {
+      "gamma": 0.05,
+      "dominance_mean": 0.5952500000000001,
+      "dominance_std": 0.16276451143971932,
+      "n_eff_mean": 5.9174999999999995,
+      "n_eff_std": 1.3594963270115499,
+      "entropy_mean": 1.2807103903897183,
+      "entropy_std": 0.33001605003779416
+    },
+    "0.1": {
+      "gamma": 0.1,
+      "dominance_mean": 0.60934375,
+      "dominance_std": 0.14371602501822642,
+      "n_eff_mean": 6.24,
+      "n_eff_std": 1.5100191703209738,
+      "entropy_mean": 1.3660573582794526,
+      "entropy_std": 0.3293783078006556
+    },
+    "0.15": {
+      "gamma": 0.15,
+      "dominance_mean": 0.6233750000000001,
+      "dominance_std": 0.14285784363080004,
+      "n_eff_mean": 7.74,
+      "n_eff_std": 1.9966814573449774,
+      "entropy_mean": 1.4582152783285058,
+      "entropy_std": 0.3763194030621771
+    },
+    "0.2": {
+      "gamma": 0.2,
+      "dominance_mean": 0.61365625,
+      "dominance_std": 0.12991366613898264,
+      "n_eff_mean": 8.565,
+      "n_eff_std": 1.9377211249028423,
+      "entropy_mean": 1.5444213514602418,
+      "entropy_std": 0.30697242642570727
+    },
+    "0.25": {
+      "gamma": 0.25,
+      "dominance_mean": 0.5832812500000001,
+      "dominance_std": 0.12670415237322893,
+      "n_eff_mean": 9.11,
+      "n_eff_std": 2.1326163817196346,
+      "entropy_mean": 1.6381538827163293,
+      "entropy_std": 0.36250280165394533
+    },
+    "0.3": {
+      "gamma": 0.3,
+      "dominance_mean": 0.56703125,
+      "dominance_std": 0.14362779058600889,
+      "n_eff_mean": 9.07,
+      "n_eff_std": 2.211655726516127,
+      "entropy_mean": 1.64401588268142,
+      "entropy_std": 0.36031870561379115
+    },
+    "0.35": {
+      "gamma": 0.35,
+      "dominance_mean": 0.536875,
+      "dominance_std": 0.12539214803756127,
+      "n_eff_mean": 9.5325,
+      "n_eff_std": 1.5259401761054172,
+      "entropy_mean": 1.733748897179727,
+      "entropy_std": 0.3170666502373699
+    },
+    "0.4": {
+      "gamma": 0.4,
+      "dominance_mean": 0.52003125,
+      "dominance_std": 0.14526794025338324,
+      "n_eff_mean": 9.54,
+      "n_eff_std": 2.1123446688454988,
+      "entropy_mean": 1.746302827729115,
+      "entropy_std": 0.36961159458213677
+    },
+    "0.45": {
+      "gamma": 0.45,
+      "dominance_mean": 0.5,
+      "dominance_std": 0.16546932853012528,
+      "n_eff_mean": 9.905,
+      "n_eff_std": 2.119514591896729,
+      "entropy_mean": 1.7665296834113469,
+      "entropy_std": 0.40145342601444106
+    },
+    "0.5": {
+      "gamma": 0.5,
+      "dominance_mean": 0.496875,
+      "dominance_std": 0.15789945168399183,
+      "n_eff_mean": 9.3275,
+      "n_eff_std": 1.8652977044739507,
+      "entropy_mean": 1.752601750510468,
+      "entropy_std": 0.391791272647968
+    },
+    "0.55": {
+      "gamma": 0.55,
+      "dominance_mean": 0.501625,
+      "dominance_std": 0.16325072035788518,
+      "n_eff_mean": 9.435,
+      "n_eff_std": 1.5391470638670388,
+      "entropy_mean": 1.7228253911768256,
+      "entropy_std": 0.34941255989950265
+    },
+    "0.6": {
+      "gamma": 0.6,
+      "dominance_mean": 0.531375,
+      "dominance_std": 0.18299226148435319,
+      "n_eff_mean": 8.1425,
+      "n_eff_std": 1.569719636381639,
+      "entropy_mean": 1.5833134264658866,
+      "entropy_std": 0.40360717390121587
+    },
+    "0.65": {
+      "gamma": 0.65,
+      "dominance_mean": 0.55846875,
+      "dominance_std": 0.1803462581278682,
+      "n_eff_mean": 8.1425,
+      "n_eff_std": 1.8787086130189479,
+      "entropy_mean": 1.5198620356229646,
+      "entropy_std": 0.43136757691069777
+    },
+    "0.7": {
+      "gamma": 0.7,
+      "dominance_mean": 0.5874062499999999,
+      "dominance_std": 0.1875401574321378,
+      "n_eff_mean": 7.2475,
+      "n_eff_std": 2.007517123214644,
+      "entropy_mean": 1.3873446502032893,
+      "entropy_std": 0.4570823704015948
+    },
+    "0.75": {
+      "gamma": 0.75,
+      "dominance_mean": 0.6255937500000001,
+      "dominance_std": 0.159138882756334,
+      "n_eff_mean": 6.5725,
+      "n_eff_std": 1.5877387926495374,
+      "entropy_mean": 1.2744140045798011,
+      "entropy_std": 0.37876381881535054
+    },
+    "0.8": {
+      "gamma": 0.8,
+      "dominance_mean": 0.6494375,
+      "dominance_std": 0.1508225664350419,
+      "n_eff_mean": 5.855,
+      "n_eff_std": 1.5325331626874643,
+      "entropy_mean": 1.1651497403231517,
+      "entropy_std": 0.38205374750960813
+    },
+    "0.85": {
+      "gamma": 0.85,
+      "dominance_mean": 0.67275,
+      "dominance_std": 0.15103213974794272,
+      "n_eff_mean": 5.35,
+      "n_eff_std": 1.5372566131706318,
+      "entropy_mean": 1.0596340339477666,
+      "entropy_std": 0.3821609548521803
+    },
+    "0.9": {
+      "gamma": 0.9,
+      "dominance_mean": 0.7075312500000001,
+      "dominance_std": 0.12785465300257118,
+      "n_eff_mean": 4.75,
+      "n_eff_std": 1.4098338834583912,
+      "entropy_mean": 0.957852159952574,
+      "entropy_std": 0.3588761036357746
+    },
+    "0.95": {
+      "gamma": 0.95,
+      "dominance_mean": 0.75584375,
+      "dominance_std": 0.1184624765359879,
+      "n_eff_mean": 4.3950000000000005,
+      "n_eff_std": 1.4594429362638768,
+      "entropy_mean": 0.8346996924527982,
+      "entropy_std": 0.3448510961593592
+    },
+    "1.0": {
+      "gamma": 1.0,
+      "dominance_mean": 0.79115625,
+      "dominance_std": 0.11130399986753924,
+      "n_eff_mean": 3.5675,
+      "n_eff_std": 1.2796252535307688,
+      "entropy_mean": 0.7023945612719056,
+      "entropy_std": 0.3288028462321904
+    }
+  },
+  "arithmetic_reverse": {
+    "0.0": {
+      "gamma": 0.0,
+      "dominance_mean": 0.1624375,
+      "dominance_std": 0.10408887665558245,
+      "n_eff_mean": 17.9575,
+      "n_eff_std": 2.5358625128761467,
+      "entropy_mean": 3.193652185740575,
+      "entropy_std": 0.2813864287573565
+    },
+    "0.05": {
+      "gamma": 0.05,
+      "dominance_mean": 0.18646875,
+      "dominance_std": 0.11917311652508976,
+      "n_eff_mean": 17.1025,
+      "n_eff_std": 2.707128746962652,
+      "entropy_mean": 3.0229368663842684,
+      "entropy_std": 0.29845238177566874
+    },
+    "0.1": {
+      "gamma": 0.1,
+      "dominance_mean": 0.2235625,
+      "dominance_std": 0.1226878426879414,
+      "n_eff_mean": 15.885,
+      "n_eff_std": 2.2812219717095763,
+      "entropy_mean": 2.791122850069152,
+      "entropy_std": 0.2927301902016621
+    },
+    "0.15": {
+      "gamma": 0.15,
+      "dominance_mean": 0.25731250000000006,
+      "dominance_std": 0.14190406611603196,
+      "n_eff_mean": 14.4625,
+      "n_eff_std": 2.3369387871180622,
+      "entropy_mean": 2.5849279806606886,
+      "entropy_std": 0.3386985784633399
+    },
+    "0.2": {
+      "gamma": 0.2,
+      "dominance_mean": 0.29990625,
+      "dominance_std": 0.15277925184529442,
+      "n_eff_mean": 12.5975,
+      "n_eff_std": 2.5332252689324526,
+      "entropy_mean": 2.3982711876784433,
+      "entropy_std": 0.3403987441741315
+    },
+    "0.25": {
+      "gamma": 0.25,
+      "dominance_mean": 0.38703125,
+      "dominance_std": 0.15812010796988438,
+      "n_eff_mean": 10.8375,
+      "n_eff_std": 2.278669683459143,
+      "entropy_mean": 2.075206836056479,
+      "entropy_std": 0.36815529072758835
+    },
+    "0.3": {
+      "gamma": 0.3,
+      "dominance_mean": 0.535625,
+      "dominance_std": 0.16659713461868997,
+      "n_eff_mean": 8.9175,
+      "n_eff_std": 2.0458092595146278,
+      "entropy_mean": 1.6549446433632655,
+      "entropy_std": 0.3964489540201209
+    },
+    "0.35": {
+      "gamma": 0.35,
+      "dominance_mean": 0.67665625,
+      "dominance_std": 0.1812102128517494,
+      "n_eff_mean": 6.3525,
+      "n_eff_std": 2.1504880107107143,
+      "entropy_mean": 1.1877373143812795,
+      "entropy_std": 0.4911449340998199
+    },
+    "0.4": {
+      "gamma": 0.4,
+      "dominance_mean": 0.7951875,
+      "dominance_std": 0.128478107775728,
+      "n_eff_mean": 4.8475,
+      "n_eff_std": 1.7109150368027908,
+      "entropy_mean": 0.8094842210650218,
+      "entropy_std": 0.37553489918437355
+    },
+    "0.45": {
+      "gamma": 0.45,
+      "dominance_mean": 0.8728750000000001,
+      "dominance_std": 0.08231273603251137,
+      "n_eff_mean": 3.6475,
+      "n_eff_std": 1.7417077977179694,
+      "entropy_mean": 0.5405916227005669,
+      "entropy_std": 0.322432220471088
+    },
+    "0.5": {
+      "gamma": 0.5,
+      "dominance_mean": 0.90571875,
+      "dominance_std": 0.050995950480999204,
+      "n_eff_mean": 3.02,
+      "n_eff_std": 1.101243316486081,
+      "entropy_mean": 0.41076198886066617,
+      "entropy_std": 0.2046684852102099
+    },
+    "0.55": {
+      "gamma": 0.55,
+      "dominance_mean": 0.94615625,
+      "dominance_std": 0.05052897610269615,
+      "n_eff_mean": 2.22,
+      "n_eff_std": 1.2386750136632627,
+      "entropy_mean": 0.24324561988406812,
+      "entropy_std": 0.20783937500219102
+    },
+    "0.6": {
+      "gamma": 0.6,
+      "dominance_mean": 0.9637187500000001,
+      "dominance_std": 0.028263529451211137,
+      "n_eff_mean": 1.73,
+      "n_eff_std": 0.6655824516917495,
+      "entropy_mean": 0.16868527068441877,
+      "entropy_std": 0.12111501386914361
+    },
+    "0.65": {
+      "gamma": 0.65,
+      "dominance_mean": 0.9792812500000001,
+      "dominance_std": 0.01999411405987956,
+      "n_eff_mean": 1.365,
+      "n_eff_std": 0.5042190417916237,
+      "entropy_mean": 0.09884188922545424,
+      "entropy_std": 0.09235897040416045
+    },
+    "0.7": {
+      "gamma": 0.7,
+      "dominance_mean": 0.98678125,
+      "dominance_std": 0.015695597092564097,
+      "n_eff_mean": 1.25,
+      "n_eff_std": 0.47267436214753483,
+      "entropy_mean": 0.06518422127901193,
+      "entropy_std": 0.07587052185010294
+    },
+    "0.75": {
+      "gamma": 0.75,
+      "dominance_mean": 0.9916562500000001,
+      "dominance_std": 0.0119126394480157,
+      "n_eff_mean": 1.0975,
+      "n_eff_std": 0.2677759275372248,
+      "entropy_mean": 0.043103659568765204,
+      "entropy_std": 0.06052739179334858
+    },
+    "0.8": {
+      "gamma": 0.8,
+      "dominance_mean": 0.9939687500000001,
+      "dominance_std": 0.008425063934631619,
+      "n_eff_mean": 1.12,
+      "n_eff_std": 0.29841687549290397,
+      "entropy_mean": 0.03032406538445796,
+      "entropy_std": 0.04112309951914584
+    },
+    "0.85": {
+      "gamma": 0.85,
+      "dominance_mean": 0.9980625,
+      "dominance_std": 0.005429345821793976,
+      "n_eff_mean": 1.06,
+      "n_eff_std": 0.20170327346455189,
+      "entropy_mean": 0.009365115020392294,
+      "entropy_std": 0.02573871857089042
+    },
+    "0.9": {
+      "gamma": 0.9,
+      "dominance_mean": 0.9975,
+      "dominance_std": 0.004606202911635222,
+      "n_eff_mean": 1.0125,
+      "n_eff_std": 0.05590169943749474,
+      "entropy_mean": 0.013218811776767937,
+      "entropy_std": 0.02458976721888718
+    },
+    "0.95": {
+      "gamma": 0.95,
+      "dominance_mean": 0.999375,
+      "dominance_std": 0.0027950849718746526,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0033598440181348927,
+      "entropy_std": 0.015025679236691314
+    },
+    "1.0": {
+      "gamma": 1.0,
+      "dominance_mean": 1.0,
+      "dominance_std": 0.0,
+      "n_eff_mean": 1.0,
+      "n_eff_std": 0.0,
+      "entropy_mean": 0.0,
+      "entropy_std": 0.0
+    }
+  }
+}

@@ -1,0 +1,1942 @@
+[
+  {
+    "cluster": "abrahamic_monotheism",
+    "n_traditions": 7,
+    "n_passages": 27,
+    "cluster_centroid_unicode": "\u2851\u2851\u2841\u2800\u2851\u2811\u2802\u2802\u2802\u2802\u2802\u2851",
+    "traditions": {
+      "Judaism": {
+        "n_passages": 5,
+        "hamming_centroid_unicode": "\u2851\u2810\u2851\u2800\u2810\u2811\u2802\u2802\u2802\u2802\u2800\u2851",
+        "arithmetic_centroid_unicode": "\u2855\u2811\u2855\u2851\u2851\u2811\u2802\u2802\u2802\u2802\u2800\u2851",
+        "snap_distance": 8,
+        "mean_intra_hamming": 12.8,
+        "var_intra_hamming": 46.160000000000004,
+        "top3_axes": [
+          "authority",
+          "care",
+          "order"
+        ],
+        "recon_cosine": 0.9387254769022743,
+        "hamming_centroid_decoded": {
+          "authority": 0.419,
+          "transcendence": 0.3809,
+          "care": 0.419,
+          "justice": 0.127,
+          "wisdom": 0.3809,
+          "power": 0.3809,
+          "fertility": 0.0381,
+          "war": 0.0381,
+          "death": 0.0381,
+          "creation": 0.0381,
+          "nature": 0.127,
+          "order": 0.419
+        },
+        "arithmetic_centroid": {
+          "authority": 0.4048,
+          "transcendence": 0.3077,
+          "care": 0.3412,
+          "justice": 0.3118,
+          "wisdom": 0.3115,
+          "power": 0.3044,
+          "fertility": 0.1912,
+          "war": 0.1262,
+          "death": 0.1576,
+          "creation": 0.1179,
+          "nature": 0.2455,
+          "order": 0.432
+        }
+      },
+      "Christianity": {
+        "n_passages": 5,
+        "hamming_centroid_unicode": "\u2812\u2851\u2841\u2800\u2811\u2811\u2802\u2802\u2800\u2800\u2802\u2851",
+        "arithmetic_centroid_unicode": "\u2812\u2851\u2851\u2800\u2851\u2850\u2802\u2802\u2802\u2802\u2802\u2851",
+        "snap_distance": 6,
+        "mean_intra_hamming": 11.8,
+        "var_intra_hamming": 12.16,
+        "top3_axes": [
+          "transcendence",
+          "order",
+          "wisdom"
+        ],
+        "recon_cosine": 0.8888189621593847,
+        "hamming_centroid_decoded": {
+          "authority": 0.1341,
+          "transcendence": 0.4916,
+          "care": 0.1639,
+          "justice": 0.149,
+          "wisdom": 0.4469,
+          "power": 0.4469,
+          "fertility": 0.0447,
+          "war": 0.0447,
+          "death": 0.149,
+          "creation": 0.149,
+          "nature": 0.0447,
+          "order": 0.4916
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2797,
+          "transcendence": 0.421,
+          "care": 0.496,
+          "justice": 0.2459,
+          "wisdom": 0.3256,
+          "power": 0.2952,
+          "fertility": 0.1413,
+          "war": 0.0523,
+          "death": 0.1875,
+          "creation": 0.2285,
+          "nature": 0.0966,
+          "order": 0.3542
+        }
+      },
+      "Islam": {
+        "n_passages": 5,
+        "hamming_centroid_unicode": "\u2851\u2851\u2841\u2811\u2850\u2851\u2802\u2802\u2802\u2802\u2802\u2851",
+        "arithmetic_centroid_unicode": "\u2855\u2851\u2815\u2810\u2851\u2851\u2802\u2802\u2802\u2802\u2802\u2851",
+        "snap_distance": 6,
+        "mean_intra_hamming": 9.2,
+        "var_intra_hamming": 31.759999999999998,
+        "top3_axes": [
+          "authority",
+          "transcendence",
+          "wisdom"
+        ],
+        "recon_cosine": 0.9524406563103378,
+        "hamming_centroid_decoded": {
+          "authority": 0.409,
+          "transcendence": 0.409,
+          "care": 0.1363,
+          "justice": 0.3718,
+          "wisdom": 0.409,
+          "power": 0.409,
+          "fertility": 0.0372,
+          "war": 0.0372,
+          "death": 0.0372,
+          "creation": 0.0372,
+          "nature": 0.0372,
+          "order": 0.409
+        },
+        "arithmetic_centroid": {
+          "authority": 0.4235,
+          "transcendence": 0.4108,
+          "care": 0.3302,
+          "justice": 0.2696,
+          "wisdom": 0.3462,
+          "power": 0.3657,
+          "fertility": 0.0951,
+          "war": 0.0122,
+          "death": 0.0772,
+          "creation": 0.1886,
+          "nature": 0.1455,
+          "order": 0.3804
+        }
+      },
+      "Bahai": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2855\u2851\u2855\u2810\u2851\u2800\u2802\u2802\u2802\u2802\u2802\u2851",
+        "arithmetic_centroid_unicode": "\u2853\u2851\u2849\u2810\u2851\u2800\u2802\u2802\u2802\u2802\u2802\u2851",
+        "snap_distance": 5,
+        "mean_intra_hamming": 8.0,
+        "var_intra_hamming": 42.0,
+        "top3_axes": [
+          "transcendence",
+          "wisdom",
+          "order"
+        ],
+        "recon_cosine": 0.9471292564843504,
+        "hamming_centroid_decoded": {
+          "authority": 0.3656,
+          "transcendence": 0.4301,
+          "care": 0.3656,
+          "justice": 0.391,
+          "wisdom": 0.4301,
+          "power": 0.1303,
+          "fertility": 0.0391,
+          "war": 0.0391,
+          "death": 0.0391,
+          "creation": 0.0391,
+          "nature": 0.0391,
+          "order": 0.4301
+        },
+        "arithmetic_centroid": {
+          "authority": 0.3505,
+          "transcendence": 0.3471,
+          "care": 0.5152,
+          "justice": 0.2646,
+          "wisdom": 0.375,
+          "power": 0.2256,
+          "fertility": 0.1155,
+          "war": 0.0095,
+          "death": 0.0439,
+          "creation": 0.1926,
+          "nature": 0.1655,
+          "order": 0.3871
+        }
+      },
+      "Druze": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2840\u2851\u2802\u2800\u2851\u2800\u2802\u2802\u2802\u2802\u2802\u2851",
+        "arithmetic_centroid_unicode": "\u2850\u2849\u2800\u2850\u2851\u2800\u2802\u2802\u2800\u2802\u2802\u2851",
+        "snap_distance": 7,
+        "mean_intra_hamming": 8.0,
+        "var_intra_hamming": 2.0,
+        "top3_axes": [
+          "transcendence",
+          "wisdom",
+          "order"
+        ],
+        "recon_cosine": 0.9526232028875499,
+        "hamming_centroid_decoded": {
+          "authority": 0.1823,
+          "transcendence": 0.5468,
+          "care": 0.0497,
+          "justice": 0.1657,
+          "wisdom": 0.5468,
+          "power": 0.1657,
+          "fertility": 0.0497,
+          "war": 0.0497,
+          "death": 0.0497,
+          "creation": 0.0497,
+          "nature": 0.0497,
+          "order": 0.5468
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2924,
+          "transcendence": 0.5274,
+          "care": 0.2071,
+          "justice": 0.273,
+          "wisdom": 0.4933,
+          "power": 0.2363,
+          "fertility": 0.0446,
+          "war": 0.0618,
+          "death": 0.1518,
+          "creation": 0.1433,
+          "nature": 0.0493,
+          "order": 0.4098
+        }
+      },
+      "Zoroastrianism": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2800\u2851\u2802\u2841\u2851\u2810\u2802\u2802\u2802\u2855\u2802\u2855",
+        "arithmetic_centroid_unicode": "\u2810\u2851\u2802\u2851\u2851\u2810\u2802\u2802\u2802\u2855\u2802\u2855",
+        "snap_distance": 2,
+        "mean_intra_hamming": 8.0,
+        "var_intra_hamming": 14.0,
+        "top3_axes": [
+          "transcendence",
+          "wisdom",
+          "power"
+        ],
+        "recon_cosine": 0.915907343177556,
+        "hamming_centroid_decoded": {
+          "authority": 0.1426,
+          "transcendence": 0.4706,
+          "care": 0.0428,
+          "justice": 0.1569,
+          "wisdom": 0.4706,
+          "power": 0.4278,
+          "fertility": 0.0428,
+          "war": 0.0428,
+          "death": 0.0428,
+          "creation": 0.4,
+          "nature": 0.0428,
+          "order": 0.4
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2719,
+          "transcendence": 0.4198,
+          "care": 0.1598,
+          "justice": 0.4077,
+          "wisdom": 0.3708,
+          "power": 0.275,
+          "fertility": 0.1423,
+          "war": 0.0627,
+          "death": 0.1288,
+          "creation": 0.3272,
+          "nature": 0.1687,
+          "order": 0.4107
+        }
+      },
+      "Samaritanism": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2851\u2851\u2802\u2800\u2811\u2851\u2802\u2802\u2802\u2802\u2802\u2851",
+        "arithmetic_centroid_unicode": "\u2851\u2851\u2802\u2810\u2850\u2851\u2802\u2802\u2802\u2802\u2802\u2851",
+        "snap_distance": 3,
+        "mean_intra_hamming": 5.333333333333333,
+        "var_intra_hamming": 2.888888888888889,
+        "top3_axes": [
+          "authority",
+          "transcendence",
+          "power"
+        ],
+        "recon_cosine": 0.945145552757688,
+        "hamming_centroid_decoded": {
+          "authority": 0.4487,
+          "transcendence": 0.4487,
+          "care": 0.0408,
+          "justice": 0.136,
+          "wisdom": 0.4079,
+          "power": 0.4487,
+          "fertility": 0.0408,
+          "war": 0.0408,
+          "death": 0.0408,
+          "creation": 0.0408,
+          "nature": 0.0408,
+          "order": 0.4487
+        },
+        "arithmetic_centroid": {
+          "authority": 0.4904,
+          "transcendence": 0.3996,
+          "care": 0.1106,
+          "justice": 0.269,
+          "wisdom": 0.2724,
+          "power": 0.4058,
+          "fertility": 0.0603,
+          "war": 0.0844,
+          "death": 0.0732,
+          "creation": 0.2451,
+          "nature": 0.1693,
+          "order": 0.4141
+        }
+      }
+    },
+    "inter_tradition_distances": [
+      {
+        "pair": "Judaism \u00d7 Christianity",
+        "hamming": 11,
+        "cosine": 0.8977895832046194
+      },
+      {
+        "pair": "Judaism \u00d7 Islam",
+        "hamming": 12,
+        "cosine": 0.9247640801446878
+      },
+      {
+        "pair": "Judaism \u00d7 Bahai",
+        "hamming": 11,
+        "cosine": 0.9245444763147451
+      },
+      {
+        "pair": "Judaism \u00d7 Druze",
+        "hamming": 19,
+        "cosine": 0.8409366625459961
+      },
+      {
+        "pair": "Judaism \u00d7 Zoroastrianism",
+        "hamming": 18,
+        "cosine": 0.8121985226159553
+      },
+      {
+        "pair": "Judaism \u00d7 Samaritanism",
+        "hamming": 9,
+        "cosine": 0.9188760732960809
+      },
+      {
+        "pair": "Christianity \u00d7 Islam",
+        "hamming": 7,
+        "cosine": 0.9161712273311479
+      },
+      {
+        "pair": "Christianity \u00d7 Bahai",
+        "hamming": 14,
+        "cosine": 0.8574123400943996
+      },
+      {
+        "pair": "Christianity \u00d7 Druze",
+        "hamming": 12,
+        "cosine": 0.9347200431798168
+      },
+      {
+        "pair": "Christianity \u00d7 Zoroastrianism",
+        "hamming": 7,
+        "cosine": 0.9505763322396363
+      },
+      {
+        "pair": "Christianity \u00d7 Samaritanism",
+        "hamming": 6,
+        "cosine": 0.9285321132982535
+      },
+      {
+        "pair": "Islam \u00d7 Bahai",
+        "hamming": 11,
+        "cosine": 0.9330884604808808
+      },
+      {
+        "pair": "Islam \u00d7 Druze",
+        "hamming": 13,
+        "cosine": 0.8908318361784074
+      },
+      {
+        "pair": "Islam \u00d7 Zoroastrianism",
+        "hamming": 12,
+        "cosine": 0.8671569078757843
+      },
+      {
+        "pair": "Islam \u00d7 Samaritanism",
+        "hamming": 3,
+        "cosine": 0.9644442870486748
+      },
+      {
+        "pair": "Bahai \u00d7 Druze",
+        "hamming": 18,
+        "cosine": 0.8865758449662892
+      },
+      {
+        "pair": "Bahai \u00d7 Zoroastrianism",
+        "hamming": 19,
+        "cosine": 0.7841163850995055
+      },
+      {
+        "pair": "Bahai \u00d7 Samaritanism",
+        "hamming": 14,
+        "cosine": 0.8599995112400031
+      },
+      {
+        "pair": "Druze \u00d7 Zoroastrianism",
+        "hamming": 17,
+        "cosine": 0.8867651733309374
+      },
+      {
+        "pair": "Druze \u00d7 Samaritanism",
+        "hamming": 12,
+        "cosine": 0.904517442965523
+      },
+      {
+        "pair": "Zoroastrianism \u00d7 Samaritanism",
+        "hamming": 11,
+        "cosine": 0.8848122987452338
+      }
+    ]
+  },
+  {
+    "cluster": "dharmic",
+    "n_traditions": 4,
+    "n_passages": 20,
+    "cluster_centroid_unicode": "\u2802\u2851\u2800\u2800\u2851\u2810\u2800\u2802\u2800\u2802\u2802\u2851",
+    "traditions": {
+      "Hinduism": {
+        "n_passages": 8,
+        "hamming_centroid_unicode": "\u2851\u2849\u2802\u2800\u2851\u2851\u2800\u2802\u2800\u2802\u2802\u2851",
+        "arithmetic_centroid_unicode": "\u2851\u2849\u2802\u2800\u2851\u2851\u2800\u2802\u2802\u2802\u2802\u2851",
+        "snap_distance": 1,
+        "mean_intra_hamming": 11.125,
+        "var_intra_hamming": 38.859375,
+        "top3_axes": [
+          "transcendence",
+          "authority",
+          "wisdom"
+        ],
+        "recon_cosine": 0.9348523332858599,
+        "hamming_centroid_decoded": {
+          "authority": 0.3757,
+          "transcendence": 0.6261,
+          "care": 0.0342,
+          "justice": 0.1138,
+          "wisdom": 0.3757,
+          "power": 0.3757,
+          "fertility": 0.1138,
+          "war": 0.0342,
+          "death": 0.1138,
+          "creation": 0.0342,
+          "nature": 0.0342,
+          "order": 0.3757
+        },
+        "arithmetic_centroid": {
+          "authority": 0.3033,
+          "transcendence": 0.5105,
+          "care": 0.1812,
+          "justice": 0.1514,
+          "wisdom": 0.4054,
+          "power": 0.3512,
+          "fertility": 0.1307,
+          "war": 0.1087,
+          "death": 0.2113,
+          "creation": 0.2356,
+          "nature": 0.2104,
+          "order": 0.3614
+        }
+      },
+      "Buddhism": {
+        "n_passages": 5,
+        "hamming_centroid_unicode": "\u2802\u2841\u2851\u2800\u2849\u2800\u2800\u2802\u2800\u2802\u2802\u2851",
+        "arithmetic_centroid_unicode": "\u2802\u2851\u2851\u2840\u2849\u2800\u2802\u2802\u2800\u2802\u2802\u2851",
+        "snap_distance": 3,
+        "mean_intra_hamming": 6.0,
+        "var_intra_hamming": 5.2,
+        "top3_axes": [
+          "wisdom",
+          "care",
+          "order"
+        ],
+        "recon_cosine": 0.9226413297464664,
+        "hamming_centroid_decoded": {
+          "authority": 0.0395,
+          "transcendence": 0.1449,
+          "care": 0.4348,
+          "justice": 0.1318,
+          "wisdom": 0.7247,
+          "power": 0.1318,
+          "fertility": 0.1318,
+          "war": 0.0395,
+          "death": 0.1318,
+          "creation": 0.0395,
+          "nature": 0.0395,
+          "order": 0.4348
+        },
+        "arithmetic_centroid": {
+          "authority": 0.1053,
+          "transcendence": 0.4395,
+          "care": 0.4164,
+          "justice": 0.1997,
+          "wisdom": 0.5482,
+          "power": 0.1587,
+          "fertility": 0.0926,
+          "war": 0.0,
+          "death": 0.1848,
+          "creation": 0.0986,
+          "nature": 0.1703,
+          "order": 0.4187
+        }
+      },
+      "Jainism": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2802\u2811\u2851\u2851\u2851\u2800\u2802\u2802\u2800\u2802\u2811\u2851",
+        "arithmetic_centroid_unicode": "\u2802\u2851\u2851\u2851\u2851\u2800\u2802\u2802\u2800\u2802\u2810\u2851",
+        "snap_distance": 2,
+        "mean_intra_hamming": 5.333333333333333,
+        "var_intra_hamming": 6.888888888888889,
+        "top3_axes": [
+          "care",
+          "justice",
+          "wisdom"
+        ],
+        "recon_cosine": 0.9782641071847908,
+        "hamming_centroid_decoded": {
+          "authority": 0.0375,
+          "transcendence": 0.3752,
+          "care": 0.4128,
+          "justice": 0.4128,
+          "wisdom": 0.4128,
+          "power": 0.1251,
+          "fertility": 0.0375,
+          "war": 0.0375,
+          "death": 0.1251,
+          "creation": 0.0375,
+          "nature": 0.3752,
+          "order": 0.4128
+        },
+        "arithmetic_centroid": {
+          "authority": 0.1593,
+          "transcendence": 0.3225,
+          "care": 0.4581,
+          "justice": 0.3676,
+          "wisdom": 0.4652,
+          "power": 0.1171,
+          "fertility": 0.1114,
+          "war": 0.0,
+          "death": 0.1694,
+          "creation": 0.076,
+          "nature": 0.2823,
+          "order": 0.411
+        }
+      },
+      "Sikhism": {
+        "n_passages": 4,
+        "hamming_centroid_unicode": "\u2800\u2851\u2810\u2800\u2851\u2851\u2802\u2802\u2802\u2855\u2802\u2855",
+        "arithmetic_centroid_unicode": "\u2810\u2851\u2810\u2810\u2851\u2851\u2802\u2802\u2802\u2855\u2802\u2855",
+        "snap_distance": 2,
+        "mean_intra_hamming": 7.25,
+        "var_intra_hamming": 40.6875,
+        "top3_axes": [
+          "transcendence",
+          "wisdom",
+          "power"
+        ],
+        "recon_cosine": 0.9557180539981565,
+        "hamming_centroid_decoded": {
+          "authority": 0.1294,
+          "transcendence": 0.4269,
+          "care": 0.3881,
+          "justice": 0.1294,
+          "wisdom": 0.4269,
+          "power": 0.4269,
+          "fertility": 0.0388,
+          "war": 0.0388,
+          "death": 0.0388,
+          "creation": 0.3628,
+          "nature": 0.0388,
+          "order": 0.3628
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2819,
+          "transcendence": 0.4552,
+          "care": 0.2969,
+          "justice": 0.2635,
+          "wisdom": 0.3873,
+          "power": 0.3262,
+          "fertility": 0.1091,
+          "war": 0.0,
+          "death": 0.1427,
+          "creation": 0.3317,
+          "nature": 0.129,
+          "order": 0.3746
+        }
+      }
+    },
+    "inter_tradition_distances": [
+      {
+        "pair": "Hinduism \u00d7 Buddhism",
+        "hamming": 17,
+        "cosine": 0.6545596803654962
+      },
+      {
+        "pair": "Hinduism \u00d7 Jainism",
+        "hamming": 24,
+        "cosine": 0.7010926448838065
+      },
+      {
+        "pair": "Hinduism \u00d7 Sikhism",
+        "hamming": 16,
+        "cosine": 0.8247048291188588
+      },
+      {
+        "pair": "Buddhism \u00d7 Jainism",
+        "hamming": 15,
+        "cosine": 0.8240249839935588
+      },
+      {
+        "pair": "Buddhism \u00d7 Sikhism",
+        "hamming": 15,
+        "cosine": 0.8037423632336621
+      },
+      {
+        "pair": "Jainism \u00d7 Sikhism",
+        "hamming": 20,
+        "cosine": 0.7938760433962334
+      }
+    ]
+  },
+  {
+    "cluster": "eastern_nontheistic",
+    "n_traditions": 3,
+    "n_passages": 10,
+    "cluster_centroid_unicode": "\u2800\u2841\u2800\u2800\u2841\u2800\u2800\u2802\u2802\u2802\u2851\u2851",
+    "traditions": {
+      "Daoism": {
+        "n_passages": 4,
+        "hamming_centroid_unicode": "\u2802\u2841\u2800\u2802\u2851\u2800\u2800\u2802\u2800\u2800\u2853\u2851",
+        "arithmetic_centroid_unicode": "\u2802\u2855\u2800\u2802\u2849\u2800\u2800\u2802\u2800\u2842\u2855\u2851",
+        "snap_distance": 8,
+        "mean_intra_hamming": 9.75,
+        "var_intra_hamming": 3.6875,
+        "top3_axes": [
+          "wisdom",
+          "nature",
+          "order"
+        ],
+        "recon_cosine": 0.9394552611439069,
+        "hamming_centroid_decoded": {
+          "authority": 0.0479,
+          "transcendence": 0.1758,
+          "care": 0.1598,
+          "justice": 0.0479,
+          "wisdom": 0.5274,
+          "power": 0.1598,
+          "fertility": 0.1598,
+          "war": 0.0479,
+          "death": 0.1598,
+          "creation": 0.1598,
+          "nature": 0.5274,
+          "order": 0.5274
+        },
+        "arithmetic_centroid": {
+          "authority": 0.0722,
+          "transcendence": 0.4459,
+          "care": 0.2053,
+          "justice": 0.0869,
+          "wisdom": 0.5052,
+          "power": 0.1885,
+          "fertility": 0.2173,
+          "war": 0.0543,
+          "death": 0.1399,
+          "creation": 0.2473,
+          "nature": 0.3936,
+          "order": 0.4119
+        }
+      },
+      "Confucianism": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2851\u2800\u2841\u2851\u2849\u2800\u2802\u2802\u2802\u2802\u2800\u2849",
+        "arithmetic_centroid_unicode": "\u2850\u2800\u2851\u2851\u2849\u2800\u2802\u2802\u2800\u2802\u2800\u2849",
+        "snap_distance": 3,
+        "mean_intra_hamming": 8.333333333333334,
+        "var_intra_hamming": 29.555555555555557,
+        "top3_axes": [
+          "wisdom",
+          "order",
+          "authority"
+        ],
+        "recon_cosine": 0.9570410690393377,
+        "hamming_centroid_decoded": {
+          "authority": 0.3541,
+          "transcendence": 0.1073,
+          "care": 0.118,
+          "justice": 0.3541,
+          "wisdom": 0.5902,
+          "power": 0.1073,
+          "fertility": 0.0322,
+          "war": 0.0322,
+          "death": 0.0322,
+          "creation": 0.0322,
+          "nature": 0.1073,
+          "order": 0.5902
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2762,
+          "transcendence": 0.2342,
+          "care": 0.338,
+          "justice": 0.3458,
+          "wisdom": 0.5466,
+          "power": 0.1092,
+          "fertility": 0.0684,
+          "war": 0.0,
+          "death": 0.0103,
+          "creation": 0.0819,
+          "nature": 0.1751,
+          "order": 0.5312
+        }
+      },
+      "Shinto": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2800\u2855\u2802\u2800\u2800\u2850\u2800\u2802\u2802\u2802\u2855\u2851",
+        "arithmetic_centroid_unicode": "\u2810\u2855\u2800\u2800\u2800\u2851\u2800\u2802\u2802\u2857\u2855\u2855",
+        "snap_distance": 8,
+        "mean_intra_hamming": 9.666666666666666,
+        "var_intra_hamming": 44.22222222222223,
+        "top3_axes": [
+          "power",
+          "order",
+          "transcendence"
+        ],
+        "recon_cosine": 0.9142968316330795,
+        "hamming_centroid_decoded": {
+          "authority": 0.1545,
+          "transcendence": 0.4335,
+          "care": 0.0464,
+          "justice": 0.1545,
+          "wisdom": 0.1545,
+          "power": 0.51,
+          "fertility": 0.1545,
+          "war": 0.0464,
+          "death": 0.0464,
+          "creation": 0.0464,
+          "nature": 0.4335,
+          "order": 0.51
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2867,
+          "transcendence": 0.3835,
+          "care": 0.1978,
+          "justice": 0.1373,
+          "wisdom": 0.2364,
+          "power": 0.3173,
+          "fertility": 0.2335,
+          "war": 0.0146,
+          "death": 0.0393,
+          "creation": 0.3077,
+          "nature": 0.4737,
+          "order": 0.4252
+        }
+      }
+    },
+    "inter_tradition_distances": [
+      {
+        "pair": "Daoism \u00d7 Confucianism",
+        "hamming": 16,
+        "cosine": 0.7849285355212765
+      },
+      {
+        "pair": "Daoism \u00d7 Shinto",
+        "hamming": 17,
+        "cosine": 0.800739151324297
+      },
+      {
+        "pair": "Confucianism \u00d7 Shinto",
+        "hamming": 23,
+        "cosine": 0.6642677662730446
+      }
+    ]
+  },
+  {
+    "cluster": "african_traditional",
+    "n_traditions": 2,
+    "n_passages": 6,
+    "cluster_centroid_unicode": "\u2800\u2851\u2800\u2800\u2841\u2851\u2800\u2802\u2800\u2802\u2851\u2851",
+    "traditions": {
+      "Yoruba": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2800\u2851\u2800\u2802\u2841\u2851\u2810\u2802\u2802\u2802\u2811\u2851",
+        "arithmetic_centroid_unicode": "\u2810\u2855\u2810\u2800\u2851\u2851\u2811\u2802\u2802\u2802\u2855\u2851",
+        "snap_distance": 8,
+        "mean_intra_hamming": 13.333333333333334,
+        "var_intra_hamming": 0.888888888888889,
+        "top3_axes": [
+          "transcendence",
+          "power",
+          "order"
+        ],
+        "recon_cosine": 0.8944158545369597,
+        "hamming_centroid_decoded": {
+          "authority": 0.1358,
+          "transcendence": 0.4481,
+          "care": 0.1358,
+          "justice": 0.0407,
+          "wisdom": 0.1494,
+          "power": 0.4481,
+          "fertility": 0.4073,
+          "war": 0.0407,
+          "death": 0.0407,
+          "creation": 0.0407,
+          "nature": 0.4073,
+          "order": 0.4481
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2674,
+          "transcendence": 0.3694,
+          "care": 0.2948,
+          "justice": 0.2167,
+          "wisdom": 0.367,
+          "power": 0.3286,
+          "fertility": 0.3064,
+          "war": 0.0311,
+          "death": 0.1217,
+          "creation": 0.2433,
+          "nature": 0.3394,
+          "order": 0.3627
+        }
+      },
+      "Akan": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2810\u2857\u2800\u2800\u2849\u2851\u2800\u2802\u2810\u2802\u2855\u2851",
+        "arithmetic_centroid_unicode": "\u2810\u2855\u2800\u2800\u2851\u2850\u2800\u2802\u2800\u2802\u2855\u2851",
+        "snap_distance": 5,
+        "mean_intra_hamming": 10.333333333333334,
+        "var_intra_hamming": 11.555555555555555,
+        "top3_axes": [
+          "wisdom",
+          "power",
+          "order"
+        ],
+        "recon_cosine": 0.9399499872398037,
+        "hamming_centroid_decoded": {
+          "authority": 0.3181,
+          "transcendence": 0.2974,
+          "care": 0.106,
+          "justice": 0.106,
+          "wisdom": 0.5832,
+          "power": 0.3499,
+          "fertility": 0.106,
+          "war": 0.0318,
+          "death": 0.3181,
+          "creation": 0.0318,
+          "nature": 0.2974,
+          "order": 0.3499
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2696,
+          "transcendence": 0.3546,
+          "care": 0.2281,
+          "justice": 0.1446,
+          "wisdom": 0.4583,
+          "power": 0.275,
+          "fertility": 0.2056,
+          "war": 0.0231,
+          "death": 0.2039,
+          "creation": 0.2174,
+          "nature": 0.4366,
+          "order": 0.3476
+        }
+      }
+    },
+    "inter_tradition_distances": [
+      {
+        "pair": "Yoruba \u00d7 Akan",
+        "hamming": 23,
+        "cosine": 0.7757405681460101
+      }
+    ]
+  },
+  {
+    "cluster": "ancient_polytheism",
+    "n_traditions": 2,
+    "n_passages": 6,
+    "cluster_centroid_unicode": "\u2811\u2850\u2800\u2800\u2800\u2800\u2800\u2802\u2800\u2802\u2802\u2851",
+    "traditions": {
+      "Kemetic": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2811\u2851\u2800\u2841\u2851\u2800\u2802\u2802\u2800\u2802\u2802\u2851",
+        "arithmetic_centroid_unicode": "\u2851\u2851\u2802\u2851\u2851\u2810\u2802\u2802\u2800\u2802\u2802\u2851",
+        "snap_distance": 4,
+        "mean_intra_hamming": 13.0,
+        "var_intra_hamming": 98.66666666666667,
+        "top3_axes": [
+          "transcendence",
+          "wisdom",
+          "order"
+        ],
+        "recon_cosine": 0.9039991841833068,
+        "hamming_centroid_decoded": {
+          "authority": 0.4412,
+          "transcendence": 0.4853,
+          "care": 0.1471,
+          "justice": 0.1618,
+          "wisdom": 0.4853,
+          "power": 0.1471,
+          "fertility": 0.0441,
+          "war": 0.0441,
+          "death": 0.1471,
+          "creation": 0.0441,
+          "nature": 0.0441,
+          "order": 0.4853
+        },
+        "arithmetic_centroid": {
+          "authority": 0.3323,
+          "transcendence": 0.3583,
+          "care": 0.2085,
+          "justice": 0.4028,
+          "wisdom": 0.348,
+          "power": 0.2577,
+          "fertility": 0.1556,
+          "war": 0.024,
+          "death": 0.2184,
+          "creation": 0.1953,
+          "nature": 0.216,
+          "order": 0.4588
+        }
+      },
+      "Mesopotamian": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2851\u2810\u2802\u2800\u2800\u2851\u2800\u2800\u2802\u2802\u2812\u2851",
+        "arithmetic_centroid_unicode": "\u2851\u2851\u2802\u2800\u2810\u2851\u2800\u2800\u2852\u2802\u2810\u2851",
+        "snap_distance": 6,
+        "mean_intra_hamming": 13.666666666666666,
+        "var_intra_hamming": 74.88888888888889,
+        "top3_axes": [
+          "authority",
+          "power",
+          "order"
+        ],
+        "recon_cosine": 0.8917313458655538,
+        "hamming_centroid_decoded": {
+          "authority": 0.4826,
+          "transcendence": 0.4388,
+          "care": 0.0439,
+          "justice": 0.1463,
+          "wisdom": 0.1463,
+          "power": 0.4826,
+          "fertility": 0.1463,
+          "war": 0.1463,
+          "death": 0.0439,
+          "creation": 0.0439,
+          "nature": 0.1316,
+          "order": 0.4826
+        },
+        "arithmetic_centroid": {
+          "authority": 0.3957,
+          "transcendence": 0.3205,
+          "care": 0.2021,
+          "justice": 0.2086,
+          "wisdom": 0.2819,
+          "power": 0.384,
+          "fertility": 0.2175,
+          "war": 0.2095,
+          "death": 0.2833,
+          "creation": 0.2493,
+          "nature": 0.2538,
+          "order": 0.3626
+        }
+      }
+    },
+    "inter_tradition_distances": [
+      {
+        "pair": "Kemetic \u00d7 Mesopotamian",
+        "hamming": 10,
+        "cosine": 0.8592450983493786
+      }
+    ]
+  },
+  {
+    "cluster": "warrior_polytheism",
+    "n_traditions": 2,
+    "n_passages": 6,
+    "cluster_centroid_unicode": "\u2800\u2851\u2800\u2800\u2800\u2851\u2800\u2802\u2800\u2800\u2810\u2810",
+    "traditions": {
+      "Norse": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2800\u2851\u2800\u2800\u2841\u2855\u2802\u2802\u2855\u2802\u2812\u2810",
+        "arithmetic_centroid_unicode": "\u2800\u2851\u2802\u2800\u2851\u2852\u2800\u2802\u2849\u2800\u2852\u2810",
+        "snap_distance": 11,
+        "mean_intra_hamming": 11.333333333333334,
+        "var_intra_hamming": 16.88888888888889,
+        "top3_axes": [
+          "transcendence",
+          "order",
+          "power"
+        ],
+        "recon_cosine": 0.8891647579607429,
+        "hamming_centroid_decoded": {
+          "authority": 0.1563,
+          "transcendence": 0.5159,
+          "care": 0.1563,
+          "justice": 0.1563,
+          "wisdom": 0.172,
+          "power": 0.4385,
+          "fertility": 0.0469,
+          "war": 0.0469,
+          "death": 0.4385,
+          "creation": 0.0469,
+          "nature": 0.1407,
+          "order": 0.469
+        },
+        "arithmetic_centroid": {
+          "authority": 0.1821,
+          "transcendence": 0.3939,
+          "care": 0.0717,
+          "justice": 0.1714,
+          "wisdom": 0.4398,
+          "power": 0.2955,
+          "fertility": 0.124,
+          "war": 0.1443,
+          "death": 0.5293,
+          "creation": 0.1693,
+          "nature": 0.2922,
+          "order": 0.2569
+        }
+      },
+      "Greek": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2800\u2851\u2800\u2802\u2800\u2851\u2810\u2802\u2802\u2851\u2851\u2852",
+        "arithmetic_centroid_unicode": "\u2810\u2855\u2802\u2802\u2810\u2851\u2810\u2802\u2802\u2855\u2855\u2855",
+        "snap_distance": 9,
+        "mean_intra_hamming": 10.666666666666666,
+        "var_intra_hamming": 57.555555555555564,
+        "top3_axes": [
+          "transcendence",
+          "power",
+          "creation"
+        ],
+        "recon_cosine": 0.9306523266988537,
+        "hamming_centroid_decoded": {
+          "authority": 0.1327,
+          "transcendence": 0.4378,
+          "care": 0.1327,
+          "justice": 0.0398,
+          "wisdom": 0.1327,
+          "power": 0.4378,
+          "fertility": 0.398,
+          "war": 0.0398,
+          "death": 0.0398,
+          "creation": 0.4378,
+          "nature": 0.4378,
+          "order": 0.1313
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2894,
+          "transcendence": 0.3931,
+          "care": 0.1801,
+          "justice": 0.1449,
+          "wisdom": 0.2796,
+          "power": 0.4193,
+          "fertility": 0.2865,
+          "war": 0.0285,
+          "death": 0.1471,
+          "creation": 0.3446,
+          "nature": 0.3548,
+          "order": 0.3243
+        }
+      }
+    },
+    "inter_tradition_distances": [
+      {
+        "pair": "Norse \u00d7 Greek",
+        "hamming": 29,
+        "cosine": 0.6701167090631336
+      }
+    ]
+  },
+  {
+    "cluster": "mesoamerican",
+    "n_traditions": 3,
+    "n_passages": 9,
+    "cluster_centroid_unicode": "\u2800\u2853\u2800\u2800\u2851\u2810\u2810\u2802\u2802\u2802\u2851\u2850",
+    "traditions": {
+      "Nahua": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2812\u2857\u2800\u2800\u2841\u2802\u2800\u2802\u2801\u2802\u2855\u2851",
+        "arithmetic_centroid_unicode": "\u2800\u2857\u2800\u2800\u2851\u2802\u2800\u2802\u2851\u2802\u2855\u2851",
+        "snap_distance": 5,
+        "mean_intra_hamming": 14.0,
+        "var_intra_hamming": 18.0,
+        "top3_axes": [
+          "order",
+          "transcendence",
+          "nature"
+        ],
+        "recon_cosine": 0.8948503782729216,
+        "hamming_centroid_decoded": {
+          "authority": 0.1569,
+          "transcendence": 0.4889,
+          "care": 0.1743,
+          "justice": 0.1743,
+          "wisdom": 0.1917,
+          "power": 0.0523,
+          "fertility": 0.1743,
+          "war": 0.0523,
+          "death": 0.1743,
+          "creation": 0.0523,
+          "nature": 0.4889,
+          "order": 0.5752
+        },
+        "arithmetic_centroid": {
+          "authority": 0.1939,
+          "transcendence": 0.3196,
+          "care": 0.2406,
+          "justice": 0.1475,
+          "wisdom": 0.3986,
+          "power": 0.1882,
+          "fertility": 0.2292,
+          "war": 0.0796,
+          "death": 0.3817,
+          "creation": 0.2199,
+          "nature": 0.4283,
+          "order": 0.3872
+        }
+      },
+      "Maya": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2800\u2851\u2800\u2800\u2851\u2810\u2800\u2802\u2802\u2849\u2851\u2852",
+        "arithmetic_centroid_unicode": "\u2800\u2855\u2800\u2800\u2851\u2810\u2810\u2802\u2802\u2855\u2855\u2855",
+        "snap_distance": 9,
+        "mean_intra_hamming": 9.0,
+        "var_intra_hamming": 4.666666666666667,
+        "top3_axes": [
+          "creation",
+          "transcendence",
+          "wisdom"
+        ],
+        "recon_cosine": 0.9337005753588192,
+        "hamming_centroid_decoded": {
+          "authority": 0.1139,
+          "transcendence": 0.3759,
+          "care": 0.1139,
+          "justice": 0.1139,
+          "wisdom": 0.3759,
+          "power": 0.3417,
+          "fertility": 0.1139,
+          "war": 0.0342,
+          "death": 0.0342,
+          "creation": 0.6265,
+          "nature": 0.3759,
+          "order": 0.1128
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2027,
+          "transcendence": 0.3717,
+          "care": 0.1263,
+          "justice": 0.2016,
+          "wisdom": 0.3897,
+          "power": 0.2914,
+          "fertility": 0.275,
+          "war": 0.0279,
+          "death": 0.0699,
+          "creation": 0.44,
+          "nature": 0.3692,
+          "order": 0.3409
+        }
+      },
+      "Inca": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2800\u2802\u2810\u2802\u2810\u2851\u2811\u2802\u2802\u2802\u2851\u2850",
+        "arithmetic_centroid_unicode": "\u2800\u2812\u2851\u2802\u2811\u2851\u2851\u2802\u2802\u2810\u2851\u2851",
+        "snap_distance": 8,
+        "mean_intra_hamming": 10.666666666666666,
+        "var_intra_hamming": 17.555555555555557,
+        "top3_axes": [
+          "power",
+          "nature",
+          "order"
+        ],
+        "recon_cosine": 0.9107488217246676,
+        "hamming_centroid_decoded": {
+          "authority": 0.1279,
+          "transcendence": 0.0384,
+          "care": 0.3837,
+          "justice": 0.0384,
+          "wisdom": 0.3837,
+          "power": 0.4221,
+          "fertility": 0.3837,
+          "war": 0.0384,
+          "death": 0.0384,
+          "creation": 0.0384,
+          "nature": 0.4221,
+          "order": 0.4221
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2451,
+          "transcendence": 0.2805,
+          "care": 0.3245,
+          "justice": 0.2129,
+          "wisdom": 0.3034,
+          "power": 0.339,
+          "fertility": 0.354,
+          "war": 0.093,
+          "death": 0.0576,
+          "creation": 0.2616,
+          "nature": 0.416,
+          "order": 0.3534
+        }
+      }
+    },
+    "inter_tradition_distances": [
+      {
+        "pair": "Nahua \u00d7 Maya",
+        "hamming": 15,
+        "cosine": 0.6402575782453439
+      },
+      {
+        "pair": "Nahua \u00d7 Inca",
+        "hamming": 22,
+        "cosine": 0.7347935238102217
+      },
+      {
+        "pair": "Maya \u00d7 Inca",
+        "hamming": 21,
+        "cosine": 0.642168827662546
+      }
+    ]
+  },
+  {
+    "cluster": "animist_indigenous",
+    "n_traditions": 5,
+    "n_passages": 15,
+    "cluster_centroid_unicode": "\u2800\u2855\u2810\u2800\u2850\u2810\u2810\u2802\u2802\u2812\u2855\u2851",
+    "traditions": {
+      "Lakota": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2802\u2817\u2851\u2800\u2851\u2800\u2800\u2802\u2802\u2802\u2855\u2851",
+        "arithmetic_centroid_unicode": "\u2802\u2857\u2851\u2800\u2851\u2800\u2800\u2802\u2802\u2802\u2855\u2851",
+        "snap_distance": 1,
+        "mean_intra_hamming": 7.666666666666667,
+        "var_intra_hamming": 2.888888888888889,
+        "top3_axes": [
+          "care",
+          "wisdom",
+          "order"
+        ],
+        "recon_cosine": 0.9508993221291059,
+        "hamming_centroid_decoded": {
+          "authority": 0.0423,
+          "transcendence": 0.3592,
+          "care": 0.4648,
+          "justice": 0.1409,
+          "wisdom": 0.4648,
+          "power": 0.1409,
+          "fertility": 0.1409,
+          "war": 0.0423,
+          "death": 0.0423,
+          "creation": 0.0423,
+          "nature": 0.3951,
+          "order": 0.4648
+        },
+        "arithmetic_centroid": {
+          "authority": 0.1774,
+          "transcendence": 0.3345,
+          "care": 0.378,
+          "justice": 0.1483,
+          "wisdom": 0.3872,
+          "power": 0.2332,
+          "fertility": 0.2468,
+          "war": 0.0,
+          "death": 0.0677,
+          "creation": 0.2327,
+          "nature": 0.4535,
+          "order": 0.4027
+        }
+      },
+      "Navajo": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2802\u2813\u2851\u2802\u2851\u2800\u2851\u2802\u2802\u2812\u2851\u2851",
+        "arithmetic_centroid_unicode": "\u2802\u2812\u2811\u2802\u2851\u2800\u2851\u2802\u2802\u2855\u2851\u2855",
+        "snap_distance": 7,
+        "mean_intra_hamming": 8.0,
+        "var_intra_hamming": 40.666666666666664,
+        "top3_axes": [
+          "care",
+          "wisdom",
+          "fertility"
+        ],
+        "recon_cosine": 0.9470807556651664,
+        "hamming_centroid_decoded": {
+          "authority": 0.037,
+          "transcendence": 0.3703,
+          "care": 0.4074,
+          "justice": 0.037,
+          "wisdom": 0.4074,
+          "power": 0.1234,
+          "fertility": 0.4074,
+          "war": 0.037,
+          "death": 0.037,
+          "creation": 0.1111,
+          "nature": 0.4074,
+          "order": 0.4074
+        },
+        "arithmetic_centroid": {
+          "authority": 0.1461,
+          "transcendence": 0.2963,
+          "care": 0.3185,
+          "justice": 0.1191,
+          "wisdom": 0.3219,
+          "power": 0.2134,
+          "fertility": 0.3341,
+          "war": 0.0095,
+          "death": 0.082,
+          "creation": 0.3237,
+          "nature": 0.4781,
+          "order": 0.4174
+        }
+      },
+      "Aboriginal Australian": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2800\u2857\u2800\u2800\u2800\u2811\u2810\u2802\u2802\u2855\u2855\u2855",
+        "arithmetic_centroid_unicode": "\u2800\u2812\u2800\u2802\u2800\u2851\u2850\u2802\u2802\u2855\u2851\u2855",
+        "snap_distance": 7,
+        "mean_intra_hamming": 8.0,
+        "var_intra_hamming": 8.666666666666666,
+        "top3_axes": [
+          "power",
+          "fertility",
+          "transcendence"
+        ],
+        "recon_cosine": 0.9625119389447779,
+        "hamming_centroid_decoded": {
+          "authority": 0.1365,
+          "transcendence": 0.3829,
+          "care": 0.1365,
+          "justice": 0.1365,
+          "wisdom": 0.1365,
+          "power": 0.4096,
+          "fertility": 0.4096,
+          "war": 0.041,
+          "death": 0.041,
+          "creation": 0.3829,
+          "nature": 0.3829,
+          "order": 0.3829
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2223,
+          "transcendence": 0.2818,
+          "care": 0.2173,
+          "justice": 0.178,
+          "wisdom": 0.2498,
+          "power": 0.3301,
+          "fertility": 0.288,
+          "war": 0.0191,
+          "death": 0.1197,
+          "creation": 0.4413,
+          "nature": 0.4493,
+          "order": 0.3557
+        }
+      },
+      "Tengrism": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2851\u2855\u2802\u2810\u2800\u2851\u2802\u2800\u2802\u2812\u2815\u2851",
+        "arithmetic_centroid_unicode": "\u2851\u2855\u2802\u2810\u2800\u2851\u2802\u2800\u2802\u2812\u2855\u2851",
+        "snap_distance": 1,
+        "mean_intra_hamming": 10.666666666666666,
+        "var_intra_hamming": 6.888888888888888,
+        "top3_axes": [
+          "authority",
+          "power",
+          "order"
+        ],
+        "recon_cosine": 0.9533709114766359,
+        "hamming_centroid_decoded": {
+          "authority": 0.4292,
+          "transcendence": 0.3648,
+          "care": 0.039,
+          "justice": 0.3902,
+          "wisdom": 0.1301,
+          "power": 0.4292,
+          "fertility": 0.039,
+          "war": 0.1301,
+          "death": 0.039,
+          "creation": 0.1171,
+          "nature": 0.3316,
+          "order": 0.4292
+        },
+        "arithmetic_centroid": {
+          "authority": 0.3605,
+          "transcendence": 0.3944,
+          "care": 0.1123,
+          "justice": 0.2679,
+          "wisdom": 0.2339,
+          "power": 0.3729,
+          "fertility": 0.1395,
+          "war": 0.2027,
+          "death": 0.1307,
+          "creation": 0.265,
+          "nature": 0.3928,
+          "order": 0.3662
+        }
+      },
+      "Muism": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2802\u2855\u2851\u2800\u2800\u2810\u2810\u2802\u2851\u2802\u2855\u2851",
+        "arithmetic_centroid_unicode": "\u2810\u2855\u2851\u2800\u2810\u2810\u2800\u2802\u2850\u2802\u2855\u2851",
+        "snap_distance": 5,
+        "mean_intra_hamming": 11.333333333333334,
+        "var_intra_hamming": 73.55555555555556,
+        "top3_axes": [
+          "care",
+          "death",
+          "order"
+        ],
+        "recon_cosine": 0.9261099848021537,
+        "hamming_centroid_decoded": {
+          "authority": 0.0362,
+          "transcendence": 0.3385,
+          "care": 0.3982,
+          "justice": 0.1207,
+          "wisdom": 0.1207,
+          "power": 0.362,
+          "fertility": 0.362,
+          "war": 0.0362,
+          "death": 0.3982,
+          "creation": 0.0362,
+          "nature": 0.3385,
+          "order": 0.3982
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2654,
+          "transcendence": 0.382,
+          "care": 0.3554,
+          "justice": 0.2055,
+          "wisdom": 0.265,
+          "power": 0.284,
+          "fertility": 0.2478,
+          "war": 0.0342,
+          "death": 0.2855,
+          "creation": 0.2139,
+          "nature": 0.3458,
+          "order": 0.3935
+        }
+      }
+    },
+    "inter_tradition_distances": [
+      {
+        "pair": "Lakota \u00d7 Navajo",
+        "hamming": 5,
+        "cosine": 0.9514427613037515
+      },
+      {
+        "pair": "Lakota \u00d7 Aboriginal Australian",
+        "hamming": 24,
+        "cosine": 0.7538094927849844
+      },
+      {
+        "pair": "Lakota \u00d7 Tengrism",
+        "hamming": 21,
+        "cosine": 0.6912950349015718
+      },
+      {
+        "pair": "Lakota \u00d7 Muism",
+        "hamming": 18,
+        "cosine": 0.8220023662987159
+      },
+      {
+        "pair": "Navajo \u00d7 Aboriginal Australian",
+        "hamming": 19,
+        "cosine": 0.8381636373282522
+      },
+      {
+        "pair": "Navajo \u00d7 Tengrism",
+        "hamming": 26,
+        "cosine": 0.6324099973371802
+      },
+      {
+        "pair": "Navajo \u00d7 Muism",
+        "hamming": 13,
+        "cosine": 0.8549226211963248
+      },
+      {
+        "pair": "Aboriginal Australian \u00d7 Tengrism",
+        "hamming": 19,
+        "cosine": 0.8095133159278262
+      },
+      {
+        "pair": "Aboriginal Australian \u00d7 Muism",
+        "hamming": 16,
+        "cosine": 0.832177890199963
+      },
+      {
+        "pair": "Tengrism \u00d7 Muism",
+        "hamming": 23,
+        "cosine": 0.6944629585490039
+      }
+    ]
+  },
+  {
+    "cluster": "pacific_oceanic",
+    "n_traditions": 2,
+    "n_passages": 6,
+    "cluster_centroid_unicode": "\u2800\u2853\u2800\u2802\u2800\u2810\u2800\u2802\u2802\u2800\u2851\u2851",
+    "traditions": {
+      "Maori": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2800\u2853\u2800\u2802\u2841\u2810\u2800\u2802\u2802\u2802\u2851\u2851",
+        "arithmetic_centroid_unicode": "\u2802\u2812\u2851\u2802\u2851\u2851\u2810\u2802\u2802\u2812\u2851\u2851",
+        "snap_distance": 11,
+        "mean_intra_hamming": 11.333333333333334,
+        "var_intra_hamming": 20.222222222222225,
+        "top3_axes": [
+          "transcendence",
+          "nature",
+          "order"
+        ],
+        "recon_cosine": 0.8814855455616618,
+        "hamming_centroid_decoded": {
+          "authority": 0.1471,
+          "transcendence": 0.4853,
+          "care": 0.1471,
+          "justice": 0.0441,
+          "wisdom": 0.1618,
+          "power": 0.4412,
+          "fertility": 0.1471,
+          "war": 0.0441,
+          "death": 0.0441,
+          "creation": 0.0441,
+          "nature": 0.4853,
+          "order": 0.4853
+        },
+        "arithmetic_centroid": {
+          "authority": 0.162,
+          "transcendence": 0.2861,
+          "care": 0.3289,
+          "justice": 0.1839,
+          "wisdom": 0.3679,
+          "power": 0.3006,
+          "fertility": 0.2869,
+          "war": 0.0543,
+          "death": 0.0841,
+          "creation": 0.2654,
+          "nature": 0.4685,
+          "order": 0.3768
+        }
+      },
+      "Hawaiian": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2800\u2857\u2800\u2802\u2800\u2851\u2810\u2802\u2802\u2841\u2855\u2853",
+        "arithmetic_centroid_unicode": "\u2800\u2857\u2810\u2802\u2810\u2851\u2810\u2802\u2802\u2855\u2855\u2855",
+        "snap_distance": 6,
+        "mean_intra_hamming": 9.666666666666666,
+        "var_intra_hamming": 22.88888888888889,
+        "top3_axes": [
+          "power",
+          "order",
+          "fertility"
+        ],
+        "recon_cosine": 0.9119115711066669,
+        "hamming_centroid_decoded": {
+          "authority": 0.14,
+          "transcendence": 0.3928,
+          "care": 0.14,
+          "justice": 0.042,
+          "wisdom": 0.14,
+          "power": 0.4621,
+          "fertility": 0.4201,
+          "war": 0.042,
+          "death": 0.042,
+          "creation": 0.154,
+          "nature": 0.3928,
+          "order": 0.4621
+        },
+        "arithmetic_centroid": {
+          "authority": 0.1645,
+          "transcendence": 0.35,
+          "care": 0.2548,
+          "justice": 0.1036,
+          "wisdom": 0.2506,
+          "power": 0.3164,
+          "fertility": 0.2807,
+          "war": 0.0447,
+          "death": 0.1515,
+          "creation": 0.4046,
+          "nature": 0.4905,
+          "order": 0.3222
+        }
+      }
+    },
+    "inter_tradition_distances": [
+      {
+        "pair": "Maori \u00d7 Hawaiian",
+        "hamming": 5,
+        "cosine": 0.9473467563770301
+      }
+    ]
+  },
+  {
+    "cluster": "mystical",
+    "n_traditions": 1,
+    "n_passages": 3,
+    "cluster_centroid_unicode": "\u2802\u2849\u2851\u2800\u2851\u2800\u2800\u2802\u2800\u2802\u2812\u2851",
+    "traditions": {
+      "Sufism": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2802\u2849\u2851\u2800\u2851\u2800\u2800\u2802\u2800\u2802\u2812\u2851",
+        "arithmetic_centroid_unicode": "\u2802\u2849\u2851\u2800\u2851\u2800\u2800\u2802\u2800\u2802\u2842\u2851",
+        "snap_distance": 2,
+        "mean_intra_hamming": 6.333333333333333,
+        "var_intra_hamming": 4.222222222222222,
+        "top3_axes": [
+          "transcendence",
+          "care",
+          "wisdom"
+        ],
+        "recon_cosine": 0.9521398097616866,
+        "hamming_centroid_decoded": {
+          "authority": 0.0364,
+          "transcendence": 0.667,
+          "care": 0.4002,
+          "justice": 0.1213,
+          "wisdom": 0.4002,
+          "power": 0.1213,
+          "fertility": 0.1213,
+          "war": 0.0364,
+          "death": 0.1213,
+          "creation": 0.0364,
+          "nature": 0.1091,
+          "order": 0.4002
+        },
+        "arithmetic_centroid": {
+          "authority": 0.1438,
+          "transcendence": 0.5448,
+          "care": 0.3914,
+          "justice": 0.1541,
+          "wisdom": 0.47,
+          "power": 0.1994,
+          "fertility": 0.1321,
+          "war": 0.0107,
+          "death": 0.1679,
+          "creation": 0.2078,
+          "nature": 0.2404,
+          "order": 0.3133
+        }
+      }
+    },
+    "inter_tradition_distances": []
+  },
+  {
+    "cluster": "african_diaspora",
+    "n_traditions": 3,
+    "n_passages": 9,
+    "cluster_centroid_unicode": "\u2811\u2855\u2810\u2800\u2810\u2851\u2800\u2802\u2802\u2810\u2855\u2851",
+    "traditions": {
+      "Candomble": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2810\u2855\u2851\u2800\u2800\u2851\u2800\u2802\u2802\u2810\u2855\u2851",
+        "arithmetic_centroid_unicode": "\u2810\u2855\u2851\u2800\u2800\u2851\u2810\u2802\u2802\u2810\u2855\u2851",
+        "snap_distance": 1,
+        "mean_intra_hamming": 8.0,
+        "var_intra_hamming": 12.666666666666666,
+        "top3_axes": [
+          "care",
+          "power",
+          "order"
+        ],
+        "recon_cosine": 0.9501020612654808,
+        "hamming_centroid_decoded": {
+          "authority": 0.3596,
+          "transcendence": 0.3363,
+          "care": 0.3956,
+          "justice": 0.1199,
+          "wisdom": 0.1199,
+          "power": 0.3956,
+          "fertility": 0.1199,
+          "war": 0.036,
+          "death": 0.036,
+          "creation": 0.3596,
+          "nature": 0.3363,
+          "order": 0.3956
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2613,
+          "transcendence": 0.3455,
+          "care": 0.3062,
+          "justice": 0.2076,
+          "wisdom": 0.2414,
+          "power": 0.3457,
+          "fertility": 0.2951,
+          "war": 0.1151,
+          "death": 0.0998,
+          "creation": 0.2897,
+          "nature": 0.4293,
+          "order": 0.3453
+        }
+      },
+      "Vodou": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2851\u2855\u2800\u2800\u2851\u2811\u2800\u2802\u2802\u2802\u2855\u2851",
+        "arithmetic_centroid_unicode": "\u2811\u2855\u2810\u2800\u2851\u2851\u2800\u2802\u2802\u2802\u2855\u2851",
+        "snap_distance": 3,
+        "mean_intra_hamming": 8.666666666666666,
+        "var_intra_hamming": 13.555555555555555,
+        "top3_axes": [
+          "authority",
+          "wisdom",
+          "order"
+        ],
+        "recon_cosine": 0.955726698987153,
+        "hamming_centroid_decoded": {
+          "authority": 0.4236,
+          "transcendence": 0.3601,
+          "care": 0.1284,
+          "justice": 0.1284,
+          "wisdom": 0.4236,
+          "power": 0.3851,
+          "fertility": 0.1284,
+          "war": 0.0385,
+          "death": 0.0385,
+          "creation": 0.0385,
+          "nature": 0.3601,
+          "order": 0.4236
+        },
+        "arithmetic_centroid": {
+          "authority": 0.3048,
+          "transcendence": 0.3876,
+          "care": 0.2817,
+          "justice": 0.1647,
+          "wisdom": 0.3556,
+          "power": 0.319,
+          "fertility": 0.2437,
+          "war": 0.0298,
+          "death": 0.1359,
+          "creation": 0.1686,
+          "nature": 0.367,
+          "order": 0.4245
+        }
+      },
+      "Rastafari": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2851\u2851\u2810\u2851\u2810\u2851\u2802\u2800\u2802\u2811\u2810\u2810",
+        "arithmetic_centroid_unicode": "\u2851\u2855\u2810\u2851\u2810\u2811\u2800\u2800\u2802\u2800\u2855\u2851",
+        "snap_distance": 10,
+        "mean_intra_hamming": 12.0,
+        "var_intra_hamming": 100.66666666666667,
+        "top3_axes": [
+          "authority",
+          "transcendence",
+          "justice"
+        ],
+        "recon_cosine": 0.9619943614079378,
+        "hamming_centroid_decoded": {
+          "authority": 0.3484,
+          "transcendence": 0.3484,
+          "care": 0.3167,
+          "justice": 0.3484,
+          "wisdom": 0.3167,
+          "power": 0.3484,
+          "fertility": 0.0317,
+          "war": 0.1056,
+          "death": 0.0317,
+          "creation": 0.3167,
+          "nature": 0.3167,
+          "order": 0.3167
+        },
+        "arithmetic_centroid": {
+          "authority": 0.3398,
+          "transcendence": 0.312,
+          "care": 0.2782,
+          "justice": 0.3274,
+          "wisdom": 0.2891,
+          "power": 0.3078,
+          "fertility": 0.228,
+          "war": 0.2191,
+          "death": 0.1427,
+          "creation": 0.2493,
+          "nature": 0.3546,
+          "order": 0.3407
+        }
+      }
+    },
+    "inter_tradition_distances": [
+      {
+        "pair": "Candomble \u00d7 Vodou",
+        "hamming": 16,
+        "cosine": 0.8634554831884266
+      },
+      {
+        "pair": "Candomble \u00d7 Rastafari",
+        "hamming": 11,
+        "cosine": 0.9396175211795581
+      },
+      {
+        "pair": "Vodou \u00d7 Rastafari",
+        "hamming": 17,
+        "cosine": 0.8964746503101219
+      }
+    ]
+  },
+  {
+    "cluster": "syncretic",
+    "n_traditions": 1,
+    "n_passages": 3,
+    "cluster_centroid_unicode": "\u2851\u2851\u2851\u2811\u2851\u2810\u2802\u2802\u2802\u2802\u2802\u2851",
+    "traditions": {
+      "Cao Dai": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2851\u2851\u2851\u2811\u2851\u2810\u2802\u2802\u2802\u2802\u2802\u2851",
+        "arithmetic_centroid_unicode": "\u2855\u2851\u2855\u2811\u2851\u2810\u2802\u2802\u2802\u2802\u2802\u2851",
+        "snap_distance": 2,
+        "mean_intra_hamming": 7.666666666666667,
+        "var_intra_hamming": 8.222222222222221,
+        "top3_axes": [
+          "authority",
+          "transcendence",
+          "care"
+        ],
+        "recon_cosine": 0.9622265111316642,
+        "hamming_centroid_decoded": {
+          "authority": 0.3865,
+          "transcendence": 0.3865,
+          "care": 0.3865,
+          "justice": 0.3514,
+          "wisdom": 0.3865,
+          "power": 0.3514,
+          "fertility": 0.0351,
+          "war": 0.0351,
+          "death": 0.0351,
+          "creation": 0.0351,
+          "nature": 0.0351,
+          "order": 0.3865
+        },
+        "arithmetic_centroid": {
+          "authority": 0.3604,
+          "transcendence": 0.3942,
+          "care": 0.3919,
+          "justice": 0.3057,
+          "wisdom": 0.369,
+          "power": 0.2624,
+          "fertility": 0.1201,
+          "war": 0.0131,
+          "death": 0.0689,
+          "creation": 0.2051,
+          "nature": 0.1979,
+          "order": 0.4027
+        }
+      }
+    },
+    "inter_tradition_distances": []
+  },
+  {
+    "cluster": "secular",
+    "n_traditions": 1,
+    "n_passages": 3,
+    "cluster_centroid_unicode": "\u2802\u2802\u2849\u2841\u2851\u2800\u2802\u2802\u2800\u2802\u2840\u2851",
+    "traditions": {
+      "Secular Humanism": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2802\u2802\u2849\u2841\u2851\u2800\u2802\u2802\u2800\u2802\u2840\u2851",
+        "arithmetic_centroid_unicode": "\u2802\u2802\u2849\u2851\u2849\u2800\u2802\u2802\u2800\u2802\u2850\u2851",
+        "snap_distance": 4,
+        "mean_intra_hamming": 5.0,
+        "var_intra_hamming": 18.666666666666668,
+        "top3_axes": [
+          "care",
+          "wisdom",
+          "order"
+        ],
+        "recon_cosine": 0.9208010121628026,
+        "hamming_centroid_decoded": {
+          "authority": 0.0398,
+          "transcendence": 0.0398,
+          "care": 0.7291,
+          "justice": 0.1458,
+          "wisdom": 0.4375,
+          "power": 0.1326,
+          "fertility": 0.0398,
+          "war": 0.0398,
+          "death": 0.1326,
+          "creation": 0.0398,
+          "nature": 0.1458,
+          "order": 0.4375
+        },
+        "arithmetic_centroid": {
+          "authority": 0.0426,
+          "transcendence": 0.1317,
+          "care": 0.5176,
+          "justice": 0.4125,
+          "wisdom": 0.5232,
+          "power": 0.0741,
+          "fertility": 0.0954,
+          "war": 0.0,
+          "death": 0.0964,
+          "creation": 0.1019,
+          "nature": 0.2584,
+          "order": 0.4099
+        }
+      }
+    },
+    "inter_tradition_distances": []
+  },
+  {
+    "cluster": "nature_spirituality",
+    "n_traditions": 1,
+    "n_passages": 3,
+    "cluster_centroid_unicode": "\u2802\u2802\u2851\u2802\u2810\u2800\u2811\u2802\u2802\u2802\u2851\u2851",
+    "traditions": {
+      "Wicca": {
+        "n_passages": 3,
+        "hamming_centroid_unicode": "\u2802\u2802\u2851\u2802\u2810\u2800\u2811\u2802\u2802\u2802\u2851\u2851",
+        "arithmetic_centroid_unicode": "\u2802\u2802\u2851\u2800\u2851\u2810\u2851\u2802\u2802\u2802\u2851\u2851",
+        "snap_distance": 5,
+        "mean_intra_hamming": 11.666666666666666,
+        "var_intra_hamming": 24.222222222222225,
+        "top3_axes": [
+          "care",
+          "nature",
+          "order"
+        ],
+        "recon_cosine": 0.9171668364584804,
+        "hamming_centroid_decoded": {
+          "authority": 0.0415,
+          "transcendence": 0.0415,
+          "care": 0.4567,
+          "justice": 0.0415,
+          "wisdom": 0.4152,
+          "power": 0.1384,
+          "fertility": 0.4152,
+          "war": 0.0415,
+          "death": 0.0415,
+          "creation": 0.0415,
+          "nature": 0.4567,
+          "order": 0.4567
+        },
+        "arithmetic_centroid": {
+          "authority": 0.2332,
+          "transcendence": 0.2032,
+          "care": 0.3841,
+          "justice": 0.2357,
+          "wisdom": 0.3324,
+          "power": 0.26,
+          "fertility": 0.3212,
+          "war": 0.0196,
+          "death": 0.0865,
+          "creation": 0.1946,
+          "nature": 0.4641,
+          "order": 0.3986
+        }
+      }
+    },
+    "inter_tradition_distances": []
+  }
+]
