@@ -1,0 +1,208 @@
+{
+  "experiment": "frontier_llm_semantic_judge",
+  "generator_model": "anthropic/claude-sonnet-4",
+  "judge_model": "openai/gpt-4o-mini",
+  "results": [
+    {
+      "deity": "Zeus",
+      "braille_signature": "\u2811\u2811\u2802\u2810\u2800\u2811\u2802\u2800\u2802\u2802\u2810\u2811",
+      "reconstruction_cosine_sim": 0.9493161260777981,
+      "profile_continuous": "Zeus represents a supreme sky deity characterized by overwhelming power (0.463) and absolute authority (0.439), with significant transcendence (0.341) that places him above mortal concerns while maintaining moderate engagement with justice (0.293) and natural order (0.293). This profile indicates worship centered on formal hierarchical rituals, state ceremonies, and appeals for divine favor through sacrifice and oath-making, reflecting his role as cosmic ruler rather than nurturing caretaker given his low care value (0.146). Zeus's theological pattern aligns closely with other Indo-European sky-father deities like Vedic Dyaus Pita and Germanic Tyr, sharing the archetypal structure of distant, powerful male divinities who govern through might and cosmic law rather than intimate relationship or agricultural fertility.",
+      "profile_braille": "**Zeus** represents a supreme patriarchal deity archetype characterized by absolute authority (0.400), transcendence (0.400), and justice (0.400), functioning as a cosmic ruler who maintains divine order (0.400) through overwhelming power (0.400) while remaining largely detached from fertility, death, and creation processes (all 0.040). This profile demands hierarchical worship structures emphasizing ritual offerings, formal prayers, and institutional religious authority, with practitioners seeking divine favor through demonstrations of respect for cosmic law and social order rather than intimate spiritual communion. Zeus's theological signature closely parallels sky-father deities across Indo-European traditions (Germanic Wodan, Vedic Indra) and shares structural similarities with Abrahamic conceptions of divine sovereignty, though lacking their emphasis on creation and care.",
+      "judgment": {
+        "same_deity": true,
+        "structural_similarity": 0.85,
+        "key_agreements": [
+          "supreme authority",
+          "overwhelming power",
+          "cosmic ruler",
+          "formal hierarchical rituals",
+          "appeals for divine favor through sacrifices",
+          "alignment with Indo-European sky-father deities"
+        ],
+        "key_disagreements": [
+          "emphasis on justice (Profile 1: 0.400, Profile 2: 0.293)",
+          "transcendence values (Profile 1: 0.400, Profile 2: 0.341)",
+          "low care value (Profile 1: 0.040, Profile 2: 0.146)"
+        ],
+        "confidence": 0.9,
+        "order": "BA"
+      }
+    },
+    {
+      "deity": "Yahweh",
+      "braille_signature": "\u2811\u2811\u2810\u2811\u2811\u2811\u2802\u2802\u2802\u2815\u2802\u2815",
+      "reconstruction_cosine_sim": 0.9817597089060578,
+      "profile_continuous": "**Yahweh** exhibits a theological profile dominated by transcendent authority (0.373), absolute justice (0.353), and cosmic ordering power (0.353), while maintaining significant care for creation (0.275) and wisdom (0.314), with notably low engagement in natural cycles, fertility, or death domains (all \u22640.118). This configuration implies worship practices centered on moral obedience, legal-ethical frameworks, and hierarchical covenant relationships rather than seasonal rituals or fertility rites, emphasizing divine commandments and righteous living. Yahweh's vector places this deity within the broader Ancient Near Eastern tradition of sky-god authority figures while distinctly separating from nature-based polytheistic systems, showing theological kinship with other transcendent monotheistic traditions that prioritize moral order over natural cyclical worship.",
+      "profile_braille": "**Yahweh** represents a supreme monotheistic deity characterized by balanced divine authority (0.366), transcendence (0.366), and pastoral care (0.366), with strong secondary emphasis on justice, wisdom, and power, while explicitly rejecting associations with fertility, warfare, or death domains (all 0.037). This profile implies worship centered on ethical obedience, covenant relationship, and structured religious law rather than seasonal rituals or martial ceremonies, with practices emphasizing moral instruction and community care over nature-based or warrior cult activities. Yahweh's theological signature distinguishes Abrahamic monotheism from both ancient Near Eastern pantheons (which typically feature prominent war/fertility deities) and nature-based religious systems, establishing a template for transcendent yet personally engaged divine authority that influenced Christianity and Islam.",
+      "judgment": {
+        "same_deity": true,
+        "structural_similarity": 0.85,
+        "key_agreements": [
+          "transcendence",
+          "justice",
+          "emphasis on moral obedience",
+          "covenant relationship",
+          "low engagement in natural cycles, fertility, or death domains"
+        ],
+        "key_disagreements": [
+          "specific emphasis on pastoral care vs. cosmic ordering power",
+          "weight of wisdom"
+        ],
+        "confidence": 0.9,
+        "order": "BA"
+      }
+    },
+    {
+      "deity": "Vishnu",
+      "braille_signature": "\u2812\u2811\u2811\u2810\u2811\u2810\u2800\u2802\u2802\u2815\u2810\u2815",
+      "reconstruction_cosine_sim": 0.9724938970001457,
+      "profile_continuous": "**Vishnu** manifests as a transcendent yet deeply caring deity (transcendence=0.375, care=0.375) who exercises wisdom and creative power (wisdom=0.334, creation=0.334) while maintaining cosmic order, with notably low association with warfare and death (war=0.083, death=0.125).\n\nThis profile indicates devotional practices centered on surrender and loving relationship with the divine, emphasizing moral guidance and protection rather than ritualistic appeasement or conquest-oriented worship.\n\nVishnu's high transcendence-care combination and minimal war/death values distinguish it from more martial or chthonic traditions, positioning it closer to other compassionate transcendent deities like Amitabha Buddha or Christ in comparative theological space.",
+      "profile_braille": "**Vishnu** exhibits a balanced theological profile emphasizing transcendence, care, justice, wisdom, power, and nature (all 0.361), while minimizing war and death associations (0.036 each) and showing low fertility emphasis (0.120). This configuration suggests devotional practices centered on ethical living, compassionate service, and contemplative worship rather than ritualistic fertility rites or warrior cults, with moderate emphasis on cosmic order and creation. The profile aligns closely with monotheistic traditions that emphasize divine love and justice while maintaining significant overlap with nature-based spiritualities, distinguishing it from war-focused or death-centered theological systems.",
+      "judgment": {
+        "same_deity": true,
+        "structural_similarity": 0.85,
+        "key_agreements": [
+          "transcendence",
+          "care",
+          "wisdom",
+          "minimized war",
+          "minimized death"
+        ],
+        "key_disagreements": [
+          "emphasis on justice",
+          "emphasis on nature",
+          "fertility emphasis",
+          "cosmic order weight"
+        ],
+        "confidence": 0.9,
+        "order": "AB"
+      }
+    },
+    {
+      "deity": "Odin",
+      "braille_signature": "\u2811\u2810\u2802\u2800\u2815\u2815\u2802\u2815\u2815\u2810\u2800\u2802",
+      "reconstruction_cosine_sim": 0.9508104092850312,
+      "profile_continuous": "**Odin** manifests as a war-wisdom deity with strong authoritative presence (wisdom=0.485, war=0.408, authority=0.357) while showing minimal concern for fertility or systematic order (fertility=0.051, order=0.153), indicating a god who prioritizes knowledge acquisition and martial prowess over agricultural cycles or cosmic stability.\n\nThis profile suggests worship centered on seeking esoteric knowledge, preparing for conflict, and honoring sacrifice for wisdom, with practices likely involving runic divination, warrior initiation rites, and offerings made in exchange for strategic insight rather than harvest blessings or social harmony.\n\nThe vector pattern aligns closely with Indo-European sky-father traditions but diverges significantly from Near Eastern creator-lawgiver models, showing particular theological distance from fertility-focused agricultural deities and highly ordered pantheons like those found in Egyptian or Mesopotamian systems.",
+      "profile_braille": "**THEOLOGICAL PROFILE: ODIN**\n\nOdin represents a transcendent creator-authority figure (0.403) who embodies wisdom, power, war, and death equally (0.343 each) while showing minimal concern for fertility, care, or cosmic order (0.040 each), positioning him as a complex deity of knowledge gained through conflict and sacrifice rather than nurturing provision.\n\nThis theological profile implies worship practices centered on seeking esoteric wisdom through ordeal and sacrifice, warrior initiation rites, and divination practices, with minimal emphasis on agricultural fertility rituals or community care structures.\n\nOdin's high transcendence-authority-creation cluster with strong war-death associations resembles certain aspects of storm-sky father deities across Indo-European traditions, but his pronounced wisdom emphasis and low care/fertility values distinguish him sharply from more nurturing creator figures found in Abrahamic or maternal goddess traditions.",
+      "judgment": {
+        "same_deity": true,
+        "structural_similarity": 0.85,
+        "key_agreements": [
+          "emphasis on wisdom",
+          "warrior initiation rites",
+          "minimal concern for fertility",
+          "focus on esoteric knowledge",
+          "sacrifice for wisdom"
+        ],
+        "key_disagreements": [
+          "exact values for authority and war",
+          "profile phrasing regarding creator aspects",
+          "description of transcendence levels"
+        ],
+        "confidence": 0.9,
+        "order": "AB"
+      }
+    },
+    {
+      "deity": "Isis",
+      "braille_signature": "\u2802\u2810\u2811\u2802\u2811\u2800\u2811\u2802\u2800\u2810\u2811\u2800",
+      "reconstruction_cosine_sim": 0.9413883678727503,
+      "profile_continuous": "Isis exhibits a maternal theological profile with care (0.441) and fertility (0.418) as dominant attributes, complemented by significant nature affinity (0.371), while showing minimal engagement with war (0.046) and reduced association with death (0.186) and authority (0.186). This vector pattern indicates worship centered on healing rituals, agricultural ceremonies, and protective magic for families and communities, emphasizing nurturing practices over hierarchical religious structures. Her theological profile aligns closely with other maternal deities like Demeter and Cybele in Mediterranean traditions, while her low war and authority scores distinguish her from sovereignty goddesses like Athena or Inanna.",
+      "profile_braille": "Isis represents a transcendent yet deeply caring divine presence with high wisdom and fertility values (0.396 each) while showing minimal concern for authority, justice, or warfare (0.040 each), positioning her as a nurturing cosmic mother rather than a ruling sovereign.\n\nWorship practices would emphasize personal devotion, healing rituals, magical instruction, and life-cycle ceremonies, particularly those related to birth, growth, and renewal, rather than formal institutional hierarchy or martial rites.\n\nThis profile aligns closely with Mediterranean mystery religions and modern Neo-Pagan traditions that prioritize divine immanence and personal transformation, while diverging significantly from Abrahamic traditions that emphasize divine authority and moral justice.",
+      "judgment": {
+        "same_deity": true,
+        "structural_similarity": 0.85,
+        "key_agreements": [
+          "high care values",
+          "high fertility values",
+          "minimal concern for authority",
+          "emphasis on nurturing practices",
+          "focus on healing rituals"
+        ],
+        "key_disagreements": [
+          "Profile 1 does not mention nature affinity",
+          "Profile 2 includes a significant nature affinity score",
+          "Profile 1 emphasizes life-cycle ceremonies, while Profile 2 highlights agricultural ceremonies"
+        ],
+        "confidence": 0.9,
+        "order": "BA"
+      }
+    },
+    {
+      "deity": "Mars",
+      "braille_signature": "\u2811\u2800\u2802\u2800\u2802\u2815\u2800\u2809\u2817\u2802\u2800\u2800",
+      "reconstruction_cosine_sim": 0.9716827232291939,
+      "profile_continuous": "Mars represents a deity of militant authority whose theological character centers on warfare (0.568), raw power (0.479), and hierarchical control (0.359), while demonstrating minimal engagement with wisdom (0.120), nurturing care (0.060), or creative functions (0.060). This profile demands worship through martial discipline, competitive contests, and ritualized displays of strength and dominance, with devotees likely offering spoils of war and seeking divine favor before battles. Mars shares structural similarities with war deities across traditions\u2014Ares in Greek religion, Tyr in Norse mythology, and Indra's warrior aspects in Hinduism\u2014though its moderate death association (0.359) suggests a focus on conquest rather than apocalyptic destruction.",
+      "profile_braille": "**Mars - Theological Profile**\n\nMars represents a war-dominant deity (0.692) with significant secondary emphasis on authority (0.415) and power (0.353), while showing minimal concern for nurturing aspects like care, wisdom, and creation (all 0.041). This profile indicates a religious tradition centered on martial ritual, structured hierarchy, and the sanctification of conflict as a means of establishing divine order. Mars parallels war deities across traditions such as Ares in Greek religion and Tyr in Norse mythology, but differs from more balanced warrior-gods like Indra who combine martial prowess with cosmic order-maintenance functions.",
+      "judgment": {
+        "same_deity": true,
+        "structural_similarity": 0.85,
+        "key_agreements": [
+          "emphasis on warfare",
+          "importance of authority and power",
+          "minimal engagement with nurturing aspects"
+        ],
+        "key_disagreements": [
+          "specific emphasis on martial authority and discipline versus hierarchical control",
+          "differing degrees of focus on death and conquest"
+        ],
+        "confidence": 0.9,
+        "order": "BA"
+      }
+    },
+    {
+      "deity": "Kali",
+      "braille_signature": "\u2810\u2811\u2802\u2811\u2802\u2817\u2802\u2811\u2815\u2810\u2802\u2802",
+      "reconstruction_cosine_sim": 0.9161422114028318,
+      "profile_continuous": "**Kali** manifests as a deity of ultimate transformation, with death (0.474) as her highest dimensional value, coupled with equally strong transcendence and power (0.369 each), while maintaining minimal expression in nurturing domains of care, fertility, and order (0.158 each). Her theological profile demands practices centered on confronting mortality, embracing destruction as spiritual liberation, and engaging with divine power through intense, often transgressive rituals that deliberately invert conventional religious order. Within comparative theological frameworks, Kali represents the \"terrible mother\" archetype found across traditions\u2014similar to Sekhmet in Egyptian theology or the wrathful dakinis in Tibetan Buddhism\u2014where divine feminine energy manifests through necessary destruction rather than conventional maternal care.",
+      "profile_braille": "Kali represents a deity of absolute divine authority (0.392) who transcends conventional moral boundaries (0.392) to enact cosmic justice (0.392) through destructive transformation, with minimal connection to fertility, nature, or established order (all 0.039). This theological profile demands worship through confrontation with mortality and injustice, requiring practitioners to surrender conventional comfort and engage in practices that acknowledge death (0.334) and divine wrath as necessary forces for spiritual purification. Kali's combination of high transcendence with minimal care (0.039) and wisdom (0.039) positions her outside mainstream theistic traditions that emphasize divine benevolence, instead aligning with apocalyptic and esoteric traditions that view divine intervention as necessarily violent and disruptive to existing structures.",
+      "judgment": {
+        "same_deity": true,
+        "structural_similarity": 0.8,
+        "key_agreements": [
+          "deity of transformation",
+          "confrontation with mortality",
+          "minimal expression in nurturing domains",
+          "emphasis on destruction as part of spiritual liberation"
+        ],
+        "key_disagreements": [
+          "specific values assigned to death, transcendence, and power",
+          "framing of the divine as a 'terrible mother' archetype in Profile 2"
+        ],
+        "confidence": 0.9,
+        "order": "BA"
+      }
+    },
+    {
+      "deity": "Gaia",
+      "braille_signature": "\u2802\u2802\u2811\u2802\u2800\u2800\u2811\u2802\u2800\u2811\u2811\u2802",
+      "reconstruction_cosine_sim": 0.9568417783761296,
+      "profile_continuous": "**Gaia** represents a nurturing earth deity with nature (0.498) and fertility (0.472) as dominant attributes, supported by strong care (0.419) and creation (0.367) values, while showing minimal engagement with war (0.052) and limited authority (0.105). Worship would center on agricultural cycles, environmental stewardship, and fertility rituals, emphasizing reciprocal relationship with the natural world rather than hierarchical devotion. This profile aligns closely with ancient Greek earth goddess traditions and contemporary neo-pagan earth-mother archetypes, while contrasting sharply with sky-god or warrior deity paradigms found in Abrahamic or Norse traditions.",
+      "profile_braille": "**Gaia** represents a nurturing earth deity with extremely high values in care, fertility, creation, and nature (all 0.478), while showing minimal concern for authority, transcendence, justice, war, and order (all 0.048), indicating a theological focus on life-giving maternal functions rather than hierarchical or regulatory divine roles. Worship would emphasize fertility rituals, agricultural ceremonies, environmental stewardship practices, and healing traditions that honor the earth's generative capacity rather than formal liturgies or moral codes. This profile aligns closely with ancient Greek earth goddess traditions, Neo-pagan earth spirituality, and indigenous nature-based religions, while standing in stark contrast to sky-god traditions that emphasize divine authority, cosmic order, and transcendent justice.",
+      "judgment": {
+        "same_deity": true,
+        "structural_similarity": 0.85,
+        "key_agreements": [
+          "nurturing earth deity",
+          "dominance of nature and fertility",
+          "emphasis on care and creation",
+          "minimal engagement with war",
+          "focus on agricultural cycles and environmental stewardship"
+        ],
+        "key_disagreements": [
+          "specific numerical values assigned to attributes",
+          "level of engagement with authority"
+        ],
+        "confidence": 0.9,
+        "order": "BA"
+      }
+    }
+  ],
+  "summary": {
+    "deities_tested": 8,
+    "equivalence_rate": 1.0,
+    "mean_structural_similarity": 0.84375,
+    "mean_judge_confidence": 0.9
+  }
+}
