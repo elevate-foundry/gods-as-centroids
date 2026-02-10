@@ -436,6 +436,14 @@ The core insight — that a god is a centroid, not a cause — provides a new le
 
 ---
 
+## Extension: AGI as Recursive Semantic Compression
+
+The discrete semantic substrate formalized in §5.4 suggests broader applications beyond religious evolution. The Braille Lattice projection provides a mathematical framework for **recursive semantic compression** — a potential foundation for artificial general intelligence systems that maintain coherent meaning across modalities and scales of abstraction.
+
+For a detailed exploration of this extension, including the proposed 96-bit 8-dot lattice for universal semantic representation and formal operator layers for semantic transformation, see: [**Gods as Centroids: A Mathematical Blueprint for Semantic Compression**](https://godscentro-ludpuglh.manus.space/).
+
+---
+
 ## References
 
 Atran, S. (2002). *In Gods We Trust: The Evolutionary Landscape of Religion.* Oxford University Press.

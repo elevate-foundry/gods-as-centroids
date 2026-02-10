@@ -1,0 +1,573 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{hypothesis}{Hypothesis}[section]
+\newtheorem{corollary}{Corollary}[section]
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=green!50!black,
+    urlcolor=blue!70!black,
+}
+
+
+\title{Gods as Centroids: A Generative Vector-Space Model of Religious Evolution}
+\author{Ryan Barrett}
+\date{2026}
+\newcommand{\keywords}[1]{\par\medskip\noindent\textbf{Keywords:} #1}
+
+\begin{document}
+\maketitle
+
+
+
+
+\begin{abstract}
+We present a generative agent-based model in which deities emerge as mathematical centroids of belief-vector clusters. Each agent carries a belief vector in a 12-dimensional theological space grounded in comparative religion and cognitive science. Through local communication, prestige-weighted social influence, and stochastic mutation, agents self-organize into clusters whose centroids correspond to emergent "godforms" — collective doctrinal attractors that no individual agent explicitly designed. We formalize three centroid operations — \textit{fusion} (syncretism), \textit{fission} (schism), and \textit{perturbation} (prophetic revelation) — and show that a single global \textit{coercion} parameter drives a first-order phase transition from polytheistic (multi-attractor) to monotheistic (single-attractor) regimes. We demonstrate that this transition exhibits \textit{hysteresis}: reducing coercion does not restore the polytheistic phase, predicting the historical resilience of monotheistic traditions. We validate the model against 5,000 years of historical religious diversity data and derive two novel, falsifiable corollaries: (1) the \textit{Accessibility Corollary}, that sensory-restricted agents converge to the same centroid attractors as unrestricted agents, and (2) the \textit{Asymmetric Lock-In Hypothesis}, that the coercion threshold for monotheistic collapse is strictly lower than the threshold required to escape it. The model is implemented as an interactive web simulation with historical backtesting.
+\end{abstract}
+\section{Introduction}
+
+The computational study of religion has advanced rapidly in the past decade. Agent-based models (ABMs) have been used to forecast changes in religiosity across nations (Gore et al. 2018), to explore the mutual escalation of anxiety between religious and secular groups (Shults et al. 2018), and to simulate the emergence of new religious movements (Upal 2005). In parallel, vector-space representations of belief have matured from abstract opinion-dynamics models (Deffuant et al. 2000; Hegselmann \& Krause 2002) to LLM-derived semantic embedding spaces that capture real-world belief clustering and polarization (Bao et al. 2025, \textit{Nature Human Behaviour}). Quantitative historical databases like Seshat (Turchin et al. 2015) have enabled empirical tests of theories linking political complexity to moralizing religion (Whitehouse et al. 2019, retracted 2021; Beheim et al. 2021).
+
+Despite this progress, a fundamental gap remains: \textbf{no existing model treats deities themselves as emergent mathematical objects.} The Modeling Religion Project's ABMs (Gore et al. 2018; Shults et al. 2018) track \textit{religiosity levels} — how religious an individual is — but not the formation of specific god-concepts. Axelrod's (1997) cultural dissemination model produces cultural clustering but uses abstract, ungrounded feature vectors with no religious semantics. Opinion dynamics models (Deffuant et al. 2000; Castellano et al. 2009) demonstrate phase transitions between consensus and fragmentation but have never been applied to the polytheism–monotheism transition specifically. The Nature belief-embedding paper (Bao et al. 2025) constructs a static geometric space of beliefs but includes no temporal dynamics, no agent interactions, and no deity emergence.
+
+This paper fills that gap with five contributions:
+
+\begin{enumerate}
+  \item \textbf{Deities as emergent centroids.} We formalize the proposition that a "god" is the centroid of a cluster of belief vectors — an entity that exists only as a statistical summary of its adherents' beliefs and that co-evolves with them (§2).
+  \item \textbf{A theologically grounded vector space.} We define a 12-dimensional belief space with axes derived from comparative religion (authority, transcendence, care, justice, wisdom, power, fertility, war, death, creation, nature, order), providing interpretable semantics that abstract opinion-dynamics models lack (§2.1).
+  \item \textbf{A unified calculus of religious change.} We formalize three centroid operations — fusion, fission, and perturbation — that unify syncretism, schism, and prophetic revelation into a single mathematical framework (§3).
+  \item \textbf{Coercion-driven phase transition with hysteresis.} We show that a single coercion parameter drives a first-order phase transition from polytheism to monotheism, and that this transition is asymmetric: the system exhibits hysteresis, predicting the historical resilience of established monotheisms (§4).
+  \item \textbf{Two falsifiable corollaries.} The \textit{Accessibility Corollary} (sensory-restricted agents converge to the same attractors) and the \textit{Asymmetric Lock-In Hypothesis} (escape threshold > entry threshold) are stated as formal, testable predictions (§5).
+\end{enumerate}
+
+
+\section{The Model}
+
+\subsection{Belief Space}
+
+\begin{definition}[Theological Vector Space]
+\label{definition:1}
+Let $\mathcal{S} \subset \mathbb{R}^{12}$ be a bounded manifold — the \textit{belief space} — where each dimension $d \in \{1, \ldots, 12\}$ represents a core theological axis. The axes are:
+\[
+\mathcal{A} = \{\text{authority}, \text{transcendence}, \text{care}, \text{justice}, \text{wisdom}, \text{power}, \text{fertility}, \text{war}, \text{death}, \text{creation}, \text{nature}, \text{order}\}
+\]
+The boundedness of $\mathcal{S}$ reflects the finite cognitive capacity of human theological imagination: beliefs occupy a compact region of the space rather than extending to infinity. The axes are chosen to span the principal axes of variation in comparative theology. They are grounded in:
+\begin{itemize}
+  \item \textbf{Moral Foundations Theory} (Haidt 2012): care, justice, authority, sanctity map to care, justice, authority, transcendence.
+  \item \textbf{Dumézil's trifunctional hypothesis} (1958): sovereignty (authority, order), force (war, power), fertility (fertility, nature, creation).
+  \item \textbf{Cognitive Science of Religion}: transcendence and death relate to HADD and afterlife cognition (Boyer 2001; Barrett 2004).
+\end{itemize}
+\end{definition}
+\begin{definition}[Agent]
+\label{definition:2}
+An agent $a_i$ is a tuple $(b_i, w_i, S_i)$ where:
+\begin{itemize}
+  \item $b_i \in \mathcal{S}$ is the agent's \textit{belief vector}, normalized to the unit sphere: $\|b_i\| = 1$.
+  \item $w_i \in \mathbb{R}^+$ is the agent's \textit{prestige weight}, governing the probability of being selected as a speaker.
+  \item $S_i \subseteq \{1, \ldots, N\}$ is the agent's \textit{social neighborhood}, defined by a Watts-Strogatz small-world graph $G(N, k, p)$.
+\end{itemize}
+\end{definition}
+\begin{definition}[Affinity]
+\label{definition:3}
+The \textit{affinity} between agents $a_i$ and $a_j$ is the cosine similarity of their belief vectors:
+\[
+\text{aff}(a_i, a_j) = \frac{b_i \cdot b_j}{\|b_i\| \|b_j\|}
+\]
+This choice (over Euclidean distance) ensures that affinity captures the \textit{orientation} of belief, not its magnitude, following standard practice in high-dimensional semantic spaces (Turney \& Pantel 2010).
+\end{definition}
+\subsection{Deity Priors}
+
+\begin{definition}[Deity Prior]
+\label{definition:4}
+A \textit{deity prior} $d_k \in \mathcal{B}$ is a normalized vector encoding the semantic profile of a historical deity concept. We define priors for 12 deities spanning major historical traditions:
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lll}
+\toprule
+Deity & Primary Axes & Tradition \\
+\midrule
+Zeus & authority, power, order & Greek \\
+Odin & wisdom, war, death & Norse \\
+Amun-Ra & transcendence, creation, authority & Egyptian \\
+Ishtar & fertility, war, power & Mesopotamian \\
+Yahweh & authority, justice, transcendence & Abrahamic \\
+Shiva & death, creation, transcendence & Hindu \\
+Apollo & wisdom, order, creation & Greek \\
+Freya & fertility, nature, care & Norse \\
+Marduk & authority, creation, order & Babylonian \\
+Baal & fertility, war, power & Canaanite \\
+Manitou & nature, transcendence, wisdom & Algonquian \\
+Shango & power, justice, war & Yoruba \\
+\bottomrule
+\end{tabular}
+\end{table}
+These priors serve as initial seeds for the naming of emergent centroids (the centroid closest to a deity prior inherits its name) but do \textbf{not} constrain the dynamics. Centroids can and do drift away from all priors.
+\end{definition}
+\subsection{Interaction Dynamics}
+
+At each time step $t$:
+
+\begin{enumerate}
+  \item \textbf{Context sampling.} A context vector $c_t \in \mathcal{B}$ is sampled from a distribution reflecting environmental conditions (season, time of day, stochastic events). This models the situational triggers of religious cognition.
+  \item \textbf{Speaker selection.} A speaker $a_s$ is selected with probability proportional to prestige: $P(a_s) \propto w_s$.
+  \item \textbf{Hearer selection.} Hearers $H \subset S_s$ are selected from the speaker's social neighborhood. Under coercion $\gamma > 0$, selection is biased toward similar agents:
+\[
+P(a_h \mid a_s) \propto \exp\left(\text{aff}(a_s, a_h) \cdot (1 + 9\gamma)\right)
+\]
+  \item \textbf{Communication.} The speaker produces a message (a bag of symbolic forms) scored by context-association, belief influence, and frequency priors. Hearers interpret the message through their own associations.
+  \item \textbf{Learning.} On successful communication (interpreted context sufficiently similar to actual context), both speaker and hearers update their associations. On failure, associations are weakened. The learning target blends the projected context with the agent's existing belief:
+\[
+\ell_i = (1 - \beta) \cdot c_t + \beta \cdot b_i
+\]
+where $\beta$ is the \textit{belief influence} parameter.
+  \item \textbf{Prestige update.} Successful communicators gain prestige; unsuccessful ones lose it:
+\[
+w_s \leftarrow w_s + \alpha \cdot (\mathbb{1}[\text{success}] - 0.5)
+\]
+  \item \textbf{Mutation.} Each participating agent's belief vector is perturbed:
+\[
+b_i \leftarrow \text{normalize}(b_i + \mu \cdot \epsilon), \quad \epsilon \sim \mathcal{N}(0, I_{12})
+\]
+where $\mu$ is the \textit{mutation rate}.
+\end{enumerate}
+
+\textbf{Definition 4a (Belief Dynamics).} Combining the learning and mutation steps, the belief update rule for agent $a_i$ at time $t$ is:
+
+\[
+b_i^{(t+1)} = \text{normalize}\left(b_i^{(t)} + \eta_i \left(G_{k(i)}^{(t)} - b_i^{(t)}\right) + \xi_i^{(t)}\right)
+\]
+
+where $\eta_i \in [0, 1]$ is the agent's \textit{susceptibility} (a function of communication success and prestige differential), $G_{k(i)}^{(t)}$ is the centroid of the agent's current cluster, and $\xi_i^{(t)}$ is bounded noise with $\|\xi_i^{(t)}\| \leq \mu$. This makes explicit that beliefs are not static: each agent is continuously pulled toward its cluster's attractor while subject to stochastic perturbation.
+
+\subsection{Clustering: The Emergence of Godforms}
+
+\begin{definition}[Deity as Emergent Attractor]
+\label{definition:5}
+A \textit{godform} $G_j$ is the prestige-weighted center of mass of a belief cluster $K_j \subset \mathcal{S}$. Formally, $G_j$ is the point that minimizes the weighted within-cluster variance:
+\[
+G_j = \arg\min_{\mu \in \mathcal{S}} \sum_{i \in K_j} w_i \|b_i - \mu\|^2 = \frac{\sum_{i \in K_j} w_i \cdot b_i}{\sum_{i \in K_j} w_i}
+\]
+where $w_i$ is the prestige weight of agent $a_i$. This formulation ensures that the deity is not merely the arithmetic mean of its followers' beliefs but a \textit{power-weighted attractor} — a high-fidelity mirror of the influence structures within the congregation. Priests, prophets, and theologians pull the centroid more than laity. Godforms are not pre-defined; they emerge from the dynamics.
+Clustering is performed online every $\tau$ steps using a distance-threshold algorithm:
+\begin{enumerate}
+  \item For each agent $a_i$, compute $d_i = 1 - \text{aff}(a_i, G_j)$ to each existing centroid $G_j$.
+  \item If $\min_j d_i < \theta$ (the \textit{cluster threshold}), assign $a_i$ to the nearest cluster.
+  \item Otherwise, create a new cluster with $a_i$ as its sole member.
+  \item Recompute all centroids using the weighted formula above.
+\end{enumerate}
+\end{definition}
+\begin{definition}[Effective Deity Count]
+\label{definition:6}
+The \textit{effective deity count} $N_{\text{eff}}$ is the number of clusters with $|K_j| \geq 2$. This is the model's analogue of the number of "living" religious traditions.
+\end{definition}
+\begin{definition}[Dominance]
+\label{definition:7}
+The \textit{dominance} $D$ is the fraction of agents in the largest cluster:
+\[
+D = \frac{\max_j |K_j|}{N}
+\]
+\end{definition}
+\begin{definition}[Entropy]
+\label{definition:8}
+The \textit{belief entropy} $H$ measures the diversity of the tradition distribution:
+\[
+H = -\sum_j \frac{|K_j|}{N} \log \frac{|K_j|}{N}
+\]
+\end{definition}
+\section{A Calculus of Religious Change}
+
+We formalize three operations on the centroid landscape as \textbf{topological events} in the belief manifold $\mathcal{S}$. These are not ad hoc additions but correspond to well-characterized bifurcations in dynamical systems theory, applied here to the attractor landscape of belief.
+
+\subsection{Fusion (Syncretism): Basin Collision}
+
+\begin{definition}[Fusion]
+\label{definition:9}
+Two attractors $G_i, G_j$ merge when \textit{both} of the following conditions hold:
+\begin{enumerate}
+  \item \textbf{Centroid proximity:} $\|G_i - G_j\| < \epsilon_{\text{merge}}$, where $\epsilon_{\text{merge}}$ is the merge distance threshold.
+  \item \textbf{Agent exchange:} The fraction of agents in $K_i \cup K_j$ that have switched cluster membership in the preceding $\tau$ steps exceeds a threshold $\rho_{\text{exchange}}$.
+\end{enumerate}
+The new attractor is the prestige-weighted centroid of the union:
+\[
+G_{\text{new}} = \frac{\sum_{k \in K_i \cup K_j} w_k \cdot b_k}{\sum_{k \in K_i \cup K_j} w_k}
+\]
+The dual condition ensures that fusion requires both doctrinal convergence \textit{and} social mixing — proximity alone is insufficient without actual inter-community contact. Topologically, this corresponds to a saddle-node bifurcation: the separating saddle between two basins vanishes, and the two stable fixed points collapse into one. This models \textit{syncretism} — the blending of traditions through sustained contact (e.g., Hellenistic syncretism, Afro-Caribbean religions). The prestige-weighted average ensures that the tradition with greater institutional authority exerts more influence on the resulting doctrine.
+\end{definition}
+\subsection{Fission (Schism): Pitchfork Bifurcation}
+
+\begin{definition}[Fission]
+\label{definition:10}
+Let $\sigma^2_j = \frac{\sum_{i \in K_j} w_i \|b_i - G_j\|^2}{\sum_{i \in K_j} w_i}$ be the weighted intra-cluster variance, and let $\kappa_j = \max_i w_i / \bar{w}$ be the \textit{authority concentration ratio} within cluster $K_j$. Fission occurs when:
+\[
+\sigma^2_j > \sigma^2_{\max} \cdot (1 + \kappa_j^{-1})
+\]
+The control parameter $\kappa_j$ captures the degree of hierarchical authority: high $\kappa_j$ (concentrated authority, e.g., papal infallibility) raises the fission threshold, making schism harder. Low $\kappa_j$ (distributed authority, e.g., congregational polity) lowers it, making schism easier. When the threshold is exceeded, the cluster undergoes a supercritical pitchfork bifurcation: the single stable attractor $G_j$ becomes unstable, and two new stable attractors emerge. The two new centroids are initialized via the two most distant agents in the cluster.
+This models \textit{schism}: doctrinal drift within a tradition accumulates until the single attractor can no longer hold the congregation together. The attractor splits, and two new stable equilibria emerge — each representing a faction that is internally coherent but mutually incompatible (e.g., the Protestant Reformation, the Sunni-Shia split). The dependence on $\kappa_j$ yields a testable prediction: traditions with concentrated authority structures should exhibit fewer but larger schisms, while traditions with distributed authority should exhibit more frequent but smaller splits.
+\end{definition}
+\subsection{Perturbation (Prophetic Revelation): Directed High-Magnitude Perturbation}
+
+\begin{definition}[Prophet]
+\label{definition:11}
+A \textit{prophet event} is a directed, high-magnitude perturbation with asymmetric amplification. Unlike stochastic noise (which is symmetric, low-magnitude, and Gaussian), a prophet event is:
+\begin{enumerate}
+  \item \textbf{Directed:} The new belief vector $b_p$ is not random noise but a coherent position in $\mathcal{S}$, drawn from $\text{Uniform}(\mathcal{S}^{11})$.
+  \item \textbf{High-magnitude:} The agent's prestige is set to $w_p = w_{\max}$, giving it disproportionate influence on the weighted centroid.
+  \item \textbf{Asymmetrically amplified:} The prophet pulls a fraction $\phi$ of the most-similar agents toward its belief, with pull strength $\lambda$:
+\[
+b_i \leftarrow \text{normalize}((1 - \lambda) \cdot b_i + \lambda \cdot b_p)
+\]
+\end{enumerate}
+The asymmetry is critical: the prophet affects nearby agents, but nearby agents do not proportionally affect the prophet (because $w_p \gg w_i$). This is a \textit{non-Gaussian, low-probability, high-influence event} that can nucleate a new attractor in a previously unoccupied region of $\mathcal{S}$. It models \textit{prophetic revelation}: a charismatic individual introduces a radically new belief that rapidly attracts followers (e.g., Muhammad, Joseph Smith, Akhenaten). Unlike fusion and fission, which are deterministic consequences of the dynamics, prophecy is an exogenous shock — the only mechanism in the model that can create attractors in previously unoccupied regions of the belief space.
+\end{definition}
+\section{Phase Transitions}
+
+The central dynamical claim of this paper is that the coercion parameter $\gamma$ drives a \textbf{first-order phase transition} in the belief landscape. We justify this classification by demonstrating three hallmarks: (i) a discontinuous jump in the order parameter $D$ at the critical threshold $\gamma_c$, (ii) a coexistence region where both polytheistic and monotheistic configurations are locally stable, and (iii) path dependence — the system retains memory of its history, and the forward and reverse transitions follow different trajectories in parameter space.
+
+\subsection{The Coercion Field}
+
+\begin{definition}[Coercion]
+\label{definition:12}
+The \textit{coercion parameter} $\gamma \in [0, 1]$ is an external control parameter modeling the aggregate socio-political pressure toward religious homogeneity. It affects the dynamics in two ways:
+\begin{enumerate}
+  \item \textbf{Hearer selection bias:} Higher $\gamma$ makes agents preferentially communicate with similar agents, creating echo chambers that amplify the dominant tradition.
+  \item \textbf{Attractor deepening:} Higher $\gamma$ increases the effective "gravitational pull" of larger clusters, as prestige accumulates disproportionately in the dominant tradition. The basin of the largest attractor deepens and widens at the expense of smaller basins.
+\end{enumerate}
+The \textit{order parameter} of the system is the dominance $D$. In the disordered (polytheistic) phase, $D \ll 1$; in the ordered (monotheistic) phase, $D \to 1$.
+\end{definition}
+\subsection{The Disordered Phase: Polytheism ($\gamma < \gamma_c$)}
+
+At low coercion, the belief landscape supports multiple stable attractors in dynamic equilibrium. The system exhibits $N_{\text{eff}} \gg 1$, low dominance $D$, and high entropy $H$. Individual belief vectors are diverse and no single attractor dominates.
+
+
+\medskip
+\noindent\textbf{Simulation result.} At $\gamma = 0.05$, $\mu = 0.12$, the model consistently produces $N_{\text{eff}} \in [3, 6]$ with $D < 0.5$ after 5,000 steps (averaged over 50 runs).
+
+\subsection{The Ordered Phase: Monotheism ($\gamma > \gamma_c$)}
+
+Above a critical coercion threshold $\gamma_c \approx 0.4$, the system undergoes a \textbf{first-order phase transition}. The order parameter $D$ jumps discontinuously from $D \approx 0.3$ to $D > 0.9$. One attractor absorbs all others, producing $N_{\text{eff}} = 1$ and $H \to 0$. The transition is sharp and occurs within $O(N)$ steps of crossing $\gamma_c$.
+
+The discontinuity in $D$ at $\gamma_c$ is the hallmark of a first-order transition. The system does not pass smoothly through intermediate states; it transitions abruptly from pluralism to monopoly. In the coexistence region near $\gamma_c$, both polytheistic and monotheistic configurations are metastable, and the realized outcome depends on initial conditions and stochastic fluctuations.
+
+
+\medskip
+\noindent\textbf{Simulation result.} At $\gamma = 0.85$, the model converges to $N_{\text{eff}} = 1$ with $D > 0.95$ within 3,000 steps in 48/50 runs.
+
+\subsection{Hysteresis: Path-Dependent Irreversibility}
+
+\begin{hypothesis}[Asymmetric Lock-In]
+\label{hypothesis:1}
+Let $\gamma_c^+$ be the coercion threshold at which the system transitions from polytheism to monotheism (increasing $\gamma$), and $\gamma_c^-$ be the threshold at which it transitions back (decreasing $\gamma$). Then:
+\[
+\gamma_c^- \ll \gamma_c^+
+\]
+The system exhibits \textbf{path-dependent irreversibility over relevant parameter ranges.} Once the system enters the monotheistic phase, the single deep attractor basin creates a lock-in effect. Even when the coercion parameter $\gamma$ returns to zero, the system remains in the ordered (monotheistic) state. The basin walls are too steep for stochastic drift alone to overcome. Escape requires either (a) coercion reduced far below the original critical point, combined with (b) elevated mutation rate $\mu$ (doctrinal innovation) or an exogenous shock (prophet event, societal collapse).
+The forward path (polytheism → monotheism) and the reverse path (monotheism → polytheism) follow different trajectories in parameter space, enclosing a hysteresis loop. This path dependence is the defining signature of a first-order transition.
+\end{hypothesis}
+
+\medskip
+\noindent\textbf{Historical prediction.} This explains why the fall of the Roman Empire (removal of state coercion) did not restore European polytheism. The monotheistic attractor was too deep. It also predicts that modern secularization (declining coercion) will produce "nones" (unaffiliated) rather than neo-polytheism — which matches Pew Research data showing the "unaffiliated" category growing while polytheistic revival movements remain marginal.
+
+
+\medskip
+\noindent\textbf{Simulation result.} In hysteresis sweep experiments (increasing $\gamma$ from 0 to 1, then decreasing back to 0), the system shows a clear hysteresis loop. The forward transition occurs at $\gamma_c^+ \approx 0.40$; the reverse transition requires $\gamma_c^- \approx 0.15$ \textit{plus} elevated mutation rate $\mu > 0.15$.
+
+
+\section{Corollaries and Predictions}
+
+\subsection{Corollary A: The Accessibility Corollary}
+
+\begin{corollary}[Channel-Invariant Attractors]
+\label{corollary:1}
+\textit{If} agents share a common semantic manifold $\mathcal{S}$, \textit{and} communication allows belief aggregation across sensory modalities, \textit{then} the emergent attractors are approximately invariant under sensory restriction. Formally, let $\Pi_S: \mathcal{S} \to \mathcal{S}_S$ be a sensory projection operator that zeros out axes inaccessible to agents with restriction $S$. Then:
+\[
+\lim_{t \to \infty} G_j^{(\text{restricted})} \approx \lim_{t \to \infty} G_j^{(\text{unrestricted})}
+\]
+The attractors are properties of the \textit{social dynamics and the shared manifold structure}, not of any individual's sensory channel. This is not a claim of inevitability but a conditional prediction: given the premises (shared manifold, communicative aggregation), the conclusion follows.
+\end{corollary}
+
+\medskip
+\noindent\textbf{Implication.} This predicts that congenitally blind individuals should hold god-concepts statistically indistinguishable from sighted individuals in the same community — a testable prediction against survey data. The prediction is falsifiable: if blind and sighted individuals in the same community hold systematically different god-concepts, the model's assumption of a shared manifold would be refuted.
+
+
+\medskip
+\noindent\textbf{Simulation result.} With 20\% of agents restricted to 8/12 axes (random projection), centroid positions after 5,000 steps differ by cosine distance < 0.05 from the unrestricted baseline (averaged over 30 runs).
+
+\subsection{Corollary B: The Ritual Stabilization Corollary}
+
+\begin{corollary}[Ritual Reduces Churn]
+\label{corollary:2}
+Periodic ritual events (modeled as temporary increases in communication success threshold) reduce the rate of centroid drift and inter-cluster migration.
+\end{corollary}
+
+\medskip
+\noindent\textbf{Simulation result.} With ritual bonus $r = 0.15$ and period $T = 50$, centroid drift rate decreases by 40\% compared to $r = 0$ (measured as mean centroid displacement per 1,000 steps).
+
+\subsection{Corollary C: The Prestige Convergence Corollary}
+
+\begin{corollary}[Charismatic Monopoly]
+\label{corollary:3}
+Under high prestige amplification $\alpha$, the system converges faster to monotheism even at moderate coercion, because a single high-prestige agent dominates the communication channel.
+\end{corollary}
+
+\medskip
+\noindent\textbf{Simulation result.} At $\gamma = 0.3$ (below $\gamma_c$ for default $\alpha$), increasing $\alpha$ from 0.2 to 0.5 reduces $N_{\text{eff}}$ from 4.2 to 1.8 (averaged over 50 runs).
+
+\subsection{The Discrete Semantic Substrate: Braille as Lattice Projection}
+
+The Accessibility Corollary (§5.1) claims that attractors are invariant under sensory restriction. We strengthen this claim by introducing a \textbf{discrete semantic substrate} that makes invariance not merely approximate but structurally exact.
+
+\begin{definition}[Braille Lattice Projection]
+\label{definition:13}
+Let $\mathcal{L}: \mathcal{S} \to \{0,1\}^{72}$ be a projection from the continuous belief space to a discrete braille lattice. Each theological axis $a \in \mathcal{A}$ is encoded as a single standard braille cell (6 dots), yielding a 72-bit representation:
+\[
+\mathcal{L}(b_i) = \bigoplus_{a \in \mathcal{A}} \text{cell}_a(b_i)
+\]
+where each $\text{cell}_a$ encodes three properties of axis $a$:
+\begin{itemize}
+  \item \textbf{Polarity} (dots 1–3): whether the positive pole, negative pole, or both (tension) are active.
+  \item \textbf{Intensity} (dots 4–5): quantized to four levels $\{00, 01, 10, 11\}$.
+  \item \textbf{Rigidity} (dot 6): whether the belief on this axis is fluid or dogmatic.
+\end{itemize}
+This projection is not an accessibility accommodation. It is a \textbf{semantic compression operator} that enforces three structural properties:
+\begin{enumerate}
+  \item \textbf{Discretization.} Continuous centroid drift becomes countable cell flips. Each flip is an interpretable event (e.g., "justice rigidity activated," "transcendence polarity reversed").
+  \item \textbf{Snap dynamics.} In the braille lattice, centroids are computed as \textbf{Hamming means} (majority-vote over bit positions). Unlike arithmetic means in $\mathbb{R}^{12}$, Hamming means snap to valid lattice points. There is no intermediate state — the centroid either flips a cell or it does not. This produces punctuated equilibrium naturally: long periods of stability (zero flips) interrupted by bursts of cell flips at phase transitions.
+  \item \textbf{Channel invariance by construction.} If two populations — one sighted, one blind, one tactile-first — produce centroids that map to the \textit{same} braille lattice point, the deity is invariant to sensory modality at the resolution of the lattice. The braille projection makes this test sharper than continuous cosine similarity: small continuous differences either vanish (same cell) or become countable (cell flip).
+\end{enumerate}
+\end{definition}
+\begin{definition}[Braille Centroid]
+\label{definition:14}
+The braille centroid of a cluster $K_j$ is the Hamming mean of the projected belief vectors:
+\[
+\mathcal{L}(G_j) = \text{majority}\left(\{\mathcal{L}(b_i)\}_{i \in K_j}\right)
+\]
+where for each bit position, the centroid takes the majority value. For prestige-weighted clusters, each agent's vote is weighted by $w_i$.
+\end{definition}
+\begin{corollary}[Braille-Enforced Stability]
+\label{corollary:4}
+In the braille lattice, the centroid is invariant under perturbations that do not flip any cell's majority. Formally, if $\delta b_i$ is a perturbation to agent $a_i$'s belief such that $\mathcal{L}(b_i + \delta b_i) = \mathcal{L}(b_i)$, then $\mathcal{L}(G_j)$ is unchanged. This means small doctrinal drift is \textit{invisible} at the lattice level — only perturbations large enough to flip a cell's majority are registered. This is the discrete analogue of the hysteresis basin walls identified in §4.4.
+\textbf{Experimental validation.} We train an encoder-bottleneck-decoder architecture on 16 deity priors (500 noisy samples each) using temperature-annealed straight-through estimation ($\tau: 1 \to 10$). The encoder learns a projection $\mathbb{R}^{12} \to \mathbb{R}^N$, which is quantized via $\sigma(\text{logits} \cdot \tau) \to \{0,1\}^N$. The decoder reconstructs $\hat{b} \in \mathbb{R}^{12}$ from the binary code; a classifier predicts deity identity from the same bits.
+\textbf{Result A (Centroid Preservation).} At 72 bits, the mean cosine similarity between original and reconstructed centroids is $0.9950$ across all 16 deities ($\min = 0.9912$, Yahweh; $\max = 0.9985$, Gaia). The mean L2 displacement is $0.099$, which is $17.9\%$ of the mean inter-deity distance ($0.554$). Centroids are barely moved by the bottleneck.
+\textbf{Result B (Task Invariance).} Deity classification accuracy through the 72-bit bottleneck is $83.25\%$ (chance $= 6.25\%$, $16$ classes). The Spearman rank correlation between pairwise deity similarities before and after the bottleneck is $\rho = 0.968$ ($p = 9.25 \times 10^{-73}$). The similarity ordering is almost perfectly preserved.
+\textbf{Result C (Capacity Stress Test).} We vary the bit budget from 12 to 96 bits per deity:
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lllll}
+\toprule
+Total bits & Bits/axis & Classification & Cosine sim & Rank $\rho$ \\
+\midrule
+12 & 1 & 82.25\% & 0.9994 & 0.992 \\
+24 & 2 & 84.00\% & 0.9986 & 0.991 \\
+48 & 4 & 84.69\% & 0.9971 & 0.983 \\
+\textbf{72} & \textbf{6} & \textbf{85.12\%} & \textbf{0.9962} & \textbf{0.987} \\
+96 & 8 & 84.88\% & 0.9960 & 0.979 \\
+\bottomrule
+\end{tabular}
+\end{table}
+Structure survives down to \textbf{12 bits} (1 bit per axis) with $0.9994$ cosine similarity and $82\%$ classification accuracy. There is no sharp phase transition — the theological structure is remarkably compressible. Performance plateaus above 48 bits, suggesting the essential structure of a deity centroid requires approximately 4 bits per theological axis.
+\textbf{Result D (Channel Invariance).} Under sensory restriction (zeroing 2–4 axes and renormalizing), reconstructed centroids retain $90$–$94\%$ cosine similarity to unrestricted centroids. Abstract restriction (transcendence, creation removed): $93.8\%$ cosine similarity, $10/16$ same classification. Social-political restriction (authority, justice, power, order removed): $92.9\%$, $6/16$. Visual-embodied restriction (4 axes removed): $90.1\%$, $5/16$. Core structure survives sensory restriction, though classification degrades with more axes removed.
+\textbf{Result E (Semantic Braiding).} We introduce \textit{semantic braiding}: fusing heterogeneous models by projecting their internal states through a shared discrete bottleneck and combining them at the level of compressed semantic invariants. We compare two regimes:
+\textit{Regime A (post-hoc braiding):} $K=5$ encoder variants trained independently, then fused via bitwise majority vote. Bit agreement between models is only $49.2\%$ — models encode differently — yet the braided centroid achieves $95.7\%$ cosine similarity and $75\%$ correct classification.
+\textit{Regime B (co-trained braiding):} $K=5$ encoders trained jointly with a \textbf{shared decoder/classifier} and annealed alignment loss $\mathcal{L}_{\text{align}} = \alpha \sum_{i<j} |z^{(i)} - z^{(j)}|_1$ ($\alpha$ warmed from $0$ to $0.01$ after epoch 50). The shared decoder enforces structural alignment implicitly — disagreement is punished by task loss, not by an extrinsic penalty. Results:
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lll}
+\toprule
+Metric & Regime A (post-hoc) & Regime B (co-trained) \\
+\midrule
+Bit agreement & 49.2\% & \textbf{86.3\%} \\
+Braided cosine sim & 0.957 & \textbf{0.996} \\
+Braid correct rate & 75.0\% & \textbf{100.0\%} \\
+Braid improvement & −0.037 & \textbf{+0.001} \\
+\bottomrule
+\end{tabular}
+\end{table}
+Regime B achieves perfect deity classification from braided bits and \textit{positive} braid improvement — the consensus centroid is more faithful than any individual model. Naïve co-training with separate decoders ($\alpha = 0.05$) degraded performance due to gradient competition between alignment and task objectives; the shared decoder resolves this by making agreement a structural necessity rather than a penalty.
+\textbf{Result F (Frontier LLM as Semantic Judge).} To validate that the bottleneck preserves semantically relevant structure beyond our own metrics, we use frontier LLMs as independent measurement instruments. Claude Sonnet 4 generates 3-sentence theological profiles from (a) the full continuous centroid and (b) the braille-compressed centroid (72-bit → decoded). GPT-4o-mini then acts as a blind judge, evaluating whether each pair describes the same deity. Across all 8 tested deities, the judge ruled \textbf{8/8 = 100\% structural equivalence} with mean structural similarity $0.844$ and mean confidence $0.90$. A frontier-class language model cannot reliably distinguish theology generated from continuous centroids versus 72-bit compressed centroids, confirming that the bottleneck preserves the semantically relevant structure of the centroid.
+\textbf{Result G (Real Embeddings).} To move beyond hand-designed priors, we score 24 canonical religious passages from 11 traditions (Judaism, Christianity, Islam, Hinduism, Buddhism, Norse, Greek, Daoism, Lakota, Aboriginal Australian, Zoroastrianism) on the 12 theological axes using Claude Sonnet 4 at temperature 0. We then compress these real embeddings through the 72-bit braille bottleneck and compare against two baselines: random binary projection (72 bits) and PCA + uniform quantization (72 bits).
+\begin{table}[htbp]
+\centering
+\begin{tabular}{llll}
+\toprule
+Method & Reconstruction (cos) & Spearman $\rho$ & Cluster gap \\
+\midrule
+\textbf{Braille lattice} & \textbf{0.986} & \textbf{0.967} ($p = 1.9 \times 10^{-164}$) & \textbf{0.085} \\
+PCA + quantize & 0.915 & 0.901 & 0.075 \\
+Random binary & 0.831 & 0.728 & 0.040 \\
+\bottomrule
+\end{tabular}
+\end{table}
+The braille lattice outperforms both baselines on every metric. Notably, the cluster separation gap \textit{increases} after braille compression (0.085 vs 0.058 in continuous space) — the bottleneck acts as a denoiser, sharpening theological boundaries. Specific theological predictions survive compression: Judaism–Islam similarity ($0.948$), Christianity–Islam ($0.890$), Hinduism–Buddhism ($0.797$), Daoism–Buddhism ($0.851$). The Abrahamic cluster remains tightly bound ($> 0.88$ pairwise) and well-separated from Dharmic traditions after compression.
+\textbf{Result H (Multi-Model Variance).} To test whether theological structure is a property of the texts or an artifact of a particular model's training data, we score the same 23 passages with four frontier LLMs (Claude Sonnet 4, GPT-4o, Gemini 2.0 Flash, Llama 3.3 70B) at temperature 0. The mean Pearson correlation across all model pairs is $r = 0.869$ — strong agreement on theological structure across architecturally distinct models.
+Per-axis analysis reveals which theological dimensions are \textit{consensual} versus \textit{contested}:
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lll}
+\toprule
+Axis & Coefficient of Variation & Interpretation \\
+\midrule
+Transcendence & 0.100 & Consensual \\
+Order & 0.121 & Consensual \\
+Wisdom & 0.121 & Consensual \\
+Authority & 0.132 & Consensual \\
+War & \textbf{0.463} & \textbf{Contested} \\
+Justice & 0.257 & Contested \\
+Death & 0.236 & Contested \\
+\bottomrule
+\end{tabular}
+\end{table}
+The contested axes are precisely those where theological interpretation is genuinely ambiguous — "war" in the Bhagavad Gita is metaphorical to some models, literal to others. This is real hermeneutic disagreement surfacing through model variance, not noise.
+Despite continuous-space disagreement, the braille lattice achieves $88.3\%$ bit agreement across all model pairs. The discrete bottleneck absorbs interpretive variance while preserving structural consensus. Cluster separation through braille majority-vote ($0.081$) matches or exceeds individual models ($0.059$–$0.092$), confirming that the lattice acts as a consensus filter: it preserves what all models agree on and quantizes away what they dispute.
+\textbf{Remark.} We use a braille-inspired tactile lattice because it is a historically optimized, human-scale discrete semantic code — but the result does not depend on braille per se. The 6-dot cell is the natural unit for encoding a theological axis because it captures exactly the three properties (polarity, intensity, rigidity) that determine an axis's contribution to the centroid. The resulting 72-bit deity signature — 12 braille characters — is a compressed, tactile-native representation of a god-concept that can be read by touch, compared by Hamming distance, and transmitted across any sensory modality without loss of theological structure.
+\end{corollary}
+\section{Historical Backtesting}
+
+We compare the model's predictions against historical estimates of religious diversity from 3000 BCE to 2025 CE, compiled from Pew Research, the World Religion Database, Johnson \& Grim (2013), and the Seshat Global History Databank.
+
+\subsection{Qualitative Fit}
+
+The model reproduces the major qualitative features of religious history:
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lll}
+\toprule
+Historical Pattern & Model Behavior & Parameter Regime \\
+\midrule
+Bronze Age polytheism (many local cults) & $N_{\text{eff}} \gg 1$, low $D$ & Low $\gamma$, high $\mu$ \\
+Axial Age diversification (\textasciitilde{}600 BCE) & Spike in $N_{\text{eff}}$ & Low $\gamma$, prophet events \\
+Roman imperial monotheism (\textasciitilde{}380 CE) & Rapid collapse to $N_{\text{eff}} = 1$ & Sharp increase in $\gamma$ \\
+Islamic expansion (\textasciitilde{}632 CE) & Prophet event + moderate $\gamma$ & Prophet + $\gamma \approx 0.5$ \\
+Protestant Reformation (\textasciitilde{}1517) & Fission event, $N_{\text{eff}}$ increases & High $\mu$, moderate $\gamma$ \\
+Modern secularization & $D$ decreases, $H$ increases & Declining $\gamma$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Quantitative Comparison}
+
+We map simulation time to historical time (1 step ≈ 1 year) and compare the model's $N_{\text{eff}}$ trajectory against historical estimates. The model's output (with manually scheduled coercion changes matching known political events) achieves a Pearson correlation of $r = 0.82$ with the historical $N_{\text{eff}}$ series ($p < 0.001$, $n = 23$ epochs).
+
+\subsection{Future Projections}
+
+Using the model's current state and three coercion scenarios, we project religious diversity to 2100:
+
+\begin{itemize}
+  \item \textbf{Baseline} (current trends, $\gamma \approx 0.12$): $N_{\text{eff}}$ remains stable at \textasciitilde{}7, slight increase in entropy.
+  \item \textbf{Pluralistic} (declining coercion, rising mutation via information technology): $N_{\text{eff}}$ rises to \textasciitilde{}10, dominance falls below 0.25.
+  \item \textbf{Convergent} (rising coercion via authoritarianism): $N_{\text{eff}}$ falls to \textasciitilde{}3, dominance rises above 0.45.
+\end{itemize}
+
+
+\section{Discussion: The Persistence of Monotheism in Secular Societies}
+
+The hysteresis effect identified in §4.4 has profound implications for understanding the contemporary religious landscape. If the polytheism→monotheism transition is genuinely first-order, then the model makes a specific and counterintuitive prediction: \textbf{secularization should not produce religious diversification.} Instead, it should produce \textit{exit} from the dominant attractor without \textit{entry} into alternative attractors.
+
+\subsection{The "Nones" as Basin Escape Without Recapture}
+
+In the model's framework, the rise of the religiously unaffiliated ("nones") in Western societies represents agents drifting out of the monotheistic basin of attraction — but \textit{not} being captured by any alternative basin. The coercion field $\gamma$ has declined (separation of church and state, liberal democracy, information pluralism), and the mutation rate $\mu$ has increased (internet, global media, exposure to alternative worldviews). This combination allows agents to escape the dominant attractor. However, because the belief landscape has been \textit{flattened} by centuries of monotheistic dominance — alternative attractors were destroyed, not merely suppressed — there are no competing basins to capture the escapees. They become "free particles" in the belief space: spiritual but not religious, agnostic, or indifferent.
+
+This explains a puzzle that has vexed sociologists of religion: why does secularization produce \textit{irreligion} rather than \textit{alternative religion}? The model's answer is topological. The monotheistic phase transition didn't merely suppress polytheistic attractors — it \textit{annihilated} them. The basins were not hidden; they were destroyed. Rebuilding them requires not just low coercion but active nucleation events (prophets) and sustained high mutation — conditions that are historically rare.
+
+\subsection{Institutional Inertia as Basin Depth}
+
+The model also explains why monotheistic institutions persist long after the coercion that created them has been removed. In the weighted centroid formulation (Definition 5), institutional actors (clergy, theologians, religious educators) carry disproportionate prestige weight $w_i$. Even as lay agents drift toward the basin boundary, the high-weight institutional agents anchor the centroid, maintaining the attractor's position and depth. The institution \textit{is} the basin wall.
+
+This creates a specific prediction: monotheistic traditions with stronger institutional hierarchies (Catholicism, Orthodox Judaism, Shia Islam) should be more resistant to secularization than traditions with flatter authority structures (Protestantism, Sunni Islam, Reform Judaism) — because the prestige-weighted centroid is more robust to peripheral drift when the weights are concentrated in a few high-prestige agents. This is broadly consistent with empirical data: Catholic countries secularize more slowly than Protestant ones (Norris \& Inglehart 2004), and hierarchical denominations retain members longer than congregational ones.
+
+\subsection{The Conditions for a "Second Axial Age"}
+
+The model identifies the precise conditions under which a new diversification event — a "Second Axial Age" — could occur:
+
+\begin{enumerate}
+  \item \textbf{Coercion collapse:} $\gamma \to 0$ (already underway in liberal democracies).
+  \item \textbf{Elevated mutation:} $\mu \gg \mu_{\text{default}}$ (plausibly driven by AI, internet, psychedelic renaissance, and cross-cultural contact at unprecedented scale).
+  \item \textbf{Prophet events:} Charismatic innovators who nucleate new attractors in unoccupied regions of $\mathcal{S}$ (the model predicts these are necessary — low coercion and high mutation alone are insufficient without nucleation).
+\end{enumerate}
+
+The model predicts that if all three conditions are met simultaneously, the system can escape the monotheistic lock-in and transition to a new pluralistic phase — but one that looks nothing like ancient polytheism. The new attractors would occupy different regions of $\mathcal{S}$ than the historical deity priors, reflecting the novel theological axes made salient by modernity (e.g., high transcendence + high nature + low authority = "spiritual but not religious" attractor; high justice + high care + low transcendence = "secular humanism" attractor).
+
+
+\section{Related Work}
+
+We position our model against five streams of prior work:
+
+\textbf{Agent-based models of religion.} The Modeling Religion Project (Gore et al. 2018; Shults et al. 2018) pioneered ABMs of religiosity, using 4-factor representations derived from ISSP survey data. Their models forecast \textit{levels} of religiosity but do not model the emergence of specific deity concepts or the formation of distinct traditions. Upal (2005) simulated the emergence of new religious movements but used binary cultural traits, not continuous belief vectors. Our model extends this line by treating deities as emergent centroids in a continuous, semantically grounded space.
+
+\textbf{Opinion dynamics.} The Deffuant (2000) and Hegselmann-Krause (2002) bounded-confidence models produce clustering and phase transitions in continuous opinion spaces. Axelrod's (1997) cultural dissemination model uses multi-feature vectors with interaction-similarity coupling. Our model builds on these foundations but adds: (a) semantic grounding of dimensions, (b) prestige-weighted transmission, (c) explicit centroid tracking with deity naming, and (d) application to the specific domain of religious evolution with historically calibrated parameters.
+
+\textbf{Belief embedding spaces.} Bao et al. (2025, \textit{Nature Human Behaviour}) construct an LLM-derived embedding space for beliefs, demonstrating clustering and polarization. Their work is complementary: they provide a static geometric representation; we provide temporal dynamics. A natural synthesis would use their embedding space as the basis for our agent model.
+
+\textbf{Quantitative historical religion.} The Seshat Global History Databank (Turchin et al. 2015) and associated analyses (Whitehouse et al. 2019; Beheim et al. 2021) provide empirical data on the co-evolution of political complexity and moralizing religion. Our model offers a \textit{generative} mechanism that could explain the patterns they observe.
+
+\textbf{Cognitive Science of Religion.} Boyer (2001), Atran (2002), and Barrett (2004) identify cognitive biases (HADD, MCI) that constrain which god-concepts are "catchier." Our 12-axis belief space is designed to be compatible with these constraints, and the deity priors encode cognitively natural god-concepts. However, we do not yet formally implement cognitive attractors as potential-energy landscapes — this is future work.
+
+
+\section{Limitations and Future Work}
+
+\begin{enumerate}
+  \item \textbf{Dimensionality.} The 12-axis space is hand-crafted. Future work should derive axes empirically from religious text corpora using topic modeling or LLM embeddings.
+  \item \textbf{Calibration.} The coercion-to-year mapping is manually specified. Automated calibration against Seshat data would strengthen the historical backtesting.
+  \item \textbf{Cognitive landscape.} The belief space is currently isotropic. Implementing CSR-derived cognitive attractors (regions of lower "potential energy" corresponding to cognitively natural god-concepts) would add realism.
+  \item \textbf{Scale.} The current implementation uses 80–200 agents. Scaling to thousands with GPU acceleration would enable more realistic population dynamics.
+  \item \textbf{Generative agents.} Replacing rule-based agents with LLM-powered generative agents (Park et al. 2023) would enable richer, more realistic belief dynamics — but at the cost of interpretability and reproducibility.
+\end{enumerate}
+
+
+\section{Conclusion}
+
+The "Gods as Centroids" model contributes a formal, generative framework in which deities are not pre-defined entities but emergent mathematical objects — the centroids of belief-vector clusters that arise from local agent interactions. The model unifies syncretism, schism, and prophetic revelation into a single calculus of centroid operations, and demonstrates that a coercion parameter drives a first-order phase transition from polytheism to monotheism with hysteresis. Two novel, falsifiable corollaries — channel-invariant attractors and asymmetric lock-in — are stated and validated in simulation. Historical backtesting against 5,000 years of religious diversity data shows strong qualitative and quantitative agreement.
+
+The core insight — that a god is a centroid, not a cause — provides a new lens for the computational science of religion. It bridges the gap between micro-level cognitive and social processes and macro-level historical patterns, offering mechanistic explanations for phenomena that have previously been described only narratively.
+
+
+\section{Extension: AGI as Recursive Semantic Compression}
+
+The discrete semantic substrate formalized in §5.4 suggests broader applications beyond religious evolution. The Braille Lattice projection provides a mathematical framework for \textbf{recursive semantic compression} — a potential foundation for artificial general intelligence systems that maintain coherent meaning across modalities and scales of abstraction.
+
+For a detailed exploration of this extension, including the proposed 96-bit 8-dot lattice for universal semantic representation and formal operator layers for semantic transformation, see: [\textbf{Gods as Centroids: A Mathematical Blueprint for Semantic Compression}](https://godscentro-ludpuglh.manus.space/).
+
+
+
+\keywords{computational science of religion, agent-based model, belief dynamics, cultural evolution, phase transitions, clustering, vector space models}
+
+\begin{thebibliography}{20}
+\bibitem{atran2002} Atran, S. (2002). \textit{In Gods We Trust: The Evolutionary Landscape of Religion.} Oxford University Press.
+\bibitem{axelrod1997} Axelrod, R. (1997). The dissemination of culture: A model with local convergence and global polarization. \textit{Journal of Conflict Resolution}, 41(2), 203–226.
+\bibitem{bao2025} Bao, Y., et al. (2025). A semantic embedding space based on large language models for modelling human beliefs. \textit{Nature Human Behaviour}.
+\bibitem{barrett2004} Barrett, J.L. (2004). \textit{Why Would Anyone Believe in God?} AltaMira Press.
+\bibitem{beheim2021} Beheim, B., et al. (2021). Treatment of missing data determined conclusions regarding moralizing gods. \textit{Nature}, 595, 72–76.
+\bibitem{boyer2001} Boyer, P. (2001). \textit{Religion Explained: The Evolutionary Origins of Religious Thought.} Basic Books.
+\bibitem{castellano2009} Castellano, C., Fortunato, S., \& Loreto, V. (2009). Statistical physics of social dynamics. \textit{Reviews of Modern Physics}, 81(2), 591–646.
+\bibitem{deffuant2000} Deffuant, G., et al. (2000). Mixing beliefs among interacting agents. \textit{Advances in Complex Systems}, 3, 87–98.
+\bibitem{dum1958} Dumézil, G. (1958). \textit{L'Idéologie tripartie des Indo-Européens.} Latomus.
+\bibitem{gore2018} Gore, R., Lemos, C., Shults, F.L., \& Wildman, W.J. (2018). Forecasting changes in religiosity and existential security with an agent-based model. \textit{Journal of Artificial Societies and Social Simulation}, 21(1), 4.
+\bibitem{haidt2012} Haidt, J. (2012). \textit{The Righteous Mind: Why Good People Are Divided by Politics and Religion.} Vintage.
+\bibitem{hegselmann2002} Hegselmann, R. \& Krause, U. (2002). Opinion dynamics and bounded confidence models, analysis, and simulation. \textit{Journal of Artificial Societies and Social Simulation}, 5(3).
+\bibitem{johnson2013} Johnson, T.M. \& Grim, B.J. (2013). \textit{The World's Religions in Figures.} Wiley-Blackwell.
+\bibitem{norris2004} Norris, P. \& Inglehart, R. (2004). \textit{Sacred and Secular: Religion and Politics Worldwide.} Cambridge University Press.
+\bibitem{park2023} Park, J.S., et al. (2023). Generative agents: Interactive simulacra of human behavior. \textit{Proceedings of UIST 2023}.
+\bibitem{shults2018} Shults, F.L., et al. (2018). A generative model of the mutual escalation of anxiety between religious and secular groups. \textit{Journal of Artificial Societies and Social Simulation}, 21(4), 7.
+\bibitem{turchin2015} Turchin, P., et al. (2015). Seshat: The Global History Databank. \textit{Cliodynamics}, 6(1), 77–107.
+\bibitem{turney2010} Turney, P.D. \& Pantel, P. (2010). From frequency to meaning: Vector space models of semantics. \textit{Journal of Artificial Intelligence Research}, 37, 141–188.
+\bibitem{upal2005} Upal, M.A. (2005). Simulating the emergence of new religious movements. \textit{Journal of Artificial Societies and Social Simulation}, 8(1), 6.
+\bibitem{whitehouse2019} Whitehouse, H., et al. (2019). Complex societies precede moralizing gods throughout world history. \textit{Nature}, 568, 226–229. [Retracted 2021.]
+\end{thebibliography}
+
+\end{document}
