@@ -458,19 +458,42 @@ Rather than hand-crafting deity prior vectors, we compute tradition centroids as
 
 The empirical centroids reveal natural clustering: Abrahamic traditions load on authority and transcendence; Dharmic traditions on wisdom and transcendence; Indigenous traditions on nature and care; Mesoamerican traditions on creation and death. These clusters emerge from the data without supervision.
 
-### 8.2 Derived Parameters
+### 8.2 Multi-LLM Inter-Scorer Agreement
 
-| Parameter | Hand-tuned | Corpus-derived (126 passages) | Method |
-|---|---|---|---|
-| Cluster threshold $\theta$ | 0.40 | **0.097** | Midpoint of mean intra/inter-tradition cosine distances |
-| Mutation rate $\mu$ | 0.08 | **0.25** | Intra-tradition standard deviation (high variance across traditions) |
-| Fission threshold $\sigma^2_{\max}$ | 0.15 | **0.162** | Midpoint of schism vs. non-schism tradition variances |
-| Belief influence $\beta$ | 0.15 | **0.06** | Ratio of intra- to inter-tradition similarity |
-| Deity priors | 12 hand-crafted | **37 from corpus** | Tradition centroid vectors |
+To ensure that the theological scoring is robust to scorer choice, we replicate the full 126-passage scoring with four independent LLMs: Claude Sonnet 4 (Anthropic), GPT-4o (OpenAI), Gemini 2.0 Flash (Google), and Llama 3.3 70B (Meta, open-weight). All models use the same prompt at temperature 0.
 
-The expanded corpus confirms and sharpens the findings from the initial 24-passage calibration. The cluster threshold ($\theta = 0.097$) is now **4$\times$ tighter** than the hand-tuned value, indicating that real religious traditions are even more internally coherent than initially estimated. The fission threshold ($\sigma^2_{\max} = 0.162$) converges to the hand-tuned value (0.15), providing strong independent validation. The belief influence ($\beta = 0.06$) remains low, suggesting that confirmation bias in religious transmission is weaker than assumed.
+| Metric | Value | Interpretation |
+|---|---|---|
+| Krippendorff's $\alpha$ | **0.903** | Good agreement ($\alpha > 0.8$) |
+| Mean pairwise Pearson $r$ | **0.887** | Strong consensus |
+| Mean absolute deviation | **0.069** | Low per-passage disagreement |
 
-The fission threshold correctly discriminates: Buddhism ($\sigma^2 = 0.238$) and Hinduism ($\sigma^2 = 0.202$) — traditions with major historical schisms — have the highest variance among the four designated schism traditions, while internally coherent traditions like Jainism ($\sigma^2 = 0.062$) and Navajo ($\sigma^2 = 0.059$) have the lowest.
+Pairwise model correlations (all 12 axes flattened):
+
+| Pair | $r$ |
+|---|---|
+| GPT-4o × Llama 70B | 0.901 |
+| GPT-4o × Gemini Flash | 0.898 |
+| Claude × GPT-4o | 0.894 |
+| Claude × Llama 70B | 0.891 |
+| Gemini Flash × Llama 70B | 0.872 |
+| Claude × Gemini Flash | 0.867 |
+
+Per-axis agreement is highest for *power* ($r = 0.875$), *care* ($r = 0.868$), and *justice* ($r = 0.861$), and lowest for *order* ($r = 0.632$) and *wisdom* ($r = 0.779$) — axes where cultural framing may introduce legitimate interpretive variance. Crucially, the inclusion of an open-weight model (Llama 70B) means the entire scoring pipeline is reproducible without proprietary API access.
+
+### 8.3 Consensus-Derived Parameters
+
+We derive final simulation parameters from the **4-model consensus scores** (mean across all scorers), which cancels individual model biases:
+
+| Parameter | Hand-tuned | Single-scorer (Claude) | **4-model consensus** | Method |
+|---|---|---|---|---|
+| Cluster threshold $\theta$ | 0.40 | 0.097 | **0.073** | Midpoint of mean intra/inter-tradition cosine distances |
+| Mutation rate $\mu$ | 0.08 | 0.25 | **0.25** | Intra-tradition standard deviation |
+| Fission threshold $\sigma^2_{\max}$ | 0.15 | 0.162 | **0.106** | Midpoint of schism vs. non-schism tradition variances |
+| Belief influence $\beta$ | 0.15 | 0.06 | **0.055** | Ratio of intra- to inter-tradition similarity |
+| Deity priors | 12 hand-crafted | 37 from corpus | **37 consensus** | Tradition centroid vectors |
+
+The consensus averaging tightens all parameters because scorer noise cancels: $\theta$ drops from 0.097 to 0.073 (now **5.5$\times$ tighter** than hand-tuned), and $\sigma^2_{\max}$ drops from 0.162 to 0.106. The fission threshold continues to correctly discriminate: Hinduism ($\sigma^2 = 0.135$) and Buddhism ($\sigma^2 = 0.130$) exceed the threshold, while Jainism ($\sigma^2 = 0.048$), Aboriginal Australian ($\sigma^2 = 0.037$), and Cao Dai ($\sigma^2 = 0.039$) fall well below it.
 
 ---
 
