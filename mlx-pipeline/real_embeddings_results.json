@@ -1,0 +1,564 @@
+{
+  "experiment": "real_embeddings_braille_bottleneck",
+  "scorer_model": "anthropic/claude-sonnet-4",
+  "num_passages": 24,
+  "num_traditions": 11,
+  "embeddings": [
+    {
+      "tradition": "Judaism",
+      "source": "Torah (Exodus 20:1-6)",
+      "expected_cluster": "abrahamic_monotheism",
+      "raw_scores": {
+        "authority": 0.95,
+        "transcendence": 0.75,
+        "care": 0.65,
+        "justice": 0.85,
+        "wisdom": 0.25,
+        "power": 0.8,
+        "fertility": 0.15,
+        "war": 0.3,
+        "death": 0.2,
+        "creation": 0.1,
+        "nature": 0.25,
+        "order": 0.7
+      },
+      "braille_signature": "\u283f\u283b\u281b\u283b\u2810\u283b\u2800\u2810\u2800\u2800\u2810\u281b",
+      "reconstruction_cosine_sim": 0.9808642966084277
+    },
+    {
+      "tradition": "Judaism",
+      "source": "Psalms 23",
+      "expected_cluster": "abrahamic_monotheism",
+      "raw_scores": {
+        "authority": 0.7,
+        "transcendence": 0.3,
+        "care": 0.9,
+        "justice": 0.6,
+        "wisdom": 0.4,
+        "power": 0.5,
+        "fertility": 0.2,
+        "war": 0.1,
+        "death": 0.4,
+        "creation": 0.1,
+        "nature": 0.8,
+        "order": 0.7
+      },
+      "braille_signature": "\u283b\u2811\u283f\u281b\u2811\u2819\u2810\u2800\u2811\u2800\u283b\u283b",
+      "reconstruction_cosine_sim": 0.9891859478629741
+    },
+    {
+      "tradition": "Judaism",
+      "source": "Deuteronomy 6:4-9 (Shema)",
+      "expected_cluster": "abrahamic_monotheism",
+      "raw_scores": {
+        "authority": 0.9,
+        "transcendence": 0.7,
+        "care": 0.3,
+        "justice": 0.2,
+        "wisdom": 0.4,
+        "power": 0.3,
+        "fertility": 0.1,
+        "war": 0.0,
+        "death": 0.0,
+        "creation": 0.1,
+        "nature": 0.1,
+        "order": 0.8
+      },
+      "braille_signature": "\u283f\u283f\u2811\u2810\u2819\u2811\u2800\u2800\u2800\u2800\u2800\u283f",
+      "reconstruction_cosine_sim": 0.9852043021936355
+    },
+    {
+      "tradition": "Christianity",
+      "source": "Gospel of John 1:1-5",
+      "expected_cluster": "abrahamic_monotheism",
+      "raw_scores": {
+        "authority": 0.7,
+        "transcendence": 0.9,
+        "care": 0.6,
+        "justice": 0.2,
+        "wisdom": 0.8,
+        "power": 0.8,
+        "fertility": 0.4,
+        "war": 0.3,
+        "death": 0.1,
+        "creation": 1.0,
+        "nature": 0.2,
+        "order": 0.7
+      },
+      "braille_signature": "\u281b\u283b\u2819\u2800\u283b\u283b\u2811\u2810\u2800\u283f\u2800\u281b",
+      "reconstruction_cosine_sim": 0.9837643996142137
+    },
+    {
+      "tradition": "Christianity",
+      "source": "Sermon on the Mount (Matthew 5:3-12)",
+      "expected_cluster": "abrahamic_monotheism",
+      "raw_scores": {
+        "authority": 0.3,
+        "transcendence": 0.8,
+        "care": 0.9,
+        "justice": 0.7,
+        "wisdom": 0.4,
+        "power": 0.2,
+        "fertility": 0.1,
+        "war": 0.0,
+        "death": 0.1,
+        "creation": 0.1,
+        "nature": 0.2,
+        "order": 0.6
+      },
+      "braille_signature": "\u2811\u283f\u283f\u283b\u2811\u2810\u2800\u2800\u2800\u2800\u2810\u283b",
+      "reconstruction_cosine_sim": 0.9829371445572664
+    },
+    {
+      "tradition": "Christianity",
+      "source": "Romans 8:38-39",
+      "expected_cluster": "abrahamic_monotheism",
+      "raw_scores": {
+        "authority": 0.7,
+        "transcendence": 0.9,
+        "care": 0.95,
+        "justice": 0.1,
+        "wisdom": 0.3,
+        "power": 0.8,
+        "fertility": 0.2,
+        "war": 0.1,
+        "death": 0.6,
+        "creation": 0.7,
+        "nature": 0.3,
+        "order": 0.4
+      },
+      "braille_signature": "\u281b\u283b\u283f\u2800\u2810\u283b\u2800\u2800\u2819\u281b\u2810\u2811",
+      "reconstruction_cosine_sim": 0.9805103626947285
+    },
+    {
+      "tradition": "Islam",
+      "source": "Quran, Al-Fatiha (1:1-7)",
+      "expected_cluster": "abrahamic_monotheism",
+      "raw_scores": {
+        "authority": 0.9,
+        "transcendence": 0.8,
+        "care": 0.9,
+        "justice": 0.7,
+        "wisdom": 0.6,
+        "power": 0.7,
+        "fertility": 0.1,
+        "war": 0.2,
+        "death": 0.3,
+        "creation": 0.2,
+        "nature": 0.1,
+        "order": 0.8
+      },
+      "braille_signature": "\u283b\u283b\u283b\u281b\u2819\u281b\u2800\u2800\u2810\u2800\u2800\u283b",
+      "reconstruction_cosine_sim": 0.9825294873559238
+    },
+    {
+      "tradition": "Islam",
+      "source": "Quran, Al-Ikhlas (112:1-4)",
+      "expected_cluster": "abrahamic_monotheism",
+      "raw_scores": {
+        "authority": 0.7,
+        "transcendence": 0.9,
+        "care": 0.1,
+        "justice": 0.2,
+        "wisdom": 0.3,
+        "power": 0.6,
+        "fertility": 0.0,
+        "war": 0.0,
+        "death": 0.1,
+        "creation": 0.2,
+        "nature": 0.0,
+        "order": 0.8
+      },
+      "braille_signature": "\u283b\u283f\u2800\u2810\u2811\u283b\u2800\u2800\u2800\u2810\u2800\u283f",
+      "reconstruction_cosine_sim": 0.9885002980062776
+    },
+    {
+      "tradition": "Islam",
+      "source": "Quran, Al-Baqarah 2:255 (Ayat al-Kursi)",
+      "expected_cluster": "abrahamic_monotheism",
+      "raw_scores": {
+        "authority": 0.9,
+        "transcendence": 0.8,
+        "care": 0.3,
+        "justice": 0.2,
+        "wisdom": 0.7,
+        "power": 0.9,
+        "fertility": 0.1,
+        "war": 0.0,
+        "death": 0.1,
+        "creation": 0.2,
+        "nature": 0.4,
+        "order": 0.8
+      },
+      "braille_signature": "\u283f\u283b\u2811\u2810\u283b\u283f\u2800\u2800\u2800\u2810\u2811\u283b",
+      "reconstruction_cosine_sim": 0.9917358757378003
+    },
+    {
+      "tradition": "Hinduism",
+      "source": "Bhagavad Gita 2:22-24",
+      "expected_cluster": "dharmic",
+      "raw_scores": {
+        "authority": 0.1,
+        "transcendence": 0.9,
+        "care": 0.2,
+        "justice": 0.1,
+        "wisdom": 0.7,
+        "power": 0.3,
+        "fertility": 0.1,
+        "war": 0.0,
+        "death": 0.6,
+        "creation": 0.2,
+        "nature": 0.3,
+        "order": 0.4
+      },
+      "braille_signature": "\u2800\u283f\u2810\u2800\u283f\u2811\u2800\u2800\u283b\u2810\u2811\u2819",
+      "reconstruction_cosine_sim": 0.9797479991399111
+    },
+    {
+      "tradition": "Hinduism",
+      "source": "Bhagavad Gita 11:32-33 (Vishvarupa)",
+      "expected_cluster": "dharmic",
+      "raw_scores": {
+        "authority": 0.9,
+        "transcendence": 0.8,
+        "care": 0.2,
+        "justice": 0.7,
+        "wisdom": 0.6,
+        "power": 0.9,
+        "fertility": 0.3,
+        "war": 0.8,
+        "death": 0.9,
+        "creation": 0.1,
+        "nature": 0.1,
+        "order": 0.8
+      },
+      "braille_signature": "\u283b\u281b\u2800\u281b\u2819\u283b\u2810\u281b\u283b\u2800\u2800\u281b",
+      "reconstruction_cosine_sim": 0.9898062347186486
+    },
+    {
+      "tradition": "Hinduism",
+      "source": "Isha Upanishad 1",
+      "expected_cluster": "dharmic",
+      "raw_scores": {
+        "authority": 0.7,
+        "transcendence": 0.9,
+        "care": 0.3,
+        "justice": 0.2,
+        "wisdom": 0.6,
+        "power": 0.4,
+        "fertility": 0.1,
+        "war": 0.0,
+        "death": 0.1,
+        "creation": 0.2,
+        "nature": 0.1,
+        "order": 0.8
+      },
+      "braille_signature": "\u283b\u283f\u2811\u2810\u283b\u2811\u2800\u2800\u2800\u2810\u2800\u283f",
+      "reconstruction_cosine_sim": 0.9829371445572663
+    },
+    {
+      "tradition": "Buddhism",
+      "source": "Dhammapada 1-5",
+      "expected_cluster": "dharmic",
+      "raw_scores": {
+        "authority": 0.1,
+        "transcendence": 0.4,
+        "care": 0.2,
+        "justice": 0.8,
+        "wisdom": 0.9,
+        "power": 0.2,
+        "fertility": 0.1,
+        "war": 0.0,
+        "death": 0.0,
+        "creation": 0.1,
+        "nature": 0.1,
+        "order": 0.7
+      },
+      "braille_signature": "\u2800\u2819\u2810\u283f\u283f\u2810\u2800\u2800\u2800\u2800\u2800\u283f",
+      "reconstruction_cosine_sim": 0.9812252947436697
+    },
+    {
+      "tradition": "Buddhism",
+      "source": "Heart Sutra",
+      "expected_cluster": "dharmic",
+      "raw_scores": {
+        "authority": 0.1,
+        "transcendence": 0.9,
+        "care": 0.2,
+        "justice": 0.1,
+        "wisdom": 0.9,
+        "power": 0.1,
+        "fertility": 0.1,
+        "war": 0.0,
+        "death": 0.3,
+        "creation": 0.2,
+        "nature": 0.1,
+        "order": 0.8
+      },
+      "braille_signature": "\u2800\u283f\u2810\u2800\u283f\u2800\u2800\u2800\u2811\u2810\u2800\u283f",
+      "reconstruction_cosine_sim": 0.9842509696778433
+    },
+    {
+      "tradition": "Buddhism",
+      "source": "Metta Sutta (Loving-Kindness)",
+      "expected_cluster": "dharmic",
+      "raw_scores": {
+        "authority": 0.0,
+        "transcendence": 0.2,
+        "care": 1.0,
+        "justice": 0.1,
+        "wisdom": 0.3,
+        "power": 0.0,
+        "fertility": 0.4,
+        "war": 0.0,
+        "death": 0.1,
+        "creation": 0.2,
+        "nature": 0.7,
+        "order": 0.6
+      },
+      "braille_signature": "\u2800\u2810\u283f\u2800\u2811\u2800\u2819\u2800\u2800\u2810\u283f\u283b",
+      "reconstruction_cosine_sim": 0.9777399597774055
+    },
+    {
+      "tradition": "Norse",
+      "source": "H\u00e1vam\u00e1l (Sayings of the High One) 138-139",
+      "expected_cluster": "warrior_polytheism",
+      "raw_scores": {
+        "authority": 0.3,
+        "transcendence": 0.8,
+        "care": 0.1,
+        "justice": 0.2,
+        "wisdom": 0.9,
+        "power": 0.6,
+        "fertility": 0.1,
+        "war": 0.4,
+        "death": 0.7,
+        "creation": 0.2,
+        "nature": 0.6,
+        "order": 0.5
+      },
+      "braille_signature": "\u2811\u283b\u2800\u2810\u283f\u281b\u2800\u2811\u283b\u2810\u281b\u2819",
+      "reconstruction_cosine_sim": 0.9902865920529391
+    },
+    {
+      "tradition": "Norse",
+      "source": "V\u00f6lusp\u00e1 (Prophecy of the Seeress) 56-58",
+      "expected_cluster": "warrior_polytheism",
+      "raw_scores": {
+        "authority": 0.1,
+        "transcendence": 0.8,
+        "care": 0.2,
+        "justice": 0.3,
+        "wisdom": 0.7,
+        "power": 0.9,
+        "fertility": 0.6,
+        "war": 0.4,
+        "death": 0.8,
+        "creation": 0.7,
+        "nature": 0.9,
+        "order": 0.6
+      },
+      "braille_signature": "\u2800\u283b\u2800\u2810\u281b\u283b\u2819\u2811\u283b\u281b\u283b\u2819",
+      "reconstruction_cosine_sim": 0.9877054219206831
+    },
+    {
+      "tradition": "Greek",
+      "source": "Homeric Hymn to Zeus",
+      "expected_cluster": "warrior_polytheism",
+      "raw_scores": {
+        "authority": 0.9,
+        "transcendence": 0.7,
+        "care": 0.3,
+        "justice": 0.6,
+        "wisdom": 0.8,
+        "power": 0.8,
+        "fertility": 0.1,
+        "war": 0.0,
+        "death": 0.0,
+        "creation": 0.0,
+        "nature": 0.1,
+        "order": 0.7
+      },
+      "braille_signature": "\u283f\u283b\u2811\u281b\u283b\u283b\u2800\u2800\u2800\u2800\u2800\u283b",
+      "reconstruction_cosine_sim": 0.9955756924838202
+    },
+    {
+      "tradition": "Greek",
+      "source": "Orphic Hymn to Gaia",
+      "expected_cluster": "warrior_polytheism",
+      "raw_scores": {
+        "authority": 0.3,
+        "transcendence": 0.4,
+        "care": 0.7,
+        "justice": 0.1,
+        "wisdom": 0.2,
+        "power": 0.8,
+        "fertility": 1.0,
+        "war": 0.0,
+        "death": 0.2,
+        "creation": 0.9,
+        "nature": 1.0,
+        "order": 0.6
+      },
+      "braille_signature": "\u2810\u2811\u281b\u2800\u2800\u283b\u283f\u2800\u2800\u283b\u283f\u2819",
+      "reconstruction_cosine_sim": 0.9835415026518306
+    },
+    {
+      "tradition": "Daoism",
+      "source": "Tao Te Ching, Chapter 1",
+      "expected_cluster": "eastern_nontheistic",
+      "raw_scores": {
+        "authority": 0.1,
+        "transcendence": 0.9,
+        "care": 0.2,
+        "justice": 0.1,
+        "wisdom": 0.8,
+        "power": 0.3,
+        "fertility": 0.6,
+        "war": 0.0,
+        "death": 0.1,
+        "creation": 0.8,
+        "nature": 0.7,
+        "order": 0.7
+      },
+      "braille_signature": "\u2800\u283f\u2810\u2800\u283b\u2811\u281b\u2800\u2800\u283b\u283b\u283b",
+      "reconstruction_cosine_sim": 0.9930370149938628
+    },
+    {
+      "tradition": "Daoism",
+      "source": "Tao Te Ching, Chapter 76",
+      "expected_cluster": "eastern_nontheistic",
+      "raw_scores": {
+        "authority": 0.1,
+        "transcendence": 0.3,
+        "care": 0.4,
+        "justice": 0.2,
+        "wisdom": 0.8,
+        "power": 0.2,
+        "fertility": 0.6,
+        "war": 0.4,
+        "death": 0.7,
+        "creation": 0.1,
+        "nature": 0.9,
+        "order": 0.7
+      },
+      "braille_signature": "\u2800\u2811\u2811\u2810\u283b\u2810\u281b\u2811\u283b\u2800\u283f\u283b",
+      "reconstruction_cosine_sim": 0.9878299494067448
+    },
+    {
+      "tradition": "Lakota",
+      "source": "Black Elk Speaks",
+      "expected_cluster": "animist_indigenous",
+      "raw_scores": {
+        "authority": 0.1,
+        "transcendence": 0.7,
+        "care": 0.3,
+        "justice": 0.1,
+        "wisdom": 0.8,
+        "power": 0.4,
+        "fertility": 0.2,
+        "war": 0.0,
+        "death": 0.0,
+        "creation": 0.2,
+        "nature": 0.6,
+        "order": 0.9
+      },
+      "braille_signature": "\u2800\u283b\u2811\u2800\u283f\u2811\u2810\u2800\u2800\u2810\u283b\u283f",
+      "reconstruction_cosine_sim": 0.9847899966155113
+    },
+    {
+      "tradition": "Aboriginal Australian",
+      "source": "Dreamtime narrative",
+      "expected_cluster": "animist_indigenous",
+      "raw_scores": {
+        "authority": 0.2,
+        "transcendence": 0.4,
+        "care": 0.1,
+        "justice": 0.0,
+        "wisdom": 0.2,
+        "power": 0.7,
+        "fertility": 0.6,
+        "war": 0.0,
+        "death": 0.1,
+        "creation": 0.9,
+        "nature": 0.9,
+        "order": 0.6
+      },
+      "braille_signature": "\u2810\u2811\u2800\u2800\u2810\u283b\u281b\u2800\u2800\u283f\u283f\u281b",
+      "reconstruction_cosine_sim": 0.9906315073738537
+    },
+    {
+      "tradition": "Zoroastrianism",
+      "source": "Yasna 30:3-5 (Gathas)",
+      "expected_cluster": "abrahamic_monotheism",
+      "raw_scores": {
+        "authority": 0.2,
+        "transcendence": 0.8,
+        "care": 0.1,
+        "justice": 0.9,
+        "wisdom": 0.7,
+        "power": 0.6,
+        "fertility": 0.3,
+        "war": 0.4,
+        "death": 0.6,
+        "creation": 0.8,
+        "nature": 0.1,
+        "order": 0.7
+      },
+      "braille_signature": "\u2800\u283b\u2800\u283b\u281b\u2819\u2810\u2811\u2819\u283b\u2800\u281b",
+      "reconstruction_cosine_sim": 0.9840651072153641
+    }
+  ],
+  "metrics": {
+    "reconstruction_cosine_sim": {
+      "braille": {
+        "mean": 0.9857667709150251,
+        "std": 0.00450534120632842
+      },
+      "random_binary": {
+        "mean": 0.8310778345035764,
+        "std": 0.05545494205109297
+      },
+      "pca_quantize": {
+        "mean": 0.9153817100561933,
+        "std": 0.024285364056096957
+      }
+    },
+    "spearman_rank_correlation": {
+      "braille": {
+        "rho": 0.9668342299388278,
+        "p": 1.896405982593643e-164
+      },
+      "random_binary": {
+        "rho": 0.7275889328063241,
+        "p": 9.430215802257908e-47
+      },
+      "pca_quantize": {
+        "rho": 0.9010133987814101,
+        "p": 2.2004484936828042e-101
+      }
+    },
+    "cluster_separation": {
+      "continuous": {
+        "within": 0.7864202372900152,
+        "between": 0.7285515979410534,
+        "gap": 0.0578686393489618
+      },
+      "braille": {
+        "within": 0.7098322624669355,
+        "between": 0.6244398031670314,
+        "gap": 0.08539245929990413
+      },
+      "random_binary": {
+        "within": 0.7260018786265751,
+        "between": 0.6864313792807857,
+        "gap": 0.03957049934578938
+      },
+      "pca_quantize": {
+        "within": 0.6086600411017618,
+        "between": 0.5332390229606514,
+        "gap": 0.07542101814111035
+      }
+    }
+  }
+}

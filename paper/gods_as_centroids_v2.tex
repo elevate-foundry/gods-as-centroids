@@ -400,6 +400,20 @@ Braid improvement & −0.037 & \textbf{+0.001} \\
 \end{table}
 Regime B achieves perfect deity classification from braided bits and \textit{positive} braid improvement — the consensus centroid is more faithful than any individual model. Naïve co-training with separate decoders ($\alpha = 0.05$) degraded performance due to gradient competition between alignment and task objectives; the shared decoder resolves this by making agreement a structural necessity rather than a penalty.
 \textbf{Result F (Frontier LLM as Semantic Judge).} To validate that the bottleneck preserves semantically relevant structure beyond our own metrics, we use frontier LLMs as independent measurement instruments. Claude Sonnet 4 generates 3-sentence theological profiles from (a) the full continuous centroid and (b) the braille-compressed centroid (72-bit → decoded). GPT-4o-mini then acts as a blind judge, evaluating whether each pair describes the same deity. Across all 8 tested deities, the judge ruled \textbf{8/8 = 100\% structural equivalence} with mean structural similarity $0.844$ and mean confidence $0.90$. A frontier-class language model cannot reliably distinguish theology generated from continuous centroids versus 72-bit compressed centroids, confirming that the bottleneck preserves the semantically relevant structure of the centroid.
+\textbf{Result G (Real Embeddings).} To move beyond hand-designed priors, we score 24 canonical religious passages from 11 traditions (Judaism, Christianity, Islam, Hinduism, Buddhism, Norse, Greek, Daoism, Lakota, Aboriginal Australian, Zoroastrianism) on the 12 theological axes using Claude Sonnet 4 at temperature 0. We then compress these real embeddings through the 72-bit braille bottleneck and compare against two baselines: random binary projection (72 bits) and PCA + uniform quantization (72 bits).
+\begin{table}[htbp]
+\centering
+\begin{tabular}{llll}
+\toprule
+Method & Reconstruction (cos) & Spearman $\rho$ & Cluster gap \\
+\midrule
+\textbf{Braille lattice} & \textbf{0.986} & \textbf{0.967} ($p = 1.9 \times 10^{-164}$) & \textbf{0.085} \\
+PCA + quantize & 0.915 & 0.901 & 0.075 \\
+Random binary & 0.831 & 0.728 & 0.040 \\
+\bottomrule
+\end{tabular}
+\end{table}
+The braille lattice outperforms both baselines on every metric. Notably, the cluster separation gap \textit{increases} after braille compression (0.085 vs 0.058 in continuous space) — the bottleneck acts as a denoiser, sharpening theological boundaries. Specific theological predictions survive compression: Judaism–Islam similarity ($0.948$), Christianity–Islam ($0.890$), Hinduism–Buddhism ($0.797$), Daoism–Buddhism ($0.851$). The Abrahamic cluster remains tightly bound ($> 0.88$ pairwise) and well-separated from Dharmic traditions after compression.
 \textbf{Remark.} We use a braille-inspired tactile lattice because it is a historically optimized, human-scale discrete semantic code — but the result does not depend on braille per se. The 6-dot cell is the natural unit for encoding a theological axis because it captures exactly the three properties (polarity, intensity, rigidity) that determine an axis's contribution to the centroid. The resulting 72-bit deity signature — 12 braille characters — is a compressed, tactile-native representation of a god-concept that can be read by touch, compared by Hamming distance, and transmitted across any sensory modality without loss of theological structure.
 \end{corollary}
 \section{Historical Backtesting}
