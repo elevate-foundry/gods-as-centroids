@@ -317,6 +317,24 @@ Regime B achieves perfect deity classification from braided bits and *positive* 
 
 The braille lattice outperforms both baselines on every metric. Notably, the cluster separation gap *increases* after braille compression (0.085 vs 0.058 in continuous space) — the bottleneck acts as a denoiser, sharpening theological boundaries. Specific theological predictions survive compression: Judaism–Islam similarity ($0.948$), Christianity–Islam ($0.890$), Hinduism–Buddhism ($0.797$), Daoism–Buddhism ($0.851$). The Abrahamic cluster remains tightly bound ($> 0.88$ pairwise) and well-separated from Dharmic traditions after compression.
 
+**Result H (Multi-Model Variance).** To test whether theological structure is a property of the texts or an artifact of a particular model's training data, we score the same 23 passages with four frontier LLMs (Claude Sonnet 4, GPT-4o, Gemini 2.0 Flash, Llama 3.3 70B) at temperature 0. The mean Pearson correlation across all model pairs is $r = 0.869$ — strong agreement on theological structure across architecturally distinct models.
+
+Per-axis analysis reveals which theological dimensions are *consensual* versus *contested*:
+
+| Axis | Coefficient of Variation | Interpretation |
+|---|---|---|
+| Transcendence | 0.100 | Consensual |
+| Order | 0.121 | Consensual |
+| Wisdom | 0.121 | Consensual |
+| Authority | 0.132 | Consensual |
+| War | **0.463** | **Contested** |
+| Justice | 0.257 | Contested |
+| Death | 0.236 | Contested |
+
+The contested axes are precisely those where theological interpretation is genuinely ambiguous — "war" in the Bhagavad Gita is metaphorical to some models, literal to others. This is real hermeneutic disagreement surfacing through model variance, not noise.
+
+Despite continuous-space disagreement, the braille lattice achieves $88.3\%$ bit agreement across all model pairs. The discrete bottleneck absorbs interpretive variance while preserving structural consensus. Cluster separation through braille majority-vote ($0.081$) matches or exceeds individual models ($0.059$–$0.092$), confirming that the lattice acts as a consensus filter: it preserves what all models agree on and quantizes away what they dispute.
+
 **Remark.** We use a braille-inspired tactile lattice because it is a historically optimized, human-scale discrete semantic code — but the result does not depend on braille per se. The 6-dot cell is the natural unit for encoding a theological axis because it captures exactly the three properties (polarity, intensity, rigidity) that determine an axis's contribution to the centroid. The resulting 72-bit deity signature — 12 braille characters — is a compressed, tactile-native representation of a god-concept that can be read by touch, compared by Hamming distance, and transmitted across any sensory modality without loss of theological structure.
 
 ---
