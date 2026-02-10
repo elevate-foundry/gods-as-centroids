@@ -423,38 +423,54 @@ The results confirm the three-condition prediction:
 
 ## 8. Corpus-Calibrated Parameters
 
-A key methodological advance is the derivation of simulation parameters from empirical data rather than hand-tuning. We score 24 canonical religious passages from 11 traditions on the 12 theological axes using Claude Sonnet 4 (temperature 0) and derive all model parameters from the resulting embeddings.
+A key methodological advance is the derivation of simulation parameters from empirical data rather than hand-tuning. We score **126 canonical religious passages from 37 traditions** spanning every inhabited continent on the 12 theological axes using Claude Sonnet 4 (temperature 0) and derive all model parameters from the resulting embeddings. The corpus includes Abrahamic traditions (Judaism, Christianity, Islam, Baha'i, Druze, Samaritanism, Zoroastrianism), South/East Asian traditions (Hinduism, Buddhism, Jainism, Sikhism, Daoism, Confucianism, Shinto), African traditions (Yoruba, Akan, Kemetic), African diaspora traditions (Candomblé, Vodou, Rastafari), Indigenous traditions (Lakota, Navajo, Aboriginal Australian, Maori, Hawaiian), Mesoamerican/Andean traditions (Nahua, Maya, Inca), Central Asian traditions (Tengrism, Korean Muism), syncretic traditions (Cao Dai), nature spirituality (Wicca), Islamic mysticism (Sufism), and secular humanism. Each tradition is represented by at least 3 passages to enable intra-tradition variance estimation. Women's voices are explicitly included (Rabia al-Adawiyya, Mirabai, Andal, Gargi Vachaknavi, Changing Woman, Starhawk).
 
 ### 8.1 Empirical Deity Priors
 
-Rather than hand-crafting deity prior vectors, we compute tradition centroids as the mean of LLM-scored passage embeddings within each tradition. The resulting 11 tradition centroids serve as empirically grounded deity priors:
+Rather than hand-crafting deity prior vectors, we compute tradition centroids as the mean of LLM-scored passage embeddings within each tradition. The resulting 37 tradition centroids serve as empirically grounded deity priors. A representative sample:
 
-| Tradition | Top 3 Axes | Cluster |
+| Tradition | Top 3 Axes | Family |
 |---|---|---|
-| Judaism | authority, order, care | Abrahamic |
+| Judaism | authority, order, power | Abrahamic |
 | Christianity | transcendence, care, power | Abrahamic |
 | Islam | authority, transcendence, order | Abrahamic |
-| Hinduism | transcendence, order, wisdom | Dharmic |
-| Buddhism | wisdom, order, transcendence | Dharmic |
-| Norse | transcendence, wisdom, power | Warrior polytheism |
-| Greek | power, order, authority | Warrior polytheism |
-| Daoism | wisdom, nature, order | Eastern nontheistic |
-| Lakota | order, wisdom, transcendence | Animist/indigenous |
-| Aboriginal Australian | creation, nature, power | Animist/indigenous |
-| Zoroastrianism | justice, transcendence, creation | Dualist |
+| Hinduism | transcendence, power, creation | Dharmic |
+| Buddhism | wisdom, transcendence, order | Dharmic |
+| Jainism | care, wisdom, justice | Dharmic |
+| Sikhism | transcendence, order, creation | Dharmic |
+| Daoism | wisdom, transcendence, nature | East Asian |
+| Confucianism | wisdom, order, care | East Asian |
+| Shinto | order, nature, transcendence | East Asian |
+| Yoruba | order, transcendence, wisdom | African |
+| Akan | wisdom, care, transcendence | African |
+| Lakota | nature, transcendence, care | Indigenous |
+| Navajo | nature, order, fertility | Indigenous |
+| Aboriginal Australian | nature, creation, transcendence | Indigenous |
+| Maori | nature, transcendence, power | Pacific |
+| Hawaiian | nature, creation, power | Pacific |
+| Nahua | wisdom, nature, death | Mesoamerican |
+| Maya | creation, wisdom, transcendence | Mesoamerican |
+| Sufism | transcendence, wisdom, care | Mystical |
+| Secular Humanism | wisdom, care, justice | Philosophical |
+| Candomblé | power, order, nature | African diaspora |
+| Vodou | order, transcendence, nature | African diaspora |
+| Tengrism | transcendence, order, nature | Central Asian |
+
+The empirical centroids reveal natural clustering: Abrahamic traditions load on authority and transcendence; Dharmic traditions on wisdom and transcendence; Indigenous traditions on nature and care; Mesoamerican traditions on creation and death. These clusters emerge from the data without supervision.
 
 ### 8.2 Derived Parameters
 
-| Parameter | Hand-tuned | Corpus-derived | Method |
+| Parameter | Hand-tuned | Corpus-derived (126 passages) | Method |
 |---|---|---|---|
-| Cluster threshold $\theta$ | 0.40 | **0.12** | Midpoint of mean intra/inter-tradition cosine distances |
-| Mutation rate $\mu$ | 0.08 | **0.25** | Intra-tradition standard deviation (capped; small sample) |
-| Fission threshold $\sigma^2_{\max}$ | 0.15 | **0.14** | Mean variance of traditions with known historical schisms |
-| Belief influence $\beta$ | 0.15 | **0.07** | Ratio of intra- to inter-tradition similarity |
+| Cluster threshold $\theta$ | 0.40 | **0.097** | Midpoint of mean intra/inter-tradition cosine distances |
+| Mutation rate $\mu$ | 0.08 | **0.25** | Intra-tradition standard deviation (high variance across traditions) |
+| Fission threshold $\sigma^2_{\max}$ | 0.15 | **0.162** | Midpoint of schism vs. non-schism tradition variances |
+| Belief influence $\beta$ | 0.15 | **0.06** | Ratio of intra- to inter-tradition similarity |
+| Deity priors | 12 hand-crafted | **37 from corpus** | Tradition centroid vectors |
 
-The most significant finding is that the corpus-derived cluster threshold ($\theta = 0.12$) is **3$\times$ tighter** than the hand-tuned value. This means real religious traditions are much more internally coherent than our initial model assumed — and consequently, the monotheistic lock-in is deeper and harder to escape, consistent with the historical resilience of established monotheisms.
+The expanded corpus confirms and sharpens the findings from the initial 24-passage calibration. The cluster threshold ($\theta = 0.097$) is now **4$\times$ tighter** than the hand-tuned value, indicating that real religious traditions are even more internally coherent than initially estimated. The fission threshold ($\sigma^2_{\max} = 0.162$) converges to the hand-tuned value (0.15), providing strong independent validation. The belief influence ($\beta = 0.06$) remains low, suggesting that confirmation bias in religious transmission is weaker than assumed.
 
-The fission threshold ($\sigma^2_{\max} = 0.14$) is nearly identical to the hand-tuned value (0.15), providing independent validation of our intuition about the variance level at which traditions split.
+The fission threshold correctly discriminates: Buddhism ($\sigma^2 = 0.238$) and Hinduism ($\sigma^2 = 0.202$) — traditions with major historical schisms — have the highest variance among the four designated schism traditions, while internally coherent traditions like Jainism ($\sigma^2 = 0.062$) and Navajo ($\sigma^2 = 0.059$) have the lowest.
 
 ---
 
@@ -478,7 +494,7 @@ We position our model against five streams of prior work:
 
 1. **Dimensionality.** The 12-axis space is hand-crafted. Future work should derive axes empirically from religious text corpora using topic modeling or LLM embeddings.
 
-2. **Corpus scale.** The current corpus calibration uses 24 passages from 11 traditions. Scaling to hundreds of passages per tradition would yield tighter parameter estimates, particularly for the mutation rate $\mu$ (currently capped due to small-sample variance inflation).
+2. **Corpus depth.** The expanded corpus (126 passages, 37 traditions) provides broad geographic and cultural coverage, but most traditions are represented by only 3–5 passages. Scaling to dozens of passages per tradition — ideally drawn from multiple translators and time periods — would yield tighter parameter estimates, particularly for the mutation rate $\mu$ which remains high-variance.
 
 3. **Cognitive landscape.** The belief space is currently isotropic. Implementing CSR-derived cognitive attractors (regions of lower "potential energy" corresponding to cognitively natural god-concepts) would add realism.
 

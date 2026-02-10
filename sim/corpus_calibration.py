@@ -345,10 +345,19 @@ def estimate_belief_influence(embeddings: List[dict],
 
 def main():
     repo_root = Path(__file__).parent.parent
-    embeddings_path = repo_root / "mlx-pipeline" / "real_embeddings_results.json"
 
-    if not embeddings_path.exists():
-        print(f"ERROR: {embeddings_path} not found. Run real_embeddings.py first.")
+    # Use expanded corpus if available, fall back to original
+    expanded_path = repo_root / "mlx-pipeline" / "expanded_embeddings_results.json"
+    original_path = repo_root / "mlx-pipeline" / "real_embeddings_results.json"
+
+    if len(sys.argv) > 1:
+        embeddings_path = Path(sys.argv[1])
+    elif expanded_path.exists():
+        embeddings_path = expanded_path
+    elif original_path.exists():
+        embeddings_path = original_path
+    else:
+        print(f"ERROR: No embeddings file found. Run score_expanded_corpus.py first.")
         sys.exit(1)
 
     print("=" * 70)
