@@ -20,5 +20,7 @@ Thumbs.db
 # Build artifacts
 *.o
 *.exe
+rust/target/
+cpp/build/
 docs/paper-site-preview.png
 docs/paper-math-preview.png
