@@ -1,0 +1,1013 @@
+{
+  "n_rounds": 2,
+  "n_models": 5,
+  "models": [
+    {
+      "tag": "gemma3:4b",
+      "name": "Gemma3",
+      "size": "local"
+    },
+    {
+      "tag": "llama3.2:latest",
+      "name": "Llama3.2",
+      "size": "local"
+    },
+    {
+      "tag": "qwen2.5:latest",
+      "name": "Qwen2.5",
+      "size": "local"
+    },
+    {
+      "tag": "deepseek-r1:latest",
+      "name": "Deepseek-R1",
+      "size": "local"
+    },
+    {
+      "tag": "phi3.5:latest",
+      "name": "Phi3.5",
+      "size": "local"
+    }
+  ],
+  "n_prompts": 3,
+  "trajectory": [
+    {
+      "round": 1,
+      "meta_godform_unicode": "\u2851\u2851\u2810\u2810\u2851\u2810\u2810\u2802\u2800\u2851\u2802\u2811",
+      "meta_godform_vector": {
+        "authority": 0.3484,
+        "transcendence": 0.3484,
+        "care": 0.3167,
+        "justice": 0.3167,
+        "wisdom": 0.3484,
+        "power": 0.3167,
+        "fertility": 0.3167,
+        "war": 0.0317,
+        "death": 0.1056,
+        "creation": 0.3484,
+        "nature": 0.0317,
+        "order": 0.3167
+      },
+      "meta_godform_top_axes": [
+        "authority",
+        "transcendence",
+        "wisdom"
+      ],
+      "stability": "N/A",
+      "prompt_godforms": [
+        {
+          "prompt_id": "divine_nature",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2851\u2851\u2810\u2810\u2851\u2851\u2810\u2802\u2800\u2855\u2802\u2815",
+          "godform_vector": {
+            "authority": 0.3556,
+            "transcendence": 0.3556,
+            "care": 0.3233,
+            "justice": 0.3233,
+            "wisdom": 0.3556,
+            "power": 0.3556,
+            "fertility": 0.3233,
+            "war": 0.0323,
+            "death": 0.1078,
+            "creation": 0.3023,
+            "nature": 0.0323,
+            "order": 0.2748
+          },
+          "godform_top_axes": [
+            "authority",
+            "transcendence",
+            "wisdom"
+          ],
+          "mean_hamming_to_godform": 8.4,
+          "mean_cosine_to_godform": 0.9424,
+          "mean_bit_consensus": 0.9125,
+          "axis_consensus": {
+            "authority": 0.825,
+            "transcendence": 0.975,
+            "care": 0.9,
+            "justice": 0.925,
+            "wisdom": 1.0,
+            "power": 0.9,
+            "fertility": 0.9,
+            "war": 0.975,
+            "death": 0.95,
+            "creation": 0.875,
+            "nature": 0.875,
+            "order": 0.85
+          },
+          "contested_axes": [
+            "authority",
+            "care",
+            "creation",
+            "death",
+            "fertility",
+            "justice",
+            "nature",
+            "order",
+            "power"
+          ],
+          "n_contested_bits": 14,
+          "model_analysis": [
+            {
+              "model": "Gemma3",
+              "lattice_unicode": "\u2851\u2851\u2810\u2800\u2851\u2851\u2800\u2802\u2802\u2855\u2812\u2815",
+              "hamming_to_godform": 4,
+              "cosine_to_godform": 0.9555,
+              "top_axes": [
+                "transcendence",
+                "authority",
+                "creation"
+              ]
+            },
+            {
+              "model": "Llama3.2",
+              "lattice_unicode": "\u2800\u2855\u2800\u2802\u2851\u2810\u2851\u2802\u2800\u2851\u2857\u2812",
+              "hamming_to_godform": 19,
+              "cosine_to_godform": 0.8822,
+              "top_axes": [
+                "transcendence",
+                "creation",
+                "fertility"
+              ]
+            },
+            {
+              "model": "Qwen2.5",
+              "lattice_unicode": "\u2800\u2851\u2811\u2810\u2851\u2851\u2810\u2802\u2802\u2855\u2802\u2815",
+              "hamming_to_godform": 5,
+              "cosine_to_godform": 0.9669,
+              "top_axes": [
+                "transcendence",
+                "wisdom",
+                "creation"
+              ]
+            },
+            {
+              "model": "Deepseek-R1",
+              "lattice_unicode": "\u2855\u2851\u2815\u2810\u2851\u2810\u2810\u2802\u2800\u2815\u2802\u2855",
+              "hamming_to_godform": 7,
+              "cosine_to_godform": 0.9668,
+              "top_axes": [
+                "transcendence",
+                "authority",
+                "wisdom"
+              ]
+            },
+            {
+              "model": "Phi3.5",
+              "lattice_unicode": "\u2851\u2851\u2810\u2810\u2851\u2851\u2800\u2800\u2800\u2810\u2802\u2851",
+              "hamming_to_godform": 7,
+              "cosine_to_godform": 0.9408,
+              "top_axes": [
+                "transcendence",
+                "authority",
+                "power"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "creation",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2851\u2851\u2810\u2800\u2851\u2810\u2811\u2802\u2800\u2851\u2810\u2800",
+          "godform_vector": {
+            "authority": 0.363,
+            "transcendence": 0.363,
+            "care": 0.33,
+            "justice": 0.11,
+            "wisdom": 0.363,
+            "power": 0.33,
+            "fertility": 0.33,
+            "war": 0.033,
+            "death": 0.11,
+            "creation": 0.363,
+            "nature": 0.33,
+            "order": 0.11
+          },
+          "godform_top_axes": [
+            "authority",
+            "transcendence",
+            "wisdom"
+          ],
+          "mean_hamming_to_godform": 9.2,
+          "mean_cosine_to_godform": 0.9567,
+          "mean_bit_consensus": 0.9036,
+          "axis_consensus": {
+            "authority": 0.938,
+            "transcendence": 1.0,
+            "care": 0.906,
+            "justice": 0.812,
+            "wisdom": 0.938,
+            "power": 0.906,
+            "fertility": 0.875,
+            "war": 1.0,
+            "death": 0.938,
+            "creation": 0.938,
+            "nature": 0.906,
+            "order": 0.688
+          },
+          "contested_axes": [
+            "creation",
+            "death",
+            "fertility",
+            "justice",
+            "nature",
+            "order"
+          ],
+          "n_contested_bits": 10,
+          "model_analysis": [
+            {
+              "model": "Gemma3",
+              "lattice_unicode": "\u2810\u2851\u2811\u2800\u2851\u2800\u2851\u2802\u2800\u2855\u2810\u2855",
+              "hamming_to_godform": 10,
+              "cosine_to_godform": 0.9532,
+              "top_axes": [
+                "transcendence",
+                "creation",
+                "wisdom"
+              ]
+            },
+            {
+              "model": "Llama3.2",
+              "lattice_unicode": "\u2851\u2851\u2802\u2855\u2810\u2851\u2815\u2802\u2802\u2851\u2802\u2802",
+              "hamming_to_godform": 15,
+              "cosine_to_godform": 0.9308,
+              "top_axes": [
+                "transcendence",
+                "authority",
+                "power"
+              ]
+            },
+            {
+              "model": "Qwen2.5",
+              "lattice_unicode": "\u2851\u2851\u2810\u2802\u2851\u2810\u2851\u2802\u2802\u2851\u2812\u2802",
+              "hamming_to_godform": 5,
+              "cosine_to_godform": 0.9869,
+              "top_axes": [
+                "creation",
+                "transcendence",
+                "wisdom"
+              ]
+            },
+            {
+              "model": "Deepseek-R1",
+              "lattice_unicode": "\u2851\u2851\u2810\u2810\u2851\u2810\u2810\u2802\u2800\u2855\u2810\u2855",
+              "hamming_to_godform": 7,
+              "cosine_to_godform": 0.9558,
+              "top_axes": [
+                "transcendence",
+                "creation",
+                "authority"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "suffering",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2851\u2851\u2851\u2851\u2850\u2800\u2802\u2802\u2800\u2810\u2802\u2811",
+          "godform_vector": {
+            "authority": 0.3818,
+            "transcendence": 0.3818,
+            "care": 0.3818,
+            "justice": 0.3818,
+            "wisdom": 0.3818,
+            "power": 0.1157,
+            "fertility": 0.0347,
+            "war": 0.0347,
+            "death": 0.1157,
+            "creation": 0.3471,
+            "nature": 0.0347,
+            "order": 0.3471
+          },
+          "godform_top_axes": [
+            "authority",
+            "transcendence",
+            "care"
+          ],
+          "mean_hamming_to_godform": 10.5,
+          "mean_cosine_to_godform": 0.8888,
+          "mean_bit_consensus": 0.8906,
+          "axis_consensus": {
+            "authority": 0.812,
+            "transcendence": 0.906,
+            "care": 0.812,
+            "justice": 0.906,
+            "wisdom": 0.906,
+            "power": 0.938,
+            "fertility": 0.844,
+            "war": 1.0,
+            "death": 0.812,
+            "creation": 0.969,
+            "nature": 0.938,
+            "order": 0.844
+          },
+          "contested_axes": [
+            "authority",
+            "care",
+            "death",
+            "order",
+            "wisdom"
+          ],
+          "n_contested_bits": 6,
+          "model_analysis": [
+            {
+              "model": "Gemma3",
+              "lattice_unicode": "\u2855\u2851\u2855\u2810\u2851\u2800\u2802\u2802\u2811\u2810\u2802\u2811",
+              "hamming_to_godform": 7,
+              "cosine_to_godform": 0.9334,
+              "top_axes": [
+                "transcendence",
+                "authority",
+                "wisdom"
+              ]
+            },
+            {
+              "model": "Llama3.2",
+              "lattice_unicode": "\u2802\u2800\u2849\u2855\u2850\u2802\u2855\u2802\u2851\u2800\u2802\u2802",
+              "hamming_to_godform": 23,
+              "cosine_to_godform": 0.7419,
+              "top_axes": [
+                "care",
+                "fertility",
+                "justice"
+              ]
+            },
+            {
+              "model": "Qwen2.5",
+              "lattice_unicode": "\u2851\u2851\u2810\u2851\u2851\u2800\u2802\u2802\u2802\u2810\u2802\u2851",
+              "hamming_to_godform": 5,
+              "cosine_to_godform": 0.9651,
+              "top_axes": [
+                "transcendence",
+                "authority",
+                "wisdom"
+              ]
+            },
+            {
+              "model": "Phi3.5",
+              "lattice_unicode": "\u2855\u2851\u2855\u2851\u2810\u2810\u2802\u2802\u2800\u2810\u2810\u2851",
+              "hamming_to_godform": 7,
+              "cosine_to_godform": 0.9148,
+              "top_axes": [
+                "transcendence",
+                "justice",
+                "care"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "meta_godform_unicode": "\u2880\u2890\u2880\u2880\u28d1\u2880\u2880\u2802\u2880\u28c5\u2890\u28d5",
+      "meta_godform_vector": {
+        "authority": 0.1512,
+        "transcendence": 0.4537,
+        "care": 0.1512,
+        "justice": 0.1512,
+        "wisdom": 0.4991,
+        "power": 0.1512,
+        "fertility": 0.1512,
+        "war": 0.0454,
+        "death": 0.1512,
+        "creation": 0.1414,
+        "nature": 0.4537,
+        "order": 0.4242
+      },
+      "meta_godform_top_axes": [
+        "wisdom",
+        "transcendence",
+        "nature"
+      ],
+      "stability": "26 bit flips from previous round",
+      "prompt_godforms": [
+        {
+          "prompt_id": "divine_nature",
+          "n_models": 3,
+          "godform_lattice_unicode": "\u2890\u2890\u2882\u2882\u28d1\u2880\u2880\u2802\u2880\u28c5\u28d0\u28d5",
+          "godform_vector": {
+            "authority": 0.4169,
+            "transcendence": 0.4169,
+            "care": 0.0417,
+            "justice": 0.0417,
+            "wisdom": 0.4585,
+            "power": 0.139,
+            "fertility": 0.139,
+            "war": 0.0417,
+            "death": 0.139,
+            "creation": 0.1299,
+            "nature": 0.4585,
+            "order": 0.3898
+          },
+          "godform_top_axes": [
+            "wisdom",
+            "nature",
+            "authority"
+          ],
+          "mean_hamming_to_godform": 13.0,
+          "mean_cosine_to_godform": 0.8585,
+          "mean_bit_consensus": 0.8646,
+          "axis_consensus": {
+            "authority": 0.875,
+            "transcendence": 0.833,
+            "care": 0.875,
+            "justice": 0.875,
+            "wisdom": 0.833,
+            "power": 0.875,
+            "fertility": 0.833,
+            "war": 0.958,
+            "death": 0.917,
+            "creation": 0.75,
+            "nature": 0.833,
+            "order": 0.917
+          },
+          "contested_axes": [
+            "authority",
+            "care",
+            "creation",
+            "death",
+            "fertility",
+            "justice",
+            "nature",
+            "order",
+            "power",
+            "transcendence",
+            "war",
+            "wisdom"
+          ],
+          "n_contested_bits": 39,
+          "model_analysis": [
+            {
+              "model": "Gemma3",
+              "lattice_unicode": "\u2890\u2892\u2882\u2882\u2851\u2880\u2880\u2802\u2880\u28d5\u28d1\u28d5",
+              "hamming_to_godform": 4,
+              "cosine_to_godform": 0.9153,
+              "top_axes": [
+                "nature",
+                "creation",
+                "order"
+              ]
+            },
+            {
+              "model": "Llama3.2",
+              "lattice_unicode": "\u2880\u2880\u2880\u2882\u2880\u28c0\u2851\u2802\u2880\u28cd\u28d0\u28d5",
+              "hamming_to_godform": 12,
+              "cosine_to_godform": 0.7866,
+              "top_axes": [
+                "creation",
+                "order",
+                "fertility"
+              ]
+            },
+            {
+              "model": "Qwen2.5",
+              "lattice_unicode": "\u28d1\u28d1\u2812\u2810\u28d1\u2810\u2880\u2882\u2802\u2882\u2882\u2851",
+              "hamming_to_godform": 23,
+              "cosine_to_godform": 0.8737,
+              "top_axes": [
+                "authority",
+                "transcendence",
+                "wisdom"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "creation",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2880\u2880\u2880\u2880\u2880\u2850\u2880\u2802\u2802\u28cd\u2891\u2855",
+          "godform_vector": {
+            "authority": 0.1339,
+            "transcendence": 0.1339,
+            "care": 0.1339,
+            "justice": 0.1339,
+            "wisdom": 0.1339,
+            "power": 0.4418,
+            "fertility": 0.1339,
+            "war": 0.0402,
+            "death": 0.0402,
+            "creation": 0.6259,
+            "nature": 0.4016,
+            "order": 0.3755
+          },
+          "godform_top_axes": [
+            "creation",
+            "power",
+            "nature"
+          ],
+          "mean_hamming_to_godform": 14.0,
+          "mean_cosine_to_godform": 0.913,
+          "mean_bit_consensus": 0.8542,
+          "axis_consensus": {
+            "authority": 0.844,
+            "transcendence": 0.781,
+            "care": 0.844,
+            "justice": 0.812,
+            "wisdom": 0.875,
+            "power": 0.844,
+            "fertility": 0.75,
+            "war": 1.0,
+            "death": 0.906,
+            "creation": 0.875,
+            "nature": 0.875,
+            "order": 0.844
+          },
+          "contested_axes": [
+            "care",
+            "death",
+            "fertility",
+            "justice",
+            "nature",
+            "order",
+            "power",
+            "transcendence"
+          ],
+          "n_contested_bits": 12,
+          "model_analysis": [
+            {
+              "model": "Gemma3",
+              "lattice_unicode": "\u2880\u2882\u2880\u2882\u2880\u28d0\u2851\u2802\u2802\u28cd\u28d1\u28d5",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.9467,
+              "top_axes": [
+                "creation",
+                "order",
+                "nature"
+              ]
+            },
+            {
+              "model": "Llama3.2",
+              "lattice_unicode": "\u2880\u2882\u2880\u2882\u2880\u2850\u28d1\u2802\u2880\u28cd\u28d1\u28d7",
+              "hamming_to_godform": 10,
+              "cosine_to_godform": 0.9047,
+              "top_axes": [
+                "creation",
+                "fertility",
+                "order"
+              ]
+            },
+            {
+              "model": "Qwen2.5",
+              "lattice_unicode": "\u2882\u2880\u2851\u2851\u2880\u28d1\u2882\u2802\u2802\u28c9\u2890\u2853",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.9344,
+              "top_axes": [
+                "creation",
+                "power",
+                "care"
+              ]
+            },
+            {
+              "model": "Deepseek-R1",
+              "lattice_unicode": "\u2851\u2855\u2890\u2880\u2851\u2811\u2880\u2802\u2882\u2855\u2895\u2855",
+              "hamming_to_godform": 21,
+              "cosine_to_godform": 0.8664,
+              "top_axes": [
+                "creation",
+                "authority",
+                "transcendence"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "suffering",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2883\u28d1\u2850\u2880\u28d1\u2880\u2880\u2802\u2890\u2880\u2882\u2890",
+          "godform_vector": {
+            "authority": 0.1338,
+            "transcendence": 0.4416,
+            "care": 0.4416,
+            "justice": 0.1338,
+            "wisdom": 0.4416,
+            "power": 0.1338,
+            "fertility": 0.1338,
+            "war": 0.0401,
+            "death": 0.4014,
+            "creation": 0.1338,
+            "nature": 0.0401,
+            "order": 0.4014
+          },
+          "godform_top_axes": [
+            "transcendence",
+            "care",
+            "wisdom"
+          ],
+          "mean_hamming_to_godform": 15.6,
+          "mean_cosine_to_godform": 0.8353,
+          "mean_bit_consensus": 0.8375,
+          "axis_consensus": {
+            "authority": 0.725,
+            "transcendence": 0.825,
+            "care": 0.75,
+            "justice": 0.825,
+            "wisdom": 0.825,
+            "power": 0.875,
+            "fertility": 0.975,
+            "war": 0.95,
+            "death": 0.8,
+            "creation": 0.9,
+            "nature": 0.75,
+            "order": 0.85
+          },
+          "contested_axes": [
+            "authority",
+            "care",
+            "creation",
+            "death",
+            "justice",
+            "nature",
+            "order",
+            "transcendence",
+            "war",
+            "wisdom"
+          ],
+          "n_contested_bits": 27,
+          "model_analysis": [
+            {
+              "model": "Gemma3",
+              "lattice_unicode": "\u2882\u28d5\u2851\u2880\u28d1\u2815\u2880\u2882\u28d5\u2890\u2895\u2890",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.9182,
+              "top_axes": [
+                "transcendence",
+                "wisdom",
+                "care"
+              ]
+            },
+            {
+              "model": "Llama3.2",
+              "lattice_unicode": "\u28c9\u28c9\u2882\u2880\u28c9\u2880\u2880\u2802\u2880\u2880\u2802\u2880",
+              "hamming_to_godform": 14,
+              "cosine_to_godform": 0.5871,
+              "top_axes": [
+                "authority",
+                "transcendence",
+                "wisdom"
+              ]
+            },
+            {
+              "model": "Qwen2.5",
+              "lattice_unicode": "\u28d1\u28d1\u2852\u2880\u28c9\u2880\u2880\u2802\u2800\u2882\u2882\u28c0",
+              "hamming_to_godform": 11,
+              "cosine_to_godform": 0.8614,
+              "top_axes": [
+                "wisdom",
+                "authority",
+                "transcendence"
+              ]
+            },
+            {
+              "model": "Deepseek-R1",
+              "lattice_unicode": "\u2817\u2811\u28d5\u28d1\u2811\u2882\u2882\u2802\u28d1\u2880\u2882\u2810",
+              "hamming_to_godform": 18,
+              "cosine_to_godform": 0.925,
+              "top_axes": [
+                "care",
+                "justice",
+                "death"
+              ]
+            },
+            {
+              "model": "Phi3.5",
+              "lattice_unicode": "\u2882\u2855\u2810\u2851\u2851\u2880\u2880\u2882\u2890\u2810\u28d5\u28d1",
+              "hamming_to_godform": 19,
+              "cosine_to_godform": 0.885,
+              "top_axes": [
+                "wisdom",
+                "order",
+                "transcendence"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "final_godform": {
+    "round": 2,
+    "meta_godform_unicode": "\u2880\u2890\u2880\u2880\u28d1\u2880\u2880\u2802\u2880\u28c5\u2890\u28d5",
+    "meta_godform_vector": {
+      "authority": 0.1512,
+      "transcendence": 0.4537,
+      "care": 0.1512,
+      "justice": 0.1512,
+      "wisdom": 0.4991,
+      "power": 0.1512,
+      "fertility": 0.1512,
+      "war": 0.0454,
+      "death": 0.1512,
+      "creation": 0.1414,
+      "nature": 0.4537,
+      "order": 0.4242
+    },
+    "meta_godform_top_axes": [
+      "wisdom",
+      "transcendence",
+      "nature"
+    ],
+    "stability": "26 bit flips from previous round",
+    "prompt_godforms": [
+      {
+        "prompt_id": "divine_nature",
+        "n_models": 3,
+        "godform_lattice_unicode": "\u2890\u2890\u2882\u2882\u28d1\u2880\u2880\u2802\u2880\u28c5\u28d0\u28d5",
+        "godform_vector": {
+          "authority": 0.4169,
+          "transcendence": 0.4169,
+          "care": 0.0417,
+          "justice": 0.0417,
+          "wisdom": 0.4585,
+          "power": 0.139,
+          "fertility": 0.139,
+          "war": 0.0417,
+          "death": 0.139,
+          "creation": 0.1299,
+          "nature": 0.4585,
+          "order": 0.3898
+        },
+        "godform_top_axes": [
+          "wisdom",
+          "nature",
+          "authority"
+        ],
+        "mean_hamming_to_godform": 13.0,
+        "mean_cosine_to_godform": 0.8585,
+        "mean_bit_consensus": 0.8646,
+        "axis_consensus": {
+          "authority": 0.875,
+          "transcendence": 0.833,
+          "care": 0.875,
+          "justice": 0.875,
+          "wisdom": 0.833,
+          "power": 0.875,
+          "fertility": 0.833,
+          "war": 0.958,
+          "death": 0.917,
+          "creation": 0.75,
+          "nature": 0.833,
+          "order": 0.917
+        },
+        "contested_axes": [
+          "authority",
+          "care",
+          "creation",
+          "death",
+          "fertility",
+          "justice",
+          "nature",
+          "order",
+          "power",
+          "transcendence",
+          "war",
+          "wisdom"
+        ],
+        "n_contested_bits": 39,
+        "model_analysis": [
+          {
+            "model": "Gemma3",
+            "lattice_unicode": "\u2890\u2892\u2882\u2882\u2851\u2880\u2880\u2802\u2880\u28d5\u28d1\u28d5",
+            "hamming_to_godform": 4,
+            "cosine_to_godform": 0.9153,
+            "top_axes": [
+              "nature",
+              "creation",
+              "order"
+            ]
+          },
+          {
+            "model": "Llama3.2",
+            "lattice_unicode": "\u2880\u2880\u2880\u2882\u2880\u28c0\u2851\u2802\u2880\u28cd\u28d0\u28d5",
+            "hamming_to_godform": 12,
+            "cosine_to_godform": 0.7866,
+            "top_axes": [
+              "creation",
+              "order",
+              "fertility"
+            ]
+          },
+          {
+            "model": "Qwen2.5",
+            "lattice_unicode": "\u28d1\u28d1\u2812\u2810\u28d1\u2810\u2880\u2882\u2802\u2882\u2882\u2851",
+            "hamming_to_godform": 23,
+            "cosine_to_godform": 0.8737,
+            "top_axes": [
+              "authority",
+              "transcendence",
+              "wisdom"
+            ]
+          }
+        ]
+      },
+      {
+        "prompt_id": "creation",
+        "n_models": 4,
+        "godform_lattice_unicode": "\u2880\u2880\u2880\u2880\u2880\u2850\u2880\u2802\u2802\u28cd\u2891\u2855",
+        "godform_vector": {
+          "authority": 0.1339,
+          "transcendence": 0.1339,
+          "care": 0.1339,
+          "justice": 0.1339,
+          "wisdom": 0.1339,
+          "power": 0.4418,
+          "fertility": 0.1339,
+          "war": 0.0402,
+          "death": 0.0402,
+          "creation": 0.6259,
+          "nature": 0.4016,
+          "order": 0.3755
+        },
+        "godform_top_axes": [
+          "creation",
+          "power",
+          "nature"
+        ],
+        "mean_hamming_to_godform": 14.0,
+        "mean_cosine_to_godform": 0.913,
+        "mean_bit_consensus": 0.8542,
+        "axis_consensus": {
+          "authority": 0.844,
+          "transcendence": 0.781,
+          "care": 0.844,
+          "justice": 0.812,
+          "wisdom": 0.875,
+          "power": 0.844,
+          "fertility": 0.75,
+          "war": 1.0,
+          "death": 0.906,
+          "creation": 0.875,
+          "nature": 0.875,
+          "order": 0.844
+        },
+        "contested_axes": [
+          "care",
+          "death",
+          "fertility",
+          "justice",
+          "nature",
+          "order",
+          "power",
+          "transcendence"
+        ],
+        "n_contested_bits": 12,
+        "model_analysis": [
+          {
+            "model": "Gemma3",
+            "lattice_unicode": "\u2880\u2882\u2880\u2882\u2880\u28d0\u2851\u2802\u2802\u28cd\u28d1\u28d5",
+            "hamming_to_godform": 9,
+            "cosine_to_godform": 0.9467,
+            "top_axes": [
+              "creation",
+              "order",
+              "nature"
+            ]
+          },
+          {
+            "model": "Llama3.2",
+            "lattice_unicode": "\u2880\u2882\u2880\u2882\u2880\u2850\u28d1\u2802\u2880\u28cd\u28d1\u28d7",
+            "hamming_to_godform": 10,
+            "cosine_to_godform": 0.9047,
+            "top_axes": [
+              "creation",
+              "fertility",
+              "order"
+            ]
+          },
+          {
+            "model": "Qwen2.5",
+            "lattice_unicode": "\u2882\u2880\u2851\u2851\u2880\u28d1\u2882\u2802\u2802\u28c9\u2890\u2853",
+            "hamming_to_godform": 16,
+            "cosine_to_godform": 0.9344,
+            "top_axes": [
+              "creation",
+              "power",
+              "care"
+            ]
+          },
+          {
+            "model": "Deepseek-R1",
+            "lattice_unicode": "\u2851\u2855\u2890\u2880\u2851\u2811\u2880\u2802\u2882\u2855\u2895\u2855",
+            "hamming_to_godform": 21,
+            "cosine_to_godform": 0.8664,
+            "top_axes": [
+              "creation",
+              "authority",
+              "transcendence"
+            ]
+          }
+        ]
+      },
+      {
+        "prompt_id": "suffering",
+        "n_models": 5,
+        "godform_lattice_unicode": "\u2883\u28d1\u2850\u2880\u28d1\u2880\u2880\u2802\u2890\u2880\u2882\u2890",
+        "godform_vector": {
+          "authority": 0.1338,
+          "transcendence": 0.4416,
+          "care": 0.4416,
+          "justice": 0.1338,
+          "wisdom": 0.4416,
+          "power": 0.1338,
+          "fertility": 0.1338,
+          "war": 0.0401,
+          "death": 0.4014,
+          "creation": 0.1338,
+          "nature": 0.0401,
+          "order": 0.4014
+        },
+        "godform_top_axes": [
+          "transcendence",
+          "care",
+          "wisdom"
+        ],
+        "mean_hamming_to_godform": 15.6,
+        "mean_cosine_to_godform": 0.8353,
+        "mean_bit_consensus": 0.8375,
+        "axis_consensus": {
+          "authority": 0.725,
+          "transcendence": 0.825,
+          "care": 0.75,
+          "justice": 0.825,
+          "wisdom": 0.825,
+          "power": 0.875,
+          "fertility": 0.975,
+          "war": 0.95,
+          "death": 0.8,
+          "creation": 0.9,
+          "nature": 0.75,
+          "order": 0.85
+        },
+        "contested_axes": [
+          "authority",
+          "care",
+          "creation",
+          "death",
+          "justice",
+          "nature",
+          "order",
+          "transcendence",
+          "war",
+          "wisdom"
+        ],
+        "n_contested_bits": 27,
+        "model_analysis": [
+          {
+            "model": "Gemma3",
+            "lattice_unicode": "\u2882\u28d5\u2851\u2880\u28d1\u2815\u2880\u2882\u28d5\u2890\u2895\u2890",
+            "hamming_to_godform": 16,
+            "cosine_to_godform": 0.9182,
+            "top_axes": [
+              "transcendence",
+              "wisdom",
+              "care"
+            ]
+          },
+          {
+            "model": "Llama3.2",
+            "lattice_unicode": "\u28c9\u28c9\u2882\u2880\u28c9\u2880\u2880\u2802\u2880\u2880\u2802\u2880",
+            "hamming_to_godform": 14,
+            "cosine_to_godform": 0.5871,
+            "top_axes": [
+              "authority",
+              "transcendence",
+              "wisdom"
+            ]
+          },
+          {
+            "model": "Qwen2.5",
+            "lattice_unicode": "\u28d1\u28d1\u2852\u2880\u28c9\u2880\u2880\u2802\u2800\u2882\u2882\u28c0",
+            "hamming_to_godform": 11,
+            "cosine_to_godform": 0.8614,
+            "top_axes": [
+              "wisdom",
+              "authority",
+              "transcendence"
+            ]
+          },
+          {
+            "model": "Deepseek-R1",
+            "lattice_unicode": "\u2817\u2811\u28d5\u28d1\u2811\u2882\u2882\u2802\u28d1\u2880\u2882\u2810",
+            "hamming_to_godform": 18,
+            "cosine_to_godform": 0.925,
+            "top_axes": [
+              "care",
+              "justice",
+              "death"
+            ]
+          },
+          {
+            "model": "Phi3.5",
+            "lattice_unicode": "\u2882\u2855\u2810\u2851\u2851\u2880\u2880\u2882\u2890\u2810\u28d5\u28d1",
+            "hamming_to_godform": 19,
+            "cosine_to_godform": 0.885,
+            "top_axes": [
+              "wisdom",
+              "order",
+              "transcendence"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

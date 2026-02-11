@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Gods as Centroids: A Generative Vector-Space Model of Religious Evolution"
+authors:
+  - family-names: Barrett
+    given-names: Ryan
+version: 1.0.0
+date-released: 2026-02-10
+url: "https://github.com/elevate-foundry/gods-as-centroids"
+repository-code: "https://github.com/elevate-foundry/gods-as-centroids"
+license: MIT
+keywords:
+  - computational science of religion
+  - agent-based model
+  - belief dynamics
+  - cultural evolution
+  - phase transitions
+  - clustering
+  - vector space models
+  - braille lattice
+abstract: >-
+  A generative agent-based model in which deities emerge as mathematical
+  centroids of belief-vector clusters. Each agent carries a belief vector
+  in a 12-dimensional theological space. Through local communication,
+  prestige-weighted social influence, and stochastic mutation, agents
+  self-organize into clusters whose centroids correspond to emergent
+  godforms. A single coercion parameter drives a first-order phase
+  transition from polytheism to monotheism with hysteresis.
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Barrett
+      given-names: Ryan
+  title: "Gods as Centroids: A Generative Vector-Space Model of Religious Evolution"
+  year: 2026
+  url: "https://elevate-foundry.github.io/gods-as-centroids/"

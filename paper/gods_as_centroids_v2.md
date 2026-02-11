@@ -362,6 +362,18 @@ The contested axes are precisely those where theological interpretation is genui
 
 Despite continuous-space disagreement, the braille lattice achieves $88.3\%$ bit agreement across all model pairs. The discrete bottleneck absorbs interpretive variance while preserving structural consensus. Cluster separation through braille majority-vote ($0.081$) matches or exceeds individual models ($0.059$–$0.092$), confirming that the lattice acts as a consensus filter: it preserves what all models agree on and quantizes away what they dispute.
 
+**Result I (Scaled Corpus Validation).** To stress-test the bottleneck at scale, we train a multi-modal lattice autoencoder (MMLA) on **826 passages from 37 traditions** (the 126 original passages merged with 700 additional passages scraped from canonical texts and scored by 4 LLMs via consensus). The MMLA has two encoder modalities — a text encoder (TF-IDF + PCA, 128 dimensions) and a scorer encoder (12-dimensional LLM vectors) — that must agree through a shared 96-bit braille lattice bottleneck.
+
+| Phase | Metric | Result |
+|---|---|---|
+| Phase 2 (cross-modal) | Classification accuracy | **100%** (37 classes) |
+| Phase 2 | Cross-modal bit agreement | **87.1%** |
+| Phase 2 | Text → consensus cosine | 0.9479 |
+| Phase 2 | Scorer → consensus cosine | 0.9673 |
+| Phase 3 (operators) | Operator prediction accuracy | **42.9%** (4 classes: fusion/fission/perturbation/none) |
+
+The 100% classification accuracy through a 96-bit bottleneck on 37 tradition classes (chance = 2.7%) confirms that the braille lattice preserves sufficient structure for perfect tradition discrimination even at corpus scale. The 87.1% cross-modal bit agreement means that text and scorer encoders independently produce lattice codes that agree on 83.6 of 96 bits — the shared bottleneck forces consensus between heterogeneous input modalities. Phase 3 operator prediction (42.9% vs 25% chance) demonstrates that the lattice codes contain enough structural information to predict which centroid operation (fusion, fission, perturbation, or none) applies to a given pair of traditions, though this remains the weakest link and an area for future improvement.
+
 **Remark.** We use a braille-inspired tactile lattice because it is a historically optimized, human-scale discrete semantic code — but the result does not depend on braille per se. The 6-dot cell is the natural unit for encoding a theological axis because it captures exactly the three properties (polarity, intensity, rigidity) that determine an axis's contribution to the centroid. The resulting 72-bit deity signature — 12 braille characters — is a compressed, tactile-native representation of a god-concept that can be read by touch, compared by Hamming distance, and transmitted across any sensory modality without loss of theological structure.
 
 ### 5.5 The 8-Dot Extension: Salience, Momentum, and Empirical Tradition Signatures

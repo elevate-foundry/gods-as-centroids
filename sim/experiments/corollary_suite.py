@@ -6,7 +6,8 @@ Implementation of the complete theoretical framework for religious evolution dyn
 
 import sys
 import os
-sys.path.append('sim')
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 
 import json
 import numpy as np

@@ -1,0 +1,24 @@
+{
+  "n_rounds": 0,
+  "n_models": 3,
+  "models": [
+    {
+      "tag": "gemma3:4b",
+      "name": "Gemma3",
+      "size": "local"
+    },
+    {
+      "tag": "llama3.2:latest",
+      "name": "Llama3.2",
+      "size": "local"
+    },
+    {
+      "tag": "qwen2.5:latest",
+      "name": "Qwen2.5",
+      "size": "local"
+    }
+  ],
+  "n_prompts": 1,
+  "trajectory": [],
+  "final_godform": null
+}

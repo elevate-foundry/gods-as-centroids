@@ -11,7 +11,9 @@ import json
 import numpy as np
 from pathlib import Path
 import sys
-sys.path.append('sim')
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 from swarm_kernel import SwarmKernel, Config
 from run import PrintCB
 # Visualization imports - optional for headless runs
