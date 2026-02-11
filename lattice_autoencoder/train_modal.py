@@ -569,38 +569,66 @@ def main():
     # ─── Load and serialize all data for Modal ────────────────────
     print("Loading corpus data...")
 
+    # Use scaled corpus if available, else original
+    scaled_consensus = "lattice_autoencoder/data/merged_consensus.json"
+    original_consensus = "mlx-pipeline/multi_scorer_consensus.json"
+
+    import os
+    use_scaled = os.path.exists(scaled_consensus)
+    cons_path = scaled_consensus if use_scaled else original_consensus
+    print(f"  Using {'scaled' if use_scaled else 'original'} corpus: {cons_path}")
+
     with open("lattice_autoencoder/data/text_embeddings.json") as f:
         text_data = json.load(f)
-    text_embeds = [e["vector"] for e in text_data["embeddings"]]
 
-    with open("mlx-pipeline/multi_scorer_consensus.json") as f:
+    with open(cons_path) as f:
         cons_data = json.load(f)
 
-    traditions_list = [e["tradition"] for e in cons_data["embeddings"]]
+    # Build text embed lookup by (tradition, source)
+    text_lookup = {}
+    for e in text_data["embeddings"]:
+        text_lookup[(e["tradition"], e["source"])] = e["vector"]
+
+    # Match consensus entries to text embeddings
+    traditions_list = []
+    text_embeds = []
+    consensus_vecs = []
+    raw_score_vecs = []  # unnormalized scores as scorer input
+    scorer_variances = []
+
+    for e in cons_data["embeddings"]:
+        key = (e["tradition"], e["source"])
+        if key not in text_lookup:
+            continue  # skip entries without text embeddings
+        traditions_list.append(e["tradition"])
+        text_embeds.append(text_lookup[key])
+        consensus_vecs.append([e["normalized"].get(a, 0.0) for a in AXES])
+        raw_score_vecs.append([e["raw_scores"].get(a, 0.0) for a in AXES])
+        var = e.get("scorer_variance", {})
+        scorer_variances.append([var.get(a, 0.01) if isinstance(var, dict) else 0.01 for a in AXES])
+
     traditions_sorted = sorted(set(traditions_list))
     trad_to_idx = {t: i for i, t in enumerate(traditions_sorted)}
+    labels = [trad_to_idx[t] for t in traditions_list]
 
-    consensus_vecs = []
-    labels = []
-    for e in cons_data["embeddings"]:
-        vec = [e["normalized"].get(a, 0.0) for a in AXES]
-        consensus_vecs.append(vec)
-        labels.append(trad_to_idx[e["tradition"]])
-
+    # Generate 4 synthetic scorer vectors from raw_scores + variance
+    # This simulates per-model variation for the scorer encoder
+    import random
+    random.seed(42)
     scorer_vecs = []
-    for path in ["mlx-pipeline/expanded_embeddings_results.json",
-                  "mlx-pipeline/scores_gpt4o.json",
-                  "mlx-pipeline/scores_gemini_flash.json",
-                  "mlx-pipeline/scores_llama70b.json"]:
-        with open(path) as f:
-            data = json.load(f)
-        vecs = []
-        for e in data["embeddings"]:
-            scores = e.get("normalized", e.get("raw_scores", {}))
-            vec = [scores.get(a, 0.0) for a in AXES]
+    for model_idx in range(4):
+        model_vecs = []
+        for i in range(len(raw_score_vecs)):
+            vec = []
+            for j in range(12):
+                # Add model-specific offset based on variance
+                std = math.sqrt(scorer_variances[i][j]) if scorer_variances[i][j] > 0 else 0.02
+                offset = random.gauss(0, std)
+                val = max(0.0, min(1.0, raw_score_vecs[i][j] + offset))
+                vec.append(val)
             norm = math.sqrt(sum(v*v for v in vec)) or 1.0
-            vecs.append([v/norm for v in vec])
-        scorer_vecs.append(vecs)
+            model_vecs.append([v/norm for v in vec])
+        scorer_vecs.append(model_vecs)
 
     corpus_data = {
         "text_embeds": text_embeds,
@@ -615,15 +643,13 @@ def main():
           f"{len(scorer_vecs)} scorers")
 
     # ─── Hyperparameter configs to sweep in parallel ──────────────
+    # Based on previous best: hidden=192, lr=2e-3, align=2.5, tau=10
+    # With 826 passages (6.5× more), use larger batches
     configs = [
-        {"hidden_dim": 256, "lr": 1e-3, "align_weight": 2.0, "tau_max": 10.0,
-         "p2_epochs": 300, "p3_epochs": 200, "batch_size": 64, "samples_per_passage": 50},
-        {"hidden_dim": 128, "lr": 1e-3, "align_weight": 3.0, "tau_max": 8.0,
-         "p2_epochs": 300, "p3_epochs": 200, "batch_size": 32, "samples_per_passage": 50},
-        {"hidden_dim": 256, "lr": 5e-4, "align_weight": 1.5, "tau_max": 12.0,
-         "p2_epochs": 400, "p3_epochs": 250, "batch_size": 64, "samples_per_passage": 80},
         {"hidden_dim": 192, "lr": 2e-3, "align_weight": 2.5, "tau_max": 10.0,
-         "p2_epochs": 300, "p3_epochs": 200, "batch_size": 48, "samples_per_passage": 60},
+         "p2_epochs": 200, "p3_epochs": 150, "batch_size": 64, "samples_per_passage": 30},
+        {"hidden_dim": 256, "lr": 1e-3, "align_weight": 2.0, "tau_max": 10.0,
+         "p2_epochs": 200, "p3_epochs": 150, "batch_size": 64, "samples_per_passage": 30},
     ]
 
     print(f"\nLaunching {len(configs)} parallel configs on Modal...")

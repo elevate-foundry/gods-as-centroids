@@ -17,6 +17,9 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Large generated data (regenerable)
+lattice_autoencoder/data/text_embeddings.json
+
 # Build artifacts
 *.o
 *.exe
