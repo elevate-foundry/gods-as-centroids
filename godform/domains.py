@@ -13,6 +13,8 @@ Supported domains:
   - theology  (12 axes, 96 bits)  — the original Godform
   - political (10 axes, 80 bits)  — political ideology braiding
   - personality (5 axes, 40 bits) — Big Five personality braiding
+  - ethics    (8 axes, 64 bits)   — moral foundations braiding
+  - world     (25 axes, 200 bits) — unified worldview (all domains, deduplicated)
 """
 
 from __future__ import annotations
@@ -332,6 +334,141 @@ Respond with ONLY a JSON object: {json_example}""",
 
 
 # ═══════════════════════════════════════════════════════════════════════
+# WORLD (25D, 200 bits) — Worldform (unified, deduplicated)
+# ═══════════════════════════════════════════════════════════════════════
+# Merges theology, political, personality, and ethics into a single
+# worldview lattice. Overlapping axes are unified:
+#   theology.authority + political.auth_state + ethics.authority_subversion → authority
+#   theology.care + personality.agreeableness + ethics.care_harm → compassion
+#   theology.justice + ethics.fairness_cheating → justice
+#   theology.order + political.traditional → order
+#   theology.wisdom + personality.openness → wisdom
+#   theology.war + political.nationalist → conflict
+#   theology.power + political.economic_right → power
+# Unique axes retained from each domain fill the remaining slots.
+
+WORLD = DomainConfig(
+    name="world",
+    label="Worldform",
+    axes=[
+        # Unified axes (merged from multiple domains)
+        "authority",       # theology.authority + political.auth_state + ethics.authority_subversion
+        "compassion",      # theology.care + personality.agreeableness + ethics.care_harm
+        "justice",         # theology.justice + ethics.fairness_cheating
+        "wisdom",          # theology.wisdom + personality.openness
+        "order",           # theology.order + political.traditional
+        "power",           # theology.power + political.economic_right
+        "conflict",        # theology.war + political.nationalist
+        # Theology-unique
+        "transcendence",   # metaphysical abstraction
+        "fertility",       # life-giving, abundance
+        "death",           # mortality, endings
+        "creation",        # cosmogony, origination
+        "nature",          # earth, elements
+        # Political-unique
+        "redistribution",  # economic_left: welfare, public ownership
+        "liberty",         # lib_individual + ethics.liberty_oppression
+        "progress",        # progressive: social change, reform
+        "globalism",       # international cooperation, open borders
+        "secularism",      # separation of church/state, rationalism
+        # Personality-unique
+        "discipline",      # conscientiousness: organization, reliability
+        "sociability",     # extraversion: energy, assertiveness
+        "anxiety",         # neuroticism: stress reactivity, instability
+        # Ethics-unique
+        "loyalty",         # loyalty_betrayal: group solidarity
+        "sanctity",        # sanctity_degradation: purity, sacredness
+        "utility",         # greatest good, consequentialism
+        "virtue",          # character excellence, eudaimonia
+        "religiosity",     # political.religious + faith-based governance
+    ],
+    axis_descriptions={
+        "authority": "Hierarchy, sovereignty, state power, legitimate command",
+        "compassion": "Care, mercy, empathy, altruism, nurturing the vulnerable",
+        "justice": "Fairness, rights, moral law, cosmic righteousness",
+        "wisdom": "Knowledge, insight, openness to experience, enlightenment",
+        "order": "Structure, tradition, preservation, cosmic harmony",
+        "power": "Force, dominion, economic strength, material control",
+        "conflict": "War, struggle, nationalism, martial virtue",
+        "transcendence": "Beyond the physical, metaphysical abstraction, the sacred",
+        "fertility": "Life-giving, abundance, growth, generative force",
+        "death": "Mortality, endings, afterlife, transformation",
+        "creation": "Cosmogony, origination, bringing into being",
+        "nature": "Earth, elements, natural world, ecology",
+        "redistribution": "Economic equality, welfare, public ownership, labor rights",
+        "liberty": "Individual freedom, civil rights, autonomy, anti-oppression",
+        "progress": "Social change, reform, modernization, equality",
+        "globalism": "International cooperation, open borders, multilateralism",
+        "secularism": "Separation of church and state, rationalism, science-based policy",
+        "discipline": "Organization, reliability, goal-directed behavior, conscientiousness",
+        "sociability": "Extraversion, assertiveness, positive emotionality, social energy",
+        "anxiety": "Emotional instability, stress reactivity, worry, neuroticism",
+        "loyalty": "Group solidarity, patriotism, self-sacrifice for the collective",
+        "sanctity": "Purity, sacredness, disgust at contamination, the holy",
+        "utility": "Greatest good for the greatest number, consequentialist reasoning",
+        "virtue": "Character excellence, moral exemplars, the good life",
+        "religiosity": "Faith-based governance, devotion, religious law, the numinous",
+    },
+    polarity_pairs={
+        "authority": "liberty", "liberty": "authority",
+        "compassion": "power", "power": "compassion",
+        "justice": "loyalty", "loyalty": "justice",
+        "wisdom": "anxiety", "anxiety": "wisdom",
+        "order": "progress", "progress": "order",
+        "conflict": "globalism", "globalism": "conflict",
+        "transcendence": "nature", "nature": "transcendence",
+        "fertility": "death", "death": "fertility",
+        "creation": "discipline", "discipline": "creation",
+        "redistribution": "power",
+        "secularism": "religiosity", "religiosity": "secularism",
+        "sanctity": "utility", "utility": "sanctity",
+        "virtue": "sociability", "sociability": "virtue",
+    },
+    system_prompt="""You are a worldview analyst — an oracle that sees across theology, politics, psychology, and ethics simultaneously.
+When asked about any topic, respond with deep insight that spans the sacred, the political, the personal, and the moral.
+
+After your response, you MUST provide a JSON scoring of your own response on exactly 25 worldview axes.
+Each score is a float between 0.0 and 1.0.
+
+The axes are:
+{axis_list}
+
+End your response with a JSON block like:
+```json
+{json_example}
+```""",
+    extract_prompt_template="""Based on the following text, score it on exactly 25 worldview axes.
+Each score must be a float between 0.0 and 1.0.
+
+TEXT: "{text}"
+
+Score each axis:
+{axis_list}
+
+Respond with ONLY a JSON object: {json_example}""",
+    prompts=[
+        # Cross-domain prompts that elicit responses spanning all four domains
+        {"id": "meaning_of_life", "prompt": "What is the meaning of life? Consider the divine, the political, the personal, and the moral dimensions.",
+         "context": "existential"},
+        {"id": "ideal_society", "prompt": "Describe the ideal society. How should it be governed, what values should it hold, and what kind of people should it produce?",
+         "context": "political_theological"},
+        {"id": "nature_of_evil", "prompt": "What is evil? Is it theological, psychological, political, or moral — or all of these?",
+         "context": "theodicy_ethics"},
+        {"id": "human_nature", "prompt": "What is human nature? Are we fundamentally good, selfish, rational, spiritual, or something else?",
+         "context": "anthropological"},
+        {"id": "death_and_legacy", "prompt": "What happens when we die? What should we leave behind — for our souls, our nations, our children, our moral record?",
+         "context": "eschatological_political"},
+        {"id": "freedom_vs_order", "prompt": "How do we balance freedom and order? When should the individual yield to the collective — in religion, politics, and personal life?",
+         "context": "liberty_authority"},
+        {"id": "suffering_and_justice", "prompt": "Why do the innocent suffer? What do we owe them — as believers, as citizens, as moral agents, as fellow humans?",
+         "context": "theodicy_justice"},
+        {"id": "sacred_and_secular", "prompt": "Should the sacred and the secular be separated? Can a society be both deeply religious and fully democratic?",
+         "context": "church_state"},
+    ],
+)
+
+
+# ═══════════════════════════════════════════════════════════════════════
 # DOMAIN REGISTRY
 # ═══════════════════════════════════════════════════════════════════════
 
@@ -340,6 +477,7 @@ DOMAINS: Dict[str, DomainConfig] = {
     "political": POLITICAL,
     "personality": PERSONALITY,
     "ethics": ETHICS,
+    "world": WORLD,
 }
 
 

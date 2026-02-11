@@ -1005,10 +1005,14 @@ def iterative_braid(
                 ))
             all_model_results = [f.get() for f in futures]
 
-            # Check for errors
+            # Check for errors and filter out completely failed containers
+            valid_results = []
             for mr in all_model_results:
                 if "error" in mr:
                     print(f"  ERROR [{mr.get('model_name', '?')}]: {mr['error']}")
+                if "model_name" in mr and "results" in mr:
+                    valid_results.append(mr)
+            all_model_results = valid_results
 
         # Compute prestige weights from inter-model agreement
         prestige = compute_prestige(all_model_results, prompts)
@@ -1267,7 +1271,7 @@ def run_local():
     parser.add_argument("--host", type=str, default="http://localhost:11434", help="Ollama host")
     parser.add_argument("--prompts-subset", type=int, default=3, help="Number of prompts to use (0=all)")
     parser.add_argument("--domain", type=str, default="theology",
-                        choices=["theology", "political", "personality", "ethics"],
+                        choices=["theology", "political", "personality", "ethics", "world"],
                         help="Domain to braid (default: theology)")
     args = parser.parse_args()
 
