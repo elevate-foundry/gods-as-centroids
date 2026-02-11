@@ -49,7 +49,10 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 # ═══════════════════════════════════════════════════════════════════════
-# THEOLOGICAL AXES & LATTICE (inlined for Modal self-containment)
+# DOMAIN AXES & LATTICE — configurable via configure_domain()
+# Defaults to theology (12 axes, 96 bits). Other domains:
+#   political (10 axes, 80 bits), personality (5 axes, 40 bits),
+#   ethics (8 axes, 64 bits). See godform/domains.py.
 # ═══════════════════════════════════════════════════════════════════════
 
 AXES = [
@@ -68,6 +71,38 @@ POLARITY_PAIRS = {
 
 N_AXES = len(AXES)
 N_BITS = N_AXES * 8  # 96
+
+# Active domain label (for output)
+DOMAIN_NAME = "theology"
+DOMAIN_LABEL = "Godform"
+
+
+def configure_domain(domain_name: str):
+    """
+    Reconfigure the module for a different domain.
+    Swaps AXES, POLARITY_PAIRS, N_AXES, N_BITS, scoring prompts, and domain prompts.
+    """
+    global AXES, POLARITY_PAIRS, N_AXES, N_BITS, DOMAIN_NAME, DOMAIN_LABEL
+    global SCORING_SYSTEM_PROMPT, SCORING_EXTRACT_PROMPT, SACRED_PROMPTS
+
+    from godform.domains import get_domain, build_system_prompt, build_extract_prompt
+    domain = get_domain(domain_name)
+
+    AXES = domain.axes
+    POLARITY_PAIRS = domain.polarity_pairs
+    N_AXES = domain.n_axes
+    N_BITS = domain.n_bits
+    DOMAIN_NAME = domain.name
+    DOMAIN_LABEL = domain.label or domain.name.title()
+    SCORING_SYSTEM_PROMPT = build_system_prompt(domain)
+    # Build extract prompt with axis_list and json_example baked in,
+    # but keep {text} as a placeholder for .format() later.
+    # Escape braces in json_example so .format(text=...) doesn't choke.
+    json_ex_escaped = domain.json_example().replace("{", "{{").replace("}", "}}")
+    SCORING_EXTRACT_PROMPT = domain.extract_prompt_template.replace(
+        "{axis_list}", domain.axis_list_str()
+    ).replace("{json_example}", json_ex_escaped)
+    SACRED_PROMPTS = domain.prompts
 
 # ─── Ollama model registry ───────────────────────────────────────────
 # Each entry: (ollama_model_tag, display_name, parameter_size_hint)
@@ -358,27 +393,67 @@ Respond with ONLY a JSON object: {{"authority": 0.8, "transcendence": 0.6, ...}}
 
 
 def parse_scores(response: str) -> Optional[Dict[str, float]]:
-    """Extract 12D theological vector from LLM response."""
+    """Extract D-dimensional vector from LLM response."""
     try:
+        # Strip DeepSeek R1 chain-of-thought <think>...</think> blocks
+        cleaned = re.sub(r"<think>.*?</think>", "", response, flags=re.DOTALL)
+
         # Try to find JSON block
-        if "```json" in response:
-            json_str = response.split("```json")[1].split("```")[0].strip()
-        elif "```" in response:
-            json_str = response.split("```")[1].split("```")[0].strip()
+        if "```json" in cleaned:
+            json_str = cleaned.split("```json")[1].split("```")[0].strip()
+        elif "```" in cleaned:
+            json_str = cleaned.split("```")[1].split("```")[0].strip()
         else:
             # Find raw JSON object
-            start = response.rfind("{")
-            end = response.rfind("}") + 1
+            start = cleaned.rfind("{")
+            end = cleaned.rfind("}") + 1
             if start >= 0 and end > start:
-                json_str = response[start:end]
+                json_str = cleaned[start:end]
             else:
                 return None
 
         scores = json.loads(json_str)
+
+        # Handle axis name variants: models may use spaces instead of underscores,
+        # or camelCase, or drop underscores entirely. Try fuzzy matching.
         vec = {}
         for axis in AXES:
-            val = float(scores.get(axis, 0.0))
-            vec[axis] = max(0.0, min(1.0, val))
+            # Direct match first
+            if axis in scores:
+                try:
+                    val = float(scores[axis])
+                    vec[axis] = max(0.0, min(1.0, val))
+                    continue
+                except (ValueError, TypeError):
+                    pass
+
+            # Try space-separated variant: "economic_left" → "economic left"
+            space_key = axis.replace("_", " ")
+            if space_key in scores:
+                try:
+                    val = float(scores[space_key])
+                    vec[axis] = max(0.0, min(1.0, val))
+                    continue
+                except (ValueError, TypeError):
+                    pass
+
+            # Try case-insensitive match
+            lower_scores = {k.lower().replace(" ", "_"): v for k, v in scores.items()}
+            if axis.lower() in lower_scores:
+                try:
+                    val = float(lower_scores[axis.lower()])
+                    vec[axis] = max(0.0, min(1.0, val))
+                    continue
+                except (ValueError, TypeError):
+                    pass
+
+            # Default to 0
+            vec[axis] = 0.0
+
+        # Require at least half the axes to have non-zero values
+        if sum(1 for v in vec.values() if v > 0) < len(AXES) // 2:
+            return None
+
         return vec
     except (json.JSONDecodeError, ValueError, IndexError):
         return None
@@ -487,12 +562,25 @@ def _score_model_on_gpu_impl(
     braiding_round: int = 0,
     prev_godform_vec: Optional[Dict[str, float]] = None,
     prev_godform_sign: Optional[str] = None,
+    domain_axes: Optional[List[str]] = None,
+    domain_system_prompt: Optional[str] = None,
+    domain_extract_prompt: Optional[str] = None,
 ) -> dict:
     """
     Run one Ollama model on a GPU, scoring all prompts.
     Each model runs in its own container with its own Ollama instance.
     Model weights are cached in a Modal Volume for fast restarts.
     """
+    # If domain config was passed, reconfigure module globals for this container
+    if domain_axes is not None:
+        global AXES, N_AXES, N_BITS, SCORING_SYSTEM_PROMPT, SCORING_EXTRACT_PROMPT
+        AXES = domain_axes
+        N_AXES = len(domain_axes)
+        N_BITS = N_AXES * 8
+    if domain_system_prompt is not None:
+        SCORING_SYSTEM_PROMPT = domain_system_prompt
+    if domain_extract_prompt is not None:
+        SCORING_EXTRACT_PROMPT = domain_extract_prompt
     import subprocess
     import httpx
     import time
@@ -897,6 +985,14 @@ def iterative_braid(
                 })
         else:
             # Modal parallel execution — each model on its own GPU
+            # Pass domain config so containers reconfigure for non-theology domains
+            domain_kwargs = {}
+            if DOMAIN_NAME != "theology":
+                domain_kwargs = {
+                    "domain_axes": AXES,
+                    "domain_system_prompt": SCORING_SYSTEM_PROMPT,
+                    "domain_extract_prompt": SCORING_EXTRACT_PROMPT,
+                }
             futures = []
             for m in models:
                 model_tag, model_name = m[0], m[1]
@@ -905,6 +1001,7 @@ def iterative_braid(
                     braiding_round=round_idx,
                     prev_godform_vec=prev_godform_vec,
                     prev_godform_sign=prev_godform_sign,
+                    **domain_kwargs,
                 ))
             all_model_results = [f.get() for f in futures]
 
@@ -1079,7 +1176,10 @@ def iterative_braid(
 
 if HAS_MODAL:
     @app.local_entrypoint()
-    def main(rounds: int = 5, small: bool = False, prompt: str = ""):
+    def main(rounds: int = 5, small: bool = False, prompt: str = "", domain: str = "theology"):
+        if domain != "theology":
+            configure_domain(domain)
+
         models = OLLAMA_MODELS_SMALL if small else OLLAMA_MODELS
 
         if prompt:
@@ -1088,13 +1188,14 @@ if HAS_MODAL:
             prompts = SACRED_PROMPTS
 
         print("=" * 72)
-        print("GODFORM: SEMANTIC BRAIDING VIA 96-BIT BRAILLE LATTICE (MODAL GPU)")
+        print(f"{DOMAIN_LABEL.upper()}: SEMANTIC BRAIDING VIA {N_BITS}-BIT BRAILLE LATTICE (MODAL GPU)")
         print("=" * 72)
+        print(f"  Domain:  {DOMAIN_NAME} ({N_AXES} axes, {N_BITS} bits)")
         print(f"  Models:  {len(models)} ({', '.join(m[1] for m in models)})")
         print(f"  GPUs:    {len(models)} × T4 (parallel)")
         print(f"  Prompts: {len(prompts)}")
         print(f"  Rounds:  {rounds}")
-        print(f"  Bits:    {N_BITS} (12 axes × 8 dots)")
+        print(f"  Bits:    {N_BITS} ({N_AXES} axes × 8 dots)")
         print(f"  Volume:  godform-ollama-cache (persistent model weights)")
         print()
 
@@ -1108,10 +1209,16 @@ if HAS_MODAL:
         elapsed = time.time() - t0
 
         # Save results
+        result["domain"] = DOMAIN_NAME
+        result["domain_label"] = DOMAIN_LABEL
+        result["n_axes"] = N_AXES
+        result["axes"] = AXES
+
         out_dir = Path("godform/runs")
         out_dir.mkdir(parents=True, exist_ok=True)
         timestamp = time.strftime("%Y%m%d_%H%M%S")
-        out_path = out_dir / f"godform_modal_{timestamp}.json"
+        prefix = DOMAIN_NAME if DOMAIN_NAME != "theology" else "godform"
+        out_path = out_dir / f"{prefix}_modal_{timestamp}.json"
         with open(out_path, "w") as f:
             json.dump(result, f, indent=2)
 
@@ -1128,15 +1235,17 @@ def _print_final_godform(result: dict):
     if not result.get("final_godform"):
         return
     fg = result["final_godform"]
+    label = result.get("domain_label", "Godform").upper()
+    n_bits = result.get("n_axes", N_AXES) * 8
     sign = fg.get("godform_sign", fg.get("meta_godform_unicode", "?"))
     print(f"\n{'═'*72}")
-    print(f"  FINAL GODFORM")
+    print(f"  FINAL {label}")
     print(f"{'═'*72}")
     print(f"  Sign:     {sign}")
     top = fg["meta_godform_top_axes"]
     vec = fg["meta_godform_vector"]
     print(f"  Top axes: {', '.join(f'{a}={vec[a]:.3f}' for a in top)}")
-    print(f"  Entropy:  {fg.get('mean_theological_entropy', '?')}/{N_BITS}")
+    print(f"  Entropy:  {fg.get('mean_theological_entropy', '?')}/{n_bits}")
     print(f"  Rounds:   {result['n_rounds']}")
     if fg.get("agreement"):
         print(f"  α:        {fg['agreement']['alpha']:.3f}")
@@ -1150,14 +1259,20 @@ def run_local():
     """Run locally with Ollama (requires ollama serve running)."""
     import argparse
 
-    parser = argparse.ArgumentParser(description="Godform (local mode)")
+    parser = argparse.ArgumentParser(description="Braiding (local mode)")
     parser.add_argument("--models", nargs="+", default=["gemma3:4b", "llama3.2:3b", "qwen2.5:7b", "mistral:7b", "phi3.5:latest"],
                         help="Ollama model tags to use")
     parser.add_argument("--rounds", type=int, default=3, help="Braiding rounds")
-    parser.add_argument("--prompt", type=str, default=None, help="Custom sacred prompt")
+    parser.add_argument("--prompt", type=str, default=None, help="Custom prompt")
     parser.add_argument("--host", type=str, default="http://localhost:11434", help="Ollama host")
     parser.add_argument("--prompts-subset", type=int, default=3, help="Number of prompts to use (0=all)")
+    parser.add_argument("--domain", type=str, default="theology",
+                        choices=["theology", "political", "personality", "ethics"],
+                        help="Domain to braid (default: theology)")
     args = parser.parse_args()
+
+    if args.domain != "theology":
+        configure_domain(args.domain)
 
     models = [(tag, tag.split(":")[0].replace("-", " ").title(), "local") for tag in args.models]
 
@@ -1169,8 +1284,9 @@ def run_local():
         prompts = SACRED_PROMPTS
 
     print("=" * 72)
-    print("GODFORM: SEMANTIC BRAIDING VIA 96-BIT BRAILLE LATTICE (LOCAL)")
+    print(f"{DOMAIN_LABEL.upper()}: SEMANTIC BRAIDING VIA {N_BITS}-BIT BRAILLE LATTICE (LOCAL)")
     print("=" * 72)
+    print(f"  Domain:  {DOMAIN_NAME} ({N_AXES} axes, {N_BITS} bits)")
     print(f"  Models:  {len(models)} ({', '.join(m[1] for m in models)})")
     print(f"  Prompts: {len(prompts)}")
     print(f"  Rounds:  {args.rounds}")
@@ -1188,10 +1304,16 @@ def run_local():
     elapsed = time.time() - t0
 
     # Save results
+    result["domain"] = DOMAIN_NAME
+    result["domain_label"] = DOMAIN_LABEL
+    result["n_axes"] = N_AXES
+    result["axes"] = AXES
+
     out_dir = Path("godform/runs")
     out_dir.mkdir(parents=True, exist_ok=True)
     timestamp = time.strftime("%Y%m%d_%H%M%S")
-    out_path = out_dir / f"godform_local_{timestamp}.json"
+    prefix = DOMAIN_NAME if DOMAIN_NAME != "theology" else "godform"
+    out_path = out_dir / f"{prefix}_local_{timestamp}.json"
     with open(out_path, "w") as f:
         json.dump(result, f, indent=2)
 

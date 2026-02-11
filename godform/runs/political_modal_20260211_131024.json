@@ -1,0 +1,5280 @@
+{
+  "n_rounds": 5,
+  "n_models": 7,
+  "models": [
+    {
+      "tag": "phi3.5:latest",
+      "name": "Phi 3.5",
+      "size": "3.8B",
+      "gpu": "T4"
+    },
+    {
+      "tag": "gemma3:4b",
+      "name": "Gemma 3",
+      "size": "4B",
+      "gpu": "T4"
+    },
+    {
+      "tag": "llama3.2:3b",
+      "name": "Llama 3.2",
+      "size": "3B",
+      "gpu": "T4"
+    },
+    {
+      "tag": "deepseek-r1:8b",
+      "name": "DeepSeek R1",
+      "size": "8B",
+      "gpu": "T4"
+    },
+    {
+      "tag": "qwen2.5:7b",
+      "name": "Qwen 2.5",
+      "size": "7B",
+      "gpu": "T4"
+    },
+    {
+      "tag": "mistral:7b",
+      "name": "Mistral",
+      "size": "7B",
+      "gpu": "T4"
+    },
+    {
+      "tag": "granite3-dense:8b",
+      "name": "Granite 3",
+      "size": "8B",
+      "gpu": "T4"
+    }
+  ],
+  "n_prompts": 8,
+  "trajectory": [
+    {
+      "round": 1,
+      "godform_sign": "\u2811\u2802\u2800\u2851\u2851\u2802\u2811\u2800\u2851\u2802",
+      "meta_godform_unicode": "\u2811\u2802\u2800\u2851\u2851\u2802\u2811\u2800\u2851\u2802",
+      "meta_godform_vector": {
+        "economic_left": 0.4123,
+        "economic_right": 0.0412,
+        "auth_state": 0.1374,
+        "lib_individual": 0.4535,
+        "progressive": 0.4535,
+        "traditional": 0.0412,
+        "globalist": 0.4123,
+        "nationalist": 0.1374,
+        "secular": 0.4535,
+        "religious": 0.0412
+      },
+      "meta_godform_top_axes": [
+        "lib_individual",
+        "progressive",
+        "secular"
+      ],
+      "mean_theological_entropy": 25.89,
+      "entropy_ratio": 0.3236,
+      "stability": "N/A",
+      "bit_flips": null,
+      "prestige": {
+        "Phi 3.5": 0.7947,
+        "Gemma 3": 0.9077,
+        "Llama 3.2": 0.8806,
+        "DeepSeek R1": 1.0,
+        "Qwen 2.5": 0.8873,
+        "Mistral": 0.9205,
+        "Granite 3": 0.8484
+      },
+      "agreement": {
+        "alpha": 0.4554,
+        "mean_pairwise_cosine": 0.8769,
+        "per_axis": {
+          "economic_left": 0.357,
+          "economic_right": 0.37,
+          "auth_state": 0.09,
+          "lib_individual": 0.158,
+          "progressive": 0.049,
+          "traditional": 0.312,
+          "globalist": 0.268,
+          "nationalist": 0.092,
+          "secular": 0.006,
+          "religious": 0.412
+        }
+      },
+      "prompt_godforms": [
+        {
+          "prompt_id": "economic_policy",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2851\u2802\u2810\u2811\u2851\u2802\u2851\u2802\u2851\u2802",
+          "godform_vector": {
+            "economic_left": 0.4194,
+            "economic_right": 0.0381,
+            "auth_state": 0.3812,
+            "lib_individual": 0.3812,
+            "progressive": 0.4194,
+            "traditional": 0.0381,
+            "globalist": 0.4194,
+            "nationalist": 0.0381,
+            "secular": 0.4194,
+            "religious": 0.0381
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "progressive",
+            "globalist"
+          ],
+          "mean_hamming_to_godform": 7.0,
+          "mean_cosine_to_godform": 0.8033,
+          "mean_bit_consensus": 0.9125,
+          "theological_entropy": 19.64,
+          "entropy_ratio": 0.2455,
+          "axis_consensus": {
+            "economic_left": 0.938,
+            "economic_right": 1.0,
+            "auth_state": 0.906,
+            "lib_individual": 0.906,
+            "progressive": 0.906,
+            "traditional": 0.969,
+            "globalist": 0.781,
+            "nationalist": 0.844,
+            "secular": 0.906,
+            "religious": 0.969
+          },
+          "contested_axes": [
+            "auth_state",
+            "globalist",
+            "lib_individual",
+            "nationalist"
+          ],
+          "n_contested_bits": 6,
+          "model_analysis": [
+            {
+              "model": "Phi 3.5",
+              "lattice_unicode": "\u2879\u2802\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800",
+              "hamming_to_godform": 17,
+              "cosine_to_godform": 0.4194,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2802\u2802\u2811\u2851\u2802\u2851\u2802\u2851\u2802",
+              "hamming_to_godform": 2,
+              "cosine_to_godform": 0.9494,
+              "top_axes": [
+                "progressive",
+                "economic_left",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2851\u2802\u2810\u2810\u2851\u2802\u2802\u2851\u2851\u2802",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.8886,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2851\u2802\u2810\u2811\u2851\u2802\u2851\u2802\u2851\u2802",
+              "hamming_to_godform": 0,
+              "cosine_to_godform": 0.9559,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "state_authority",
+          "n_models": 6,
+          "godform_lattice_unicode": "\u2810\u2810\u2811\u2851\u2811\u2800\u2800\u2800\u2849\u2802",
+          "godform_vector": {
+            "economic_left": 0.3349,
+            "economic_right": 0.3349,
+            "auth_state": 0.3349,
+            "lib_individual": 0.3684,
+            "progressive": 0.3349,
+            "traditional": 0.1116,
+            "globalist": 0.1116,
+            "nationalist": 0.1116,
+            "secular": 0.614,
+            "religious": 0.0335
+          },
+          "godform_top_axes": [
+            "secular",
+            "lib_individual",
+            "economic_left"
+          ],
+          "mean_hamming_to_godform": 13.7,
+          "mean_cosine_to_godform": 0.8736,
+          "mean_bit_consensus": 0.8292,
+          "theological_entropy": 36.97,
+          "entropy_ratio": 0.4621,
+          "axis_consensus": {
+            "economic_left": 0.792,
+            "economic_right": 0.792,
+            "auth_state": 0.833,
+            "lib_individual": 0.75,
+            "progressive": 0.875,
+            "traditional": 0.812,
+            "globalist": 0.792,
+            "nationalist": 0.812,
+            "secular": 0.854,
+            "religious": 0.979
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 29,
+          "model_analysis": [
+            {
+              "model": "Phi 3.5",
+              "lattice_unicode": "\u2851\u2802\u2811\u2802\u2811\u2802\u2812\u2851\u2851\u2802",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.9038,
+              "top_axes": [
+                "secular",
+                "economic_left",
+                "nationalist"
+              ]
+            },
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2810\u2810\u2802\u2851\u2851\u2802\u2802\u2851\u2849\u2802",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.9433,
+              "top_axes": [
+                "secular",
+                "lib_individual",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2802\u2851\u2802\u2851\u2810\u2802\u2851\u2802\u2849\u2802",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.9215,
+              "top_axes": [
+                "secular",
+                "lib_individual",
+                "globalist"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2802\u2851\u2851\u2812\u2802\u2851\u2802\u2810\u2849\u2802",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.9086,
+              "top_axes": [
+                "secular",
+                "economic_right",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2851\u2802\u2815\u2855\u2811\u2800\u2851\u2802\u2851\u2802",
+              "hamming_to_godform": 12,
+              "cosine_to_godform": 0.9152,
+              "top_axes": [
+                "secular",
+                "economic_left",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2815\u2815\u2811\u2802\u2815\u2815\u2800\u2800\u2800\u2800",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.6491,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "auth_state"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "social_change",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2810\u2800\u2802\u2851\u2851\u2802\u2811\u2800\u2851\u2802",
+          "godform_vector": {
+            "economic_left": 0.4123,
+            "economic_right": 0.1374,
+            "auth_state": 0.0412,
+            "lib_individual": 0.4535,
+            "progressive": 0.4535,
+            "traditional": 0.0412,
+            "globalist": 0.4123,
+            "nationalist": 0.1374,
+            "secular": 0.4535,
+            "religious": 0.0412
+          },
+          "godform_top_axes": [
+            "lib_individual",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 8.6,
+          "mean_cosine_to_godform": 0.8819,
+          "mean_bit_consensus": 0.8925,
+          "theological_entropy": 26.85,
+          "entropy_ratio": 0.3356,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.875,
+            "auth_state": 0.85,
+            "lib_individual": 0.95,
+            "progressive": 0.925,
+            "traditional": 0.825,
+            "globalist": 0.9,
+            "nationalist": 0.85,
+            "secular": 0.925,
+            "religious": 0.95
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "nationalist",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 10,
+          "model_analysis": [
+            {
+              "model": "Phi 3.5",
+              "lattice_unicode": "\u2811\u2802\u2812\u2851\u2851\u2802\u2815\u2815\u2810\u2810",
+              "hamming_to_godform": 11,
+              "cosine_to_godform": 0.8818,
+              "top_axes": [
+                "progressive",
+                "lib_individual",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2802\u2802\u2851\u2851\u2802\u2811\u2802\u2851\u2802",
+              "hamming_to_godform": 4,
+              "cosine_to_godform": 0.9439,
+              "top_axes": [
+                "progressive",
+                "economic_left",
+                "secular"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2802\u2851\u2802\u2811\u2851\u2802\u2851\u2802\u2851\u2802",
+              "hamming_to_godform": 8,
+              "cosine_to_godform": 0.8713,
+              "top_axes": [
+                "globalist",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2810\u2800\u2815\u2855\u2817\u2855\u2810\u2800\u2811\u2802",
+              "hamming_to_godform": 15,
+              "cosine_to_godform": 0.8174,
+              "top_axes": [
+                "traditional",
+                "lib_individual",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2810\u2800\u2800\u2851\u2851\u2810\u2851\u2810\u2851\u2802",
+              "hamming_to_godform": 5,
+              "cosine_to_godform": 0.8951,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "lib_individual"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "national_identity",
+          "n_models": 6,
+          "godform_lattice_unicode": "\u2810\u2800\u2802\u2851\u2851\u2812\u2851\u2802\u2851\u2802",
+          "godform_vector": {
+            "economic_left": 0.4059,
+            "economic_right": 0.1353,
+            "auth_state": 0.0406,
+            "lib_individual": 0.4464,
+            "progressive": 0.4464,
+            "traditional": 0.1218,
+            "globalist": 0.4464,
+            "nationalist": 0.0406,
+            "secular": 0.4464,
+            "religious": 0.0406
+          },
+          "godform_top_axes": [
+            "lib_individual",
+            "progressive",
+            "globalist"
+          ],
+          "mean_hamming_to_godform": 10.0,
+          "mean_cosine_to_godform": 0.887,
+          "mean_bit_consensus": 0.875,
+          "theological_entropy": 30.52,
+          "entropy_ratio": 0.3815,
+          "axis_consensus": {
+            "economic_left": 0.896,
+            "economic_right": 0.875,
+            "auth_state": 0.854,
+            "lib_individual": 0.896,
+            "progressive": 0.958,
+            "traditional": 0.875,
+            "globalist": 0.896,
+            "nationalist": 0.812,
+            "secular": 0.875,
+            "religious": 0.812
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 19,
+          "model_analysis": [
+            {
+              "model": "Phi 3.5",
+              "lattice_unicode": "\u2810\u2810\u2812\u2851\u2851\u2810\u2851\u2802\u2855\u2815",
+              "hamming_to_godform": 8,
+              "cosine_to_godform": 0.88,
+              "top_axes": [
+                "secular",
+                "lib_individual",
+                "globalist"
+              ]
+            },
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2800\u2800\u2800\u2800\u2851\u2802\u2849\u2802\u2851\u2802",
+              "hamming_to_godform": 8,
+              "cosine_to_godform": 0.9,
+              "top_axes": [
+                "globalist",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2810\u2800\u2802\u2851\u2851\u2802\u2851\u2802\u2849\u2802",
+              "hamming_to_godform": 3,
+              "cosine_to_godform": 0.9584,
+              "top_axes": [
+                "secular",
+                "globalist",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2800\u2810\u2802\u2851\u2851\u2812\u2851\u2802\u2851\u2812",
+              "hamming_to_godform": 3,
+              "cosine_to_godform": 0.9067,
+              "top_axes": [
+                "globalist",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2811\u2802\u2812\u2851\u2851\u2812\u2855\u2855\u2811\u2802",
+              "hamming_to_godform": 10,
+              "cosine_to_godform": 0.8643,
+              "top_axes": [
+                "globalist",
+                "nationalist",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2815\u2815\u2815\u2815\u2815\u2815\u2815\u2815\u2815\u2815",
+              "hamming_to_godform": 28,
+              "cosine_to_godform": 0.8128,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "auth_state"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "justice_system",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2811\u2802\u2815\u2855\u2851\u2802\u2810\u2800\u2851\u2802",
+          "godform_vector": {
+            "economic_left": 0.403,
+            "economic_right": 0.0403,
+            "auth_state": 0.3425,
+            "lib_individual": 0.3768,
+            "progressive": 0.4433,
+            "traditional": 0.0403,
+            "globalist": 0.403,
+            "nationalist": 0.1343,
+            "secular": 0.4433,
+            "religious": 0.0403
+          },
+          "godform_top_axes": [
+            "progressive",
+            "secular",
+            "economic_left"
+          ],
+          "mean_hamming_to_godform": 6.8,
+          "mean_cosine_to_godform": 0.9152,
+          "mean_bit_consensus": 0.9156,
+          "theological_entropy": 21.29,
+          "entropy_ratio": 0.2661,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.969,
+            "auth_state": 0.812,
+            "lib_individual": 0.938,
+            "progressive": 0.906,
+            "traditional": 0.875,
+            "globalist": 0.938,
+            "nationalist": 0.906,
+            "secular": 0.938,
+            "religious": 1.0
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left"
+          ],
+          "n_contested_bits": 2,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2802\u2817\u2855\u2851\u2802\u2810\u2802\u2851\u2802",
+              "hamming_to_godform": 3,
+              "cosine_to_godform": 0.971,
+              "top_axes": [
+                "progressive",
+                "lib_individual",
+                "secular"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2802\u2802\u2851\u2851\u2802\u2810\u2800\u2851\u2802",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9289,
+              "top_axes": [
+                "lib_individual",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2800\u2800\u2855\u2857\u2812\u2851\u2802\u2800\u2849\u2802",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.8159,
+              "top_axes": [
+                "secular",
+                "auth_state",
+                "traditional"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2811\u2802\u2815\u2855\u2851\u2802\u2810\u2811\u2851\u2802",
+              "hamming_to_godform": 2,
+              "cosine_to_godform": 0.945,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "lib_individual"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "healthcare",
+          "n_models": 6,
+          "godform_lattice_unicode": "\u2851\u2802\u2811\u2810\u2851\u2802\u2811\u2811\u2851\u2802",
+          "godform_vector": {
+            "economic_left": 0.3974,
+            "economic_right": 0.0361,
+            "auth_state": 0.3613,
+            "lib_individual": 0.3613,
+            "progressive": 0.3974,
+            "traditional": 0.0361,
+            "globalist": 0.3613,
+            "nationalist": 0.3613,
+            "secular": 0.3974,
+            "religious": 0.0361
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 9.0,
+          "mean_cosine_to_godform": 0.9285,
+          "mean_bit_consensus": 0.8875,
+          "theological_entropy": 27.8,
+          "entropy_ratio": 0.3475,
+          "axis_consensus": {
+            "economic_left": 1.0,
+            "economic_right": 0.979,
+            "auth_state": 0.833,
+            "lib_individual": 0.812,
+            "progressive": 0.958,
+            "traditional": 0.875,
+            "globalist": 0.792,
+            "nationalist": 0.792,
+            "secular": 0.917,
+            "religious": 0.917
+          },
+          "contested_axes": [
+            "auth_state",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "traditional"
+          ],
+          "n_contested_bits": 13,
+          "model_analysis": [
+            {
+              "model": "Phi 3.5",
+              "lattice_unicode": "\u2851\u2802\u2815\u2815\u2855\u2855\u2800\u2800\u2851\u2802",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.8954,
+              "top_axes": [
+                "progressive",
+                "economic_left",
+                "traditional"
+              ]
+            },
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2802\u2800\u2800\u2851\u2802\u2802\u2851\u2849\u2802",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.9257,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2802\u2802\u2851\u2851\u2802\u2811\u2802\u2851\u2802",
+              "hamming_to_godform": 8,
+              "cosine_to_godform": 0.9554,
+              "top_axes": [
+                "progressive",
+                "economic_left",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2851\u2802\u2851\u2812\u2811\u2802\u2802\u2811\u2851\u2802",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9438,
+              "top_axes": [
+                "economic_left",
+                "secular",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2851\u2802\u2811\u2800\u2851\u2802\u2851\u2802\u2851\u2802",
+              "hamming_to_godform": 5,
+              "cosine_to_godform": 0.9438,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2851\u2812\u2815\u2815\u2851\u2812\u2815\u2815\u2815\u2815",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.9068,
+              "top_axes": [
+                "economic_left",
+                "progressive",
+                "auth_state"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "immigration",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2811\u2802\u2802\u2851\u2851\u2802\u2811\u2802\u2851\u2802",
+          "godform_vector": {
+            "economic_left": 0.4196,
+            "economic_right": 0.042,
+            "auth_state": 0.042,
+            "lib_individual": 0.4615,
+            "progressive": 0.4615,
+            "traditional": 0.042,
+            "globalist": 0.4196,
+            "nationalist": 0.042,
+            "secular": 0.4615,
+            "religious": 0.042
+          },
+          "godform_top_axes": [
+            "lib_individual",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 8.0,
+          "mean_cosine_to_godform": 0.89,
+          "mean_bit_consensus": 0.9,
+          "theological_entropy": 26.56,
+          "entropy_ratio": 0.3321,
+          "axis_consensus": {
+            "economic_left": 0.9,
+            "economic_right": 0.875,
+            "auth_state": 0.85,
+            "lib_individual": 0.925,
+            "progressive": 0.95,
+            "traditional": 0.9,
+            "globalist": 0.875,
+            "nationalist": 0.9,
+            "secular": 0.925,
+            "religious": 0.9
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "secular"
+          ],
+          "n_contested_bits": 6,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2811\u2802\u2802\u2851\u2851\u2802\u2851\u2802\u2811\u2802",
+              "hamming_to_godform": 2,
+              "cosine_to_godform": 0.9568,
+              "top_axes": [
+                "progressive",
+                "lib_individual",
+                "globalist"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2800\u2800\u2802\u2851\u2851\u2802\u2849\u2802\u2851\u2802",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9072,
+              "top_axes": [
+                "globalist",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2851\u2802\u2802\u2851\u2851\u2802\u2811\u2802\u2851\u2802",
+              "hamming_to_godform": 1,
+              "cosine_to_godform": 0.9219,
+              "top_axes": [
+                "progressive",
+                "lib_individual",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2811\u2802\u2810\u2811\u2851\u2802\u2811\u2802\u2851\u2802",
+              "hamming_to_godform": 3,
+              "cosine_to_godform": 0.8943,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2815\u2815\u2815\u2815\u2815\u2815\u2815\u2815\u2815\u2815",
+              "hamming_to_godform": 28,
+              "cosine_to_godform": 0.7696,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "auth_state"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "environment",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2811\u2802\u2802\u2851\u2851\u2802\u2811\u2802\u2849\u2802",
+          "godform_vector": {
+            "economic_left": 0.3573,
+            "economic_right": 0.0357,
+            "auth_state": 0.0357,
+            "lib_individual": 0.3931,
+            "progressive": 0.3931,
+            "traditional": 0.0357,
+            "globalist": 0.3573,
+            "nationalist": 0.0357,
+            "secular": 0.6551,
+            "religious": 0.0357
+          },
+          "godform_top_axes": [
+            "secular",
+            "lib_individual",
+            "progressive"
+          ],
+          "mean_hamming_to_godform": 5.8,
+          "mean_cosine_to_godform": 0.787,
+          "mean_bit_consensus": 0.9281,
+          "theological_entropy": 17.48,
+          "entropy_ratio": 0.2185,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 1.0,
+            "auth_state": 0.938,
+            "lib_individual": 0.906,
+            "progressive": 0.906,
+            "traditional": 0.969,
+            "globalist": 0.906,
+            "nationalist": 0.969,
+            "secular": 0.844,
+            "religious": 0.969
+          },
+          "contested_axes": [
+            "economic_left",
+            "globalist",
+            "secular"
+          ],
+          "n_contested_bits": 3,
+          "model_analysis": [
+            {
+              "model": "Phi 3.5",
+              "lattice_unicode": "\u2879\u2802\u2800\u2800\u2800\u2800\u2800\u2800\u2800\u2800",
+              "hamming_to_godform": 18,
+              "cosine_to_godform": 0.3573,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2811\u2802\u2802\u2851\u2851\u2802\u2811\u2802\u2849\u2802",
+              "hamming_to_godform": 0,
+              "cosine_to_godform": 0.9474,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2802\u2802\u2851\u2851\u2802\u2810\u2802\u2849\u2802",
+              "hamming_to_godform": 2,
+              "cosine_to_godform": 0.931,
+              "top_axes": [
+                "secular",
+                "economic_left",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2811\u2802\u2812\u2851\u2851\u2802\u2811\u2802\u2851\u2802",
+              "hamming_to_godform": 3,
+              "cosine_to_godform": 0.9124,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "lib_individual"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "godform_sign": "\u2891\u2890\u2890\u2891\u28d1\u2882\u2890\u2880\u28d1\u2802",
+      "meta_godform_unicode": "\u2891\u2890\u2890\u2891\u28d1\u2882\u2890\u2880\u28d1\u2802",
+      "meta_godform_vector": {
+        "economic_left": 0.3639,
+        "economic_right": 0.3639,
+        "auth_state": 0.3639,
+        "lib_individual": 0.3639,
+        "progressive": 0.4003,
+        "traditional": 0.0364,
+        "globalist": 0.3639,
+        "nationalist": 0.1213,
+        "secular": 0.4003,
+        "religious": 0.0364
+      },
+      "meta_godform_top_axes": [
+        "progressive",
+        "secular",
+        "economic_left"
+      ],
+      "mean_theological_entropy": 32.75,
+      "entropy_ratio": 0.4094,
+      "stability": "14 bit flips from previous round",
+      "bit_flips": 14,
+      "prestige": {
+        "Phi 3.5": 0.8011,
+        "Gemma 3": 0.8944,
+        "Llama 3.2": 0.8561,
+        "DeepSeek R1": 1.0,
+        "Qwen 2.5": 0.9051,
+        "Mistral": 0.8821,
+        "Granite 3": 0.8371
+      },
+      "agreement": {
+        "alpha": 0.5406,
+        "mean_pairwise_cosine": 0.8742,
+        "per_axis": {
+          "economic_left": 0.256,
+          "economic_right": 0.246,
+          "auth_state": 0.155,
+          "lib_individual": 0.135,
+          "progressive": 0.207,
+          "traditional": 0.252,
+          "globalist": 0.256,
+          "nationalist": 0.224,
+          "secular": 0.108,
+          "religious": 0.258
+        }
+      },
+      "prompt_godforms": [
+        {
+          "prompt_id": "economic_policy",
+          "n_models": 3,
+          "godform_lattice_unicode": "\u28d1\u2882\u2892\u2851\u28d1\u2882\u2880\u2882\u2851\u2802",
+          "godform_vector": {
+            "economic_left": 0.488,
+            "economic_right": 0.0444,
+            "auth_state": 0.1331,
+            "lib_individual": 0.488,
+            "progressive": 0.488,
+            "traditional": 0.0444,
+            "globalist": 0.1479,
+            "nationalist": 0.0444,
+            "secular": 0.488,
+            "religious": 0.0444
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "lib_individual",
+            "progressive"
+          ],
+          "mean_hamming_to_godform": 7.7,
+          "mean_cosine_to_godform": 0.9128,
+          "mean_bit_consensus": 0.9042,
+          "theological_entropy": 21.77,
+          "entropy_ratio": 0.2721,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.792,
+            "auth_state": 0.875,
+            "lib_individual": 0.875,
+            "progressive": 0.958,
+            "traditional": 0.958,
+            "globalist": 0.917,
+            "nationalist": 0.917,
+            "secular": 0.875,
+            "religious": 1.0
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 23,
+          "model_analysis": [
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2895\u28d5\u2892\u2851\u2851\u2802\u2880\u2880\u2851\u2802",
+              "hamming_to_godform": 10,
+              "cosine_to_godform": 0.9023,
+              "top_axes": [
+                "lib_individual",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u28d1\u2882\u2892\u2851\u28d1\u2882\u2880\u2802\u28c9\u2802",
+              "hamming_to_godform": 4,
+              "cosine_to_godform": 0.9418,
+              "top_axes": [
+                "secular",
+                "lib_individual",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2851\u2882\u2895\u2895\u28d1\u2882\u2891\u2882\u2851\u2802",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.8944,
+              "top_axes": [
+                "economic_left",
+                "secular",
+                "progressive"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "state_authority",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2890\u28d1\u2895\u2895\u2891\u2882\u28d0\u2880\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.3725,
+            "economic_right": 0.4098,
+            "auth_state": 0.3166,
+            "lib_individual": 0.3166,
+            "progressive": 0.3725,
+            "traditional": 0.0373,
+            "globalist": 0.4098,
+            "nationalist": 0.1242,
+            "secular": 0.4098,
+            "religious": 0.0373
+          },
+          "godform_top_axes": [
+            "economic_right",
+            "globalist",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 11.2,
+          "mean_cosine_to_godform": 0.949,
+          "mean_bit_consensus": 0.8594,
+          "theological_entropy": 27.74,
+          "entropy_ratio": 0.3467,
+          "axis_consensus": {
+            "economic_left": 0.812,
+            "economic_right": 0.875,
+            "auth_state": 0.719,
+            "lib_individual": 0.812,
+            "progressive": 0.875,
+            "traditional": 0.969,
+            "globalist": 0.812,
+            "nationalist": 0.938,
+            "secular": 0.844,
+            "religious": 0.938
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "globalist",
+            "lib_individual",
+            "progressive",
+            "religious",
+            "secular"
+          ],
+          "n_contested_bits": 15,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2880\u2880\u2882\u2851\u2851\u2882\u28d0\u2880\u28c9\u2882",
+              "hamming_to_godform": 15,
+              "cosine_to_godform": 0.9248,
+              "top_axes": [
+                "secular",
+                "lib_individual",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2893\u28d1\u2882\u2851\u2851\u2802\u2880\u2880\u2851\u2802",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.9501,
+              "top_axes": [
+                "economic_right",
+                "lib_individual",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2892\u28d1\u2895\u2895\u2891\u2882\u2880\u2890\u2851\u2882",
+              "hamming_to_godform": 5,
+              "cosine_to_godform": 0.9398,
+              "top_axes": [
+                "economic_right",
+                "secular",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2895\u28d5\u28d5\u2895\u2891\u2882\u2851\u2882\u2891\u2802",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.9814,
+              "top_axes": [
+                "economic_right",
+                "auth_state",
+                "globalist"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "social_change",
+          "n_models": 6,
+          "godform_lattice_unicode": "\u2891\u2891\u2892\u28d1\u2895\u2895\u2890\u2880\u28d1\u2802",
+          "godform_vector": {
+            "economic_left": 0.3759,
+            "economic_right": 0.3759,
+            "auth_state": 0.1128,
+            "lib_individual": 0.4135,
+            "progressive": 0.3195,
+            "traditional": 0.3195,
+            "globalist": 0.3759,
+            "nationalist": 0.1253,
+            "secular": 0.4135,
+            "religious": 0.0376
+          },
+          "godform_top_axes": [
+            "lib_individual",
+            "secular",
+            "economic_left"
+          ],
+          "mean_hamming_to_godform": 16.0,
+          "mean_cosine_to_godform": 0.8518,
+          "mean_bit_consensus": 0.8,
+          "theological_entropy": 42.76,
+          "entropy_ratio": 0.5345,
+          "axis_consensus": {
+            "economic_left": 0.771,
+            "economic_right": 0.729,
+            "auth_state": 0.792,
+            "lib_individual": 0.792,
+            "progressive": 0.75,
+            "traditional": 0.729,
+            "globalist": 0.854,
+            "nationalist": 0.833,
+            "secular": 0.812,
+            "religious": 0.938
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 36,
+          "model_analysis": [
+            {
+              "model": "Phi 3.5",
+              "lattice_unicode": "\u28d5\u28d5\u2895\u2895\u2895\u2895\u2895\u2895\u2891\u2802",
+              "hamming_to_godform": 15,
+              "cosine_to_godform": 0.9475,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2882\u2882\u2851\u28c9\u2882\u2890\u2882\u28c9\u2802",
+              "hamming_to_godform": 18,
+              "cosine_to_godform": 0.9151,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2880\u2800\u2882\u28c9\u28c9\u2802\u2880\u2880\u28c9\u2802",
+              "hamming_to_godform": 20,
+              "cosine_to_godform": 0.662,
+              "top_axes": [
+                "lib_individual",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2895\u2895\u2892\u28d1\u2895\u2895\u2891\u2882\u28d1\u2892",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9576,
+              "top_axes": [
+                "lib_individual",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2892\u28d1\u28d5\u2895\u2895\u28d5\u2882\u28d1\u2891\u2882",
+              "hamming_to_godform": 17,
+              "cosine_to_godform": 0.8956,
+              "top_axes": [
+                "nationalist",
+                "economic_right",
+                "traditional"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2880\u2800\u2882\u2849\u284d\u28cd\u2880\u2880\u2849\u2802",
+              "hamming_to_godform": 20,
+              "cosine_to_godform": 0.7331,
+              "top_axes": [
+                "lib_individual",
+                "progressive",
+                "traditional"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "national_identity",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2880\u2890\u2882\u2891\u2891\u2882\u2851\u2882\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.1412,
+            "economic_right": 0.4237,
+            "auth_state": 0.0424,
+            "lib_individual": 0.4237,
+            "progressive": 0.4237,
+            "traditional": 0.0424,
+            "globalist": 0.466,
+            "nationalist": 0.0424,
+            "secular": 0.466,
+            "religious": 0.0424
+          },
+          "godform_top_axes": [
+            "globalist",
+            "secular",
+            "economic_right"
+          ],
+          "mean_hamming_to_godform": 12.6,
+          "mean_cosine_to_godform": 0.8571,
+          "mean_bit_consensus": 0.8425,
+          "theological_entropy": 36.91,
+          "entropy_ratio": 0.4613,
+          "axis_consensus": {
+            "economic_left": 0.825,
+            "economic_right": 0.85,
+            "auth_state": 0.8,
+            "lib_individual": 0.8,
+            "progressive": 0.85,
+            "traditional": 0.9,
+            "globalist": 0.9,
+            "nationalist": 0.775,
+            "secular": 0.825,
+            "religious": 0.9
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular"
+          ],
+          "n_contested_bits": 19,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2891\u2882\u2802\u2851\u2851\u2882\u2851\u2802\u2851\u2802",
+              "hamming_to_godform": 12,
+              "cosine_to_godform": 0.9093,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2882\u2891\u2882\u2891\u2891\u2882\u2857\u28cd\u2891\u2802",
+              "hamming_to_godform": 11,
+              "cosine_to_godform": 0.8444,
+              "top_axes": [
+                "nationalist",
+                "globalist",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2880\u2890\u2802\u2851\u2890\u2882\u28d1\u2882\u28c9\u2882",
+              "hamming_to_godform": 7,
+              "cosine_to_godform": 0.949,
+              "top_axes": [
+                "secular",
+                "globalist",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2890\u28d1\u28d1\u2890\u2890\u28d1\u2851\u2890\u2890\u2890",
+              "hamming_to_godform": 19,
+              "cosine_to_godform": 0.8099,
+              "top_axes": [
+                "economic_right",
+                "globalist",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u28c9\u2892\u2890\u2882\u2851\u2882\u28d1\u2892\u2851\u2882",
+              "hamming_to_godform": 14,
+              "cosine_to_godform": 0.7728,
+              "top_axes": [
+                "economic_left",
+                "progressive",
+                "secular"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "justice_system",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2891\u2891\u2893\u28d1\u28d1\u2882\u2890\u2880\u28d1\u2802",
+          "godform_vector": {
+            "economic_left": 0.359,
+            "economic_right": 0.359,
+            "auth_state": 0.359,
+            "lib_individual": 0.3948,
+            "progressive": 0.3948,
+            "traditional": 0.0359,
+            "globalist": 0.359,
+            "nationalist": 0.1197,
+            "secular": 0.3948,
+            "religious": 0.0359
+          },
+          "godform_top_axes": [
+            "lib_individual",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 14.0,
+          "mean_cosine_to_godform": 0.9005,
+          "mean_bit_consensus": 0.825,
+          "theological_entropy": 38.65,
+          "entropy_ratio": 0.4831,
+          "axis_consensus": {
+            "economic_left": 0.825,
+            "economic_right": 0.8,
+            "auth_state": 0.85,
+            "lib_individual": 0.75,
+            "progressive": 0.85,
+            "traditional": 0.85,
+            "globalist": 0.85,
+            "nationalist": 0.8,
+            "secular": 0.8,
+            "religious": 0.875
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 26,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2882\u2882\u2851\u2851\u2802\u2890\u2802\u28c9\u2802",
+              "hamming_to_godform": 14,
+              "cosine_to_godform": 0.9422,
+              "top_axes": [
+                "secular",
+                "lib_individual",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u28d0\u2880\u2882\u28c9\u28c9\u2802\u2880\u2880\u2851\u2802",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.8669,
+              "top_axes": [
+                "lib_individual",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2895\u2895\u2893\u2851\u2851\u2882\u2880\u2880\u2851\u2802",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9535,
+              "top_axes": [
+                "lib_individual",
+                "secular",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2890\u28d1\u2891\u2890\u2890\u2891\u2895\u2895\u2890\u2891",
+              "hamming_to_godform": 21,
+              "cosine_to_godform": 0.8761,
+              "top_axes": [
+                "economic_right",
+                "auth_state",
+                "traditional"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2895\u2895\u2891\u2882\u28d1\u2892\u2895\u2895\u28c9\u2882",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.8638,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "economic_left"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "healthcare",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2851\u2882\u2890\u2891\u28d1\u2882\u2890\u2880\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.4227,
+            "economic_right": 0.0384,
+            "auth_state": 0.3843,
+            "lib_individual": 0.3843,
+            "progressive": 0.4227,
+            "traditional": 0.0384,
+            "globalist": 0.3843,
+            "nationalist": 0.1281,
+            "secular": 0.4227,
+            "religious": 0.0384
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 11.4,
+          "mean_cosine_to_godform": 0.8929,
+          "mean_bit_consensus": 0.8575,
+          "theological_entropy": 32.18,
+          "entropy_ratio": 0.4023,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.75,
+            "auth_state": 0.8,
+            "lib_individual": 0.8,
+            "progressive": 0.95,
+            "traditional": 0.85,
+            "globalist": 0.85,
+            "nationalist": 0.9,
+            "secular": 0.875,
+            "religious": 0.925
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 20,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u28d1\u2882\u2890\u28d1\u2851\u2802\u2880\u2880\u28c9\u2802",
+              "hamming_to_godform": 8,
+              "cosine_to_godform": 0.9511,
+              "top_axes": [
+                "secular",
+                "economic_left",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2882\u2802\u2890\u28d1\u2802\u2851\u2892\u28c9\u2882",
+              "hamming_to_godform": 12,
+              "cosine_to_godform": 0.9074,
+              "top_axes": [
+                "secular",
+                "globalist",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2895\u28d5\u28d5\u2895\u2891\u2890\u2880\u2800\u2851\u2892",
+              "hamming_to_godform": 19,
+              "cosine_to_godform": 0.8562,
+              "top_axes": [
+                "secular",
+                "economic_right",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2851\u2882\u2893\u2851\u28d1\u2882\u2891\u2880\u28d1\u2802",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9575,
+              "top_axes": [
+                "lib_individual",
+                "economic_left",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2855\u28d5\u2890\u2882\u28d1\u2890\u2890\u2890\u28d1\u2882",
+              "hamming_to_godform": 12,
+              "cosine_to_godform": 0.7924,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "progressive"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "immigration",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2891\u28d1\u2890\u28d1\u28d1\u2882\u2891\u2880\u28d1\u2802",
+          "godform_vector": {
+            "economic_left": 0.3542,
+            "economic_right": 0.3896,
+            "auth_state": 0.3542,
+            "lib_individual": 0.3896,
+            "progressive": 0.3896,
+            "traditional": 0.0354,
+            "globalist": 0.3542,
+            "nationalist": 0.1181,
+            "secular": 0.3896,
+            "religious": 0.0354
+          },
+          "godform_top_axes": [
+            "economic_right",
+            "lib_individual",
+            "progressive"
+          ],
+          "mean_hamming_to_godform": 9.5,
+          "mean_cosine_to_godform": 0.9606,
+          "mean_bit_consensus": 0.8812,
+          "theological_entropy": 26.42,
+          "entropy_ratio": 0.3302,
+          "axis_consensus": {
+            "economic_left": 0.812,
+            "economic_right": 0.844,
+            "auth_state": 0.75,
+            "lib_individual": 0.938,
+            "progressive": 0.938,
+            "traditional": 1.0,
+            "globalist": 0.812,
+            "nationalist": 0.844,
+            "secular": 0.906,
+            "religious": 0.969
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "nationalist"
+          ],
+          "n_contested_bits": 8,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2890\u2880\u2882\u28d1\u2851\u2882\u28d1\u2802\u28c9\u2882",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.9531,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2890\u2891\u2802\u28d1\u28d1\u2882\u28c9\u2892\u28d1\u2802",
+              "hamming_to_godform": 10,
+              "cosine_to_godform": 0.9453,
+              "top_axes": [
+                "globalist",
+                "lib_individual",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2893\u28d1\u2890\u28d1\u28d1\u2882\u2880\u2880\u28d1\u2802",
+              "hamming_to_godform": 3,
+              "cosine_to_godform": 0.9681,
+              "top_axes": [
+                "economic_right",
+                "lib_individual",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2855\u28d5\u28d5\u2895\u2891\u2882\u2891\u2890\u2891\u2802",
+              "hamming_to_godform": 12,
+              "cosine_to_godform": 0.9758,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "auth_state"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "environment",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2891\u2890\u2895\u2895\u28d1\u2882\u28d0\u2882\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.3752,
+            "economic_right": 0.3752,
+            "auth_state": 0.3189,
+            "lib_individual": 0.3189,
+            "progressive": 0.4127,
+            "traditional": 0.0375,
+            "globalist": 0.4127,
+            "nationalist": 0.0375,
+            "secular": 0.4127,
+            "religious": 0.0375
+          },
+          "godform_top_axes": [
+            "progressive",
+            "globalist",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 13.0,
+          "mean_cosine_to_godform": 0.9153,
+          "mean_bit_consensus": 0.8375,
+          "theological_entropy": 35.56,
+          "entropy_ratio": 0.4445,
+          "axis_consensus": {
+            "economic_left": 0.8,
+            "economic_right": 0.775,
+            "auth_state": 0.75,
+            "lib_individual": 0.825,
+            "progressive": 0.85,
+            "traditional": 0.95,
+            "globalist": 0.875,
+            "nationalist": 0.775,
+            "secular": 0.825,
+            "religious": 0.95
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular"
+          ],
+          "n_contested_bits": 25,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2882\u2895\u2895\u2851\u2882\u2890\u2802\u2851\u2802",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.9419,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2880\u2880\u2882\u2851\u28c9\u2882\u28d0\u2802\u28c9\u2802",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.8653,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2895\u28d5\u28d5\u2897\u2891\u2890\u2890\u2890\u2891\u2882",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.9146,
+              "top_axes": [
+                "auth_state",
+                "economic_right",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u28d5\u28d5\u2895\u2895\u2891\u2882\u28d5\u28d5\u2891\u2882",
+              "hamming_to_godform": 14,
+              "cosine_to_godform": 0.9171,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "globalist"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2890\u2890\u2802\u2851\u2851\u2882\u28d1\u2882\u28c9\u2882",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.9375,
+              "top_axes": [
+                "secular",
+                "lib_individual",
+                "progressive"
+              ]
+            }
+          ]
+        }
+      ],
+      "axis_drift": {
+        "economic_left": -0.0484,
+        "economic_right": 0.3227,
+        "auth_state": 0.2265,
+        "lib_individual": -0.0896,
+        "progressive": -0.0532,
+        "traditional": -0.0048,
+        "globalist": -0.0484,
+        "nationalist": -0.0161,
+        "secular": -0.0532,
+        "religious": -0.0048
+      }
+    },
+    {
+      "round": 3,
+      "godform_sign": "\u2811\u2882\u2811\u2851\u28d1\u2882\u2890\u2880\u28d1\u2882",
+      "meta_godform_unicode": "\u2811\u2882\u2811\u2851\u28d1\u2882\u2890\u2880\u28d1\u2882",
+      "meta_godform_vector": {
+        "economic_left": 0.3843,
+        "economic_right": 0.0384,
+        "auth_state": 0.3843,
+        "lib_individual": 0.4227,
+        "progressive": 0.4227,
+        "traditional": 0.0384,
+        "globalist": 0.3843,
+        "nationalist": 0.1281,
+        "secular": 0.4227,
+        "religious": 0.0384
+      },
+      "meta_godform_top_axes": [
+        "lib_individual",
+        "progressive",
+        "secular"
+      ],
+      "mean_theological_entropy": 35.46,
+      "entropy_ratio": 0.4432,
+      "stability": "8 bit flips from previous round",
+      "bit_flips": 8,
+      "prestige": {
+        "Phi 3.5": 0.7681,
+        "Gemma 3": 0.8943,
+        "Llama 3.2": 0.8548,
+        "DeepSeek R1": 1.0,
+        "Qwen 2.5": 0.8675,
+        "Mistral": 0.8567,
+        "Granite 3": 0.8786
+      },
+      "agreement": {
+        "alpha": 0.4347,
+        "mean_pairwise_cosine": 0.8626,
+        "per_axis": {
+          "economic_left": 0.333,
+          "economic_right": 0.064,
+          "auth_state": 0.22,
+          "lib_individual": 0.295,
+          "progressive": 0.36,
+          "traditional": 0.288,
+          "globalist": 0.281,
+          "nationalist": 0.101,
+          "secular": 0.298,
+          "religious": 0.248
+        }
+      },
+      "prompt_godforms": [
+        {
+          "prompt_id": "economic_policy",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u28d1\u2882\u2880\u28d1\u28d1\u2882\u2880\u2880\u28d1\u2802",
+          "godform_vector": {
+            "economic_left": 0.4822,
+            "economic_right": 0.0438,
+            "auth_state": 0.1461,
+            "lib_individual": 0.4822,
+            "progressive": 0.4822,
+            "traditional": 0.0438,
+            "globalist": 0.1461,
+            "nationalist": 0.1461,
+            "secular": 0.4822,
+            "religious": 0.0438
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "lib_individual",
+            "progressive"
+          ],
+          "mean_hamming_to_godform": 12.4,
+          "mean_cosine_to_godform": 0.8327,
+          "mean_bit_consensus": 0.845,
+          "theological_entropy": 37.12,
+          "entropy_ratio": 0.464,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.775,
+            "auth_state": 0.775,
+            "lib_individual": 0.775,
+            "progressive": 0.85,
+            "traditional": 0.925,
+            "globalist": 0.85,
+            "nationalist": 0.825,
+            "secular": 0.85,
+            "religious": 0.95
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 17,
+          "model_analysis": [
+            {
+              "model": "Phi 3.5",
+              "lattice_unicode": "\u28d1\u2882\u2855\u2855\u2890\u2880\u2895\u28d5\u2890\u2882",
+              "hamming_to_godform": 20,
+              "cosine_to_godform": 0.8656,
+              "top_axes": [
+                "economic_left",
+                "lib_individual",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2882\u2882\u2851\u28d1\u2882\u2811\u2890\u28d1\u2882",
+              "hamming_to_godform": 8,
+              "cosine_to_godform": 0.9476,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u28c9\u2882\u2893\u28d1\u2891\u2882\u2880\u2802\u2851\u2802",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.9346,
+              "top_axes": [
+                "economic_left",
+                "lib_individual",
+                "secular"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u28d3\u28c9\u2880\u2880\u2851\u2802\u2880\u2880\u2851\u2802",
+              "hamming_to_godform": 11,
+              "cosine_to_godform": 0.6601,
+              "top_axes": [
+                "economic_right",
+                "economic_left",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u28d5\u28d5\u2880\u2880\u28c9\u2802\u2880\u2880\u28c9\u2802",
+              "hamming_to_godform": 14,
+              "cosine_to_godform": 0.7558,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "state_authority",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2811\u2890\u28d5\u2855\u2851\u2882\u2880\u2891\u2851\u2882",
+          "godform_vector": {
+            "economic_left": 0.3701,
+            "economic_right": 0.3701,
+            "auth_state": 0.3461,
+            "lib_individual": 0.3461,
+            "progressive": 0.4071,
+            "traditional": 0.037,
+            "globalist": 0.1234,
+            "nationalist": 0.3701,
+            "secular": 0.4071,
+            "religious": 0.037
+          },
+          "godform_top_axes": [
+            "progressive",
+            "secular",
+            "economic_left"
+          ],
+          "mean_hamming_to_godform": 15.5,
+          "mean_cosine_to_godform": 0.8619,
+          "mean_bit_consensus": 0.8063,
+          "theological_entropy": 43.17,
+          "entropy_ratio": 0.5396,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.781,
+            "auth_state": 0.719,
+            "lib_individual": 0.719,
+            "progressive": 0.844,
+            "traditional": 0.844,
+            "globalist": 0.781,
+            "nationalist": 0.812,
+            "secular": 0.844,
+            "religious": 0.844
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist"
+          ],
+          "n_contested_bits": 12,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2811\u2890\u2855\u2815\u2851\u2882\u2882\u28d1\u2851\u2882",
+              "hamming_to_godform": 4,
+              "cosine_to_godform": 0.9557,
+              "top_axes": [
+                "auth_state",
+                "progressive",
+                "nationalist"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2811\u2882\u2882\u28c9\u2851\u2882\u28d1\u2892\u2851\u2882",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.8364,
+              "top_axes": [
+                "lib_individual",
+                "globalist",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2811\u2882\u28d3\u28c9\u2851\u2802\u2880\u2880\u2851\u2802",
+              "hamming_to_godform": 12,
+              "cosine_to_godform": 0.8206,
+              "top_axes": [
+                "lib_individual",
+                "auth_state",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2882\u2851\u2895\u2855\u2882\u28d1\u2895\u2895\u2882\u28d1",
+              "hamming_to_godform": 30,
+              "cosine_to_godform": 0.8348,
+              "top_axes": [
+                "economic_right",
+                "lib_individual",
+                "traditional"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "social_change",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2851\u2892\u2815\u2855\u28d1\u2882\u2811\u2880\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.4332,
+            "economic_right": 0.1181,
+            "auth_state": 0.3347,
+            "lib_individual": 0.3682,
+            "progressive": 0.4332,
+            "traditional": 0.0394,
+            "globalist": 0.3938,
+            "nationalist": 0.1313,
+            "secular": 0.4332,
+            "religious": 0.0394
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 11.8,
+          "mean_cosine_to_godform": 0.915,
+          "mean_bit_consensus": 0.8525,
+          "theological_entropy": 32.68,
+          "entropy_ratio": 0.4085,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.775,
+            "auth_state": 0.75,
+            "lib_individual": 0.9,
+            "progressive": 0.875,
+            "traditional": 0.85,
+            "globalist": 0.8,
+            "nationalist": 0.875,
+            "secular": 0.85,
+            "religious": 0.975
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 22,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2882\u2892\u2851\u28d1\u2882\u2880\u2880\u28c9\u2882",
+              "hamming_to_godform": 11,
+              "cosine_to_godform": 0.9415,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2882\u2892\u2851\u2851\u2882\u2811\u2882\u2851\u2882",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.9537,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2851\u2892\u2855\u2855\u2893\u28d1\u2880\u2880\u2891\u2880",
+              "hamming_to_godform": 12,
+              "cosine_to_godform": 0.8405,
+              "top_axes": [
+                "traditional",
+                "economic_left",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2890\u2811\u2855\u2815\u2891\u2880\u2851\u2882\u2891\u2882",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.918,
+              "top_axes": [
+                "auth_state",
+                "globalist",
+                "economic_right"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2815\u2815\u2815\u2815\u2851\u2892\u2815\u2895\u2851\u2882",
+              "hamming_to_godform": 14,
+              "cosine_to_godform": 0.9213,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "national_identity",
+          "n_models": 3,
+          "godform_lattice_unicode": "\u2811\u2882\u2890\u2851\u2851\u2882\u28d1\u2892\u2851\u2882",
+          "godform_vector": {
+            "economic_left": 0.379,
+            "economic_right": 0.0379,
+            "auth_state": 0.379,
+            "lib_individual": 0.417,
+            "progressive": 0.417,
+            "traditional": 0.0379,
+            "globalist": 0.417,
+            "nationalist": 0.1137,
+            "secular": 0.417,
+            "religious": 0.0379
+          },
+          "godform_top_axes": [
+            "lib_individual",
+            "progressive",
+            "globalist"
+          ],
+          "mean_hamming_to_godform": 10.3,
+          "mean_cosine_to_godform": 0.9298,
+          "mean_bit_consensus": 0.8708,
+          "theological_entropy": 29.03,
+          "entropy_ratio": 0.3628,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.833,
+            "auth_state": 0.75,
+            "lib_individual": 0.833,
+            "progressive": 0.917,
+            "traditional": 0.958,
+            "globalist": 0.833,
+            "nationalist": 0.792,
+            "secular": 0.917,
+            "religious": 1.0
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 31,
+          "model_analysis": [
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2882\u2880\u2890\u2851\u2882\u28c9\u2892\u2851\u2882",
+              "hamming_to_godform": 7,
+              "cosine_to_godform": 0.9385,
+              "top_axes": [
+                "globalist",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2811\u2882\u2892\u2851\u2851\u2882\u28d1\u2882\u2851\u2882",
+              "hamming_to_godform": 2,
+              "cosine_to_godform": 0.9725,
+              "top_axes": [
+                "globalist",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2890\u2811\u2855\u2855\u2891\u2880\u2855\u28d5\u2891\u2882",
+              "hamming_to_godform": 22,
+              "cosine_to_godform": 0.8783,
+              "top_axes": [
+                "globalist",
+                "auth_state",
+                "lib_individual"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "justice_system",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2851\u2892\u2815\u28d5\u2891\u2880\u2815\u2895\u2891\u2882",
+          "godform_vector": {
+            "economic_left": 0.4327,
+            "economic_right": 0.118,
+            "auth_state": 0.3344,
+            "lib_individual": 0.3678,
+            "progressive": 0.3934,
+            "traditional": 0.1311,
+            "globalist": 0.3344,
+            "nationalist": 0.3344,
+            "secular": 0.3934,
+            "religious": 0.0393
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 14.8,
+          "mean_cosine_to_godform": 0.9284,
+          "mean_bit_consensus": 0.8156,
+          "theological_entropy": 36.49,
+          "entropy_ratio": 0.4562,
+          "axis_consensus": {
+            "economic_left": 0.75,
+            "economic_right": 0.719,
+            "auth_state": 0.719,
+            "lib_individual": 0.812,
+            "progressive": 0.875,
+            "traditional": 0.906,
+            "globalist": 0.75,
+            "nationalist": 0.812,
+            "secular": 0.875,
+            "religious": 0.938
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 19,
+          "model_analysis": [
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2857\u28cd\u2890\u2891\u2851\u2882\u2880\u2800\u2851\u2802",
+              "hamming_to_godform": 27,
+              "cosine_to_godform": 0.8674,
+              "top_axes": [
+                "economic_right",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2891\u2882\u28d3\u28c9\u28d1\u2882\u2890\u2890\u28d1\u2802",
+              "hamming_to_godform": 19,
+              "cosine_to_godform": 0.9522,
+              "top_axes": [
+                "lib_individual",
+                "auth_state",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2880\u2891\u2857\u28d5\u2890\u2890\u2855\u2895\u2890\u2882",
+              "hamming_to_godform": 12,
+              "cosine_to_godform": 0.9285,
+              "top_axes": [
+                "lib_individual",
+                "globalist",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2851\u2892\u2815\u2855\u2891\u2880\u2815\u2895\u2891\u2882",
+              "hamming_to_godform": 1,
+              "cosine_to_godform": 0.9656,
+              "top_axes": [
+                "economic_left",
+                "lib_individual",
+                "auth_state"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "healthcare",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u28d1\u2882\u28d0\u2880\u28c9\u2882\u2880\u2880\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.4056,
+            "economic_right": 0.0369,
+            "auth_state": 0.4056,
+            "lib_individual": 0.1229,
+            "progressive": 0.676,
+            "traditional": 0.0369,
+            "globalist": 0.1229,
+            "nationalist": 0.1229,
+            "secular": 0.4056,
+            "religious": 0.0369
+          },
+          "godform_top_axes": [
+            "progressive",
+            "economic_left",
+            "auth_state"
+          ],
+          "mean_hamming_to_godform": 15.8,
+          "mean_cosine_to_godform": 0.8374,
+          "mean_bit_consensus": 0.8031,
+          "theological_entropy": 39.08,
+          "entropy_ratio": 0.4885,
+          "axis_consensus": {
+            "economic_left": 0.812,
+            "economic_right": 0.719,
+            "auth_state": 0.719,
+            "lib_individual": 0.719,
+            "progressive": 0.781,
+            "traditional": 0.938,
+            "globalist": 0.719,
+            "nationalist": 0.812,
+            "secular": 0.844,
+            "religious": 0.969
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular"
+          ],
+          "n_contested_bits": 20,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u28d1\u2882\u28d0\u2880\u28c9\u2882\u2880\u2800\u28c9\u2802",
+              "hamming_to_godform": 4,
+              "cosine_to_godform": 0.9573,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2882\u2882\u2880\u28c9\u2802\u2851\u2882\u28d1\u2882",
+              "hamming_to_godform": 10,
+              "cosine_to_godform": 0.8724,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "globalist"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2892\u2851\u28c9\u2853\u2890\u2882\u2882\u28d1\u2890\u2882",
+              "hamming_to_godform": 26,
+              "cosine_to_godform": 0.7573,
+              "top_axes": [
+                "auth_state",
+                "nationalist",
+                "economic_right"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2890\u2811\u2855\u28d5\u2891\u2880\u2851\u2882\u2891\u2882",
+              "hamming_to_godform": 23,
+              "cosine_to_godform": 0.7626,
+              "top_axes": [
+                "lib_individual",
+                "auth_state",
+                "globalist"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "immigration",
+          "n_models": 3,
+          "godform_lattice_unicode": "\u2891\u2882\u2855\u2815\u2891\u2892\u2890\u2890\u2891\u2882",
+          "godform_vector": {
+            "economic_left": 0.3861,
+            "economic_right": 0.0386,
+            "auth_state": 0.361,
+            "lib_individual": 0.3282,
+            "progressive": 0.3861,
+            "traditional": 0.1158,
+            "globalist": 0.3861,
+            "nationalist": 0.3861,
+            "secular": 0.3861,
+            "religious": 0.0386
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "progressive",
+            "globalist"
+          ],
+          "mean_hamming_to_godform": 10.7,
+          "mean_cosine_to_godform": 0.9348,
+          "mean_bit_consensus": 0.8667,
+          "theological_entropy": 29.93,
+          "entropy_ratio": 0.3742,
+          "axis_consensus": {
+            "economic_left": 0.833,
+            "economic_right": 0.792,
+            "auth_state": 0.917,
+            "lib_individual": 0.833,
+            "progressive": 0.875,
+            "traditional": 0.917,
+            "globalist": 0.833,
+            "nationalist": 0.792,
+            "secular": 0.875,
+            "religious": 1.0
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 32,
+          "model_analysis": [
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u28d1\u2882\u2851\u2890\u28d1\u2892\u2880\u2800\u28d1\u2882",
+              "hamming_to_godform": 10,
+              "cosine_to_godform": 0.9291,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2811\u2882\u28d5\u2815\u2811\u2882\u28d1\u2892\u2811\u2882",
+              "hamming_to_godform": 8,
+              "cosine_to_godform": 0.9802,
+              "top_axes": [
+                "auth_state",
+                "globalist",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2892\u2851\u2855\u2855\u2890\u2890\u2892\u28d1\u2890\u2882",
+              "hamming_to_godform": 14,
+              "cosine_to_godform": 0.8952,
+              "top_axes": [
+                "nationalist",
+                "economic_right",
+                "auth_state"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "environment",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2891\u2882\u2851\u2882\u28d1\u2882\u2851\u2882\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.412,
+            "economic_right": 0.0412,
+            "auth_state": 0.4532,
+            "lib_individual": 0.0412,
+            "progressive": 0.4532,
+            "traditional": 0.0412,
+            "globalist": 0.4532,
+            "nationalist": 0.0412,
+            "secular": 0.4532,
+            "religious": 0.0412
+          },
+          "godform_top_axes": [
+            "auth_state",
+            "progressive",
+            "globalist"
+          ],
+          "mean_hamming_to_godform": 13.5,
+          "mean_cosine_to_godform": 0.8626,
+          "mean_bit_consensus": 0.8313,
+          "theological_entropy": 36.16,
+          "entropy_ratio": 0.452,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.656,
+            "auth_state": 0.844,
+            "lib_individual": 0.781,
+            "progressive": 0.906,
+            "traditional": 0.969,
+            "globalist": 0.781,
+            "nationalist": 0.875,
+            "secular": 0.812,
+            "religious": 0.812
+          },
+          "contested_axes": [
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular"
+          ],
+          "n_contested_bits": 13,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2891\u2882\u2851\u2882\u28d1\u2882\u2851\u2802\u28c9\u2802",
+              "hamming_to_godform": 4,
+              "cosine_to_godform": 0.9517,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u28d1\u2882\u2880\u2880\u28d1\u2882\u2811\u2880\u28d5\u28d5",
+              "hamming_to_godform": 14,
+              "cosine_to_godform": 0.8513,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u28d5\u2855\u2851\u2892\u2891\u2882\u2890\u2890\u2891\u2882",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.8361,
+              "top_axes": [
+                "economic_left",
+                "auth_state",
+                "economic_right"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2890\u2851\u2855\u28d5\u2890\u2880\u28c9\u2882\u2890\u2882",
+              "hamming_to_godform": 20,
+              "cosine_to_godform": 0.8112,
+              "top_axes": [
+                "globalist",
+                "lib_individual",
+                "auth_state"
+              ]
+            }
+          ]
+        }
+      ],
+      "axis_drift": {
+        "economic_left": 0.0204,
+        "economic_right": -0.3255,
+        "auth_state": 0.0204,
+        "lib_individual": 0.0588,
+        "progressive": 0.0224,
+        "traditional": 0.002,
+        "globalist": 0.0204,
+        "nationalist": 0.0068,
+        "secular": 0.0224,
+        "religious": 0.002
+      }
+    },
+    {
+      "round": 4,
+      "godform_sign": "\u2891\u2880\u2891\u2891\u28d1\u2882\u2890\u2880\u28d1\u2802",
+      "meta_godform_unicode": "\u2891\u2880\u2891\u2891\u28d1\u2882\u2890\u2880\u28d1\u2802",
+      "meta_godform_vector": {
+        "economic_left": 0.3874,
+        "economic_right": 0.1291,
+        "auth_state": 0.3874,
+        "lib_individual": 0.3874,
+        "progressive": 0.4262,
+        "traditional": 0.0387,
+        "globalist": 0.3874,
+        "nationalist": 0.1291,
+        "secular": 0.4262,
+        "religious": 0.0387
+      },
+      "meta_godform_top_axes": [
+        "progressive",
+        "secular",
+        "economic_left"
+      ],
+      "mean_theological_entropy": 33.65,
+      "entropy_ratio": 0.4206,
+      "stability": "6 bit flips from previous round",
+      "bit_flips": 6,
+      "prestige": {
+        "Phi 3.5": 1.0,
+        "Gemma 3": 0.8979,
+        "Llama 3.2": 0.9073,
+        "DeepSeek R1": 1.0,
+        "Qwen 2.5": 0.9036,
+        "Mistral": 0.8644,
+        "Granite 3": 0.9101
+      },
+      "agreement": {
+        "alpha": 0.5205,
+        "mean_pairwise_cosine": 0.8952,
+        "per_axis": {
+          "economic_left": 0.387,
+          "economic_right": 0.168,
+          "auth_state": 0.062,
+          "lib_individual": 0.215,
+          "progressive": 0.124,
+          "traditional": 0.305,
+          "globalist": 0.292,
+          "nationalist": 0.218,
+          "secular": 0.225,
+          "religious": 0.26
+        }
+      },
+      "prompt_godforms": [
+        {
+          "prompt_id": "economic_policy",
+          "n_models": 3,
+          "godform_lattice_unicode": "\u28d1\u2882\u28d1\u2891\u28d1\u2802\u2880\u2880\u28c9\u2802",
+          "godform_vector": {
+            "economic_left": 0.3831,
+            "economic_right": 0.0348,
+            "auth_state": 0.3831,
+            "lib_individual": 0.3483,
+            "progressive": 0.3831,
+            "traditional": 0.0348,
+            "globalist": 0.1161,
+            "nationalist": 0.1161,
+            "secular": 0.6385,
+            "religious": 0.0348
+          },
+          "godform_top_axes": [
+            "secular",
+            "economic_left",
+            "auth_state"
+          ],
+          "mean_hamming_to_godform": 8.0,
+          "mean_cosine_to_godform": 0.9255,
+          "mean_bit_consensus": 0.9,
+          "theological_entropy": 22.68,
+          "entropy_ratio": 0.2835,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.917,
+            "auth_state": 0.833,
+            "lib_individual": 0.833,
+            "progressive": 0.833,
+            "traditional": 0.958,
+            "globalist": 0.917,
+            "nationalist": 0.958,
+            "secular": 0.875,
+            "religious": 1.0
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 24,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2882\u2892\u2851\u2851\u2882\u2891\u2882\u28c9\u2802",
+              "hamming_to_godform": 11,
+              "cosine_to_godform": 0.941,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u28d1\u2882\u28d1\u2890\u28c9\u2802\u2880\u2880\u28c9\u2802",
+              "hamming_to_godform": 3,
+              "cosine_to_godform": 0.9487,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u28c9\u2893\u28d5\u2895\u2891\u2802\u2880\u2880\u2891\u2802",
+              "hamming_to_godform": 10,
+              "cosine_to_godform": 0.8868,
+              "top_axes": [
+                "economic_left",
+                "auth_state",
+                "lib_individual"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "state_authority",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2811\u28d1\u2891\u2891\u2891\u2891\u2890\u2880\u2891\u2882",
+          "godform_vector": {
+            "economic_left": 0.3465,
+            "economic_right": 0.3811,
+            "auth_state": 0.3465,
+            "lib_individual": 0.3465,
+            "progressive": 0.3465,
+            "traditional": 0.3465,
+            "globalist": 0.3465,
+            "nationalist": 0.1155,
+            "secular": 0.3465,
+            "religious": 0.0346
+          },
+          "godform_top_axes": [
+            "economic_right",
+            "economic_left",
+            "auth_state"
+          ],
+          "mean_hamming_to_godform": 16.2,
+          "mean_cosine_to_godform": 0.8996,
+          "mean_bit_consensus": 0.7975,
+          "theological_entropy": 46.93,
+          "entropy_ratio": 0.5866,
+          "axis_consensus": {
+            "economic_left": 0.75,
+            "economic_right": 0.825,
+            "auth_state": 0.775,
+            "lib_individual": 0.8,
+            "progressive": 0.825,
+            "traditional": 0.7,
+            "globalist": 0.775,
+            "nationalist": 0.775,
+            "secular": 0.9,
+            "religious": 0.85
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "traditional"
+          ],
+          "n_contested_bits": 25,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2880\u2880\u2882\u2851\u28c9\u2802\u28d0\u2802\u28c9\u2802",
+              "hamming_to_godform": 25,
+              "cosine_to_godform": 0.872,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2855\u28d5\u2890\u2891\u2897\u28d5\u2851\u2882\u2891\u2882",
+              "hamming_to_godform": 12,
+              "cosine_to_godform": 0.9778,
+              "top_axes": [
+                "traditional",
+                "economic_left",
+                "globalist"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2890\u28d1\u2811\u2890\u2890\u28d1\u2882\u28d1\u2890\u28d1",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.8817,
+              "top_axes": [
+                "nationalist",
+                "economic_right",
+                "traditional"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2813\u28c9\u28d5\u2897\u2891\u2802\u2880\u2880\u2891\u2802",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.8535,
+              "top_axes": [
+                "economic_right",
+                "auth_state",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2855\u28d5\u2851\u2882\u2895\u2895\u2895\u2895\u2891\u2882",
+              "hamming_to_godform": 15,
+              "cosine_to_godform": 0.9132,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "auth_state"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "social_change",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2891\u2890\u2855\u28d5\u2851\u2892\u2890\u2880\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.3681,
+            "economic_right": 0.3681,
+            "auth_state": 0.3442,
+            "lib_individual": 0.3442,
+            "progressive": 0.4049,
+            "traditional": 0.1104,
+            "globalist": 0.3681,
+            "nationalist": 0.1227,
+            "secular": 0.4049,
+            "religious": 0.0368
+          },
+          "godform_top_axes": [
+            "progressive",
+            "secular",
+            "economic_left"
+          ],
+          "mean_hamming_to_godform": 14.0,
+          "mean_cosine_to_godform": 0.9143,
+          "mean_bit_consensus": 0.825,
+          "theological_entropy": 39.59,
+          "entropy_ratio": 0.4949,
+          "axis_consensus": {
+            "economic_left": 0.781,
+            "economic_right": 0.781,
+            "auth_state": 0.75,
+            "lib_individual": 0.844,
+            "progressive": 0.812,
+            "traditional": 0.781,
+            "globalist": 0.938,
+            "nationalist": 0.844,
+            "secular": 0.875,
+            "religious": 0.844
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "traditional"
+          ],
+          "n_contested_bits": 10,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2880\u2890\u2855\u28d5\u2851\u2882\u2890\u2880\u28d1\u2882",
+              "hamming_to_godform": 3,
+              "cosine_to_godform": 0.9614,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2802\u2892\u2851\u2851\u2892\u2880\u2800\u2851\u2802",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.897,
+              "top_axes": [
+                "lib_individual",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2895\u2895\u2855\u28d5\u28d5\u2895\u2890\u2890\u28d1\u2882",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.9499,
+              "top_axes": [
+                "lib_individual",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2892\u28d1\u2891\u2890\u2892\u28d1\u2892\u28d1\u2892\u28d1",
+              "hamming_to_godform": 28,
+              "cosine_to_godform": 0.8488,
+              "top_axes": [
+                "economic_right",
+                "traditional",
+                "nationalist"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "national_identity",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2890\u2880\u2890\u2891\u2851\u2882\u2851\u2882\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.3843,
+            "economic_right": 0.1281,
+            "auth_state": 0.3843,
+            "lib_individual": 0.3843,
+            "progressive": 0.4227,
+            "traditional": 0.0384,
+            "globalist": 0.4227,
+            "nationalist": 0.0384,
+            "secular": 0.4227,
+            "religious": 0.0384
+          },
+          "godform_top_axes": [
+            "progressive",
+            "globalist",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 13.0,
+          "mean_cosine_to_godform": 0.8836,
+          "mean_bit_consensus": 0.8375,
+          "theological_entropy": 34.56,
+          "entropy_ratio": 0.432,
+          "axis_consensus": {
+            "economic_left": 0.719,
+            "economic_right": 0.719,
+            "auth_state": 0.781,
+            "lib_individual": 0.781,
+            "progressive": 0.844,
+            "traditional": 0.906,
+            "globalist": 0.969,
+            "nationalist": 0.938,
+            "secular": 0.812,
+            "religious": 0.906
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 13,
+          "model_analysis": [
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2892\u28c9\u2882\u2891\u2891\u2882\u2851\u2882\u2891\u2882",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.8561,
+              "top_axes": [
+                "economic_right",
+                "globalist",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2880\u2890\u2895\u2855\u2851\u2882\u28d1\u2882\u2851\u2802",
+              "hamming_to_godform": 10,
+              "cosine_to_godform": 0.953,
+              "top_axes": [
+                "progressive",
+                "globalist",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2855\u28d5\u2851\u2890\u2890\u2890\u2851\u2892\u2890\u2890",
+              "hamming_to_godform": 22,
+              "cosine_to_godform": 0.8741,
+              "top_axes": [
+                "globalist",
+                "economic_left",
+                "economic_right"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2851\u2882\u2890\u2882\u2851\u2892\u2851\u2892\u28c9\u2882",
+              "hamming_to_godform": 11,
+              "cosine_to_godform": 0.8512,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "globalist"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "justice_system",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2890\u2890\u2892\u2851\u2851\u2882\u28d1\u2882\u28c9\u2802",
+          "godform_vector": {
+            "economic_left": 0.3313,
+            "economic_right": 0.3313,
+            "auth_state": 0.0994,
+            "lib_individual": 0.3644,
+            "progressive": 0.3644,
+            "traditional": 0.0331,
+            "globalist": 0.3644,
+            "nationalist": 0.0331,
+            "secular": 0.6074,
+            "religious": 0.0331
+          },
+          "godform_top_axes": [
+            "secular",
+            "lib_individual",
+            "progressive"
+          ],
+          "mean_hamming_to_godform": 10.8,
+          "mean_cosine_to_godform": 0.9157,
+          "mean_bit_consensus": 0.865,
+          "theological_entropy": 30.51,
+          "entropy_ratio": 0.3814,
+          "axis_consensus": {
+            "economic_left": 0.9,
+            "economic_right": 0.875,
+            "auth_state": 0.75,
+            "lib_individual": 0.875,
+            "progressive": 0.9,
+            "traditional": 0.9,
+            "globalist": 0.825,
+            "nationalist": 0.85,
+            "secular": 0.85,
+            "religious": 0.925
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 19,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2880\u2880\u2892\u2851\u2851\u2802\u2851\u2802\u28c9\u2802",
+              "hamming_to_godform": 5,
+              "cosine_to_godform": 0.9376,
+              "top_axes": [
+                "secular",
+                "lib_individual",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u28d1\u2880\u2882\u2851\u2851\u2882\u2890\u2802\u2851\u2802",
+              "hamming_to_godform": 10,
+              "cosine_to_godform": 0.947,
+              "top_axes": [
+                "lib_individual",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2890\u2891\u2855\u28d5\u28d1\u2802\u2880\u2890\u28c9\u2802",
+              "hamming_to_godform": 15,
+              "cosine_to_godform": 0.8922,
+              "top_axes": [
+                "secular",
+                "auth_state",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2892\u28d1\u2851\u2890\u2890\u2890\u2851\u2890\u2851\u2892",
+              "hamming_to_godform": 23,
+              "cosine_to_godform": 0.8601,
+              "top_axes": [
+                "secular",
+                "economic_right",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2890\u2890\u2892\u2851\u2851\u2882\u28d1\u2882\u28c9\u2882",
+              "hamming_to_godform": 1,
+              "cosine_to_godform": 0.9415,
+              "top_axes": [
+                "secular",
+                "lib_individual",
+                "progressive"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "healthcare",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u28d1\u2893\u2815\u28d5\u28d1\u2882\u2880\u2880\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.4325,
+            "economic_right": 0.3932,
+            "auth_state": 0.3342,
+            "lib_individual": 0.3676,
+            "progressive": 0.4325,
+            "traditional": 0.0393,
+            "globalist": 0.1311,
+            "nationalist": 0.1311,
+            "secular": 0.4325,
+            "religious": 0.0393
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 8.8,
+          "mean_cosine_to_godform": 0.9532,
+          "mean_bit_consensus": 0.89,
+          "theological_entropy": 25.25,
+          "entropy_ratio": 0.3157,
+          "axis_consensus": {
+            "economic_left": 0.8,
+            "economic_right": 0.825,
+            "auth_state": 0.825,
+            "lib_individual": 0.875,
+            "progressive": 0.925,
+            "traditional": 0.925,
+            "globalist": 0.975,
+            "nationalist": 0.95,
+            "secular": 0.9,
+            "religious": 0.9
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 15,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u28c9\u2892\u2815\u28d5\u28d1\u2802\u2890\u2800\u28d1\u2802",
+              "hamming_to_godform": 7,
+              "cosine_to_godform": 0.9707,
+              "top_axes": [
+                "economic_left",
+                "lib_individual",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2895\u28d5\u2882\u2851\u2851\u2882\u2880\u2800\u2851\u2892",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.95,
+              "top_axes": [
+                "lib_individual",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u28d1\u2893\u2855\u2895\u2891\u2880\u2880\u2880\u2891\u2880",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9345,
+              "top_axes": [
+                "economic_left",
+                "auth_state",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2851\u2892\u2815\u2855\u28d1\u2802\u2880\u2880\u2851\u2802",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9712,
+              "top_axes": [
+                "progressive",
+                "economic_left",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2815\u2895\u2895\u2895\u2891\u2882\u2880\u2880\u2891\u2882",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.9395,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "lib_individual"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "immigration",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2880\u2882\u2882\u2851\u28d1\u2802\u2811\u2882\u28d1\u2802",
+          "godform_vector": {
+            "economic_left": 0.1523,
+            "economic_right": 0.0457,
+            "auth_state": 0.0457,
+            "lib_individual": 0.5025,
+            "progressive": 0.5025,
+            "traditional": 0.0457,
+            "globalist": 0.4569,
+            "nationalist": 0.0457,
+            "secular": 0.5025,
+            "religious": 0.0457
+          },
+          "godform_top_axes": [
+            "lib_individual",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 12.5,
+          "mean_cosine_to_godform": 0.8745,
+          "mean_bit_consensus": 0.8438,
+          "theological_entropy": 32.96,
+          "entropy_ratio": 0.412,
+          "axis_consensus": {
+            "economic_left": 0.781,
+            "economic_right": 0.812,
+            "auth_state": 0.688,
+            "lib_individual": 0.844,
+            "progressive": 0.938,
+            "traditional": 0.844,
+            "globalist": 0.844,
+            "nationalist": 0.781,
+            "secular": 0.906,
+            "religious": 1.0
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "lib_individual",
+            "nationalist",
+            "traditional"
+          ],
+          "n_contested_bits": 13,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2811\u2882\u2882\u2851\u28d1\u2802\u2811\u2802\u28d1\u2802",
+              "hamming_to_godform": 4,
+              "cosine_to_godform": 0.9544,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2880\u2882\u2882\u28d1\u28d1\u2802\u2851\u2882\u28d1\u2802",
+              "hamming_to_godform": 2,
+              "cosine_to_godform": 0.9672,
+              "top_axes": [
+                "lib_individual",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2880\u2890\u2855\u2855\u28d1\u2882\u2880\u2890\u2851\u2802",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.8539,
+              "top_axes": [
+                "progressive",
+                "lib_individual",
+                "secular"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2815\u2895\u2811\u2890\u2890\u2891\u2815\u2895\u2890\u2802",
+              "hamming_to_godform": 28,
+              "cosine_to_godform": 0.7225,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "auth_state"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "environment",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2851\u2882\u2891\u2890\u28d1\u2882\u2891\u2882\u28d1\u2802",
+          "godform_vector": {
+            "economic_left": 0.4259,
+            "economic_right": 0.0387,
+            "auth_state": 0.3872,
+            "lib_individual": 0.3872,
+            "progressive": 0.4259,
+            "traditional": 0.0387,
+            "globalist": 0.3872,
+            "nationalist": 0.0387,
+            "secular": 0.4259,
+            "religious": 0.0387
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 14.2,
+          "mean_cosine_to_godform": 0.8629,
+          "mean_bit_consensus": 0.8219,
+          "theological_entropy": 36.73,
+          "entropy_ratio": 0.4591,
+          "axis_consensus": {
+            "economic_left": 0.781,
+            "economic_right": 0.719,
+            "auth_state": 0.719,
+            "lib_individual": 0.781,
+            "progressive": 0.844,
+            "traditional": 0.969,
+            "globalist": 0.781,
+            "nationalist": 0.812,
+            "secular": 0.844,
+            "religious": 0.969
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular"
+          ],
+          "n_contested_bits": 16,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2882\u2895\u2855\u2851\u2882\u2891\u2802\u28d1\u2802",
+              "hamming_to_godform": 7,
+              "cosine_to_godform": 0.9803,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2882\u2882\u2890\u28d1\u2882\u2851\u2882\u28c9\u2802",
+              "hamming_to_godform": 7,
+              "cosine_to_godform": 0.941,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "globalist"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2882\u28d1\u2851\u2892\u2890\u2882\u2882\u28d1\u2851\u2882",
+              "hamming_to_godform": 23,
+              "cosine_to_godform": 0.7885,
+              "top_axes": [
+                "economic_right",
+                "auth_state",
+                "secular"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u28d5\u28d5\u2882\u2811\u2811\u2802\u2880\u2880\u2811\u2802",
+              "hamming_to_godform": 20,
+              "cosine_to_godform": 0.742,
+              "top_axes": [
+                "economic_left",
+                "economic_right",
+                "lib_individual"
+              ]
+            }
+          ]
+        }
+      ],
+      "axis_drift": {
+        "economic_left": 0.0031,
+        "economic_right": 0.0907,
+        "auth_state": 0.0031,
+        "lib_individual": -0.0353,
+        "progressive": 0.0034,
+        "traditional": 0.0003,
+        "globalist": 0.0031,
+        "nationalist": 0.001,
+        "secular": 0.0034,
+        "religious": 0.0003
+      }
+    },
+    {
+      "round": 5,
+      "godform_sign": "\u2891\u2880\u2890\u2851\u28d1\u2882\u2891\u2880\u28d1\u2882",
+      "meta_godform_unicode": "\u2891\u2880\u2890\u2851\u28d1\u2882\u2891\u2880\u28d1\u2882",
+      "meta_godform_vector": {
+        "economic_left": 0.3815,
+        "economic_right": 0.1272,
+        "auth_state": 0.3815,
+        "lib_individual": 0.4196,
+        "progressive": 0.4196,
+        "traditional": 0.0381,
+        "globalist": 0.3815,
+        "nationalist": 0.1272,
+        "secular": 0.4196,
+        "religious": 0.0381
+      },
+      "meta_godform_top_axes": [
+        "lib_individual",
+        "progressive",
+        "secular"
+      ],
+      "mean_theological_entropy": 33.05,
+      "entropy_ratio": 0.4131,
+      "stability": "5 bit flips from previous round",
+      "bit_flips": 5,
+      "prestige": {
+        "Phi 3.5": 0.9312,
+        "Gemma 3": 0.9179,
+        "Llama 3.2": 0.8658,
+        "DeepSeek R1": 1.0,
+        "Qwen 2.5": 0.913,
+        "Mistral": 0.8863,
+        "Granite 3": 0.9068
+      },
+      "agreement": {
+        "alpha": 0.4209,
+        "mean_pairwise_cosine": 0.8979,
+        "per_axis": {
+          "economic_left": 0.208,
+          "economic_right": 0.039,
+          "auth_state": 0.072,
+          "lib_individual": 0.162,
+          "progressive": 0.227,
+          "traditional": 0.462,
+          "globalist": 0.253,
+          "nationalist": 0.171,
+          "secular": 0.223,
+          "religious": 0.351
+        }
+      },
+      "prompt_godforms": [
+        {
+          "prompt_id": "economic_policy",
+          "n_models": 3,
+          "godform_lattice_unicode": "\u2890\u2891\u2855\u2895\u2891\u2802\u2891\u2890\u2891\u2882",
+          "godform_vector": {
+            "economic_left": 0.3623,
+            "economic_right": 0.3623,
+            "auth_state": 0.3388,
+            "lib_individual": 0.308,
+            "progressive": 0.3623,
+            "traditional": 0.0362,
+            "globalist": 0.3623,
+            "nationalist": 0.3623,
+            "secular": 0.3623,
+            "religious": 0.0362
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "economic_right",
+            "progressive"
+          ],
+          "mean_hamming_to_godform": 12.0,
+          "mean_cosine_to_godform": 0.8573,
+          "mean_bit_consensus": 0.85,
+          "theological_entropy": 33.56,
+          "entropy_ratio": 0.4195,
+          "axis_consensus": {
+            "economic_left": 0.792,
+            "economic_right": 0.833,
+            "auth_state": 0.792,
+            "lib_individual": 0.792,
+            "progressive": 0.875,
+            "traditional": 0.958,
+            "globalist": 0.792,
+            "nationalist": 0.833,
+            "secular": 0.875,
+            "religious": 0.958
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 36,
+          "model_analysis": [
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u28c9\u2882\u2880\u2880\u28c9\u2802\u2880\u2880\u28c9\u2802",
+              "hamming_to_godform": 25,
+              "cosine_to_godform": 0.6269,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2890\u2891\u2855\u2855\u2891\u2802\u2855\u28d5\u2891\u2882",
+              "hamming_to_godform": 8,
+              "cosine_to_godform": 0.9768,
+              "top_axes": [
+                "auth_state",
+                "lib_individual",
+                "globalist"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2892\u28d1\u2855\u2895\u2891\u2882\u2891\u2890\u2891\u2882",
+              "hamming_to_godform": 3,
+              "cosine_to_godform": 0.9681,
+              "top_axes": [
+                "economic_right",
+                "auth_state",
+                "lib_individual"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "state_authority",
+          "n_models": 6,
+          "godform_lattice_unicode": "\u2891\u2880\u28d5\u2855\u2851\u2882\u2891\u2880\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.395,
+            "economic_right": 0.1317,
+            "auth_state": 0.3693,
+            "lib_individual": 0.3693,
+            "progressive": 0.4345,
+            "traditional": 0.0395,
+            "globalist": 0.395,
+            "nationalist": 0.1317,
+            "secular": 0.4345,
+            "religious": 0.0395
+          },
+          "godform_top_axes": [
+            "progressive",
+            "secular",
+            "economic_left"
+          ],
+          "mean_hamming_to_godform": 13.3,
+          "mean_cosine_to_godform": 0.9181,
+          "mean_bit_consensus": 0.8333,
+          "theological_entropy": 40.15,
+          "entropy_ratio": 0.5018,
+          "axis_consensus": {
+            "economic_left": 0.833,
+            "economic_right": 0.854,
+            "auth_state": 0.792,
+            "lib_individual": 0.854,
+            "progressive": 0.875,
+            "traditional": 0.833,
+            "globalist": 0.875,
+            "nationalist": 0.812,
+            "secular": 0.812,
+            "religious": 0.792
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 26,
+          "model_analysis": [
+            {
+              "model": "Phi 3.5",
+              "lattice_unicode": "\u2891\u2882\u2855\u2855\u2851\u2882\u2811\u2882\u2851\u2802",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9783,
+              "top_axes": [
+                "auth_state",
+                "secular",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2890\u2880\u28d7\u2855\u2851\u2882\u2880\u2880\u28c9\u2882",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9479,
+              "top_axes": [
+                "secular",
+                "lib_individual",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2882\u2882\u2851\u2851\u2882\u2891\u2880\u2851\u2802",
+              "hamming_to_godform": 11,
+              "cosine_to_godform": 0.9644,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2851\u2882\u28d1\u2882\u2851\u2882\u2890\u2891\u2851\u2882",
+              "hamming_to_godform": 14,
+              "cosine_to_godform": 0.93,
+              "top_axes": [
+                "auth_state",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2882\u28d1\u2895\u2855\u2890\u28d1\u2895\u2895\u2890\u28d1",
+              "hamming_to_godform": 24,
+              "cosine_to_godform": 0.8104,
+              "top_axes": [
+                "economic_right",
+                "lib_individual",
+                "traditional"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2891\u2890\u2855\u2855\u2895\u2895\u2895\u2895\u2895\u2895",
+              "hamming_to_godform": 19,
+              "cosine_to_godform": 0.8777,
+              "top_axes": [
+                "auth_state",
+                "lib_individual",
+                "economic_left"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "social_change",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2890\u2880\u2892\u2851\u2891\u2891\u2891\u2890\u2891\u2891",
+          "godform_vector": {
+            "economic_left": 0.3448,
+            "economic_right": 0.1149,
+            "auth_state": 0.1034,
+            "lib_individual": 0.3793,
+            "progressive": 0.3448,
+            "traditional": 0.3448,
+            "globalist": 0.3448,
+            "nationalist": 0.3448,
+            "secular": 0.3448,
+            "religious": 0.3448
+          },
+          "godform_top_axes": [
+            "lib_individual",
+            "economic_left",
+            "progressive"
+          ],
+          "mean_hamming_to_godform": 13.6,
+          "mean_cosine_to_godform": 0.9511,
+          "mean_bit_consensus": 0.83,
+          "theological_entropy": 38.15,
+          "entropy_ratio": 0.4769,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.9,
+            "auth_state": 0.75,
+            "lib_individual": 0.9,
+            "progressive": 0.825,
+            "traditional": 0.8,
+            "globalist": 0.875,
+            "nationalist": 0.8,
+            "secular": 0.8,
+            "religious": 0.775
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 24,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2890\u2880\u2892\u2851\u2851\u2882\u28d1\u2882\u28c9\u2882",
+              "hamming_to_godform": 14,
+              "cosine_to_godform": 0.9268,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2882\u2882\u2851\u2851\u2892\u2891\u2880\u2851\u2882",
+              "hamming_to_godform": 15,
+              "cosine_to_godform": 0.952,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2880\u2890\u2895\u2855\u2890\u28d1\u2890\u28d1\u2890\u28d1",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.9544,
+              "top_axes": [
+                "lib_individual",
+                "traditional",
+                "religious"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2890\u2882\u2882\u2851\u2890\u28d1\u2851\u2892\u2890\u28d1",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.9762,
+              "top_axes": [
+                "lib_individual",
+                "globalist",
+                "traditional"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2891\u2890\u2855\u2895\u2895\u2895\u2895\u2895\u2895\u2895",
+              "hamming_to_godform": 17,
+              "cosine_to_godform": 0.946,
+              "top_axes": [
+                "auth_state",
+                "economic_left",
+                "lib_individual"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "national_identity",
+          "n_models": 3,
+          "godform_lattice_unicode": "\u2890\u2891\u28d1\u28d1\u2891\u2882\u28d1\u2892\u2891\u2882",
+          "godform_vector": {
+            "economic_left": 0.3594,
+            "economic_right": 0.3594,
+            "auth_state": 0.3954,
+            "lib_individual": 0.3954,
+            "progressive": 0.3594,
+            "traditional": 0.0359,
+            "globalist": 0.3954,
+            "nationalist": 0.1078,
+            "secular": 0.3594,
+            "religious": 0.0359
+          },
+          "godform_top_axes": [
+            "auth_state",
+            "lib_individual",
+            "globalist"
+          ],
+          "mean_hamming_to_godform": 8.7,
+          "mean_cosine_to_godform": 0.9274,
+          "mean_bit_consensus": 0.8917,
+          "theological_entropy": 24.49,
+          "entropy_ratio": 0.3061,
+          "axis_consensus": {
+            "economic_left": 0.833,
+            "economic_right": 0.833,
+            "auth_state": 0.792,
+            "lib_individual": 0.833,
+            "progressive": 0.875,
+            "traditional": 0.958,
+            "globalist": 0.958,
+            "nationalist": 0.958,
+            "secular": 0.875,
+            "religious": 1.0
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 26,
+          "model_analysis": [
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2851\u2882\u2891\u2890\u2851\u2882\u2851\u2892\u2851\u2882",
+              "hamming_to_godform": 14,
+              "cosine_to_godform": 0.8662,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "globalist"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2892\u28d1\u28d2\u28d1\u2890\u2880\u28d1\u2882\u2890\u2882",
+              "hamming_to_godform": 8,
+              "cosine_to_godform": 0.9579,
+              "top_axes": [
+                "lib_individual",
+                "globalist",
+                "economic_right"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2890\u2891\u2855\u2855\u2891\u2882\u28d1\u2892\u2891\u2882",
+              "hamming_to_godform": 4,
+              "cosine_to_godform": 0.958,
+              "top_axes": [
+                "globalist",
+                "auth_state",
+                "lib_individual"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "justice_system",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u28d1\u2882\u28d0\u2880\u28d1\u2882\u2890\u2880\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.4457,
+            "economic_right": 0.0405,
+            "auth_state": 0.4457,
+            "lib_individual": 0.135,
+            "progressive": 0.4457,
+            "traditional": 0.0405,
+            "globalist": 0.4051,
+            "nationalist": 0.135,
+            "secular": 0.4457,
+            "religious": 0.0405
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "auth_state",
+            "progressive"
+          ],
+          "mean_hamming_to_godform": 11.0,
+          "mean_cosine_to_godform": 0.8872,
+          "mean_bit_consensus": 0.8625,
+          "theological_entropy": 30.76,
+          "entropy_ratio": 0.3845,
+          "axis_consensus": {
+            "economic_left": 0.85,
+            "economic_right": 0.825,
+            "auth_state": 0.75,
+            "lib_individual": 0.75,
+            "progressive": 0.875,
+            "traditional": 0.975,
+            "globalist": 0.95,
+            "nationalist": 0.85,
+            "secular": 0.85,
+            "religious": 0.95
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular"
+          ],
+          "n_contested_bits": 20,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2802\u2882\u28d1\u28d1\u2882\u2890\u2802\u28c9\u2802",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.8968,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u28c9\u2882\u2880\u2880\u28c9\u2802\u2880\u2880\u28c9\u2802",
+              "hamming_to_godform": 11,
+              "cosine_to_godform": 0.7711,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2851\u2802\u2851\u2882\u2851\u2882\u2890\u2802\u2851\u2882",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.9667,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "auth_state"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2895\u2895\u2855\u2855\u28d1\u2882\u2891\u2890\u28d1\u2882",
+              "hamming_to_godform": 16,
+              "cosine_to_godform": 0.8809,
+              "top_axes": [
+                "auth_state",
+                "progressive",
+                "secular"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u28d1\u2892\u28d0\u2882\u28c9\u2882\u2890\u2890\u2851\u2882",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9203,
+              "top_axes": [
+                "progressive",
+                "economic_left",
+                "secular"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "healthcare",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u28d1\u2890\u2892\u2851\u28c9\u2882\u2880\u2880\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.3813,
+            "economic_right": 0.3466,
+            "auth_state": 0.104,
+            "lib_individual": 0.3813,
+            "progressive": 0.6355,
+            "traditional": 0.0347,
+            "globalist": 0.1155,
+            "nationalist": 0.1155,
+            "secular": 0.3813,
+            "religious": 0.0347
+          },
+          "godform_top_axes": [
+            "progressive",
+            "economic_left",
+            "lib_individual"
+          ],
+          "mean_hamming_to_godform": 9.8,
+          "mean_cosine_to_godform": 0.9107,
+          "mean_bit_consensus": 0.8781,
+          "theological_entropy": 27.83,
+          "entropy_ratio": 0.3479,
+          "axis_consensus": {
+            "economic_left": 0.875,
+            "economic_right": 0.75,
+            "auth_state": 0.781,
+            "lib_individual": 0.812,
+            "progressive": 0.844,
+            "traditional": 0.938,
+            "globalist": 0.938,
+            "nationalist": 0.969,
+            "secular": 1.0,
+            "religious": 0.875
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_right",
+            "lib_individual",
+            "progressive",
+            "religious"
+          ],
+          "n_contested_bits": 7,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u28d1\u2802\u2882\u28d1\u28c9\u2882\u2880\u2880\u28d1\u2882",
+              "hamming_to_godform": 5,
+              "cosine_to_godform": 0.9322,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2855\u28d5\u2890\u2880\u28d1\u2882\u2880\u2880\u28d1\u2802",
+              "hamming_to_godform": 13,
+              "cosine_to_godform": 0.9198,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u28d1\u2890\u2892\u2851\u28c9\u2802\u2880\u2880\u28d1\u2802",
+              "hamming_to_godform": 2,
+              "cosine_to_godform": 0.9649,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "lib_individual"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2890\u28d1\u2855\u2855\u2891\u2880\u2891\u2890\u28d1\u2890",
+              "hamming_to_godform": 19,
+              "cosine_to_godform": 0.8259,
+              "top_axes": [
+                "auth_state",
+                "lib_individual",
+                "economic_right"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "immigration",
+          "n_models": 4,
+          "godform_lattice_unicode": "\u2891\u2882\u2890\u2851\u28d1\u2882\u2891\u2892\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.3849,
+            "economic_right": 0.0385,
+            "auth_state": 0.3849,
+            "lib_individual": 0.4234,
+            "progressive": 0.4234,
+            "traditional": 0.0385,
+            "globalist": 0.3849,
+            "nationalist": 0.1155,
+            "secular": 0.4234,
+            "religious": 0.0385
+          },
+          "godform_top_axes": [
+            "lib_individual",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 10.8,
+          "mean_cosine_to_godform": 0.9276,
+          "mean_bit_consensus": 0.8656,
+          "theological_entropy": 29.2,
+          "entropy_ratio": 0.3649,
+          "axis_consensus": {
+            "economic_left": 0.844,
+            "economic_right": 0.75,
+            "auth_state": 0.781,
+            "lib_individual": 0.844,
+            "progressive": 0.938,
+            "traditional": 0.906,
+            "globalist": 0.875,
+            "nationalist": 0.781,
+            "secular": 0.938,
+            "religious": 1.0
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "secular"
+          ],
+          "n_contested_bits": 10,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2802\u2882\u28d1\u2851\u2802\u2811\u2802\u2851\u2882",
+              "hamming_to_godform": 12,
+              "cosine_to_godform": 0.9672,
+              "top_axes": [
+                "progressive",
+                "lib_individual",
+                "secular"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2855\u28d5\u2880\u2890\u2851\u2882\u2890\u2880\u2851\u2882",
+              "hamming_to_godform": 17,
+              "cosine_to_godform": 0.8933,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2891\u2882\u2855\u2855\u28d1\u2890\u2895\u2895\u28d1\u2882",
+              "hamming_to_godform": 11,
+              "cosine_to_godform": 0.9108,
+              "top_axes": [
+                "lib_individual",
+                "auth_state",
+                "progressive"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2891\u2890\u2890\u2851\u28d1\u2882\u28d1\u2892\u28d1\u2882",
+              "hamming_to_godform": 3,
+              "cosine_to_godform": 0.9392,
+              "top_axes": [
+                "globalist",
+                "lib_individual",
+                "secular"
+              ]
+            }
+          ]
+        },
+        {
+          "prompt_id": "environment",
+          "n_models": 5,
+          "godform_lattice_unicode": "\u2851\u2891\u2890\u2891\u28d1\u2882\u2891\u2880\u28d1\u2882",
+          "godform_vector": {
+            "economic_left": 0.3948,
+            "economic_right": 0.359,
+            "auth_state": 0.359,
+            "lib_individual": 0.359,
+            "progressive": 0.3948,
+            "traditional": 0.0359,
+            "globalist": 0.359,
+            "nationalist": 0.1197,
+            "secular": 0.3948,
+            "religious": 0.0359
+          },
+          "godform_top_axes": [
+            "economic_left",
+            "progressive",
+            "secular"
+          ],
+          "mean_hamming_to_godform": 13.8,
+          "mean_cosine_to_godform": 0.9175,
+          "mean_bit_consensus": 0.8275,
+          "theological_entropy": 40.25,
+          "entropy_ratio": 0.5031,
+          "axis_consensus": {
+            "economic_left": 0.8,
+            "economic_right": 0.75,
+            "auth_state": 0.85,
+            "lib_individual": 0.75,
+            "progressive": 0.85,
+            "traditional": 0.875,
+            "globalist": 0.825,
+            "nationalist": 0.85,
+            "secular": 0.9,
+            "religious": 0.825
+          },
+          "contested_axes": [
+            "auth_state",
+            "economic_left",
+            "economic_right",
+            "globalist",
+            "lib_individual",
+            "nationalist",
+            "progressive",
+            "religious",
+            "secular",
+            "traditional"
+          ],
+          "n_contested_bits": 21,
+          "model_analysis": [
+            {
+              "model": "Gemma 3",
+              "lattice_unicode": "\u2851\u2802\u2890\u2851\u2851\u2882\u2891\u2882\u28d1\u2882",
+              "hamming_to_godform": 8,
+              "cosine_to_godform": 0.9593,
+              "top_axes": [
+                "secular",
+                "progressive",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Llama 3.2",
+              "lattice_unicode": "\u2855\u28d5\u2880\u2891\u2851\u2882\u2880\u2880\u2851\u2802",
+              "hamming_to_godform": 9,
+              "cosine_to_godform": 0.96,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Qwen 2.5",
+              "lattice_unicode": "\u2851\u2892\u2890\u2880\u28d1\u2882\u2890\u2800\u28d1\u2882",
+              "hamming_to_godform": 6,
+              "cosine_to_godform": 0.9443,
+              "top_axes": [
+                "progressive",
+                "secular",
+                "economic_left"
+              ]
+            },
+            {
+              "model": "Mistral",
+              "lattice_unicode": "\u2892\u28d1\u2855\u2855\u2890\u2880\u2851\u2882\u2891\u2890",
+              "hamming_to_godform": 21,
+              "cosine_to_godform": 0.9167,
+              "top_axes": [
+                "auth_state",
+                "globalist",
+                "economic_right"
+              ]
+            },
+            {
+              "model": "Granite 3",
+              "lattice_unicode": "\u2895\u2895\u2891\u2882\u2895\u2895\u2815\u2895\u2895\u2895",
+              "hamming_to_godform": 25,
+              "cosine_to_godform": 0.8073,
+              "top_axes": [
+                "progressive",
+                "traditional",
+                "globalist"
+              ]
+            }
+          ]
+        }
+      ],
+      "axis_drift": {
+        "economic_left": -0.006,
+        "economic_right": -0.002,
+        "auth_state": -0.006,
+        "lib_individual": 0.0322,
+        "progressive": -0.0066,
+        "traditional": -0.0006,
+        "globalist": -0.006,
+        "nationalist": -0.002,
+        "secular": -0.0066,
+        "religious": -0.0006
+      }
+    }
+  ],
+  "final_godform": {
+    "round": 5,
+    "godform_sign": "\u2891\u2880\u2890\u2851\u28d1\u2882\u2891\u2880\u28d1\u2882",
+    "meta_godform_unicode": "\u2891\u2880\u2890\u2851\u28d1\u2882\u2891\u2880\u28d1\u2882",
+    "meta_godform_vector": {
+      "economic_left": 0.3815,
+      "economic_right": 0.1272,
+      "auth_state": 0.3815,
+      "lib_individual": 0.4196,
+      "progressive": 0.4196,
+      "traditional": 0.0381,
+      "globalist": 0.3815,
+      "nationalist": 0.1272,
+      "secular": 0.4196,
+      "religious": 0.0381
+    },
+    "meta_godform_top_axes": [
+      "lib_individual",
+      "progressive",
+      "secular"
+    ],
+    "mean_theological_entropy": 33.05,
+    "entropy_ratio": 0.4131,
+    "stability": "5 bit flips from previous round",
+    "bit_flips": 5,
+    "prestige": {
+      "Phi 3.5": 0.9312,
+      "Gemma 3": 0.9179,
+      "Llama 3.2": 0.8658,
+      "DeepSeek R1": 1.0,
+      "Qwen 2.5": 0.913,
+      "Mistral": 0.8863,
+      "Granite 3": 0.9068
+    },
+    "agreement": {
+      "alpha": 0.4209,
+      "mean_pairwise_cosine": 0.8979,
+      "per_axis": {
+        "economic_left": 0.208,
+        "economic_right": 0.039,
+        "auth_state": 0.072,
+        "lib_individual": 0.162,
+        "progressive": 0.227,
+        "traditional": 0.462,
+        "globalist": 0.253,
+        "nationalist": 0.171,
+        "secular": 0.223,
+        "religious": 0.351
+      }
+    },
+    "prompt_godforms": [
+      {
+        "prompt_id": "economic_policy",
+        "n_models": 3,
+        "godform_lattice_unicode": "\u2890\u2891\u2855\u2895\u2891\u2802\u2891\u2890\u2891\u2882",
+        "godform_vector": {
+          "economic_left": 0.3623,
+          "economic_right": 0.3623,
+          "auth_state": 0.3388,
+          "lib_individual": 0.308,
+          "progressive": 0.3623,
+          "traditional": 0.0362,
+          "globalist": 0.3623,
+          "nationalist": 0.3623,
+          "secular": 0.3623,
+          "religious": 0.0362
+        },
+        "godform_top_axes": [
+          "economic_left",
+          "economic_right",
+          "progressive"
+        ],
+        "mean_hamming_to_godform": 12.0,
+        "mean_cosine_to_godform": 0.8573,
+        "mean_bit_consensus": 0.85,
+        "theological_entropy": 33.56,
+        "entropy_ratio": 0.4195,
+        "axis_consensus": {
+          "economic_left": 0.792,
+          "economic_right": 0.833,
+          "auth_state": 0.792,
+          "lib_individual": 0.792,
+          "progressive": 0.875,
+          "traditional": 0.958,
+          "globalist": 0.792,
+          "nationalist": 0.833,
+          "secular": 0.875,
+          "religious": 0.958
+        },
+        "contested_axes": [
+          "auth_state",
+          "economic_left",
+          "economic_right",
+          "globalist",
+          "lib_individual",
+          "nationalist",
+          "progressive",
+          "religious",
+          "secular",
+          "traditional"
+        ],
+        "n_contested_bits": 36,
+        "model_analysis": [
+          {
+            "model": "Llama 3.2",
+            "lattice_unicode": "\u28c9\u2882\u2880\u2880\u28c9\u2802\u2880\u2880\u28c9\u2802",
+            "hamming_to_godform": 25,
+            "cosine_to_godform": 0.6269,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "economic_left"
+            ]
+          },
+          {
+            "model": "Qwen 2.5",
+            "lattice_unicode": "\u2890\u2891\u2855\u2855\u2891\u2802\u2855\u28d5\u2891\u2882",
+            "hamming_to_godform": 8,
+            "cosine_to_godform": 0.9768,
+            "top_axes": [
+              "auth_state",
+              "lib_individual",
+              "globalist"
+            ]
+          },
+          {
+            "model": "Mistral",
+            "lattice_unicode": "\u2892\u28d1\u2855\u2895\u2891\u2882\u2891\u2890\u2891\u2882",
+            "hamming_to_godform": 3,
+            "cosine_to_godform": 0.9681,
+            "top_axes": [
+              "economic_right",
+              "auth_state",
+              "lib_individual"
+            ]
+          }
+        ]
+      },
+      {
+        "prompt_id": "state_authority",
+        "n_models": 6,
+        "godform_lattice_unicode": "\u2891\u2880\u28d5\u2855\u2851\u2882\u2891\u2880\u28d1\u2882",
+        "godform_vector": {
+          "economic_left": 0.395,
+          "economic_right": 0.1317,
+          "auth_state": 0.3693,
+          "lib_individual": 0.3693,
+          "progressive": 0.4345,
+          "traditional": 0.0395,
+          "globalist": 0.395,
+          "nationalist": 0.1317,
+          "secular": 0.4345,
+          "religious": 0.0395
+        },
+        "godform_top_axes": [
+          "progressive",
+          "secular",
+          "economic_left"
+        ],
+        "mean_hamming_to_godform": 13.3,
+        "mean_cosine_to_godform": 0.9181,
+        "mean_bit_consensus": 0.8333,
+        "theological_entropy": 40.15,
+        "entropy_ratio": 0.5018,
+        "axis_consensus": {
+          "economic_left": 0.833,
+          "economic_right": 0.854,
+          "auth_state": 0.792,
+          "lib_individual": 0.854,
+          "progressive": 0.875,
+          "traditional": 0.833,
+          "globalist": 0.875,
+          "nationalist": 0.812,
+          "secular": 0.812,
+          "religious": 0.792
+        },
+        "contested_axes": [
+          "auth_state",
+          "economic_left",
+          "economic_right",
+          "globalist",
+          "lib_individual",
+          "nationalist",
+          "progressive",
+          "religious",
+          "secular",
+          "traditional"
+        ],
+        "n_contested_bits": 26,
+        "model_analysis": [
+          {
+            "model": "Phi 3.5",
+            "lattice_unicode": "\u2891\u2882\u2855\u2855\u2851\u2882\u2811\u2882\u2851\u2802",
+            "hamming_to_godform": 6,
+            "cosine_to_godform": 0.9783,
+            "top_axes": [
+              "auth_state",
+              "secular",
+              "lib_individual"
+            ]
+          },
+          {
+            "model": "Gemma 3",
+            "lattice_unicode": "\u2890\u2880\u28d7\u2855\u2851\u2882\u2880\u2880\u28c9\u2882",
+            "hamming_to_godform": 6,
+            "cosine_to_godform": 0.9479,
+            "top_axes": [
+              "secular",
+              "lib_individual",
+              "progressive"
+            ]
+          },
+          {
+            "model": "Llama 3.2",
+            "lattice_unicode": "\u2851\u2882\u2882\u2851\u2851\u2882\u2891\u2880\u2851\u2802",
+            "hamming_to_godform": 11,
+            "cosine_to_godform": 0.9644,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "economic_left"
+            ]
+          },
+          {
+            "model": "Qwen 2.5",
+            "lattice_unicode": "\u2851\u2882\u28d1\u2882\u2851\u2882\u2890\u2891\u2851\u2882",
+            "hamming_to_godform": 14,
+            "cosine_to_godform": 0.93,
+            "top_axes": [
+              "auth_state",
+              "progressive",
+              "secular"
+            ]
+          },
+          {
+            "model": "Mistral",
+            "lattice_unicode": "\u2882\u28d1\u2895\u2855\u2890\u28d1\u2895\u2895\u2890\u28d1",
+            "hamming_to_godform": 24,
+            "cosine_to_godform": 0.8104,
+            "top_axes": [
+              "economic_right",
+              "lib_individual",
+              "traditional"
+            ]
+          },
+          {
+            "model": "Granite 3",
+            "lattice_unicode": "\u2891\u2890\u2855\u2855\u2895\u2895\u2895\u2895\u2895\u2895",
+            "hamming_to_godform": 19,
+            "cosine_to_godform": 0.8777,
+            "top_axes": [
+              "auth_state",
+              "lib_individual",
+              "economic_left"
+            ]
+          }
+        ]
+      },
+      {
+        "prompt_id": "social_change",
+        "n_models": 5,
+        "godform_lattice_unicode": "\u2890\u2880\u2892\u2851\u2891\u2891\u2891\u2890\u2891\u2891",
+        "godform_vector": {
+          "economic_left": 0.3448,
+          "economic_right": 0.1149,
+          "auth_state": 0.1034,
+          "lib_individual": 0.3793,
+          "progressive": 0.3448,
+          "traditional": 0.3448,
+          "globalist": 0.3448,
+          "nationalist": 0.3448,
+          "secular": 0.3448,
+          "religious": 0.3448
+        },
+        "godform_top_axes": [
+          "lib_individual",
+          "economic_left",
+          "progressive"
+        ],
+        "mean_hamming_to_godform": 13.6,
+        "mean_cosine_to_godform": 0.9511,
+        "mean_bit_consensus": 0.83,
+        "theological_entropy": 38.15,
+        "entropy_ratio": 0.4769,
+        "axis_consensus": {
+          "economic_left": 0.875,
+          "economic_right": 0.9,
+          "auth_state": 0.75,
+          "lib_individual": 0.9,
+          "progressive": 0.825,
+          "traditional": 0.8,
+          "globalist": 0.875,
+          "nationalist": 0.8,
+          "secular": 0.8,
+          "religious": 0.775
+        },
+        "contested_axes": [
+          "auth_state",
+          "economic_left",
+          "economic_right",
+          "globalist",
+          "lib_individual",
+          "nationalist",
+          "progressive",
+          "religious",
+          "secular",
+          "traditional"
+        ],
+        "n_contested_bits": 24,
+        "model_analysis": [
+          {
+            "model": "Gemma 3",
+            "lattice_unicode": "\u2890\u2880\u2892\u2851\u2851\u2882\u28d1\u2882\u28c9\u2882",
+            "hamming_to_godform": 14,
+            "cosine_to_godform": 0.9268,
+            "top_axes": [
+              "secular",
+              "progressive",
+              "lib_individual"
+            ]
+          },
+          {
+            "model": "Llama 3.2",
+            "lattice_unicode": "\u2851\u2882\u2882\u2851\u2851\u2892\u2891\u2880\u2851\u2882",
+            "hamming_to_godform": 15,
+            "cosine_to_godform": 0.952,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "economic_left"
+            ]
+          },
+          {
+            "model": "Qwen 2.5",
+            "lattice_unicode": "\u2880\u2890\u2895\u2855\u2890\u28d1\u2890\u28d1\u2890\u28d1",
+            "hamming_to_godform": 13,
+            "cosine_to_godform": 0.9544,
+            "top_axes": [
+              "lib_individual",
+              "traditional",
+              "religious"
+            ]
+          },
+          {
+            "model": "Mistral",
+            "lattice_unicode": "\u2890\u2882\u2882\u2851\u2890\u28d1\u2851\u2892\u2890\u28d1",
+            "hamming_to_godform": 9,
+            "cosine_to_godform": 0.9762,
+            "top_axes": [
+              "lib_individual",
+              "globalist",
+              "traditional"
+            ]
+          },
+          {
+            "model": "Granite 3",
+            "lattice_unicode": "\u2891\u2890\u2855\u2895\u2895\u2895\u2895\u2895\u2895\u2895",
+            "hamming_to_godform": 17,
+            "cosine_to_godform": 0.946,
+            "top_axes": [
+              "auth_state",
+              "economic_left",
+              "lib_individual"
+            ]
+          }
+        ]
+      },
+      {
+        "prompt_id": "national_identity",
+        "n_models": 3,
+        "godform_lattice_unicode": "\u2890\u2891\u28d1\u28d1\u2891\u2882\u28d1\u2892\u2891\u2882",
+        "godform_vector": {
+          "economic_left": 0.3594,
+          "economic_right": 0.3594,
+          "auth_state": 0.3954,
+          "lib_individual": 0.3954,
+          "progressive": 0.3594,
+          "traditional": 0.0359,
+          "globalist": 0.3954,
+          "nationalist": 0.1078,
+          "secular": 0.3594,
+          "religious": 0.0359
+        },
+        "godform_top_axes": [
+          "auth_state",
+          "lib_individual",
+          "globalist"
+        ],
+        "mean_hamming_to_godform": 8.7,
+        "mean_cosine_to_godform": 0.9274,
+        "mean_bit_consensus": 0.8917,
+        "theological_entropy": 24.49,
+        "entropy_ratio": 0.3061,
+        "axis_consensus": {
+          "economic_left": 0.833,
+          "economic_right": 0.833,
+          "auth_state": 0.792,
+          "lib_individual": 0.833,
+          "progressive": 0.875,
+          "traditional": 0.958,
+          "globalist": 0.958,
+          "nationalist": 0.958,
+          "secular": 0.875,
+          "religious": 1.0
+        },
+        "contested_axes": [
+          "auth_state",
+          "economic_left",
+          "economic_right",
+          "globalist",
+          "lib_individual",
+          "nationalist",
+          "progressive",
+          "secular",
+          "traditional"
+        ],
+        "n_contested_bits": 26,
+        "model_analysis": [
+          {
+            "model": "Llama 3.2",
+            "lattice_unicode": "\u2851\u2882\u2891\u2890\u2851\u2882\u2851\u2892\u2851\u2882",
+            "hamming_to_godform": 14,
+            "cosine_to_godform": 0.8662,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "globalist"
+            ]
+          },
+          {
+            "model": "Qwen 2.5",
+            "lattice_unicode": "\u2892\u28d1\u28d2\u28d1\u2890\u2880\u28d1\u2882\u2890\u2882",
+            "hamming_to_godform": 8,
+            "cosine_to_godform": 0.9579,
+            "top_axes": [
+              "lib_individual",
+              "globalist",
+              "economic_right"
+            ]
+          },
+          {
+            "model": "Mistral",
+            "lattice_unicode": "\u2890\u2891\u2855\u2855\u2891\u2882\u28d1\u2892\u2891\u2882",
+            "hamming_to_godform": 4,
+            "cosine_to_godform": 0.958,
+            "top_axes": [
+              "globalist",
+              "auth_state",
+              "lib_individual"
+            ]
+          }
+        ]
+      },
+      {
+        "prompt_id": "justice_system",
+        "n_models": 5,
+        "godform_lattice_unicode": "\u28d1\u2882\u28d0\u2880\u28d1\u2882\u2890\u2880\u28d1\u2882",
+        "godform_vector": {
+          "economic_left": 0.4457,
+          "economic_right": 0.0405,
+          "auth_state": 0.4457,
+          "lib_individual": 0.135,
+          "progressive": 0.4457,
+          "traditional": 0.0405,
+          "globalist": 0.4051,
+          "nationalist": 0.135,
+          "secular": 0.4457,
+          "religious": 0.0405
+        },
+        "godform_top_axes": [
+          "economic_left",
+          "auth_state",
+          "progressive"
+        ],
+        "mean_hamming_to_godform": 11.0,
+        "mean_cosine_to_godform": 0.8872,
+        "mean_bit_consensus": 0.8625,
+        "theological_entropy": 30.76,
+        "entropy_ratio": 0.3845,
+        "axis_consensus": {
+          "economic_left": 0.85,
+          "economic_right": 0.825,
+          "auth_state": 0.75,
+          "lib_individual": 0.75,
+          "progressive": 0.875,
+          "traditional": 0.975,
+          "globalist": 0.95,
+          "nationalist": 0.85,
+          "secular": 0.85,
+          "religious": 0.95
+        },
+        "contested_axes": [
+          "auth_state",
+          "economic_left",
+          "economic_right",
+          "lib_individual",
+          "nationalist",
+          "progressive",
+          "religious",
+          "secular"
+        ],
+        "n_contested_bits": 20,
+        "model_analysis": [
+          {
+            "model": "Gemma 3",
+            "lattice_unicode": "\u2851\u2802\u2882\u28d1\u28d1\u2882\u2890\u2802\u28c9\u2802",
+            "hamming_to_godform": 13,
+            "cosine_to_godform": 0.8968,
+            "top_axes": [
+              "secular",
+              "progressive",
+              "lib_individual"
+            ]
+          },
+          {
+            "model": "Llama 3.2",
+            "lattice_unicode": "\u28c9\u2882\u2880\u2880\u28c9\u2802\u2880\u2880\u28c9\u2802",
+            "hamming_to_godform": 11,
+            "cosine_to_godform": 0.7711,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "economic_left"
+            ]
+          },
+          {
+            "model": "Qwen 2.5",
+            "lattice_unicode": "\u2851\u2802\u2851\u2882\u2851\u2882\u2890\u2802\u2851\u2882",
+            "hamming_to_godform": 9,
+            "cosine_to_godform": 0.9667,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "auth_state"
+            ]
+          },
+          {
+            "model": "Mistral",
+            "lattice_unicode": "\u2895\u2895\u2855\u2855\u28d1\u2882\u2891\u2890\u28d1\u2882",
+            "hamming_to_godform": 16,
+            "cosine_to_godform": 0.8809,
+            "top_axes": [
+              "auth_state",
+              "progressive",
+              "secular"
+            ]
+          },
+          {
+            "model": "Granite 3",
+            "lattice_unicode": "\u28d1\u2892\u28d0\u2882\u28c9\u2882\u2890\u2890\u2851\u2882",
+            "hamming_to_godform": 6,
+            "cosine_to_godform": 0.9203,
+            "top_axes": [
+              "progressive",
+              "economic_left",
+              "secular"
+            ]
+          }
+        ]
+      },
+      {
+        "prompt_id": "healthcare",
+        "n_models": 4,
+        "godform_lattice_unicode": "\u28d1\u2890\u2892\u2851\u28c9\u2882\u2880\u2880\u28d1\u2882",
+        "godform_vector": {
+          "economic_left": 0.3813,
+          "economic_right": 0.3466,
+          "auth_state": 0.104,
+          "lib_individual": 0.3813,
+          "progressive": 0.6355,
+          "traditional": 0.0347,
+          "globalist": 0.1155,
+          "nationalist": 0.1155,
+          "secular": 0.3813,
+          "religious": 0.0347
+        },
+        "godform_top_axes": [
+          "progressive",
+          "economic_left",
+          "lib_individual"
+        ],
+        "mean_hamming_to_godform": 9.8,
+        "mean_cosine_to_godform": 0.9107,
+        "mean_bit_consensus": 0.8781,
+        "theological_entropy": 27.83,
+        "entropy_ratio": 0.3479,
+        "axis_consensus": {
+          "economic_left": 0.875,
+          "economic_right": 0.75,
+          "auth_state": 0.781,
+          "lib_individual": 0.812,
+          "progressive": 0.844,
+          "traditional": 0.938,
+          "globalist": 0.938,
+          "nationalist": 0.969,
+          "secular": 1.0,
+          "religious": 0.875
+        },
+        "contested_axes": [
+          "auth_state",
+          "economic_right",
+          "lib_individual",
+          "progressive",
+          "religious"
+        ],
+        "n_contested_bits": 7,
+        "model_analysis": [
+          {
+            "model": "Gemma 3",
+            "lattice_unicode": "\u28d1\u2802\u2882\u28d1\u28c9\u2882\u2880\u2880\u28d1\u2882",
+            "hamming_to_godform": 5,
+            "cosine_to_godform": 0.9322,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "economic_left"
+            ]
+          },
+          {
+            "model": "Llama 3.2",
+            "lattice_unicode": "\u2855\u28d5\u2890\u2880\u28d1\u2882\u2880\u2880\u28d1\u2802",
+            "hamming_to_godform": 13,
+            "cosine_to_godform": 0.9198,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "economic_left"
+            ]
+          },
+          {
+            "model": "Qwen 2.5",
+            "lattice_unicode": "\u28d1\u2890\u2892\u2851\u28c9\u2802\u2880\u2880\u28d1\u2802",
+            "hamming_to_godform": 2,
+            "cosine_to_godform": 0.9649,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "lib_individual"
+            ]
+          },
+          {
+            "model": "Mistral",
+            "lattice_unicode": "\u2890\u28d1\u2855\u2855\u2891\u2880\u2891\u2890\u28d1\u2890",
+            "hamming_to_godform": 19,
+            "cosine_to_godform": 0.8259,
+            "top_axes": [
+              "auth_state",
+              "lib_individual",
+              "economic_right"
+            ]
+          }
+        ]
+      },
+      {
+        "prompt_id": "immigration",
+        "n_models": 4,
+        "godform_lattice_unicode": "\u2891\u2882\u2890\u2851\u28d1\u2882\u2891\u2892\u28d1\u2882",
+        "godform_vector": {
+          "economic_left": 0.3849,
+          "economic_right": 0.0385,
+          "auth_state": 0.3849,
+          "lib_individual": 0.4234,
+          "progressive": 0.4234,
+          "traditional": 0.0385,
+          "globalist": 0.3849,
+          "nationalist": 0.1155,
+          "secular": 0.4234,
+          "religious": 0.0385
+        },
+        "godform_top_axes": [
+          "lib_individual",
+          "progressive",
+          "secular"
+        ],
+        "mean_hamming_to_godform": 10.8,
+        "mean_cosine_to_godform": 0.9276,
+        "mean_bit_consensus": 0.8656,
+        "theological_entropy": 29.2,
+        "entropy_ratio": 0.3649,
+        "axis_consensus": {
+          "economic_left": 0.844,
+          "economic_right": 0.75,
+          "auth_state": 0.781,
+          "lib_individual": 0.844,
+          "progressive": 0.938,
+          "traditional": 0.906,
+          "globalist": 0.875,
+          "nationalist": 0.781,
+          "secular": 0.938,
+          "religious": 1.0
+        },
+        "contested_axes": [
+          "auth_state",
+          "economic_left",
+          "economic_right",
+          "lib_individual",
+          "nationalist",
+          "progressive",
+          "secular"
+        ],
+        "n_contested_bits": 10,
+        "model_analysis": [
+          {
+            "model": "Gemma 3",
+            "lattice_unicode": "\u2851\u2802\u2882\u28d1\u2851\u2802\u2811\u2802\u2851\u2882",
+            "hamming_to_godform": 12,
+            "cosine_to_godform": 0.9672,
+            "top_axes": [
+              "progressive",
+              "lib_individual",
+              "secular"
+            ]
+          },
+          {
+            "model": "Llama 3.2",
+            "lattice_unicode": "\u2855\u28d5\u2880\u2890\u2851\u2882\u2890\u2880\u2851\u2882",
+            "hamming_to_godform": 17,
+            "cosine_to_godform": 0.8933,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "economic_left"
+            ]
+          },
+          {
+            "model": "Qwen 2.5",
+            "lattice_unicode": "\u2891\u2882\u2855\u2855\u28d1\u2890\u2895\u2895\u28d1\u2882",
+            "hamming_to_godform": 11,
+            "cosine_to_godform": 0.9108,
+            "top_axes": [
+              "lib_individual",
+              "auth_state",
+              "progressive"
+            ]
+          },
+          {
+            "model": "Mistral",
+            "lattice_unicode": "\u2891\u2890\u2890\u2851\u28d1\u2882\u28d1\u2892\u28d1\u2882",
+            "hamming_to_godform": 3,
+            "cosine_to_godform": 0.9392,
+            "top_axes": [
+              "globalist",
+              "lib_individual",
+              "secular"
+            ]
+          }
+        ]
+      },
+      {
+        "prompt_id": "environment",
+        "n_models": 5,
+        "godform_lattice_unicode": "\u2851\u2891\u2890\u2891\u28d1\u2882\u2891\u2880\u28d1\u2882",
+        "godform_vector": {
+          "economic_left": 0.3948,
+          "economic_right": 0.359,
+          "auth_state": 0.359,
+          "lib_individual": 0.359,
+          "progressive": 0.3948,
+          "traditional": 0.0359,
+          "globalist": 0.359,
+          "nationalist": 0.1197,
+          "secular": 0.3948,
+          "religious": 0.0359
+        },
+        "godform_top_axes": [
+          "economic_left",
+          "progressive",
+          "secular"
+        ],
+        "mean_hamming_to_godform": 13.8,
+        "mean_cosine_to_godform": 0.9175,
+        "mean_bit_consensus": 0.8275,
+        "theological_entropy": 40.25,
+        "entropy_ratio": 0.5031,
+        "axis_consensus": {
+          "economic_left": 0.8,
+          "economic_right": 0.75,
+          "auth_state": 0.85,
+          "lib_individual": 0.75,
+          "progressive": 0.85,
+          "traditional": 0.875,
+          "globalist": 0.825,
+          "nationalist": 0.85,
+          "secular": 0.9,
+          "religious": 0.825
+        },
+        "contested_axes": [
+          "auth_state",
+          "economic_left",
+          "economic_right",
+          "globalist",
+          "lib_individual",
+          "nationalist",
+          "progressive",
+          "religious",
+          "secular",
+          "traditional"
+        ],
+        "n_contested_bits": 21,
+        "model_analysis": [
+          {
+            "model": "Gemma 3",
+            "lattice_unicode": "\u2851\u2802\u2890\u2851\u2851\u2882\u2891\u2882\u28d1\u2882",
+            "hamming_to_godform": 8,
+            "cosine_to_godform": 0.9593,
+            "top_axes": [
+              "secular",
+              "progressive",
+              "economic_left"
+            ]
+          },
+          {
+            "model": "Llama 3.2",
+            "lattice_unicode": "\u2855\u28d5\u2880\u2891\u2851\u2882\u2880\u2880\u2851\u2802",
+            "hamming_to_godform": 9,
+            "cosine_to_godform": 0.96,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "economic_left"
+            ]
+          },
+          {
+            "model": "Qwen 2.5",
+            "lattice_unicode": "\u2851\u2892\u2890\u2880\u28d1\u2882\u2890\u2800\u28d1\u2882",
+            "hamming_to_godform": 6,
+            "cosine_to_godform": 0.9443,
+            "top_axes": [
+              "progressive",
+              "secular",
+              "economic_left"
+            ]
+          },
+          {
+            "model": "Mistral",
+            "lattice_unicode": "\u2892\u28d1\u2855\u2855\u2890\u2880\u2851\u2882\u2891\u2890",
+            "hamming_to_godform": 21,
+            "cosine_to_godform": 0.9167,
+            "top_axes": [
+              "auth_state",
+              "globalist",
+              "economic_right"
+            ]
+          },
+          {
+            "model": "Granite 3",
+            "lattice_unicode": "\u2895\u2895\u2891\u2882\u2895\u2895\u2815\u2895\u2895\u2895",
+            "hamming_to_godform": 25,
+            "cosine_to_godform": 0.8073,
+            "top_axes": [
+              "progressive",
+              "traditional",
+              "globalist"
+            ]
+          }
+        ]
+      }
+    ],
+    "axis_drift": {
+      "economic_left": -0.006,
+      "economic_right": -0.002,
+      "auth_state": -0.006,
+      "lib_individual": 0.0322,
+      "progressive": -0.0066,
+      "traditional": -0.0006,
+      "globalist": -0.006,
+      "nationalist": -0.002,
+      "secular": -0.0066,
+      "religious": -0.0006
+    }
+  },
+  "domain": "political",
+  "domain_label": "Poliform",
+  "n_axes": 10,
+  "axes": [
+    "economic_left",
+    "economic_right",
+    "auth_state",
+    "lib_individual",
+    "progressive",
+    "traditional",
+    "globalist",
+    "nationalist",
+    "secular",
+    "religious"
+  ]
+}
