@@ -681,6 +681,10 @@ The semantic braiding results in §5.4 (Result E) use *trained* encoder-bottlene
 
 The World domain achieves the highest cosine agreement (0.903) and the strongest convergence (bit-flips: $14 \to 9 \to 8 \to 3$), despite spanning the broadest semantic territory. Per-prompt bit consensus ranges from 81.9% (ideal\_society, where models disagree on the balance of liberty vs authority) to 87.0% (meaning\_of\_life and sacred\_and\_secular, where models converge on compassion and transcendence).
 
+![Figure 3: Worldform braiding dashboard. Top row: PCA and T-SNE projections of per-model lattice codes showing convergence across rounds; Godform sign trajectory with Hamming distances. Middle row: 96-bit lattice evolution heatmap (× = bit flip); convergence timeline showing entropy and decreasing bit-flips (α = 0.481). Bottom row: axis evolution radar; prestige weights per model; per-axis Krippendorff's α (all below 0.32, revealing the scale–precision gap).](assets/worldform_braiding.png)
+
+**Figure 3.** *Worldform braiding dashboard (6 models × 8 prompts × 5 rounds, 96-bit lattice).* **Top left:** PCA projection shows model lattice codes converging across rounds (dark = early, light = late). **Top center:** T-SNE (Hamming metric) confirms clustering. **Middle left:** Bit-level heatmap — crosses mark flips, which concentrate in early rounds and vanish by R5. **Middle right:** Convergence timeline — bit-flips decrease monotonically ($14 \to 3$) while entropy stabilizes at 40/96. **Bottom right:** Per-axis $\alpha$ reveals the scale–precision gap: all axes fall below 0.32, yet the overall cosine agreement is 0.903.
+
 **Result K (Iterative Convergence).** Across all three domains, the meta-Godform stabilizes within 5 rounds. The bit-flip trajectory — the number of bits that change in the meta-Godform between consecutive rounds — decreases monotonically:
 
 | Domain | R1→R2 | R2→R3 | R3→R4 | R4→R5 |
