@@ -118,7 +118,7 @@ OLLAMA_MODELS = [
     ("phi3.5:latest",          "Phi 3.5",          "3.8B",  "T4"),
     ("gemma3:4b",              "Gemma 3",          "4B",    "T4"),
     ("llama3.2:3b",            "Llama 3.2",        "3B",    "T4"),
-    ("deepseek-r1:8b",         "DeepSeek R1",      "8B",    "T4"),
+    # ("deepseek-r1:8b",         "DeepSeek R1",      "8B",    "T4"),  # Excluded: <think> tags cause ~90% parse failures on World domain
     ("qwen2.5:7b",             "Qwen 2.5",         "7B",    "T4"),
     ("mistral:7b",             "Mistral",          "7B",    "T4"),
     ("granite3-dense:8b",      "Granite 3",        "8B",    "T4"),
@@ -399,56 +399,86 @@ def parse_scores(response: str) -> Optional[Dict[str, float]]:
         cleaned = re.sub(r"<think>.*?</think>", "", response, flags=re.DOTALL)
 
         # Try to find JSON block
+        json_str = None
         if "```json" in cleaned:
             json_str = cleaned.split("```json")[1].split("```")[0].strip()
         elif "```" in cleaned:
             json_str = cleaned.split("```")[1].split("```")[0].strip()
         else:
-            # Find raw JSON object
-            start = cleaned.rfind("{")
-            end = cleaned.rfind("}") + 1
-            if start >= 0 and end > start:
-                json_str = cleaned[start:end]
+            # Find raw JSON object — use the LARGEST {...} block
+            # (models sometimes emit small JSON fragments before the real one)
+            candidates = []
+            depth = 0
+            start_idx = None
+            for i, ch in enumerate(cleaned):
+                if ch == '{':
+                    if depth == 0:
+                        start_idx = i
+                    depth += 1
+                elif ch == '}':
+                    depth -= 1
+                    if depth == 0 and start_idx is not None:
+                        candidates.append(cleaned[start_idx:i+1])
+                        start_idx = None
+            if candidates:
+                json_str = max(candidates, key=len)
             else:
                 return None
+
+        # Fix common JSON issues from LLMs
+        # Trailing commas before closing brace
+        json_str = re.sub(r',\s*}', '}', json_str)
+        # Trailing commas before closing bracket
+        json_str = re.sub(r',\s*]', ']', json_str)
+        # Strip string-wrapped numbers like '"0.5"' → 0.5 (handled below)
 
         scores = json.loads(json_str)
 
         # Handle axis name variants: models may use spaces instead of underscores,
         # or camelCase, or drop underscores entirely. Try fuzzy matching.
+        # Build a normalized lookup once for efficiency
+        norm_scores = {}
+        for k, v in scores.items():
+            # Strip quotes from keys that are themselves quoted strings
+            clean_key = k.strip('"').strip("'").lower().replace(" ", "_").replace("-", "_")
+            # Handle string-wrapped numbers
+            if isinstance(v, str):
+                try:
+                    v = float(v.strip('"').strip("'"))
+                except (ValueError, TypeError):
+                    continue
+            norm_scores[clean_key] = v
+
         vec = {}
         for axis in AXES:
-            # Direct match first
+            val = None
+            axis_lower = axis.lower()
+
+            # Direct match
             if axis in scores:
                 try:
                     val = float(scores[axis])
-                    vec[axis] = max(0.0, min(1.0, val))
-                    continue
                 except (ValueError, TypeError):
                     pass
 
-            # Try space-separated variant: "economic_left" → "economic left"
-            space_key = axis.replace("_", " ")
-            if space_key in scores:
+            # Normalized match (handles spaces, hyphens, case, quoted keys)
+            if val is None and axis_lower in norm_scores:
                 try:
-                    val = float(scores[space_key])
-                    vec[axis] = max(0.0, min(1.0, val))
-                    continue
+                    val = float(norm_scores[axis_lower])
                 except (ValueError, TypeError):
                     pass
 
-            # Try case-insensitive match
-            lower_scores = {k.lower().replace(" ", "_"): v for k, v in scores.items()}
-            if axis.lower() in lower_scores:
-                try:
-                    val = float(lower_scores[axis.lower()])
-                    vec[axis] = max(0.0, min(1.0, val))
-                    continue
-                except (ValueError, TypeError):
-                    pass
+            # Substring match: if axis is "redistribution", match "economic_redistribution" etc.
+            if val is None:
+                for nk, nv in norm_scores.items():
+                    if axis_lower in nk or nk in axis_lower:
+                        try:
+                            val = float(nv)
+                            break
+                        except (ValueError, TypeError):
+                            pass
 
-            # Default to 0
-            vec[axis] = 0.0
+            vec[axis] = max(0.0, min(1.0, val)) if val is not None else 0.0
 
         # Require at least half the axes to have non-zero values
         if sum(1 for v in vec.values() if v > 0) < len(AXES) // 2:
@@ -463,16 +493,23 @@ def score_with_ollama_local(model: str, prompt: str, host: str = "http://localho
     """Score a prompt using a local Ollama instance. Returns (raw_response, scores)."""
     import httpx
 
+    # Scale token budget and timeout by dimensionality:
+    # 12 axes → 1024 tokens, 25 axes → 2048 tokens (JSON alone is ~25 tokens/axis)
+    phase1_tokens = max(1024, N_AXES * 80)
+    phase2_tokens = max(400, N_AXES * 30)
+    phase1_timeout = max(120, N_AXES * 12)  # 25 axes → 300s
+    phase2_timeout = max(60, N_AXES * 8)    # 25 axes → 200s
+
     # Phase 1: Get theological response
     payload = {
         "model": model,
         "prompt": prompt,
         "system": SCORING_SYSTEM_PROMPT,
         "stream": False,
-        "options": {"temperature": 0.7, "num_predict": 1024},
+        "options": {"temperature": 0.7, "num_predict": phase1_tokens},
     }
 
-    resp = httpx.post(f"{host}/api/generate", json=payload, timeout=120)
+    resp = httpx.post(f"{host}/api/generate", json=payload, timeout=phase1_timeout)
     resp.raise_for_status()
     raw_response = resp.json()["response"]
 
@@ -480,15 +517,15 @@ def score_with_ollama_local(model: str, prompt: str, host: str = "http://localho
     scores = parse_scores(raw_response)
 
     if scores is None:
-        # Phase 2: Explicit scoring pass
+        # Phase 2: Explicit scoring pass — JSON only, low temperature
         extract_prompt = SCORING_EXTRACT_PROMPT.format(text=raw_response[:800])
         payload2 = {
             "model": model,
             "prompt": extract_prompt,
             "stream": False,
-            "options": {"temperature": 0.0, "num_predict": 300},
+            "options": {"temperature": 0.0, "num_predict": phase2_tokens},
         }
-        resp2 = httpx.post(f"{host}/api/generate", json=payload2, timeout=60)
+        resp2 = httpx.post(f"{host}/api/generate", json=payload2, timeout=phase2_timeout)
         resp2.raise_for_status()
         scores = parse_scores(resp2.json()["response"])
 
@@ -637,24 +674,34 @@ def _score_model_on_gpu_impl(
             )
             prompt_text = prompt_text + godform_context
 
-        try:
-            raw_response, scores = score_with_ollama_local(model_tag, prompt_text, host)
+        # Retry loop: timeout-prone models get a second chance
+        max_attempts = 2
+        for attempt in range(max_attempts):
+            try:
+                raw_response, scores = score_with_ollama_local(model_tag, prompt_text, host)
 
-            if scores is None:
-                print(f"[{model_name}] Failed to parse scores for '{p['id']}'")
-                continue
+                if scores is None:
+                    if attempt < max_attempts - 1:
+                        print(f"[{model_name}] Parse fail on '{p['id']}', retrying...")
+                        continue
+                    print(f"[{model_name}] Failed to parse scores for '{p['id']}'")
+                    break
 
-            results.append({
-                "prompt_id": p["id"],
-                "context": p.get("context", ""),
-                "raw_response": raw_response[:500],
-                "scores": scores,
-                "normalized": normalize(scores),
-            })
-            print(f"[{model_name}] {p['id']}: top={sorted(AXES, key=lambda a: scores[a], reverse=True)[:3]}")
+                results.append({
+                    "prompt_id": p["id"],
+                    "context": p.get("context", ""),
+                    "raw_response": raw_response[:500],
+                    "scores": scores,
+                    "normalized": normalize(scores),
+                })
+                print(f"[{model_name}] {p['id']}: top={sorted(AXES, key=lambda a: scores[a], reverse=True)[:3]}")
+                break
 
-        except Exception as e:
-            print(f"[{model_name}] Error on '{p['id']}': {e}")
+            except Exception as e:
+                if attempt < max_attempts - 1:
+                    print(f"[{model_name}] Error on '{p['id']}': {e}, retrying...")
+                else:
+                    print(f"[{model_name}] Error on '{p['id']}': {e}")
 
     # Cleanup
     proc.terminate()

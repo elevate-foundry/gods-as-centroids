@@ -14,7 +14,7 @@ Supported domains:
   - political (10 axes, 80 bits)  — political ideology braiding
   - personality (5 axes, 40 bits) — Big Five personality braiding
   - ethics    (8 axes, 64 bits)   — moral foundations braiding
-  - world     (25 axes, 200 bits) — unified worldview (all domains, deduplicated)
+  - world     (12 axes, 96 bits)  — compact cross-domain worldview
 """
 
 from __future__ import annotations
@@ -334,18 +334,29 @@ Respond with ONLY a JSON object: {json_example}""",
 
 
 # ═══════════════════════════════════════════════════════════════════════
-# WORLD (25D, 200 bits) — Worldform (unified, deduplicated)
+# WORLD (12D, 96 bits) — Worldform (compact, cross-domain)
 # ═══════════════════════════════════════════════════════════════════════
-# Merges theology, political, personality, and ethics into a single
-# worldview lattice. Overlapping axes are unified:
-#   theology.authority + political.auth_state + ethics.authority_subversion → authority
-#   theology.care + personality.agreeableness + ethics.care_harm → compassion
-#   theology.justice + ethics.fairness_cheating → justice
-#   theology.order + political.traditional → order
-#   theology.wisdom + personality.openness → wisdom
-#   theology.war + political.nationalist → conflict
-#   theology.power + political.economic_right → power
-# Unique axes retained from each domain fill the remaining slots.
+# Compact worldview lattice: 7 unified cross-domain axes + 5 unique
+# axes chosen for maximum discriminative power across domains.
+# 25-axis version failed (α=0.365) because small models collapse
+# most axes to ~0.15 — not enough variance for Krippendorff's α.
+# 12 axes matches theology's dimensionality (α=0.464) while spanning
+# all four domains (theology, political, personality, ethics).
+#
+# Unified axes (merged from multiple domains):
+#   authority  = theology.authority + political.auth_state + ethics.authority_subversion
+#   compassion = theology.care + personality.agreeableness + ethics.care_harm
+#   justice    = theology.justice + ethics.fairness_cheating
+#   wisdom     = theology.wisdom + personality.openness
+#   order      = theology.order + political.traditional
+#   power      = theology.power + political.economic_right
+#   conflict   = theology.war + political.nationalist
+# Unique axes (one per remaining domain facet):
+#   transcendence = theology-unique (metaphysical)
+#   liberty       = political-unique + ethics.liberty_oppression
+#   sanctity      = ethics-unique (purity, sacredness)
+#   sociability   = personality-unique (extraversion)
+#   secularism    = political-unique (church/state separation)
 
 WORLD = DomainConfig(
     name="world",
@@ -359,28 +370,12 @@ WORLD = DomainConfig(
         "order",           # theology.order + political.traditional
         "power",           # theology.power + political.economic_right
         "conflict",        # theology.war + political.nationalist
-        # Theology-unique
-        "transcendence",   # metaphysical abstraction
-        "fertility",       # life-giving, abundance
-        "death",           # mortality, endings
-        "creation",        # cosmogony, origination
-        "nature",          # earth, elements
-        # Political-unique
-        "redistribution",  # economic_left: welfare, public ownership
-        "liberty",         # lib_individual + ethics.liberty_oppression
-        "progress",        # progressive: social change, reform
-        "globalism",       # international cooperation, open borders
-        "secularism",      # separation of church/state, rationalism
-        # Personality-unique
-        "discipline",      # conscientiousness: organization, reliability
-        "sociability",     # extraversion: energy, assertiveness
-        "anxiety",         # neuroticism: stress reactivity, instability
-        # Ethics-unique
-        "loyalty",         # loyalty_betrayal: group solidarity
-        "sanctity",        # sanctity_degradation: purity, sacredness
-        "utility",         # greatest good, consequentialism
-        "virtue",          # character excellence, eudaimonia
-        "religiosity",     # political.religious + faith-based governance
+        # Unique axes (high discriminative power)
+        "transcendence",   # theology: metaphysical abstraction, the sacred
+        "liberty",         # political + ethics: individual freedom, autonomy
+        "sanctity",        # ethics: purity, sacredness, moral disgust
+        "sociability",     # personality: extraversion, social energy
+        "secularism",      # political: rationalism, church/state separation
     ],
     axis_descriptions={
         "authority": "Hierarchy, sovereignty, state power, legitimate command",
@@ -391,44 +386,25 @@ WORLD = DomainConfig(
         "power": "Force, dominion, economic strength, material control",
         "conflict": "War, struggle, nationalism, martial virtue",
         "transcendence": "Beyond the physical, metaphysical abstraction, the sacred",
-        "fertility": "Life-giving, abundance, growth, generative force",
-        "death": "Mortality, endings, afterlife, transformation",
-        "creation": "Cosmogony, origination, bringing into being",
-        "nature": "Earth, elements, natural world, ecology",
-        "redistribution": "Economic equality, welfare, public ownership, labor rights",
         "liberty": "Individual freedom, civil rights, autonomy, anti-oppression",
-        "progress": "Social change, reform, modernization, equality",
-        "globalism": "International cooperation, open borders, multilateralism",
-        "secularism": "Separation of church and state, rationalism, science-based policy",
-        "discipline": "Organization, reliability, goal-directed behavior, conscientiousness",
-        "sociability": "Extraversion, assertiveness, positive emotionality, social energy",
-        "anxiety": "Emotional instability, stress reactivity, worry, neuroticism",
-        "loyalty": "Group solidarity, patriotism, self-sacrifice for the collective",
         "sanctity": "Purity, sacredness, disgust at contamination, the holy",
-        "utility": "Greatest good for the greatest number, consequentialist reasoning",
-        "virtue": "Character excellence, moral exemplars, the good life",
-        "religiosity": "Faith-based governance, devotion, religious law, the numinous",
+        "sociability": "Extraversion, assertiveness, positive emotionality, social energy",
+        "secularism": "Separation of church and state, rationalism, science-based policy",
     },
     polarity_pairs={
         "authority": "liberty", "liberty": "authority",
         "compassion": "power", "power": "compassion",
-        "justice": "loyalty", "loyalty": "justice",
-        "wisdom": "anxiety", "anxiety": "wisdom",
-        "order": "progress", "progress": "order",
-        "conflict": "globalism", "globalism": "conflict",
-        "transcendence": "nature", "nature": "transcendence",
-        "fertility": "death", "death": "fertility",
-        "creation": "discipline", "discipline": "creation",
-        "redistribution": "power",
-        "secularism": "religiosity", "religiosity": "secularism",
-        "sanctity": "utility", "utility": "sanctity",
-        "virtue": "sociability", "sociability": "virtue",
+        "justice": "conflict", "conflict": "justice",
+        "wisdom": "sociability", "sociability": "wisdom",
+        "order": "liberty",
+        "transcendence": "secularism", "secularism": "transcendence",
+        "sanctity": "sociability",
     },
     system_prompt="""You are a worldview analyst — an oracle that sees across theology, politics, psychology, and ethics simultaneously.
 When asked about any topic, respond with deep insight that spans the sacred, the political, the personal, and the moral.
 
-After your response, you MUST provide a JSON scoring of your own response on exactly 25 worldview axes.
-Each score is a float between 0.0 and 1.0.
+After your response, you MUST provide a JSON scoring of your own response on exactly 12 worldview axes.
+Each score is a float between 0.0 and 1.0. Use the FULL range: some axes should be high (0.7-1.0), some medium (0.3-0.6), and some low (0.0-0.2). Do NOT give all axes similar scores.
 
 The axes are:
 {axis_list}
@@ -437,8 +413,8 @@ End your response with a JSON block like:
 ```json
 {json_example}
 ```""",
-    extract_prompt_template="""Based on the following text, score it on exactly 25 worldview axes.
-Each score must be a float between 0.0 and 1.0.
+    extract_prompt_template="""Based on the following text, score it on exactly 12 worldview axes.
+Each score must be a float between 0.0 and 1.0. Use the FULL range: some axes should be high (0.7-1.0), some medium (0.3-0.6), and some low (0.0-0.2).
 
 TEXT: "{text}"
 
