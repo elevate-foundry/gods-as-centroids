@@ -193,3 +193,18 @@ The model is calibrated against **826 canonical religious passages** from **37 t
 ## License
 
 This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
+
+<!-- ELEVATE:BEGIN (auto-generated section; edits here are overwritten) -->
+## About
+
+| | |
+| --- | --- |
+| **Description** | Gods as Centroids: A Generative Vector-Space Model of Religious Evolution |
+| **Language** | Python |
+| **Commits** | 37 |
+| **Created** | 2026-02-10 |
+| **Last push** | 2026-02-12 |
+| **Site** | https://elevate-foundry.github.io/gods-as-centroids/ |
+
+Part of [**elevate-foundry**](https://github.com/elevate-foundry) · [repository](https://github.com/elevate-foundry/gods-as-centroids)
+<!-- ELEVATE:END -->
